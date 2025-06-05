@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IdeaSpace - Transform Your Ideas into Reality</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+  <style>
+    :where([class^="ri-"])::before {
+      content: "\f3c2";
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .hero-section {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .app-screenshot {
+      transition: transform 0.3s ease;
+    }
+
+    .app-screenshot:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .custom-shadow {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    }
+
+    .download-btn {
+      transition: transform 0.2s ease;
+    }
+
+    .download-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .sticky-header {
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  </style>
+  <script>tailwind.config = { theme: { extend: { colors: { primary: '#4361ee', secondary: '#3f72af' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+</head>
+
+<body class="bg-white">
+  <!-- Header -->
+  <header class="sticky-header fixed top-0 left-0 w-full z-50 py-4 border-b border-gray-100">
+    <div class="container mx-auto px-6 flex items-center justify-between">
+      <a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#features" class="text-gray-700 hover:text-primary font-medium">Features</a>
+        <a href="#preview" class="text-gray-700 hover:text-primary font-medium">App Preview</a>
+        <a href="#testimonials" class="text-gray-700 hover:text-primary font-medium">Testimonials</a>
+        <a href="#blog" class="text-gray-700 hover:text-primary font-medium">Blog</a>
+        <a href="#contact" class="text-gray-700 hover:text-primary font-medium">Contact</a>
+      </nav>
+      <div class="flex items-center space-x-3">
+        <a href="#blog"
+          class="hidden md:block bg-secondary text-white px-5 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition">Blog</a>
+        <a href="#download"
+          class="hidden md:block bg-primary text-white px-5 py-2 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition">Download
+          Now</a>
+        <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
+          <i class="ri-menu-line ri-lg"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero-section pt-32 pb-20 relative overflow-hidden">
+    <div class="container mx-auto px-6">
+      <div class="bg-white rounded-2xl overflow-hidden shadow-xl relative max-w-[1280px] mx-auto"
+        style="background-image: url('https://readdy.ai/api/search-image?query=modern%20tech%20startup%20office%20space%20at%20night%20with%20dramatic%20lighting%2C%20futuristic%20workspace%20with%20blue%20accent%20lights%2C%20minimalist%20design%20with%20glass%20walls%20and%20city%20view%2C%20professional%20atmosphere&width=1920&height=1080&seq=hero1&orientation=landscape'); background-position: center; background-size: cover;">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-900/80 to-gray-900/70"></div>
+        <div class="relative z-10 py-12 px-8">
+          <div class="flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-8 md:mb-0 pr-4">
+              <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+                Transform Your Ideas <span class="text-primary">into Reality</span>
+              </h1>
+              <p class="text-lg text-white/90 mb-6 max-w-lg">
+                Unleash your entrepreneurial potential with our AI-powered brainstorming and note-taking app designed
+                for modern innovators.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                <a href="#"
+                  class="download-btn flex items-center justify-center bg-white text-gray-900 px-6 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition">
+                  <div class="w-6 h-6 flex items-center justify-center mr-2">
+                    <i class="ri-apple-fill ri-lg"></i>
+                  </div>
+                  <span>
+                    <span class="text-xs block">Download on the</span>
+                    <span class="text-base font-medium">App Store</span>
+                  </span>
+                </a>
+                <a href="#"
+                  class="download-btn flex items-center justify-center bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition">
+                  <div class="w-6 h-6 flex items-center justify-center mr-2">
+                    <i class="ri-google-play-fill ri-lg"></i>
+                  </div>
+                  <span>
+                    <span class="text-xs block">Get it on</span>
+                    <span class="text-base font-medium">Google Play</span>
+                  </span>
+                </a>
+              </div>
+              <div class="flex items-center">
+                <div class="flex -space-x-2">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20young%20diverse%20entrepreneur%2C%20high%20quality%20portrait%2C%20neutral%20background&width=100&height=100&seq=user1&orientation=squarish"
+                    alt="User" class="w-8 h-8 rounded-full border-2 border-white">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20middle-aged%20female%20entrepreneur%2C%20high%20quality%20portrait%2C%20neutral%20background&width=100&height=100&seq=user2&orientation=squarish"
+                    alt="User" class="w-8 h-8 rounded-full border-2 border-white">
+                  <img
+                    src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20young%20male%20entrepreneur%20with%20glasses%2C%20high%20quality%20portrait%2C%20neutral%20background&width=100&height=100&seq=user3&orientation=squarish"
+                    alt="User" class="w-8 h-8 rounded-full border-2 border-white">
+                </div>
+                <div class="ml-3">
+                  <div class="flex items-center">
+                    <div class="flex">
+                      <i class="ri-star-fill text-yellow-400"></i>
+                      <i class="ri-star-fill text-yellow-400"></i>
+                      <i class="ri-star-fill text-yellow-400"></i>
+                      <i class="ri-star-fill text-yellow-400"></i>
+                      <i class="ri-star-half-fill text-yellow-400"></i>
+                    </div>
+                    <span class="ml-1 text-white font-medium">4.8</span>
+                  </div>
+                  <p class="text-sm text-white/80">Trusted by 10,000+ entrepreneurs</p>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2 flex justify-end items-center">
+              <div class="relative z-10 transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                <img
+                  src="https://readdy.ai/api/search-image?query=smartphone%20mockup%20showing%20a%20modern%20note-taking%20app%20interface%20with%20AI%20suggestions%2C%20clean%20design%20with%20blue%20accents%2C%20entrepreneurial%20brainstorming%20app%2C%20professional%20UI%20design%2C%20floating%20device&width=400&height=800&seq=app1&orientation=portrait"
+                  alt="App Screenshot" class="w-[300px] md:w-[340px] rounded-2xl shadow-2xl object-cover">
+                <div class="absolute inset-0 rounded-2xl shadow-lg bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Powerful Features for Entrepreneurs</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Our app combines intelligent AI assistance with intuitive design to
+          help you capture, develop, and organize your business ideas.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="feature-card bg-white p-8 rounded-lg custom-shadow">
+          <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-lg mb-6">
+            <i class="ri-brain-line ri-2x text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">AI Brainstorming Assistant</h3>
+          <p class="text-gray-600 mb-4">Get intelligent suggestions, overcome creative blocks, and expand your ideas
+            with our AI-powered brainstorming tool.</p>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5">
+                <i class="ri-check-line"></i>
+              </div>
+              <span class="ml-2 text-gray-700">Idea expansion suggestions</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5">
+                <i class="ri-check-line"></i>
+              </div>
+              <span class="ml-2 text-gray-700">Market opportunity analysis</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5">
+                <i class="ri-check-line"></i>
+              </div>
+              <span class="ml-2 text-gray-700">Competitor insights</span>
+            </li>
+          </ul>
+        </div>
+        <!-- Feature 2 -->
+        <div class="feature-card bg-white p-8 rounded-lg custom-shadow">
+          <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-lg mb-6">
+            <i class="ri-file-list-3-line ri-2x text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Smart Note Organization</h3>
+          <p class="text-gray-600 mb-4">Keep your ideas structured and accessible with our intelligent organization
+            system that adapts to your thinking process.</p>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5">
+                <i class="ri-check-line"></i>
+              </div>
+              <span class="ml-2 text-gray-700">Auto-categorization</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5">
+                <i class="ri-check-line"></i>
+              </div>
+              <span class="ml-2 text-gray-700">Visual mind mapping</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5">
+                <i class="ri-check-line"></i>
+              </div>
+              <span class="ml-2 text-gray-700">Cross-reference linking</span>
+            </li>
+          </ul>
+        </div>
+        <!-- Feature 3 -->
+        <div class="feature-card bg-white p-8 rounded-lg custom-shadow">
+          <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-lg mb-6">
+            <i class="ri-team-line ri-2x text-primary"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Collaborative Workspace</h3>
+          <p class="text-gray-600 mb-4">Collaborate with your team in real-time, share ideas, and build on each other's
+            creativity in a digital co-working space.</p>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5">
+                <i class="ri-check-line"></i>
+              </div>
+              <span class="ml-2 text-gray-700">Real-time collaboration</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5">
+                <i class="ri-check-line"></i>
+              </div>
+              <span class="ml-2 text-gray-700">Comment and feedback tools</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center text-primary mt-0.5">
+                <i class="ri-check-line"></i>
+              </div>
+              <span class="ml-2 text-gray-700">Role-based permissions</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+  <!-- App Preview Section -->
+  <section id="preview" class="py-20 bg-white overflow-hidden">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">See How It Works</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Experience the intuitive interface and powerful features that make
+          our app the perfect companion for entrepreneurs.</p>
+      </div>
+      <div class="flex flex-col lg:flex-row items-center">
+        <div class="lg:w-1/2 mb-10 lg:mb-0">
+          <div class="relative">
+            <div class="relative z-10">
+              <img
+                src="https://readdy.ai/api/search-image?query=smartphone%20mockup%20showing%20collaborative%20workspace%20in%20a%20note-taking%20app%2C%20modern%20UI%20with%20blue%20accents%2C%20multiple%20users%20editing%20a%20document%2C%20professional%20interface%20design&width=400&height=800&seq=app3&orientation=portrait"
+                alt="App Preview" class="mx-auto rounded-2xl shadow-2xl">
+            </div>
+            <!-- Floating UI Elements -->
+            <div class="absolute -top-6 -right-6 bg-white p-4 rounded-lg shadow-lg transform rotate-6 hidden md:block">
+              <div class="flex items-center">
+                <div class="w-8 h-8 flex items-center justify-center bg-blue-100 rounded-full">
+                  <i class="ri-lightbulb-line text-primary"></i>
+                </div>
+                <div class="ml-3">
+                  <p class="text-xs font-medium text-gray-800">AI Suggestion</p>
+                  <p class="text-xs text-gray-600">Consider market validation</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="absolute -bottom-4 -left-6 bg-white p-4 rounded-lg shadow-lg transform -rotate-3 hidden md:block">
+              <div class="flex items-center">
+                <div class="w-8 h-8 flex items-center justify-center bg-green-100 rounded-full">
+                  <i class="ri-chat-1-line text-green-600"></i>
+                </div>
+                <div class="ml-3">
+                  <p class="text-xs font-medium text-gray-800">Team Comment</p>
+                  <p class="text-xs text-gray-600">Great idea! Let's expand on this.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/2 lg:pl-16">
+          <div class="space-y-8">
+            <div>
+              <div class="flex items-center mb-4">
+                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3">
+                  <span class="text-primary font-bold">1</span>
+                </div>
+                <h3 class="text-xl font-semibold">Capture Your Ideas Instantly</h3>
+              </div>
+              <p class="text-gray-600 pl-14">Quickly jot down ideas as they come to you with our intuitive interface.
+                Add voice notes, images, or sketches to capture your full vision.</p>
+            </div>
+            <div>
+              <div class="flex items-center mb-4">
+                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3">
+                  <span class="text-primary font-bold">2</span>
+                </div>
+                <h3 class="text-xl font-semibold">Get AI-Powered Insights</h3>
+              </div>
+              <p class="text-gray-600 pl-14">Our AI assistant analyzes your ideas and provides valuable suggestions,
+                market insights, and helps you refine your concepts.</p>
+            </div>
+            <div>
+              <div class="flex items-center mb-4">
+                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3">
+                  <span class="text-primary font-bold">3</span>
+                </div>
+                <h3 class="text-xl font-semibold">Collaborate and Iterate</h3>
+              </div>
+              <p class="text-gray-600 pl-14">Share your workspace with team members, gather feedback, and collaborate in
+                real-time to develop your ideas together.</p>
+            </div>
+            <div>
+              <div class="flex items-center mb-4">
+                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-3">
+                  <span class="text-primary font-bold">4</span>
+                </div>
+                <h3 class="text-xl font-semibold">Transform Ideas into Action</h3>
+              </div>
+              <p class="text-gray-600 pl-14">Convert your brainstorming sessions into actionable plans with task
+                assignments, timelines, and progress tracking.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+  <!-- Testimonials Section -->
+  <section id="blog" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Explore Our Features</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Discover how our app can help you at every stage of your
+          entrepreneurial journey.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div
+          class="relative group rounded-2xl overflow-hidden h-[400px] hover:shadow-xl transition-shadow duration-300">
+          <img
+            src="https://readdy.ai/api/search-image?query=modern%20workspace%20with%20digital%20devices%20showing%20AI%20collaboration%20interface%2C%20clean%20minimalist%20design%20with%20blue%20accent%20lighting%2C%20professional%20environment%20with%20floating%20UI%20elements&width=600&height=400&seq=feat1&orientation=landscape"
+            alt="AI Collaboration"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-90 group-hover:opacity-100 transition-opacity">
+          </div>
+          <div
+            class="absolute bottom-0 left-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <span
+              class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">Featured</span>
+            <h3 class="text-2xl font-bold text-white mb-2">AI-Powered Collaboration</h3>
+            <p class="text-white/90">Transform your team's brainstorming sessions with intelligent suggestions and
+              real-time collaboration tools.</p>
+          </div>
+        </div>
+        <div
+          class="relative group rounded-2xl overflow-hidden h-[400px] hover:shadow-xl transition-shadow duration-300">
+          <img
+            src="https://readdy.ai/api/search-image?query=abstract%20data%20visualization%20with%20glowing%20connections%20on%20dark%20background%2C%20modern%20tech%20concept%20with%20blue%20accent%20lights%2C%20professional%203D%20rendering&width=600&height=400&seq=feat2&orientation=landscape"
+            alt="Data Insights"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-90 group-hover:opacity-100 transition-opacity">
+          </div>
+          <div
+            class="absolute bottom-0 left-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <span
+              class="bg-secondary/20 text-secondary px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">Analytics</span>
+            <h3 class="text-2xl font-bold text-white mb-2">Data Insights</h3>
+            <p class="text-white/90">Unlock powerful insights from your brainstorming sessions with advanced analytics.
+            </p>
+          </div>
+        </div>
+        <div
+          class="relative group rounded-2xl overflow-hidden h-[400px] hover:shadow-xl transition-shadow duration-300">
+          <img
+            src="https://readdy.ai/api/search-image?query=futuristic%20meeting%20room%20with%20holographic%20displays%20showing%20project%20management%20interface%2C%20modern%20office%20space%20with%20blue%20ambient%20lighting&width=600&height=400&seq=feat3&orientation=landscape"
+            alt="Project Management"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-90 group-hover:opacity-100 transition-opacity">
+          </div>
+          <div
+            class="absolute bottom-0 left-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <span
+              class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">Management</span>
+            <h3 class="text-2xl font-bold text-white mb-2">Project Management</h3>
+            <p class="text-white/90">Streamline your workflow with integrated project management tools.</p>
+          </div>
+        </div>
+        <div
+          class="relative group rounded-2xl overflow-hidden h-[400px] hover:shadow-xl transition-shadow duration-300">
+          <img
+            src="https://readdy.ai/api/search-image?query=creative%20team%20collaboration%20in%20modern%20office%20with%20digital%20screens%20showing%20idea%20mapping%20interface%2C%20professional%20environment%20with%20natural%20light&width=600&height=400&seq=feat4&orientation=landscape"
+            alt="Team Collaboration"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-90 group-hover:opacity-100 transition-opacity">
+          </div>
+          <div
+            class="absolute bottom-0 left-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <span
+              class="bg-secondary/20 text-secondary px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">Collaboration</span>
+            <h3 class="text-2xl font-bold text-white mb-2">Team Collaboration</h3>
+            <p class="text-white/90">Work seamlessly with your team across different time zones and locations.</p>
+          </div>
+        </div>
+        <div
+          class="relative group rounded-2xl overflow-hidden h-[400px] hover:shadow-xl transition-shadow duration-300">
+          <img
+            src="https://readdy.ai/api/search-image?query=innovative%20workspace%20with%20AI%20assistant%20interface%20on%20multiple%20screens%2C%20modern%20tech%20environment%20with%20blue%20accent%20lighting&width=600&height=400&seq=feat5&orientation=landscape"
+            alt="AI Assistant"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-90 group-hover:opacity-100 transition-opacity">
+          </div>
+          <div
+            class="absolute bottom-0 left-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">AI
+              Tools</span>
+            <h3 class="text-2xl font-bold text-white mb-2">AI Assistant</h3>
+            <p class="text-white/90">Get intelligent suggestions and insights from your personal AI assistant.</p>
+          </div>
+        </div>
+        <div
+          class="relative group rounded-2xl overflow-hidden h-[400px] hover:shadow-xl transition-shadow duration-300">
+          <img
+            src="https://readdy.ai/api/search-image?query=modern%20productivity%20dashboard%20with%20data%20visualization%20and%20task%20management%20interface%2C%20professional%20UI%20design%20with%20blue%20theme&width=600&height=400&seq=feat6&orientation=landscape"
+            alt="Smart Dashboard"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-90 group-hover:opacity-100 transition-opacity">
+          </div>
+          <div
+            class="absolute bottom-0 left-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <span
+              class="bg-secondary/20 text-secondary px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">Dashboard</span>
+            <h3 class="text-2xl font-bold text-white mb-2">Smart Dashboard</h3>
+            <p class="text-white/90">Monitor your progress and productivity with our intelligent dashboard.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+  <section id="testimonials" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Trusted by Entrepreneurs Worldwide</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">See what innovators and business leaders are saying about our app.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-8 rounded-lg custom-shadow">
+          <div class="flex mb-6">
+            <i class="ri-star-fill text-yellow-400"></i>
+            <i class="ri-star-fill text-yellow-400"></i>
+            <i class="ri-star-fill text-yellow-400"></i>
+            <i class="ri-star-fill text-yellow-400"></i>
+            <i class="ri-star-fill text-yellow-400"></i>
+          </div>
+          <p class="text-gray-700 mb-6">"This app has completely transformed how I develop new business ideas. The AI
+            suggestions are surprisingly insightful and have helped me consider angles I would have missed."</p>
+          <div class="flex items-center">
+            <img
+              src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20female%20entrepreneur%20with%20curly%20hair%2C%20high%20quality%20portrait%2C%20neutral%20background&width=100&height=100&seq=test1&orientation=squarish"
+              alt="Testimonial" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-semibold">Rebecca Chambers</h4>
+              <p class="text-sm text-gray-600">Founder, EcoTech Solutions</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-8 rounded-lg custom-shadow">
+          <div class="flex mb-6">
+            <i class="ri-star-fill text-yellow-400"></i>
+            <i class="ri-star-fill text-yellow-400"></i>
+            <i class="ri-star-fill text-yellow-400"></i>
+            <i class="ri-star-fill text-yellow-400"></i>
+            <i class="ri-star-fill text-yellow-400"></i>
+          </div>
+          <p class="text-gray-700 mb-6">"The collaborative features are game-changing. My team can now brainstorm
+            together regardless of location, and the AI helps guide our discussions in productive directions."</p>
+          <div class="flex items-center">
+            <img
+              src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20asian%20male%20entrepreneur%2C%20high%20quality%20portrait%2C%20neutral%20background&width=100&height=100&seq=test2&orientation=squarish"
+              alt="Testimonial" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-semibold">James Chen</h4>
+              <p class="text-sm text-gray-600">CEO, Nexus Innovations</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="bg-white p-8 rounded-lg custom-shadow">
+          <div class="flex mb-6">
+            <i class="ri-star-fill text-yellow-400"></i>
+            <i class="ri-star-fill text-yellow-400"></i>
+            <i class="ri-star-fill text-yellow-400"></i>
+            <i class="ri-star-fill text-yellow-400"></i>
+            <i class="ri-star-half-fill text-yellow-400"></i>
+          </div>
+          <p class="text-gray-700 mb-6">"As a startup founder, I'm constantly juggling multiple ideas. This app helps me
+            organize my thoughts and prioritize the most promising concepts with its smart organization system."</p>
+          <div class="flex items-center">
+            <img
+              src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20black%20female%20entrepreneur%20with%20glasses%2C%20high%20quality%20portrait%2C%20neutral%20background&width=100&height=100&seq=test3&orientation=squarish"
+              alt="Testimonial" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-semibold">Olivia Washington</h4>
+              <p class="text-sm text-gray-600">Founder, Bright Ventures</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+        <div class="text-center">
+          <p class="text-4xl font-bold text-primary mb-2">10,000+</p>
+          <p class="text-gray-600">Active Users</p>
+        </div>
+        <div class="text-center">
+          <p class="text-4xl font-bold text-primary mb-2">500,000+</p>
+          <p class="text-gray-600">Ideas Generated</p>
+        </div>
+        <div class="text-center">
+          <p class="text-4xl font-bold text-primary mb-2">98%</p>
+          <p class="text-gray-600">Satisfaction Rate</p>
+        </div>
+        <div class="text-center">
+          <p class="text-4xl font-bold text-primary mb-2">150+</p>
+          <p class="text-gray-600">Countries</p>
+        </div>
+      </div>
+      <!-- Partner Logos -->
+      <div class="mt-16">
+        <p class="text-center text-gray-500 mb-8">Trusted by innovative companies</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+          <div class="flex items-center text-gray-400">
+            <i class="ri-microsoft-fill ri-2x"></i>
+            <span class="ml-2 font-semibold">Microsoft</span>
+          </div>
+          <div class="flex items-center text-gray-400">
+            <i class="ri-amazon-fill ri-2x"></i>
+            <span class="ml-2 font-semibold">Amazon</span>
+          </div>
+          <div class="flex items-center text-gray-400">
+            <i class="ri-google-fill ri-2x"></i>
+            <span class="ml-2 font-semibold">Google</span>
+          </div>
+          <div class="flex items-center text-gray-400">
+            <i class="ri-netflix-fill ri-2x"></i>
+            <span class="ml-2 font-semibold">Netflix</span>
+          </div>
+          <div class="flex items-center text-gray-400">
+            <i class="ri-spotify-fill ri-2x"></i>
+            <span class="ml-2 font-semibold">Spotify</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+  <!-- CTA Section -->
+  <section id="download" class="py-20 bg-primary relative overflow-hidden">
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Transform Your Ideas?</h2>
+        <p class="text-white/90 text-lg mb-10 max-w-2xl mx-auto">Join thousands of entrepreneurs who are turning their
+          visions into reality with the help of AI-powered brainstorming.</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#"
+            class="download-btn flex items-center justify-center bg-white text-gray-900 px-6 py-3 !rounded-button whitespace-nowrap hover:bg-gray-100 transition">
+            <div class="w-6 h-6 flex items-center justify-center mr-2">
+              <i class="ri-apple-fill ri-lg"></i>
+            </div>
+            <span>
+              <span class="text-xs block">Download on the</span>
+              <span class="text-base font-medium">App Store</span>
+            </span>
+          </a>
+          <a href="#"
+            class="download-btn flex items-center justify-center bg-white text-gray-900 px-6 py-3 !rounded-button whitespace-nowrap hover:bg-gray-100 transition">
+            <div class="w-6 h-6 flex items-center justify-center mr-2">
+              <i class="ri-google-play-fill ri-lg"></i>
+            </div>
+            <span>
+              <span class="text-xs block">Get it on</span>
+              <span class="text-base font-medium">Google Play</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <a href="#" class="text-2xl font-['Pacifico'] text-white mb-4 block">logo</a>
+          <p class="text-gray-400 mb-6">The AI-powered brainstorming app designed for modern entrepreneurs.</p>
+          <div class="flex space-x-4">
+            <a href="#"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+              <i class="ri-twitter-x-line"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+              <i class="ri-facebook-fill"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition">
+              <i class="ri-linkedin-fill"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Company</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Press</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Help Center</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Community</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Webinars</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Partners</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Stay Updated</h4>
+          <p class="text-gray-400 mb-4">Subscribe to our newsletter for the latest updates and features.</p>
+          <form class="flex">
+            <input type="email" placeholder="Your email"
+              class="bg-gray-800 text-white px-4 py-2 !rounded-l-button border-none outline-none w-full">
+            <button type="submit"
+              class="bg-primary text-white px-4 py-2 !rounded-r-button whitespace-nowrap">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <p class="text-gray-400">© 2025 logo. All rights reserved.</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+          <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+          <a href="#" class="text-gray-400 hover:text-white transition">Cookie Policy</a>
+        </div>
+        <div class="mt-4 md:mt-0 flex items-center">
+          <span class="text-gray-400 mr-4">Payment Methods:</span>
+          <div class="flex space-x-3">
+            <i class="ri-visa-fill ri-lg text-gray-400"></i>
+            <i class="ri-mastercard-fill ri-lg text-gray-400"></i>
+            <i class="ri-paypal-fill ri-lg text-gray-400"></i>
+            <i class="ri-apple-fill ri-lg text-gray-400"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script id="navigationScript">
+    document.addEventListener('DOMContentLoaded', function () {
+      const mobileMenuButton = document.querySelector('.md\\:hidden');
+      const nav = document.querySelector('nav');
+      mobileMenuButton.addEventListener('click', function () {
+        nav.classList.toggle('hidden');
+        nav.classList.toggle('flex');
+        nav.classList.toggle('flex-col');
+        nav.classList.toggle('absolute');
+        nav.classList.toggle('top-16');
+        nav.classList.toggle('left-0');
+        nav.classList.toggle('w-full');
+        nav.classList.toggle('bg-white');
+        nav.classList.toggle('p-4');
+        nav.classList.toggle('shadow-lg');
+        nav.classList.toggle('z-50');
+      });
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+            // Close mobile menu if open
+            if (!nav.classList.contains('hidden') && window.innerWidth < 768) {
+              nav.classList.add('hidden');
+            }
+          }
+        });
+      });
+    });
+  </script>
+  <script id="appScreenshotInteraction">
+    document.addEventListener('DOMContentLoaded', function () {
+      const screenshots = document.querySelectorAll('.app-screenshot');
+      screenshots.forEach(screenshot => {
+        screenshot.addEventListener('mouseenter', function () {
+          this.style.transform = 'translateY(-10px)';
+        });
+        screenshot.addEventListener('mouseleave', function () {
+          this.style.transform = this.classList.contains('rotate-3') ? 'rotate(3deg)' :
+            this.classList.contains('-rotate-6') ? 'rotate(-6deg)' : '';
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
