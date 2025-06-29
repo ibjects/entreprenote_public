@@ -72,6 +72,20 @@
     (categories.find((c) => c.id === id) || {}).name || id;
 
   function renderCategories() {
+    // Define icons for each category
+    const categoryIcons = {
+      ideation: "ri-lightbulb-line",
+      planning: "ri-file-list-3-line",
+      branding: "ri-palette-line",
+      development: "ri-code-s-slash-line",
+      marketing: "ri-megaphone-line",
+      sales: "ri-customer-service-2-line",
+      funding: "ri-money-dollar-circle-line",
+      operations: "ri-settings-3-line",
+      analytics: "ri-bar-chart-line",
+      legal: "ri-shield-check-line",
+    };
+
     catGrid.innerHTML = [
       `<div class="category-item active p-4 border border-gray-200 rounded-lg text-center cursor-pointer" data-category="all">
          <div class="w-12 h-12 mx-auto mb-3 bg-primary/10 rounded-full flex items-center justify-center">
@@ -81,9 +95,13 @@
        </div>`,
       ...categories.map(
         (c) => `
-       <div class="category-item p-4 border border-gray-200 rounded-lg text-center cursor-pointer" data-category="${c.id}">
+       <div class="category-item p-4 border border-gray-200 rounded-lg text-center cursor-pointer" data-category="${
+         c.id
+       }">
          <div class="w-12 h-12 mx-auto mb-3 bg-primary/10 rounded-full flex items-center justify-center">
-           <i class="ri-lightbulb-line text-primary ri-lg"></i>
+           <i class="${
+             categoryIcons[c.id] || "ri-apps-line"
+           } text-primary ri-lg"></i>
          </div>
          <h3 class="font-medium">${c.name}</h3>
        </div>`
