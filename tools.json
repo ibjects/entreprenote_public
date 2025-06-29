@@ -1,0 +1,230 @@
+[
+  {
+    "name": "IdeaBuddy",
+    "description": "A comprehensive business planning tool that helps entrepreneurs develop, test, and launch their ideas.",
+    "url": "https://ideabuddy.com/",
+    "category": "planning"
+  },
+  {
+    "name": "nTask",
+    "description": "Project management software designed to help teams plan, track, and collaborate on tasks.",
+    "url": "https://www.ntaskmanager.com/",
+    "category": "operations"
+  },
+  {
+    "name": "ZOKRI",
+    "description": "An OKR (Objectives and Key Results) software to align teams and track performance.",
+    "url": "https://zokri.com/",
+    "category": "analytics"
+  },
+  {
+    "name": "Chanty",
+    "description": "A simple team chat tool for collaboration and communication.",
+    "url": "https://www.chanty.com/",
+    "category": "operations"
+  },
+  {
+    "name": "SocialBee",
+    "description": "A social media management tool to help businesses grow their online presence.",
+    "url": "https://socialbee.io/",
+    "category": "marketing"
+  },
+  {
+    "name": "CallHippo",
+    "description": "A virtual phone system for businesses to manage calls and communication.",
+    "url": "https://callhippo.com/",
+    "category": "sales"
+  },
+  {
+    "name": "Apploye",
+    "description": "Time tracking and productivity monitoring software for teams.",
+    "url": "https://apploye.com/",
+    "category": "operations"
+  },
+  {
+    "name": "Fiskl",
+    "description": "Mobile-first accounting and invoicing software for small businesses.",
+    "url": "https://fiskl.com/",
+    "category": "funding"
+  },
+  {
+    "name": "Engati",
+    "description": "A chatbot and live chat platform to enhance customer engagement.",
+    "url": "https://www.engati.com/",
+    "category": "sales"
+  },
+  {
+    "name": "BoldDesk",
+    "description": "A customer support ticketing system to manage and resolve customer queries.",
+    "url": "https://www.bolddesk.com/",
+    "category": "sales"
+  },
+  {
+    "name": "LogoDesign.Net",
+    "description": "An online logo maker and branding tool for businesses.",
+    "url": "https://www.logodesign.net/",
+    "category": "branding"
+  },
+  {
+    "name": "Cheqmark.io",
+    "description": "A checklist and task management tool to ensure project completion.",
+    "url": "https://cheqmark.io/",
+    "category": "operations"
+  },
+  {
+    "name": "ProofHub",
+    "description": "An all-in-one project planning software for teams to collaborate and deliver projects.",
+    "url": "https://www.proofhub.com/",
+    "category": "operations"
+  },
+  {
+    "name": "Asana",
+    "description": "A work management platform to organize and manage tasks and projects.",
+    "url": "https://asana.com/",
+    "category": "operations"
+  },
+  {
+    "name": "Bonsai",
+    "description": "Business management software for freelancers and agencies, offering contracts, invoicing, and more.",
+    "url": "https://www.hellobonsai.com/",
+    "category": "operations"
+  },
+  {
+    "name": "Upmetrics",
+    "description": "Business planning software with tools for creating business plans, pitch decks, and financial forecasts.",
+    "url": "https://upmetrics.co/",
+    "category": "planning"
+  },
+  {
+    "name": "CloudTalk",
+    "description": "A cloud-based phone system for sales and support teams.",
+    "url": "https://www.cloudtalk.io/",
+    "category": "sales"
+  },
+  {
+    "name": "HubSpot",
+    "description": "A CRM platform with tools for marketing, sales, and customer service.",
+    "url": "https://www.hubspot.com/",
+    "category": "sales"
+  },
+  {
+    "name": "Slack",
+    "description": "A messaging app for businesses to communicate and collaborate.",
+    "url": "https://slack.com/",
+    "category": "operations"
+  },
+  {
+    "name": "Uniqode",
+    "description": "A QR code generator and management platform for businesses.",
+    "url": "https://www.uniqode.com/",
+    "category": "marketing"
+  },
+  {
+    "name": "Trackdesk",
+    "description": "Affiliate marketing software to manage and track affiliate programs.",
+    "url": "https://trackdesk.com/",
+    "category": "marketing"
+  },
+  {
+    "name": "Stripe",
+    "description": "A suite of APIs to accept payments and manage businesses online.",
+    "url": "https://stripe.com/",
+    "category": "funding"
+  },
+  {
+    "name": "Nightwatch",
+    "description": "An SEO performance tracker and analytics tool for businesses.",
+    "url": "https://nightwatch.io/",
+    "category": "analytics"
+  },
+  {
+    "name": "Canva",
+    "description": "A graphic design platform to create social media graphics, presentations, and more.",
+    "url": "https://www.canva.com/",
+    "category": "branding"
+  },
+  {
+    "name": "Figma",
+    "description": "A collaborative interface design tool for teams.",
+    "url": "https://www.figma.com/",
+    "category": "branding"
+  },
+  {
+    "name": "Grammarly",
+    "description": "An AI-powered writing assistant to improve grammar and writing style.",
+    "url": "https://www.grammarly.com/",
+    "category": "operations"
+  },
+  {
+    "name": "SendPulse",
+    "description": "An integrated messaging platform with email, SMS, and chatbot capabilities.",
+    "url": "https://sendpulse.com/",
+    "category": "marketing"
+  },
+  {
+    "name": "Bizplanr",
+    "description": "A business plan software to help entrepreneurs plan and launch their businesses.",
+    "url": "https://www.bizplanr.com/",
+    "category": "planning"
+  },
+  {
+    "name": "NAKIVO Backup & Replication",
+    "description": "A data protection solution for virtual, physical, and cloud environments.",
+    "url": "https://www.nakivo.com/",
+    "category": "operations"
+  },
+  {
+    "name": "Gusto",
+    "description": "A platform for payroll, benefits, and HR management.",
+    "url": "https://gusto.com/",
+    "category": "operations"
+  },
+  {
+    "name": "Buffer",
+    "description": "A social media management tool to schedule posts and analyze performance.",
+    "url": "https://buffer.com/",
+    "category": "marketing"
+  },
+  {
+    "name": "Generated.photos",
+    "description": "A library of AI-generated faces for use in design and marketing.",
+    "url": "https://generated.photos/",
+    "category": "branding"
+  },
+  {
+    "name": "Just In Mind",
+    "description": "A prototyping tool for web and mobile apps.",
+    "url": "https://www.justinmind.com/",
+    "category": "development"
+  },
+  {
+    "name": "Foundersuite",
+    "description": "A collection of tools for raising capital and managing investor relations.",
+    "url": "https://foundersuite.com/",
+    "category": "funding"
+  },
+  {
+    "name": "Balsamiq Wireframes",
+    "description": "A rapid wireframing tool that helps you work faster & smarter.",
+    "url": "https://balsamiq.com/",
+    "category": "development"
+  },
+  {
+    "name": "Product Hunt",
+    "description": "A platform to discover and launch new products.",
+    "url": "https://www.producthunt.com/",
+    "category": "marketing"
+  },
+  {
+    "name": "Xmind",
+    "description": "A full-featured mind mapping and brainstorming tool.",
+    "url": "https://www.xmind.net/",
+    "category": "ideation"
+  },
+  {
+    "name": "Freepik",
+    "description": "A resource for free vectors, stock photos, and PSD files.",
+    "url": "https://www.freepik.com/",
+    "category": "branding"
+  }
+]

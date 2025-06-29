@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ideation",
+    "name": "Ideation & Validation"
+  },
+  {
+    "id": "planning",
+    "name": "Business Planning"
+  },
+  {
+    "id": "branding",
+    "name": "Branding & Design"
+  },
+  {
+    "id": "development",
+    "name": "Product Development"
+  },
+  {
+    "id": "marketing",
+    "name": "Marketing & Growth"
+  },
+  {
+    "id": "sales",
+    "name": "Sales & CRM"
+  },
+  {
+    "id": "funding",
+    "name": "Funding & Finance"
+  },
+  {
+    "id": "operations",
+    "name": "Operations & Productivity"
+  },
+  {
+    "id": "analytics",
+    "name": "Analytics & Feedback"
+  },
+  {
+    "id": "legal",
+    "name": "Legal & Compliance"
+  }
+]
