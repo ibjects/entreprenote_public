@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 
 <head>
   <!-- Google tag (gtag.js) -->
@@ -28,13 +28,48 @@
     content="Entreprenote is an AI-powered note-taking app helping entrepreneurs brainstorm, organize, and refine their ideas." />
   <meta name="robots" content="index, follow" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+  <!-- Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://entreprenote.com/" />
+  <meta property="og:title" content="Entreprenote: Think. Note. Grow." />
+  <meta property="og:description"
+    content="Entreprenote is an AI-powered note-taking app helping entrepreneurs brainstorm, organize, and refine their ideas." />
+  <meta property="og:image" content="https://entreprenote.com/images/featured.jpg" />
+
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://entreprenote.com/" />
+  <meta property="twitter:title" content="Entreprenote: Think. Note. Grow." />
+  <meta property="twitter:description"
+    content="Entreprenote is an AI-powered note-taking app helping entrepreneurs brainstorm, organize, and refine their ideas." />
+  <meta property="twitter:image" content="https://entreprenote.com/images/featured.jpg" />
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Entreprenote",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Web",
+    "abstract": "Entreprenote is an AI-powered note-taking app helping entrepreneurs brainstorm, organize, and refine their ideas.",
+    "url": "https://entreprenote.com/",
+    "author": {
+      "@type": "Organization",
+      "name": "Entreprenote"
+    }
+  }
+  </script>
 </head>
 
 <body>
   <!-- Force HTTPS Redirect -->
   <script>
-    if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') {
+    // Only redirect if not already on HTTPS and not on localhost
+    if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
       window.location.href = window.location.href.replace('http:', 'https:');
     }
   </script>
