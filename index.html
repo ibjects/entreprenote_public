@@ -82,7 +82,7 @@
 </script>
 </head>
 
-<body>
+<body style="background-color: #F3F8FF;">
   <!-- Force HTTPS Redirect -->
   <script>
     // Only redirect if not already on HTTPS and not on localhost
@@ -91,174 +91,239 @@
     }
   </script>
 
-  <div class="relative flex size-full min-h-screen flex-col bg-gray-50 group/design-root overflow-x-hidden"
+  <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
     style='font-family: Manrope, "Noto Sans", sans-serif;'>
     <div class="layout-container flex h-full grow flex-col">
       <!-- Header Section -->
-      <header class="flex items-center justify-center border-b border-b-[#eaedf1] px-4 md:px-10 py-3">
+      <header class="flex items-center justify-center bg-white border-b border-b-[#eaedf1] px-4 md:px-10 py-3">
 
         <div class="flex items-center gap-1">
           <svg class="h-4 w-auto" viewBox="0 0 126 46" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M0.5 11.5C0.5 7.35786 3.85786 4 8 4L34 4C38.1421 4 41.5 7.35786 41.5 11.5L41.5 37.5C41.5 41.6421 38.1421 45 34 45L0.5 45L0.5 11.5Z"
-              fill="#0052D9" stroke="#0052D9" />
-            <mask id="path-2-inside-1_7599_1599" fill="#0052D9">
+              fill="#000" stroke="#000" />
+            <mask id="path-2-inside-1_7599_1599" fill="#000">
               <path
                 d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z" />
             </mask>
             <path
               d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z"
-              fill="#0052D9" />
+              fill="#000" />
             <path
               d="M92 3.5L92 2.5L92 3.5ZM118 3.5L118 2.5L118 3.5ZM126 11.5L127 11.5L126 11.5ZM118 45.5L118 46.5L118 45.5ZM92 45.5L92 46.5L92 45.5ZM84 37.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.5039L95.6025 24.504L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014L105.002 33.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.504L114.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055L105.002 15.1055L105.002 16.1055ZM84 11.5L85 11.5C85 7.63401 88.134 4.5 92 4.5L92 3.5L92 2.5C87.0294 2.5 83 6.52944 83 11.5L84 11.5ZM92 3.5L92 4.5L118 4.5L118 3.5L118 2.5L92 2.5L92 3.5ZM118 3.5L118 4.5C121.866 4.5 125 7.63401 125 11.5L126 11.5L127 11.5C127 6.52944 122.971 2.5 118 2.5L118 3.5ZM126 11.5L125 11.5L125 37.5L126 37.5L127 37.5L127 11.5L126 11.5ZM126 37.5L125 37.5C125 41.366 121.866 44.5 118 44.5L118 45.5L118 46.5C122.971 46.5 127 42.4706 127 37.5L126 37.5ZM118 45.5L118 44.5L92 44.5L92 45.5L92 46.5L118 46.5L118 45.5ZM92 45.5L92 44.5C88.134 44.5 85 41.366 85 37.5L84 37.5L83 37.5C83 42.4706 87.0294 46.5 92 46.5L92 45.5ZM84 37.5L85 37.5L85 11.5L84 11.5L83 11.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.504C95.6028 29.6942 99.8108 33.9013 105.002 33.9014L105.002 32.9014L105.002 31.9014C100.915 31.9013 97.6027 28.5892 97.6025 24.5039L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014C110.193 33.9014 114.402 29.6943 114.402 24.504L113.402 24.5039L112.402 24.5039C112.402 28.5891 109.089 31.9014 105.002 31.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.5039C114.402 19.3134 110.193 15.1055 105.002 15.1055L105.002 16.1055L105.002 17.1055C109.089 17.1055 112.402 20.4184 112.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055C99.8106 15.1055 95.6025 19.3136 95.6025 24.5039L96.6025 24.5039L97.6025 24.5039C97.6025 20.4183 100.915 17.1055 105.002 17.1055L105.002 16.1055Z"
-              fill="#0052D9" mask="url(#path-2-inside-1_7599_1599)" />
+              fill="#000" mask="url(#path-2-inside-1_7599_1599)" />
             <path fill-rule="evenodd" clip-rule="evenodd"
               d="M53.6667 -0.000164212C54.2855 -0.000164212 54.879 0.239525 55.3166 0.666168C55.7542 1.09281 56 1.67147 56 2.27484V4.54984H51.3333V2.27484C51.3333 1.67147 51.5792 1.09281 52.0168 0.666168C52.4543 0.239525 53.0478 -0.000164212 53.6667 -0.000164212ZM74.6667 4.54984H77C78.8565 4.54984 80.637 5.26891 81.9497 6.54883C83.2625 7.82876 84 9.56475 84 11.3748V38.6748C84 40.4849 83.2625 42.2209 81.9497 43.5008C80.637 44.7808 78.8565 45.4998 77 45.4998H49C47.1435 45.4998 45.363 44.7808 44.0503 43.5008C42.7375 42.2209 42 40.4849 42 38.6748V11.3748C42 9.56475 42.7375 7.82876 44.0503 6.54883C45.363 5.26891 47.1435 4.54984 49 4.54984H51.3333V11.3748C51.3333 11.9782 51.5792 12.5569 52.0168 12.9835C52.4543 13.4101 53.0478 13.6498 53.6667 13.6498C54.2855 13.6498 54.879 13.4101 55.3166 12.9835C55.7542 12.5569 56 11.9782 56 11.3748V4.54984H60.6667V11.3748C60.6667 11.9782 60.9125 12.5569 61.3501 12.9835C61.7877 13.4101 62.3812 13.6498 63 13.6498C63.6188 13.6498 64.2123 13.4101 64.6499 12.9835C65.0875 12.5569 65.3333 11.9782 65.3333 11.3748V4.54984H70V11.3748C70 11.9782 70.2458 12.5569 70.6834 12.9835C71.121 13.4101 71.7145 13.6498 72.3333 13.6498C72.9522 13.6498 73.5457 13.4101 73.9833 12.9835C74.4208 12.5569 74.6667 11.9782 74.6667 11.3748V4.54984ZM74.6667 4.54984H70V2.27484C70 1.67147 70.2458 1.09281 70.6834 0.666168C71.121 0.239525 71.7145 -0.000164212 72.3333 -0.000164212C72.9522 -0.000164212 73.5457 0.239525 73.9833 0.666168C74.4208 1.09281 74.6667 1.67147 74.6667 2.27484V4.54984ZM65.3333 4.54984V2.27484C65.3333 1.67147 65.0875 1.09281 64.6499 0.666168C64.2123 0.239525 63.6188 -0.000164212 63 -0.000164212C62.3812 -0.000164212 61.7877 0.239525 61.3501 0.666168C60.9125 1.09281 60.6667 1.67147 60.6667 2.27484V4.54984H65.3333Z"
-              fill="#0052D9" />
+              fill="#000" />
           </svg>
-          <h2 class="text-[#0052D9] text-lg font-bold leading-tight tracking-[-0.015em]">Entreprenote</h2>
+          <h2 class="text-[#000] text-lg font-bold leading-tight tracking-[-0.015em]">Entreprenote</h2>
 
         </div>
       </header>
       <!-- Hero Section -->
-      <div class="px-4 md:px-10 lg:px-20 py-12 flex flex-1 items-center justify-center">
-        <div class="layout-content-container flex flex-col w-full max-w-screen-xl flex-1">
-          <div class="@container">
-            <div class="@[480px]:p-4">
-              <div
-                class="flex min-h-[550px] rounded-xl @[480px]:min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
-                style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("./images/featured.jpg");'>
-                <div class="flex flex-col gap-2 text-center">
-                  <img src="./images/logo.svg" alt="Entreprenote logo" class="mx-auto h-12 w-auto @[480px]:h-12" />
-                  <h1
-                    class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                    Think. Note. Grow.
-                  </h1>
-                  <h2
-                    class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                    Entreprenote helps entrepreneurs brainstorm, organize, and refine
-                    their vision with
-                    AI-powered note-taking.
-                  </h2>
-                </div>
-                <div class="flex-wrap gap-3 flex justify-center">
-                  <a href="https://www.notion.com/@entreprenote" target="_blank" rel="noopener noreferrer"
-                    onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'Notify Me'});"
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                    <span class="truncate">Explore Notion Store</span>
-                  </a>
+      <div class="px-4 md:px-10 lg:px-20">
+        <!-- Div 1 -->
+        <div class="flex flex-col gap-10 items-center justify-center mt-6">
+          <div class="layout-content-container flex flex-col w-full max-w-screen-xl flex-1">
+            <div class="@container">
+              <div class="@[480px]:p-4">
+                <div
+                  class="w-full flex min-h-[420px] md:min-h-[550px] rounded-2xl @[480px]:min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-2xl items-center justify-center p-5 md:p-6 shadow-lg"
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("./images/featured.jpg");'>
+                  <div class="flex flex-col gap-2 text-center">
+                    <img src="./images/logo.svg" alt="Entreprenote logo" class="mx-auto h-12 w-auto @[480px]:h-12" />
+                    <h1
+                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                      Think. Note. Grow.
+                    </h1>
+                    <h2
+                      class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                      Entreprenote helps entrepreneurs brainstorm, organize, and refine
+                      their vision with
+                      AI-powered note-taking.
+                    </h2>
+                  </div>
+                  <div class="flex-wrap gap-3 flex justify-center">
+                    <a href="https://www.notion.com/@entreprenote" target="_blank" rel="noopener noreferrer"
+                      onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'Notify Me'});"
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                      <span class="truncate">Explore Notion Store</span>
+                    </a>
 
-                  <a href="https://catalyst.entreprenote.com/" target="_blank" rel="noopener noreferrer"
-                    onclick="gtag('event','blog_click',{event_category:'cta',event_label:'Blog'});"
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#fff] text-[#101518] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                    <span class="truncate">Catalyst <i>by entreprenote</i></span>
-                  </a>
+                    <a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank" rel="noopener noreferrer"
+                      onclick="gtag('event','blog_click',{event_category:'cta',event_label:'Blog'});"
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#fff] text-[#101518] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                      <span class="truncate">Beta Tester Registration</span>
+                    </a>
 
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <!-- Div 2 -->
+          <div class="flex flex-col gap-10 items-center justify-center mb-10 w-full">
+            <div class="layout-content-container flex flex-col w-full max-w-screen-xl flex-1">
+              <div class="@container">
+                <div class="@[480px]:p-4">
+                  <div
+                    class="w-full flex min-h-[420px] md:min-h-[550px] rounded-2xl @[480px]:min-h-[480px] flex-col gap-6 bg-[#0052D9] bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-2xl items-center justify-center p-5 md:p-6 shadow-lg">
+                    <div class="flex flex-col gap-2 text-center">
+
+                      <img src="./images/catalyst_icon.svg" alt="Catalyst by Entreprenote logo"
+                        class="mx-auto h-24 w-auto @[480px]:h-24" />
+                      <h1
+                        class="flex flex-wrap items-center justify-center gap-2 text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                        Catalyst
+                        <span
+                          class="inline-block ml-2 px-2 py-1 text-xs font-medium tracking-normal bg-red-100 text-red-800 rounded-full whitespace-nowrap">
+                          BETA
+                        </span>
+                      </h1>
+                      <h2
+                        class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                        Catalyst by Entreprenote is a community-driven home for real problem statements <br />and
+                        unbuilt
+                        ideas
+                        from people
+                        worldwide—dive in, get inspired, and choose what you want to build next.
+                      </h2>
+                    </div>
+                    <div class="flex-wrap gap-3 flex justify-center">
+                      <!-- <a href="https://www.notion.com/@entreprenote" target="_blank" rel="noopener noreferrer"
+                      onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'Notify Me'});"
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                      <span class="truncate">Explore Notion Store</span>
+                    </a> -->
+
+                      <a href="https://catalyst.entreprenote.com/" target="_blank" rel="noopener noreferrer"
+                        onclick="gtag('event','blog_click',{event_category:'cta',event_label:'Blog'});"
+                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#fff] text-[#101518] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                        <span class="truncate"> Submit Idea to Catalyst App</span>
+                      </a>
+
+                    </div>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Footer Section -->
-      <footer class="bg-white border-t border-gray-200">
-        <div class="px-4 md:px-10 lg:px-20 py-12">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+      </div>
+        <!-- Footer Section -->
+        <footer class="bg-white border-t border-gray-200 w-full">
+          <div class="px-4 md:px-10 lg:px-20 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
 
-            <!-- Center Column - Form (takes max space) -->
-            <div class="md:col-span-4">
-              <h3 class="text-lg font-semibold text-gray-900 mb-4">Beta Test</h3>
-              <p class="text-gray-600">Become a beta tester and get early access to the product.</p>
-              <a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank"
-                class="text-[#0052D9] hover:text-primary font-bold">Register Now</a>
-              <br /><br />
-              <h3 class="text-lg font-semibold text-gray-900 mb-4">Connect</h3>
-              <div class="mt-6 flex space-x-4">
-                <a href="https://www.instagram.com/getentreprenote" target="_blank" rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-\[\#0052D9\] hover:text-black text-gray-600 transition-all">
-                  <i class="ri-instagram-line ri-lg"></i>
-                </a>
-                <a href="https://www.linkedin.com/company/entreprenote" target="_blank" rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-\[\#0052D9\] hover:text-black text-gray-600 transition-all">
-                  <i class="ri-linkedin-fill ri-lg"></i>
-                </a>
-                <a href="https://x.com/entreprenote" target="_blank" rel="noopener noreferrer" aria-label="Twitter"
-                  class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-\[\#0052D9\] hover:text-black text-gray-600 transition-all">
-                  <i class="ri-twitter-fill ri-lg"></i>
-                </a>
-                <a href="https://medium.com/entreprenote" target="_blank" rel="noopener noreferrer" aria-label="Medium"
-                  class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-\[\#0052D9\] hover:text-black text-gray-600 transition-all">
-                  <i class="ri-medium-fill ri-lg"></i>
-                </a>
+              <!-- Center Column - Form (takes max space) -->
+              <div class="md:col-span-4">
+                <!-- <h3 class="text-lg font-semibold text-gray-900 mb-4">Beta Test</h3> -->
+                <!-- <p class="text-gray-600">Become a beta tester and get early access to the product.</p> -->
+                <!-- <a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank"
+                              class="text-[#0052D9] hover:text-primary font-bold">Register Now</a> -->
+                <!-- <br /><br /> -->
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Connect</h3>
+                <div class="mt-6 flex space-x-4">
+                  <a href="https://www.instagram.com/getentreprenote" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-\[\#0052D9\] hover:text-black text-gray-600 transition-all">
+                    <i class="ri-instagram-line ri-lg"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/company/entreprenote" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-\[\#0052D9\] hover:text-black text-gray-600 transition-all">
+                    <i class="ri-linkedin-fill ri-lg"></i>
+                  </a>
+                  <a href="https://x.com/entreprenote" target="_blank" rel="noopener noreferrer" aria-label="Twitter"
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-\[\#0052D9\] hover:text-black text-gray-600 transition-all">
+                    <i class="ri-twitter-fill ri-lg"></i>
+                  </a>
+                  <a href="https://medium.com/entreprenote" target="_blank" rel="noopener noreferrer"
+                    aria-label="Medium"
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-\[\#0052D9\] hover:text-black text-gray-600 transition-all">
+                    <i class="ri-medium-fill ri-lg"></i>
+                  </a>
+                  <!-- Reddit -->
+                  <a href="https://www.reddit.com/r/entreprenote/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Reddit"
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-\[\#0052D9\] hover:text-black text-gray-600 transition-all">
+                    <i class="ri-reddit-fill ri-lg"></i>
+                  </a>
+                </div>
+
               </div>
 
-            </div>
+              <!-- Right Column -->
+              <div class="md:col-span-4">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
+                <ul class="space-y-3">
+                  <li><a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank"
+                      class="text-[#0052D9] hover:text-primary font-bold">Notify Me</a></li>
+                  <li><a href="https://medium.com/entreprenote" target="_blank"
+                      class="text-gray-600 hover:text-primary font-bold">Blog</a></li>
+                  <li><a href="terms-service.html" class="text-gray-600 hover:text-primary">Terms of Service</a></li>
+                  <li><a href="privacy-policy.html" class="text-gray-600 hover:text-primary">Privacy Policy</a></li>
+                  <!-- <li><a href="https://catalyst.entreprenote.com/" target="_blank"
+                                  class="text-gray-600 hover:text-primary"><b>💎
+                                    Catalyst</b> <i>by
+                                    entreprenote</i></a>
+                                <span
+                                  class="inline-block ml-2 px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">BETA</span>
+                              </li> -->
+                  <li>
+                    <a href="https://forms.gle/Pwa4waL5eCLaiwLX6" target="_blank"
+                      class="text-gray-600 hover:text-primary">Payment Resolutions</a>
+                  </li>
+                </ul>
+              </div>
 
-            <!-- Right Column -->
-            <div class="md:col-span-4">
-              <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
-              <ul class="space-y-3">
-                <li><a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank"
-                    class="text-[#0052D9] hover:text-primary font-bold">Notify Me</a></li>
-                <li><a href="https://medium.com/entreprenote" target="_blank"
-                    class="text-gray-600 hover:text-primary font-bold">Blog</a></li>
-                <li><a href="terms-service.html" class="text-gray-600 hover:text-primary">Terms of Service</a></li>
-                <li><a href="privacy-policy.html" class="text-gray-600 hover:text-primary">Privacy Policy</a></li>
-                <li><a href="https://catalyst.entreprenote.com/" target="_blank"
-                    class="text-gray-600 hover:text-primary"><b>💎
-                      Catalyst</b> <i>by
-                      entreprenote</i></a>
-                  <span
-                    class="inline-block ml-2 px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">BETA</span>
-                </li>
-              </ul>
+              <!-- Left Column -->
+              <div class="md:col-span-4">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Entreprenote Newsletter</h3>
+                <iframe src="https://entreprenote.substack.com/embed"
+                  style="width:100%; min-height:320px; border:1px solid #EEE; background:white;" frameborder="0"
+                  scrolling="no"></iframe>
+              </div>
             </div>
-
-            <!-- Left Column -->
-            <div class="md:col-span-4">
-              <h3 class="text-lg font-semibold text-gray-900 mb-4">Entreprenote Newsletter</h3>
-              <iframe src="https://entreprenote.substack.com/embed"
-                style="width:100%; min-height:320px; border:1px solid #EEE; background:white;" frameborder="0"
-                scrolling="no"></iframe>
-            </div>
-          </div>
-          <div class="mt-12 pt-8 border-t border-gray-200">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-              <p class="text-gray-600 text-sm">© 2025 Entreprenote</p>
-              <div class="mt-4 md:mt-0 flex items-center space-x-4">
-                <div class="flex items-center">
-                  <a href="index.html" class="flex items-center gap-2">
-                    <svg class="h-4 w-auto" viewBox="0 0 126 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M0.5 11.5C0.5 7.35786 3.85786 4 8 4L34 4C38.1421 4 41.5 7.35786 41.5 11.5L41.5 37.5C41.5 41.6421 38.1421 45 34 45L0.5 45L0.5 11.5Z"
-                        fill="#0052D9" stroke="#0052D9" />
-                      <mask id="path-2-inside-1_7599_1599" fill="#0052D9">
+            <div class="mt-12 pt-8 border-t border-gray-200">
+              <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 text-sm">© 2025 Entreprenote</p>
+                <div class="mt-4 md:mt-0 flex items-center space-x-4">
+                  <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-2">
+                      <svg class="h-4 w-auto" viewBox="0 0 126 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
-                          d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z" />
-                      </mask>
-                      <path
-                        d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z"
-                        fill="#0052D9" />
-                      <path
-                        d="M92 3.5L92 2.5L92 3.5ZM118 3.5L118 2.5L118 3.5ZM126 11.5L127 11.5L126 11.5ZM118 45.5L118 46.5L118 45.5ZM92 45.5L92 46.5L92 45.5ZM84 37.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.5039L95.6025 24.504L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014L105.002 33.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.504L114.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055L105.002 15.1055L105.002 16.1055ZM84 11.5L85 11.5C85 7.63401 88.134 4.5 92 4.5L92 3.5L92 2.5C87.0294 2.5 83 6.52944 83 11.5L84 11.5ZM92 3.5L92 4.5L118 4.5L118 3.5L118 2.5L92 2.5L92 3.5ZM118 3.5L118 4.5C121.866 4.5 125 7.63401 125 11.5L126 11.5L127 11.5C127 6.52944 122.971 2.5 118 2.5L118 3.5ZM126 11.5L125 11.5L125 37.5L126 37.5L127 37.5L127 11.5L126 11.5ZM126 37.5L125 37.5C125 41.366 121.866 44.5 118 44.5L118 45.5L118 46.5C122.971 46.5 127 42.4706 127 37.5L126 37.5ZM118 45.5L118 44.5L92 44.5L92 45.5L92 46.5L118 46.5L118 45.5ZM92 45.5L92 44.5C88.134 44.5 85 41.366 85 37.5L84 37.5L83 37.5C83 42.4706 87.0294 46.5 92 46.5L92 45.5ZM84 37.5L85 37.5L85 11.5L84 11.5L83 11.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.504C95.6028 29.6942 99.8108 33.9013 105.002 33.9014L105.002 32.9014L105.002 31.9014C100.915 31.9013 97.6027 28.5892 97.6025 24.5039L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014C110.193 33.9014 114.402 29.6943 114.402 24.504L113.402 24.5039L112.402 24.5039C112.402 28.5891 109.089 31.9014 105.002 31.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.5039C114.402 19.3134 110.193 15.1055 105.002 15.1055L105.002 16.1055L105.002 17.1055C109.089 17.1055 112.402 20.4184 112.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055C99.8106 15.1055 95.6025 19.3136 95.6025 24.5039L96.6025 24.5039L97.6025 24.5039C97.6025 20.4183 100.915 17.1055 105.002 17.1055L105.002 16.1055Z"
-                        fill="#0052D9" mask="url(#path-2-inside-1_7599_1599)" />
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M53.6667 -0.000164212C54.2855 -0.000164212 54.879 0.239525 55.3166 0.666168C55.7542 1.09281 56 1.67147 56 2.27484V4.54984H51.3333V2.27484C51.3333 1.67147 51.5792 1.09281 52.0168 0.666168C52.4543 0.239525 53.0478 -0.000164212 53.6667 -0.000164212ZM74.6667 4.54984H77C78.8565 4.54984 80.637 5.26891 81.9497 6.54883C83.2625 7.82876 84 9.56475 84 11.3748V38.6748C84 40.4849 83.2625 42.2209 81.9497 43.5008C80.637 44.7808 78.8565 45.4998 77 45.4998H49C47.1435 45.4998 45.363 44.7808 44.0503 43.5008C42.7375 42.2209 42 40.4849 42 38.6748V11.3748C42 9.56475 42.7375 7.82876 44.0503 6.54883C45.363 5.26891 47.1435 4.54984 49 4.54984H51.3333V11.3748C51.3333 11.9782 51.5792 12.5569 52.0168 12.9835C52.4543 13.4101 53.0478 13.6498 53.6667 13.6498C54.2855 13.6498 54.879 13.4101 55.3166 12.9835C55.7542 12.5569 56 11.9782 56 11.3748V4.54984H60.6667V11.3748C60.6667 11.9782 60.9125 12.5569 61.3501 12.9835C61.7877 13.4101 62.3812 13.6498 63 13.6498C63.6188 13.6498 64.2123 13.4101 64.6499 12.9835C65.0875 12.5569 65.3333 11.9782 65.3333 11.3748V4.54984H70V11.3748C70 11.9782 70.2458 12.5569 70.6834 12.9835C71.121 13.4101 71.7145 13.6498 72.3333 13.6498C72.9522 13.6498 73.5457 13.4101 73.9833 12.9835C74.4208 12.5569 74.6667 11.9782 74.6667 11.3748V4.54984ZM74.6667 4.54984H70V2.27484C70 1.67147 70.2458 1.09281 70.6834 0.666168C71.121 0.239525 71.7145 -0.000164212 72.3333 -0.000164212C72.9522 -0.000164212 73.5457 0.239525 73.9833 0.666168C74.4208 1.09281 74.6667 1.67147 74.6667 2.27484V4.54984ZM65.3333 4.54984V2.27484C65.3333 1.67147 65.0875 1.09281 64.6499 0.666168C64.2123 0.239525 63.6188 -0.000164212 63 -0.000164212C62.3812 -0.000164212 61.7877 0.239525 61.3501 0.666168C60.9125 1.09281 60.6667 1.67147 60.6667 2.27484V4.54984H65.3333Z"
-                        fill="#0052D9" />
-                    </svg>
-                    <h2 class="text-[#0052D9] text-lg font-bold leading-tight tracking-[-0.015em]">
-                      Entreprenote</h2>
-                  </a>
+                          d="M0.5 11.5C0.5 7.35786 3.85786 4 8 4L34 4C38.1421 4 41.5 7.35786 41.5 11.5L41.5 37.5C41.5 41.6421 38.1421 45 34 45L0.5 45L0.5 11.5Z"
+                          fill="#0052D9" stroke="#0052D9" />
+                        <mask id="path-2-inside-1_7599_1599" fill="#0052D9">
+                          <path
+                            d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z" />
+                        </mask>
+                        <path
+                          d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z"
+                          fill="#0052D9" />
+                        <path
+                          d="M92 3.5L92 2.5L92 3.5ZM118 3.5L118 2.5L118 3.5ZM126 11.5L127 11.5L126 11.5ZM118 45.5L118 46.5L118 45.5ZM92 45.5L92 46.5L92 45.5ZM84 37.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.5039L95.6025 24.504L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014L105.002 33.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.504L114.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055L105.002 15.1055L105.002 16.1055ZM84 11.5L85 11.5C85 7.63401 88.134 4.5 92 4.5L92 3.5L92 2.5C87.0294 2.5 83 6.52944 83 11.5L84 11.5ZM92 3.5L92 4.5L118 4.5L118 3.5L118 2.5L92 2.5L92 3.5ZM118 3.5L118 4.5C121.866 4.5 125 7.63401 125 11.5L126 11.5L127 11.5C127 6.52944 122.971 2.5 118 2.5L118 3.5ZM126 11.5L125 11.5L125 37.5L126 37.5L127 37.5L127 11.5L126 11.5ZM126 37.5L125 37.5C125 41.366 121.866 44.5 118 44.5L118 45.5L118 46.5C122.971 46.5 127 42.4706 127 37.5L126 37.5ZM118 45.5L118 44.5L92 44.5L92 45.5L92 46.5L118 46.5L118 45.5ZM92 45.5L92 44.5C88.134 44.5 85 41.366 85 37.5L84 37.5L83 37.5C83 42.4706 87.0294 46.5 92 46.5L92 45.5ZM84 37.5L85 37.5L85 11.5L84 11.5L83 11.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.504C95.6028 29.6942 99.8108 33.9013 105.002 33.9014L105.002 32.9014L105.002 31.9014C100.915 31.9013 97.6027 28.5892 97.6025 24.5039L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014C110.193 33.9014 114.402 29.6943 114.402 24.504L113.402 24.5039L112.402 24.5039C112.402 28.5891 109.089 31.9014 105.002 31.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.5039C114.402 19.3134 110.193 15.1055 105.002 15.1055L105.002 16.1055L105.002 17.1055C109.089 17.1055 112.402 20.4184 112.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055C99.8106 15.1055 95.6025 19.3136 95.6025 24.5039L96.6025 24.5039L97.6025 24.5039C97.6025 20.4183 100.915 17.1055 105.002 17.1055L105.002 16.1055Z"
+                          fill="#0052D9" mask="url(#path-2-inside-1_7599_1599)" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M53.6667 -0.000164212C54.2855 -0.000164212 54.879 0.239525 55.3166 0.666168C55.7542 1.09281 56 1.67147 56 2.27484V4.54984H51.3333V2.27484C51.3333 1.67147 51.5792 1.09281 52.0168 0.666168C52.4543 0.239525 53.0478 -0.000164212 53.6667 -0.000164212ZM74.6667 4.54984H77C78.8565 4.54984 80.637 5.26891 81.9497 6.54883C83.2625 7.82876 84 9.56475 84 11.3748V38.6748C84 40.4849 83.2625 42.2209 81.9497 43.5008C80.637 44.7808 78.8565 45.4998 77 45.4998H49C47.1435 45.4998 45.363 44.7808 44.0503 43.5008C42.7375 42.2209 42 40.4849 42 38.6748V11.3748C42 9.56475 42.7375 7.82876 44.0503 6.54883C45.363 5.26891 47.1435 4.54984 49 4.54984H51.3333V11.3748C51.3333 11.9782 51.5792 12.5569 52.0168 12.9835C52.4543 13.4101 53.0478 13.6498 53.6667 13.6498C54.2855 13.6498 54.879 13.4101 55.3166 12.9835C55.7542 12.5569 56 11.9782 56 11.3748V4.54984H60.6667V11.3748C60.6667 11.9782 60.9125 12.5569 61.3501 12.9835C61.7877 13.4101 62.3812 13.6498 63 13.6498C63.6188 13.6498 64.2123 13.4101 64.6499 12.9835C65.0875 12.5569 65.3333 11.9782 65.3333 11.3748V4.54984H70V11.3748C70 11.9782 70.2458 12.5569 70.6834 12.9835C71.121 13.4101 71.7145 13.6498 72.3333 13.6498C72.9522 13.6498 73.5457 13.4101 73.9833 12.9835C74.4208 12.5569 74.6667 11.9782 74.6667 11.3748V4.54984ZM74.6667 4.54984H70V2.27484C70 1.67147 70.2458 1.09281 70.6834 0.666168C71.121 0.239525 71.7145 -0.000164212 72.3333 -0.000164212C72.9522 -0.000164212 73.5457 0.239525 73.9833 0.666168C74.4208 1.09281 74.6667 1.67147 74.6667 2.27484V4.54984ZM65.3333 4.54984V2.27484C65.3333 1.67147 65.0875 1.09281 64.6499 0.666168C64.2123 0.239525 63.6188 -0.000164212 63 -0.000164212C62.3812 -0.000164212 61.7877 0.239525 61.3501 0.666168C60.9125 1.09281 60.6667 1.67147 60.6667 2.27484V4.54984H65.3333Z"
+                          fill="#0052D9" />
+                      </svg>
+                      <h2 class="text-[#0052D9] text-lg font-bold leading-tight tracking-[-0.015em]">
+                        Entreprenote</h2>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
-  </div>
+
+
 </body>
+
+
 
 </html>
