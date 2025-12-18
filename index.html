@@ -16,16 +16,15 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+  <link rel="alternate" type="text/markdown" href="/llms.txt" />
   <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
     href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" />
 
-  <title>Entreprenote</title>
+  <title>Entreprenote - Refine Your Startup Vision & Validate Ideas</title>
   <link rel="canonical" href="https://entreprenote.com/" />
   <link rel="icon" type="image/png" href="./images/favicon.png" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- <meta name="description"
-    content="Entreprenote is an AI-powered note-taking app helping entrepreneurs brainstorm, organize, and refine their ideas." /> -->
   <meta name="description"
     content="Have an idea but not sure what to do next? Entreprenote helps you think through, structure, and validate your ideas step-by-step using AI-powered guided questions — so you can turn thoughts into action fast." />
   <meta name="summary"
@@ -35,7 +34,7 @@
   <!-- <meta name="keywords"
     content="AI note taking app, entrepreneur ideas, startup brainstorming, business idea organizer, productivity for founders"> -->
   <meta name="keywords"
-    content="what to do with my idea, startup idea validation, brainstorm business ideas, AI for entrepreneurs, idea planning app, turn ideas into action, startup thinking tool, productivity for founders, entrepreneur">
+    content="Idea Validation, what to do with my idea, startup idea validation, brainstorm business ideas, AI for entrepreneurs, idea planning app, turn ideas into action, startup thinking tool, productivity for founders, entrepreneur">
 
   <!-- Social Media -->
   <meta property="og:type" content="website" />
@@ -65,21 +64,46 @@
 
   <!-- Schema.org -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Entreprenote",
-  "url": "https://entreprenote.com",
-  "logo": "https://entreprenote.com/images/logo.svg",
-  "sameAs": [
-    "https://x.com/entreprenote",
-    "https://www.instagram.com/getentreprenote",
-    "https://www.linkedin.com/company/entreprenote",
-    "https://medium.com/entreprenote"
-  ],
-  "description": "Entreprenote helps people with ideas structure and validate them before execution, turning uncertainty into clarity."
-}
-</script>
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Entreprenote",
+        "url": "https://entreprenote.com",
+        "logo": "https://entreprenote.com/images/logo.svg",
+        "sameAs": [
+          "https://x.com/entreprenote",
+          "https://www.instagram.com/getentreprenote",
+          "https://www.linkedin.com/company/entreprenote",
+          "https://medium.com/entreprenote"
+        ],
+        "description": "Entreprenote helps people with ideas structure and validate them before execution, turning uncertainty into clarity."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Entreprenote",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": [
+        {
+            "@type": "Offer",
+            "name": "Free Tier",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Includes all the features provided by Entreprenote, but no AI capabilities."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro Tier",
+            "price": "~9.99", 
+            "priceCurrency": "USD",
+            "description": "Full access to all AI capabilities."
+          }],
+        "description": "AI-powered guided questions to validate startup ideas. Turning uncertainty into clarity."
+      }
+    ]
+  </script>
 </head>
 
 <body style="background-color: #F3F8FF;">
@@ -122,26 +146,25 @@
       </header>
       <!-- Hero Section -->
       <div class="px-4 md:px-10 lg:px-20">
-
         <div class="flex flex-col items-center justify-center mt-6 mb-6 gap-6">
           <!-- Div 1 -->
-          <div class="layout-content-container flex flex-col w-full max-w-screen-xl flex-1">
+          <main class="layout-content-container flex flex-col w-full max-w-screen-xl flex-1">
             <div class="@container">
               <div class="@[480px]:p-4">
                 <div
                   class="w-full flex min-h-[420px] md:min-h-[550px] rounded-2xl @[480px]:min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-2xl items-center justify-center p-5 md:p-6 shadow-lg"
-                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("./images/featured.jpg");'>
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("./images/featured.jpg");'>
                   <div class="flex flex-col gap-2 text-center">
                     <img src="./images/logo.svg" alt="Entreprenote logo" class="mx-auto h-12 w-auto @[480px]:h-12" />
                     <h1
                       class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                      Think. Note. Grow.
+                      Refine Your Startup Vision
                     </h1>
                     <h2
                       class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
                       Entreprenote helps entrepreneurs brainstorm, organize, and refine
-                      their vision with
-                      AI-powered note-taking.
+                      their vision <br />with
+                      AI-powered note-taking, turning uncertainty into clarity
                     </h2>
                   </div>
                   <div class="flex-wrap gap-3 flex justify-center">
@@ -161,9 +184,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </main>
           <!-- Div 2 -->
-          <div class="flex flex-col items-center justify-center w-full">
+          <section class="flex flex-col items-center justify-center w-full">
             <div class="layout-content-container flex flex-col w-full max-w-screen-xl flex-1">
               <div class="@container">
                 <div class="@[480px]:p-4">
@@ -173,14 +196,14 @@
 
                       <img src="./images/catalyst_icon.svg" alt="Catalyst by Entreprenote logo"
                         class="mx-auto h-24 w-auto @[480px]:h-24" />
-                      <h1
+                      <h2
                         class="flex flex-wrap items-center justify-center gap-2 text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
                         Catalyst
                         <span
                           class="inline-block ml-2 px-2 py-1 text-xs font-medium tracking-normal bg-red-100 text-red-800 rounded-full whitespace-nowrap">
                           BETA
                         </span>
-                      </h1>
+                      </h2>
                       <h2
                         class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
                         Catalyst by Entreprenote is a community-driven home for real problem statements <br />and
@@ -208,7 +231,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
       <!-- Footer Section -->
@@ -290,7 +313,10 @@
               <p class="text-gray-600 text-sm">© 2025 Entreprenote</p>
               <div class="mt-4 md:mt-0 flex items-center space-x-4">
                 <div class="flex items-center">
-                  <a href="index.html" class="flex items-center gap-2">
+                  <p class="text-gray-600 font-bold text-sm mr-2">
+                    Think. <b class="text-[#0052D9]"> Note. </b> Grow.
+                  </p>
+                  <!-- <a href="index.html" class="flex items-center gap-2">
                     <svg class="h-4 w-auto" viewBox="0 0 126 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M0.5 11.5C0.5 7.35786 3.85786 4 8 4L34 4C38.1421 4 41.5 7.35786 41.5 11.5L41.5 37.5C41.5 41.6421 38.1421 45 34 45L0.5 45L0.5 11.5Z"
@@ -311,7 +337,7 @@
                     </svg>
                     <h2 class="text-[#0052D9] text-lg font-bold leading-tight tracking-[-0.015em]">
                       Entreprenote</h2>
-                  </a>
+                  </a> -->
                 </div>
               </div>
             </div>

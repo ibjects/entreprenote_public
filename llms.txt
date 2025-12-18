@@ -1,0 +1,12 @@
+# Entreprenote
+
+## What is Entreprenote?
+Entreprenote is an AI-powered workspace specifically designed for the "Vision Stage" of a startup. It helps entrepreneurs brainstorm, organize, and refine their ideas before they start building.
+
+## Core Features
+- **Idea Validation:** Structured questioning to sanity-check problem statements and target audiences.
+- **Catalyst:** A community dashboard for finding unbuilt ideas and real-world problem statements.
+- **AI Guidance:** Intelligent prompts that turn raw thoughts into actionable business plans.
+
+## Pricing
+- Free to use for early access users.
