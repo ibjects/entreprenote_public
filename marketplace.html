@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CPBY4JYJVZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CPBY4JYJVZ');
+    </script>
+    <!-- Google tag (gtag.js) END -->
+
+    <!-- Force HTTPS -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" />
+    <!-- Added Inter font for body design inspiration -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>Entreprenote Marketplace</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Entreprenote Marketplace - Find widgets and templates to boost your productivity." />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Remix Icon for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+
+    <!-- Custom Styles from nyr/index1.html -->
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        /* Use Inter for the main content areas if desired, or stick to Manrope to match header */
+        .marketplace-content {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .custom-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0052D9',
+                        secondary: '#008DFF'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body style="background-color: #F3F8FF;">
+    <!-- Force HTTPS Redirect -->
+    <script>
+        // Only redirect if not already on HTTPS and not on localhost
+        if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            window.location.href = window.location.href.replace('http:', 'https:');
+        }
+    </script>
+
+    <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+        style='font-family: Manrope, "Noto Sans", sans-serif;'>
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- Header Section (From index.html) -->
+            <header class="bg-white border-b border-b-[#eaedf1]">
+                <div class="flex items-center justify-between px-4 md:px-10 py-3">
+                    <div class="flex items-center gap-1">
+                        <a href="index.html" class="flex items-center gap-1">
+                            <!-- keep your existing logo svg here -->
+                            <svg class="h-4 w-auto" viewBox="0 0 126 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0.5 11.5C0.5 7.35786 3.85786 4 8 4L34 4C38.1421 4 41.5 7.35786 41.5 11.5L41.5 37.5C41.5 41.6421 38.1421 45 34 45L0.5 45L0.5 11.5Z"
+                                    fill="#000" stroke="#000" />
+                                <mask id="path-2-inside-1_7599_1599" fill="#000">
+                                    <path
+                                        d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z" />
+                                </mask>
+                                <path
+                                    d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z"
+                                    fill="#000" />
+                                <path
+                                    d="M92 3.5L92 2.5L92 3.5ZM118 3.5L118 2.5L118 3.5ZM126 11.5L127 11.5L126 11.5ZM118 45.5L118 46.5L118 45.5ZM92 45.5L92 46.5L92 45.5ZM84 37.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.5039L95.6025 24.504L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014L105.002 33.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.504L114.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055L105.002 15.1055L105.002 16.1055ZM84 11.5L85 11.5C85 7.63401 88.134 4.5 92 4.5L92 3.5L92 2.5C87.0294 2.5 83 6.52944 83 11.5L84 11.5ZM92 3.5L92 4.5L118 4.5L118 3.5L118 2.5L92 2.5L92 3.5ZM118 3.5L118 4.5C121.866 4.5 125 7.63401 125 11.5L126 11.5L127 11.5C127 6.52944 122.971 2.5 118 2.5L118 3.5ZM126 11.5L125 11.5L125 37.5L126 37.5L127 37.5L127 11.5L126 11.5ZM126 37.5L125 37.5C125 41.366 121.866 44.5 118 44.5L118 45.5L118 46.5C122.971 46.5 127 42.4706 127 37.5L126 37.5ZM118 45.5L118 44.5L92 44.5L92 45.5L92 46.5L118 46.5L118 45.5ZM92 45.5L92 44.5C88.134 44.5 85 41.366 85 37.5L84 37.5L83 37.5C83 42.4706 87.0294 46.5 92 46.5L92 45.5ZM84 37.5L85 37.5L85 11.5L84 11.5L83 11.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.504C95.6028 29.6942 99.8108 33.9013 105.002 33.9014L105.002 32.9014L105.002 31.9014C100.915 31.9013 97.6027 28.5892 97.6025 24.5039L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014C110.193 33.9014 114.402 29.6943 114.402 24.504L113.402 24.5039L112.402 24.5039C112.402 28.5891 109.089 31.9014 105.002 31.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.5039C114.402 19.3134 110.193 15.1055 105.002 15.1055L105.002 16.1055L105.002 17.1055C109.089 17.1055 112.402 20.4184 112.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055C99.8106 15.1055 95.6025 19.3136 95.6025 24.5039L96.6025 24.5039L97.6025 24.5039C97.6025 20.4183 100.915 17.1055 105.002 17.1055L105.002 16.1055Z"
+                                    fill="#000" mask="url(#path-2-inside-1_7599_1599)" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M53.6667 -0.000164212C54.2855 -0.000164212 54.879 0.239525 55.3166 0.666168C55.7542 1.09281 56 1.67147 56 2.27484V4.54984H51.3333V2.27484C51.3333 1.67147 51.5792 1.09281 52.0168 0.666168C52.4543 0.239525 53.0478 -0.000164212 53.6667 -0.000164212ZM74.6667 4.54984H77C78.8565 4.54984 80.637 5.26891 81.9497 6.54883C83.2625 7.82876 84 9.56475 84 11.3748V38.6748C84 40.4849 83.2625 42.2209 81.9497 43.5008C80.637 44.7808 78.8565 45.4998 77 45.4998H49C47.1435 45.4998 45.363 44.7808 44.0503 43.5008C42.7375 42.2209 42 40.4849 42 38.6748V11.3748C42 9.56475 42.7375 7.82876 44.0503 6.54883C45.363 5.26891 47.1435 4.54984 49 4.54984H51.3333V11.3748C51.3333 11.9782 51.5792 12.5569 52.0168 12.9835C52.4543 13.4101 53.0478 13.6498 53.6667 13.6498C54.2855 13.6498 54.879 13.4101 55.3166 12.9835C55.7542 12.5569 56 11.9782 56 11.3748V4.54984H60.6667V11.3748C60.6667 11.9782 60.9125 12.5569 61.3501 12.9835C61.7877 13.4101 62.3812 13.6498 63 13.6498C63.6188 13.6498 64.2123 13.4101 64.6499 12.9835C65.0875 12.5569 65.3333 11.9782 65.3333 11.3748V4.54984H70V11.3748C70 11.9782 70.2458 12.5569 70.6834 12.9835C71.121 13.4101 71.7145 13.6498 72.3333 13.6498C72.9522 13.6498 73.5457 13.4101 73.9833 12.9835C74.4208 12.5569 74.6667 11.9782 74.6667 11.3748V4.54984ZM74.6667 4.54984H70V2.27484C70 1.67147 70.2458 1.09281 70.6834 0.666168C71.121 0.239525 71.7145 -0.000164212 72.3333 -0.000164212C72.9522 -0.000164212 73.5457 0.239525 73.9833 0.666168C74.4208 1.09281 74.6667 1.67147 74.6667 2.27484V4.54984ZM65.3333 4.54984V2.27484C65.3333 1.67147 65.0875 1.09281 64.6499 0.666168C64.2123 0.239525 63.6188 -0.000164212 63 -0.000164212C62.3812 -0.000164212 61.7877 0.239525 61.3501 0.666168C60.9125 1.09281 60.6667 1.67147 60.6667 2.27484V4.54984H65.3333Z"
+                                    fill="#000" />
+                            </svg>
+                            <h2 class="text-[#000] text-lg font-bold leading-tight tracking-[-0.015em]">Entreprenote
+                            </h2>
+                        </a>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+
+                        <!-- 
+                        <a href="#"
+                            class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                            </svg>
+                            Docs
+                        </a> -->
+
+                        <a href="https://forms.gle/tNuReTGmSbRGmPKCA" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            Feedback
+                        </a>
+
+                        <!-- <a href="#"
+                            class="group relative inline-flex items-center px-3 py-1.5 pr-3 text-xs font-semibold text-[#0052D9] rounded-full border border-[#0052D9]/20 bg-[#fff]/10 backdrop-blur-sm hover:bg-[#0052D9] hover:text-white transition-all duration-200 hover:pr-7">
+                            Entreprenote App
+                            <span
+                                class="absolute right-2 opacity-0 translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">
+                                ➜
+                            </span>
+                        </a> -->
+
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- <header class="flex items-center justify-center bg-white border-b border-b-[#eaedf1] px-4 md:px-10 py-3">
+
+                <div class="flex items-center gap-1">
+                    <a href="index.html" class="flex items-center gap-1">
+                      
+                        <h2 class="text-[#000] text-lg font-bold leading-tight tracking-[-0.015em]">Entreprenote</h2>
+                    </a>
+                </div>
+            </header> -->
+
+            <!-- Main Content (Marketplace) -->
+            <main class="marketplace-content bg-gray-50 flex-grow">
+
+                <!-- Hero Section -->
+                <section class="relative overflow-hidden p-20">
+                    <div class="bg-white rounded-2xl overflow-hidden relative max-w-[1280px] mx-auto shadow-xl"
+                        style="background-color: rgba(0, 82, 217, 1);">
+
+                        <!-- <div class="absolute ">
+                        </div> -->
+
+                        <div class="relative z-10 py-16 px-8 text-center">
+                            <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
+                                Entreprenote Marketplace
+                            </h1>
+                            <p class="text-lg text-white/90  max-w-2xl mx-auto">
+                                Discover powerful widgets and templates to supercharge your brainstorming and planning
+                                process.
+                            </p>
+
+
+                            <!-- Search Placeholder -->
+                            <!-- <div class="max-w-md mx-auto">
+                                <div class="relative">
+                                    <input type="text" placeholder="Search for widgets, templates..."
+                                        class="w-full px-6 py-4 rounded-full border-none focus:ring-2 focus:ring-secondary shadow-lg text-gray-800">
+                                    <button
+                                        class="absolute right-2 top-2 bg-primary text-white p-2 rounded-full hover:bg-secondary transition">
+                                        <i class="ri-search-line"></i>
+                                    </button>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white rounded-md overflow-hidden max-w-[1280px] mx-auto p-8 pt-16 flex items-center justify-between gap-6 -mt-10 shadow-md">
+                        <p class="text-sm text-gray-600 max-w-2xl m-0">
+                            Make templates or widgets for Entreprenote Idea Canvas and earn revenue sharing!
+                        </p>
+                        <a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank" rel="noopener noreferrer"
+                            onclick="gtag('event','blog_click',{event_category:'cta',event_label:'Blog'});"
+                            class="inline-flex min-w-[84px] max-w-[480px] items-center justify-center rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-[#fff] hover:bg-[#0052D9]/90 hover:text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                            <span class="truncate">Submit your Widget or Template</span>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Widgets Section -->
+                <section class="py-16">
+                    <div class="container mx-auto px-6">
+                        <div class="flex items-center justify-between mb-10">
+                            <h2 class="text-3xl font-bold text-gray-900">Widgets</h2>
+                            <a href="https://forms.gle/NaScBiTsnYrYnp4e6"
+                                class="text-[#0052D9]/80 font-medium hover:text-[#0052D9] flex items-center">
+                                Submit Your Widget <i class="ri-arrow-right-line ml-1"></i>
+                            </a>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- Widget Card 1 -->
+                            <div class="feature-card bg-white p-6 rounded-xl custom-shadow border border-gray-100">
+                                <div class="w-12 h-12 flex items-center justify-center bg-white-100 rounded-lg mb-4">
+                                    <img src="./images/notes_yellow_icon.svg" alt="Charlie"
+                                        class="h-12 w-12 object-contain" />
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Notes</h3>
+                                <p class="text-gray-600 mb-4 text-xs">by: Entreprenote</p>
+                                <p class="text-gray-600 mb-4 text-sm">
+                                    Entreprenote official notes widget, gives you a glimpse of your most recent notes.
+                                </p>
+                                <button class="w-full py-2 px-4 bg-gray-50 text-gray font-medium rounded-lg transition">
+                                    Pre-installed
+                                </button>
+                            </div>
+
+                            <!-- Widget Card 2 -->
+                            <!-- <div class="feature-card bg-white p-6 rounded-xl custom-shadow border border-gray-100">
+                                <div
+                                    class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-lg mb-4 text-green-600">
+                                    <i class="ri-shopping-cart-line ri-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Market Analyzer</h3>
+                                <p class="text-gray-600 mb-4 text-xs">by: Insight Market News</p>
+                                <p class="text-gray-600 mb-4 text-sm">
+                                    Market analyzer widget, gives you a glimpse of your target market trends.
+                                </p>
+                                <button
+                                    class="w-full py-2 px-4 bg-gray-50 text-primary font-medium rounded-lg hover:bg-primary hover:text-white transition">
+                                    Get Widget
+                                </button>
+                            </div> -->
+
+                            <!-- Widget Card 3 -->
+                            <div class="feature-card bg-white p-6 rounded-xl custom-shadow border border-gray-100">
+                                <div class="w-12 h-12 flex items-center justify-center bg-white-100 rounded-lg mb-4">
+                                    <img src="./images/charlie-icon.svg" alt="Charlie"
+                                        class="h-12 w-12 object-contain" />
+                                </div>
+
+                                <h3 class="text-xl font-bold mb-2">Ask Charlie</h3>
+                                <p class="text-gray-600 mb-4 text-xs">by: Entreprenote</p>
+                                <p class="text-gray-600 mb-4 text-sm">
+                                    Chameleon Charlie AI helps you along the way as you progress your idea canvas.
+                                </p>
+                                <button class="w-full py-2 px-4 bg-gray-50 text-gray font-medium rounded-lg transition">
+                                    Pre-installed
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Templates Section -->
+                <section class="py-16 bg-white">
+                    <div class="container mx-auto px-6">
+                        <div class="flex items-center justify-between mb-10">
+                            <h2 class="text-3xl font-bold text-gray-900">Templates</h2>
+                            <a href="https://forms.gle/NaScBiTsnYrYnp4e6"
+                                class="text-[#0052D9]/80 font-medium hover:text-[#0052D9] flex items-center">
+                                Submit Your Template <i class="ri-arrow-right-line ml-1"></i>
+                            </a>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- Template Card 1 -->
+                            <div
+                                class="feature-card group overflow-hidden rounded-xl custom-shadow border border-gray-100">
+                                <div class="h-40 bg-gray-200 relative overflow-hidden">
+                                    <!-- Placeholder Image Effect -->
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-400">
+                                        <img src="./images/entrepenote-classic-template-preview.png"
+                                            alt="Entrepenote Classic Template Preview"
+                                            class="h-full w-full object-cover" />
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span
+                                            class="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded">Idea
+                                            Brainstorming</span>
+                                        <div class="flex text-gray-400 text-xs">
+                                            <!-- <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i> -->
+                                            v1.0
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-bold mb-2">Entrepenote Classic</h3>
+                                    <p class="text-gray-600 mb-4 text-sm line-clamp-2">
+                                        A comprehensive complete template for brainstorming and planning your startup
+                                        idea.
+                                    </p>
+                                    <div class="flex items-center justify-between mt-4 border-t border-gray-100 pt-4">
+                                        <span class="font-bold text-gray-900">Free</span>
+                                        <button
+                                            class="text-gray-500 hover:text-gray-700 font-medium text-sm">Pre-installed</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Template Card 2 -->
+                            <!-- <div
+                                class="feature-card group overflow-hidden rounded-xl custom-shadow border border-gray-100">
+                                <div class="h-40 bg-gray-200 relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-400">
+                                        <i class="ri-slideshow-line ri-3x"></i>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span
+                                            class="text-xs font-semibold text-purple-600 bg-purple-100 px-2 py-1 rounded">Marketing</span>
+                                        <div class="flex text-yellow-400 text-xs">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-half-fill"></i>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-bold mb-2">Social Media Strategy</h3>
+                                    <p class="text-gray-600 mb-4 text-sm line-clamp-2">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore.
+                                    </p>
+                                    <div class="flex items-center justify-between mt-4 border-t border-gray-100 pt-4">
+                                        <span class="font-bold text-gray-900">$19.00</span>
+                                        <button
+                                            class="text-primary hover:text-secondary font-medium text-sm">Preview</button>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <!-- Template Card 3 -->
+                            <!-- <div
+                                class="feature-card group overflow-hidden rounded-xl custom-shadow border border-gray-100">
+                                <div class="h-40 bg-gray-200 relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-400">
+                                        <i class="ri-file-list-3-line ri-3x"></i>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span
+                                            class="text-xs font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">Productivity</span>
+                                        <div class="flex text-yellow-400 text-xs">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-line"></i>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-bold mb-2">Daily Planner Pro</h3>
+                                    <p class="text-gray-600 mb-4 text-sm line-clamp-2">
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                        aliquip ex ea commodo.
+                                    </p>
+                                    <div class="flex items-center justify-between mt-4 border-t border-gray-100 pt-4">
+                                        <span class="font-bold text-gray-900">$9.00</span>
+                                        <button
+                                            class="text-primary hover:text-secondary font-medium text-sm">Preview</button>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Assets Section -->
+                <section class="py-16">
+                    <div class="container mx-auto px-6">
+                        <div class="flex items-center justify-between mb-10">
+                            <div>
+                                <h2 class="text-3xl font-bold text-gray-900">Resources</h2>
+                                <p class="text-gray-600 text-sm">Pitch deck templates, legal contract boilerplates
+                                    (NDAs, Founder Agreements),
+                                    financial Excel models, and UI kits.</p>
+                            </div>
+                            <a href="#" class="text-[#0052D9]/80 font-medium hover:text-[#0052D9] flex items-center">
+                                Share Resources <i class="ri-arrow-right-line ml-1"></i>
+                            </a>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <p>😔 There are no submissions for resources yet!</p>
+                            <!-- Template Card 1 -->
+                            <!-- <div
+                                class="feature-card group overflow-hidden rounded-xl custom-shadow border border-gray-100">
+                                <div class="h-40 bg-gray-200 relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-400">
+                                        <i class="ri-layout-masonry-line ri-3x"></i>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span
+                                            class="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded">Business
+                                            Plan</span>
+                                        <div class="flex text-yellow-400 text-xs">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-bold mb-2">Startup Pitch Deck</h3>
+                                    <p class="text-gray-600 mb-4 text-sm line-clamp-2">
+                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                        deserunt mollit anim id est laborum.
+                                    </p>
+                                    <div class="flex items-center justify-between mt-4 border-t border-gray-100 pt-4">
+                                        <span class="font-bold text-gray-900">Free</span>
+                                        <button
+                                            class="text-primary hover:text-secondary font-medium text-sm">Preview</button>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <!-- Template Card 2 -->
+                            <!-- <div
+                                class="feature-card group overflow-hidden rounded-xl custom-shadow border border-gray-100">
+                                <div class="h-40 bg-gray-200 relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-400">
+                                        <i class="ri-slideshow-line ri-3x"></i>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span
+                                            class="text-xs font-semibold text-purple-600 bg-purple-100 px-2 py-1 rounded">Marketing</span>
+                                        <div class="flex text-yellow-400 text-xs">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-half-fill"></i>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-bold mb-2">Social Media Strategy</h3>
+                                    <p class="text-gray-600 mb-4 text-sm line-clamp-2">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore.
+                                    </p>
+                                    <div class="flex items-center justify-between mt-4 border-t border-gray-100 pt-4">
+                                        <span class="font-bold text-gray-900">$19.00</span>
+                                        <button
+                                            class="text-primary hover:text-secondary font-medium text-sm">Preview</button>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <!-- Template Card 3 -->
+                            <!-- <div
+                                class="feature-card group overflow-hidden rounded-xl custom-shadow border border-gray-100">
+                                <div class="h-40 bg-gray-200 relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-400">
+                                        <i class="ri-file-list-3-line ri-3x"></i>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span
+                                            class="text-xs font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">Productivity</span>
+                                        <div class="flex text-yellow-400 text-xs">
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-fill"></i>
+                                            <i class="ri-star-line"></i>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-bold mb-2">Daily Planner Pro</h3>
+                                    <p class="text-gray-600 mb-4 text-sm line-clamp-2">
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                        aliquip ex ea commodo.
+                                    </p>
+                                    <div class="flex items-center justify-between mt-4 border-t border-gray-100 pt-4">
+                                        <span class="font-bold text-gray-900">$9.00</span>
+                                        <button
+                                            class="text-primary hover:text-secondary font-medium text-sm">Preview</button>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- Footer Section (From index.html) -->
+            <footer class="bg-white border-t border-gray-200 w-full">
+                <div class="px-4 md:px-10 lg:px-20 py-12">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+
+                        <!-- Center Column - Form (takes max space) -->
+                        <div class="md:col-span-4">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Connect</h3>
+                            <div class="mt-6 flex space-x-4">
+                                <a href="https://www.instagram.com/getentreprenote" target="_blank"
+                                    rel="noopener noreferrer" aria-label="Instagram"
+                                    class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-[#0052D9] hover:text-black text-gray-600 transition-all">
+                                    <i class="ri-instagram-line ri-lg"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/company/entreprenote" target="_blank"
+                                    rel="noopener noreferrer" aria-label="LinkedIn"
+                                    class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-[#0052D9] hover:text-black text-gray-600 transition-all">
+                                    <i class="ri-linkedin-fill ri-lg"></i>
+                                </a>
+                                <a href="https://x.com/entreprenote" target="_blank" rel="noopener noreferrer"
+                                    aria-label="Twitter"
+                                    class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-[#0052D9] hover:text-black text-gray-600 transition-all">
+                                    <i class="ri-twitter-fill ri-lg"></i>
+                                </a>
+                                <a href="https://medium.com/entreprenote" target="_blank" rel="noopener noreferrer"
+                                    aria-label="Medium"
+                                    class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-[#0052D9] hover:text-black text-gray-600 transition-all">
+                                    <i class="ri-medium-fill ri-lg"></i>
+                                </a>
+                                <!-- Reddit -->
+                                <a href="https://www.reddit.com/r/entreprenote/" target="_blank"
+                                    rel="noopener noreferrer" aria-label="Reddit"
+                                    class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-[#0052D9] hover:text-black text-gray-600 transition-all">
+                                    <i class="ri-reddit-fill ri-lg"></i>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Column -->
+                        <div class="md:col-span-4">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
+                            <ul class="space-y-3">
+                                <li><a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank"
+                                        class="text-[#0052D9] hover:text-primary font-bold">Notify Me</a></li>
+                                <li><a href="https://medium.com/entreprenote" target="_blank"
+                                        class="text-gray-600 hover:text-primary font-bold">Blog</a></li>
+                                <li><a href="terms-service.html" class="text-gray-600 hover:text-primary">Terms of
+                                        Service</a></li>
+                                <li><a href="privacy-policy.html" class="text-gray-600 hover:text-primary">Privacy
+                                        Policy</a></li>
+                                <li>
+                                    <a href="https://forms.gle/Pwa4waL5eCLaiwLX6" target="_blank"
+                                        class="text-gray-600 hover:text-primary">Payment Resolutions</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Left Column -->
+                        <div class="md:col-span-4">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Entreprenote Newsletter</h3>
+                            <iframe src="https://entreprenote.substack.com/embed"
+                                style="width:100%; min-height:320px; border:1px solid #EEE; background:white;"
+                                frameborder="0" scrolling="no"></iframe>
+                        </div>
+                    </div>
+                    <div class="mt-12 pt-8 border-t border-gray-200">
+                        <div class="flex flex-col md:flex-row justify-between items-center">
+                            <p class="text-gray-600 text-sm">© 2026 Entreprenote</p>
+                            <div class="mt-4 md:mt-0 flex items-center space-x-4">
+                                <div class="flex items-center">
+                                    <a href="index.html" class="flex items-center gap-2">
+                                        <svg class="h-4 w-auto" viewBox="0 0 126 46" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M0.5 11.5C0.5 7.35786 3.85786 4 8 4L34 4C38.1421 4 41.5 7.35786 41.5 11.5L41.5 37.5C41.5 41.6421 38.1421 45 34 45L0.5 45L0.5 11.5Z"
+                                                fill="#0052D9" stroke="#0052D9" />
+                                            <mask id="path-2-inside-1_7599_1599" fill="#0052D9">
+                                                <path
+                                                    d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z" />
+                                            </mask>
+                                            <path
+                                                d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z"
+                                                fill="#0052D9" />
+                                            <path
+                                                d="M92 3.5L92 2.5L92 3.5ZM118 3.5L118 2.5L118 3.5ZM126 11.5L127 11.5L126 11.5ZM118 45.5L118 46.5L118 45.5ZM92 45.5L92 46.5L92 45.5ZM84 37.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.5039L95.6025 24.504L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014L105.002 33.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.504L114.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055L105.002 15.1055L105.002 16.1055ZM84 11.5L85 11.5C85 7.63401 88.134 4.5 92 4.5L92 3.5L92 2.5C87.0294 2.5 83 6.52944 83 11.5L84 11.5ZM92 3.5L92 4.5L118 4.5L118 3.5L118 2.5L92 2.5L92 3.5ZM118 3.5L118 4.5C121.866 4.5 125 7.63401 125 11.5L126 11.5L127 11.5C127 6.52944 122.971 2.5 118 2.5L118 3.5ZM126 11.5L125 11.5L125 37.5L126 37.5L127 37.5L127 11.5L126 11.5ZM126 37.5L125 37.5C125 41.366 121.866 44.5 118 44.5L118 45.5L118 46.5C122.971 46.5 127 42.4706 127 37.5L126 37.5ZM118 45.5L118 44.5L92 44.5L92 45.5L92 46.5L118 46.5L118 45.5ZM92 45.5L92 44.5C88.134 44.5 85 41.366 85 37.5L84 37.5L83 37.5C83 42.4706 87.0294 46.5 92 46.5L92 45.5ZM84 37.5L85 37.5L85 11.5L84 11.5L83 11.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.504C95.6028 29.6942 99.8108 33.9013 105.002 33.9014L105.002 32.9014L105.002 31.9014C100.915 31.9013 97.6027 28.5892 97.6025 24.5039L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014C110.193 33.9014 114.402 29.6943 114.402 24.504L113.402 24.5039L112.402 24.5039C112.402 28.5891 109.089 31.9014 105.002 31.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.5039C114.402 19.3134 110.193 15.1055 105.002 15.1055L105.002 16.1055L105.002 17.1055C109.089 17.1055 112.402 20.4184 112.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055C99.8106 15.1055 95.6025 19.3136 95.6025 24.5039L96.6025 24.5039L97.6025 24.5039C97.6025 20.4183 100.915 17.1055 105.002 17.1055L105.002 16.1055Z"
+                                                fill="#0052D9" mask="url(#path-2-inside-1_7599_1599)" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M53.6667 -0.000164212C54.2855 -0.000164212 54.879 0.239525 55.3166 0.666168C55.7542 1.09281 56 1.67147 56 2.27484V4.54984H51.3333V2.27484C51.3333 1.67147 51.5792 1.09281 52.0168 0.666168C52.4543 0.239525 53.0478 -0.000164212 53.6667 -0.000164212ZM74.6667 4.54984H77C78.8565 4.54984 80.637 5.26891 81.9497 6.54883C83.2625 7.82876 84 9.56475 84 11.3748V38.6748C84 40.4849 83.2625 42.2209 81.9497 43.5008C80.637 44.7808 78.8565 45.4998 77 45.4998H49C47.1435 45.4998 45.363 44.7808 44.0503 43.5008C42.7375 42.2209 42 40.4849 42 38.6748V11.3748C42 9.56475 42.7375 7.82876 44.0503 6.54883C45.363 5.26891 47.1435 4.54984 49 4.54984H51.3333V11.3748C51.3333 11.9782 51.5792 12.5569 52.0168 12.9835C52.4543 13.4101 53.0478 13.6498 53.6667 13.6498C54.2855 13.6498 54.879 13.4101 55.3166 12.9835C55.7542 12.5569 56 11.9782 56 11.3748V4.54984H60.6667V11.3748C60.6667 11.9782 60.9125 12.5569 61.3501 12.9835C61.7877 13.4101 62.3812 13.6498 63 13.6498C63.6188 13.6498 64.2123 13.4101 64.6499 12.9835C65.0875 12.5569 65.3333 11.9782 65.3333 11.3748V4.54984H70V11.3748C70 11.9782 70.2458 12.5569 70.6834 12.9835C71.121 13.4101 71.7145 13.6498 72.3333 13.6498C72.9522 13.6498 73.5457 13.4101 73.9833 12.9835C74.4208 12.5569 74.6667 11.9782 74.6667 11.3748V4.54984ZM74.6667 4.54984H70V2.27484C70 1.67147 70.2458 1.09281 70.6834 0.666168C71.121 0.239525 71.7145 -0.000164212 72.3333 -0.000164212C72.9522 -0.000164212 73.5457 0.239525 73.9833 0.666168C74.4208 1.09281 74.6667 1.67147 74.6667 2.27484V4.54984ZM65.3333 4.54984V2.27484C65.3333 1.67147 65.0875 1.09281 64.6499 0.666168C64.2123 0.239525 63.6188 -0.000164212 63 -0.000164212C62.3812 -0.000164212 61.7877 0.239525 61.3501 0.666168C60.9125 1.09281 60.6667 1.67147 60.6667 2.27484V4.54984H65.3333Z"
+                                                fill="#0052D9" />
+                                        </svg>
+                                        <h2 class="text-[#0052D9] text-lg font-bold leading-tight tracking-[-0.015em]">
+                                            Entreprenote</h2>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
