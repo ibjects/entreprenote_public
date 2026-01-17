@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CPBY4JYJVZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CPBY4JYJVZ');
+    </script>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entreprenote Access - Entrepreneur Opportunities & Resources</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0052D9',
+                        secondary: '#008DFF',
+                        surface: '#F3F8FF'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Manrope', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F8FF;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        /* Smooth fade for tab content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sticky Nav Utilities */
+        .sticky-nav-scrolled {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #eaedf1;
+        }
+
+        /* Scrollbar hiding for clean UI */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <header class="bg-white border-b border-[#eaedf1] relative z-50">
+        <div class="flex items-center justify-between px-4 md:px-10 py-3">
+            <div class="flex items-center gap-1">
+                <a href="index.html" class="flex items-center gap-2">
+                    <img src="./images/access-icon.svg" alt="Marketplace Icon" class="mx-auto h-8 w-8 object-contain" />
+                    <div class="flex items-center gap-2">
+                        <h2 class="text-black text-xl font-bold tracking-tight">Access</h2>
+                        <!-- <span class="bg-blue-100 text-primary text-xs font-bold px-2 py-0.5 rounded-full">Access</span> -->
+                        <span
+                            class="bg-orange-100 text-orange-500 text-xs font-bold px-2 py-0.5 rounded-full">Beta</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <a href="#"
+                    class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                    </svg>
+                    Docs
+                </a>
+                <a href="https://forms.gle/tNuReTGmSbRGmPKCA" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                    </svg>
+                    Feedback
+                </a>
+                <a href="https://app.entreprenote.com" target="_blank"
+                    class="group relative inline-flex items-center px-3 py-1.5 pr-3 text-xs font-semibold text-[#0052D9] rounded-full border border-[#000]/40 bg-[#fff]/10 backdrop-blur-sm hover:bg-[#0052D9] hover:text-white transition-all duration-200 hover:pr-7">
+                    Entreprenote App
+                    <span
+                        class="absolute right-2 opacity-0 translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">
+                        ➜
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav id="sticky-nav"
+        class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-all duration-200">
+        <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+            <div class="flex items-center gap-1 overflow-x-auto hide-scrollbar py-2">
+                <button onclick="switchTab('services')"
+                    class="nav-btn group relative px-4 py-2 text-sm font-semibold text-gray-600 rounded-lg hover:bg-gray-50 hover:text-primary transition-all whitespace-nowrap"
+                    data-tab="services">
+                    <i class="ri-briefcase-4-line mr-1"></i> Services
+                </button>
+                <button onclick="switchTab('events')"
+                    class="nav-btn group relative px-4 py-2 text-sm font-semibold text-gray-600 rounded-lg hover:bg-gray-50 hover:text-primary transition-all whitespace-nowrap active-nav-btn"
+                    data-tab="events">
+                    <i class="ri-calendar-event-line mr-1"></i> Events
+                </button>
+                <button onclick="switchTab('advisors')"
+                    class="nav-btn group relative px-4 py-2 text-sm font-semibold text-gray-600 rounded-lg hover:bg-gray-50 hover:text-primary transition-all whitespace-nowrap"
+                    data-tab="advisors">
+                    <i class="ri-user-star-line mr-1"></i> Advisors
+                </button>
+                <button onclick="switchTab('funding')"
+                    class="nav-btn group relative px-4 py-2 text-sm font-semibold text-gray-600 rounded-lg hover:bg-gray-50 hover:text-primary transition-all whitespace-nowrap"
+                    data-tab="funding">
+                    <i class="ri-money-dollar-circle-line mr-1"></i> Funding & Grants
+                </button>
+                <button onclick="switchTab('learn')"
+                    class="nav-btn group relative px-4 py-2 text-sm font-semibold text-gray-600 rounded-lg hover:bg-gray-50 hover:text-primary transition-all whitespace-nowrap"
+                    data-tab="learn">
+                    <i class="ri-graduation-cap-line mr-1"></i> Learn
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div
+        class="flex-grow max-w-[1400px] mx-auto w-full px-4 md:px-10 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <aside class="hidden lg:block lg:col-span-3 sticky top-[140px] transition-all">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <!-- <div class="p-5 border-b border-gray-100 bg-gray-50/50">
+                    <h3 class="font-heading font-bold text-gray-900 text-lg flex items-center gap-2">
+                        <i class="ri-filter-3-line text-primary"></i> Categories
+                    </h3>
+                </div> -->
+                <div class="p-3" id="sidebar-content">
+                </div>
+            </div>
+
+            <div
+                class="mt-6 bg-gradient-to-br from-primary to-blue-600 rounded-xl p-6 text-white text-center shadow-lg">
+                <div
+                    class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                    <i class="ri-add-line text-2xl"></i>
+                </div>
+                <h4 class="font-bold text-lg mb-2">Have a Resource?</h4>
+                <p class="text-blue-100 text-sm mb-4">Submit your event, service, or grant to Entreprenote Access.</p>
+                <button
+                    class="w-full py-2 bg-white text-primary font-bold rounded-lg text-sm hover:bg-blue-50 transition-colors">
+                    Submit Listing
+                </button>
+            </div>
+        </aside>
+
+        <main class="col-span-1 lg:col-span-9">
+
+            <div id="view-services" class="tab-content hidden">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-heading font-bold text-gray-900 mb-2">Services & Tools</h1>
+                    <p class="text-gray-600">Exclusive deals and vetted providers for your startup stack.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div
+                        class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all flex items-start gap-4 group">
+                        <div class="w-16 h-16 shrink-0 bg-[#635BFF]/10 rounded-lg flex items-center justify-center">
+                            <i class="ri-bank-card-fill text-3xl text-[#635BFF]"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg text-gray-900 group-hover:text-primary transition-colors">
+                                    Stripe Atlas</h3>
+                                <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">Save
+                                    $50</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-1 line-clamp-2">Form your company in Delaware, get your
+                                EIN, and set up your bank account in days.</p>
+                            <div class="mt-3 flex items-center gap-2 text-xs text-gray-500 font-medium">
+                                <span class="flex items-center gap-1"><i
+                                        class="ri-checkbox-circle-fill text-green-500"></i> Incorporation</span>
+                                <span class="flex items-center gap-1"><i
+                                        class="ri-checkbox-circle-fill text-green-500"></i> Legal</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all flex items-start gap-4 group">
+                        <div class="w-16 h-16 shrink-0 bg-[#FF9900]/10 rounded-lg flex items-center justify-center">
+                            <i class="ri-cloud-fill text-3xl text-[#FF9900]"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg text-gray-900 group-hover:text-primary transition-colors">
+                                    AWS Activate</h3>
+                                <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">$1,000
+                                    Credits</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-1 line-clamp-2">Get up to $1,000 in AWS credits,
+                                technical support, and training to grow your business.</p>
+                            <div class="mt-3 flex items-center gap-2 text-xs text-gray-500 font-medium">
+                                <span class="flex items-center gap-1"><i
+                                        class="ri-checkbox-circle-fill text-green-500"></i> Hosting</span>
+                                <span class="flex items-center gap-1"><i
+                                        class="ri-checkbox-circle-fill text-green-500"></i> Infrastructure</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all flex items-start gap-4 group">
+                        <div class="w-16 h-16 shrink-0 bg-[#FF5C35]/10 rounded-lg flex items-center justify-center">
+                            <i class="ri-customer-service-2-fill text-3xl text-[#FF5C35]"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg text-gray-900 group-hover:text-primary transition-colors">
+                                    HubSpot for Startups</h3>
+                                <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">90%
+                                    OFF</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-1 line-clamp-2">Professional CRM suite, marketing hub,
+                                and sales tools tailored for early-stage growth.</p>
+                            <div class="mt-3 flex items-center gap-2 text-xs text-gray-500 font-medium">
+                                <span class="flex items-center gap-1"><i
+                                        class="ri-checkbox-circle-fill text-green-500"></i> CRM</span>
+                                <span class="flex items-center gap-1"><i
+                                        class="ri-checkbox-circle-fill text-green-500"></i> Sales</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all flex items-start gap-4 group">
+                        <div class="w-16 h-16 shrink-0 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <i class="ri-notion-fill text-3xl text-black"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg text-gray-900 group-hover:text-primary transition-colors">
+                                    Notion</h3>
+                                <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">6 Months
+                                    Free</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-1 line-clamp-2">The all-in-one workspace for your notes,
+                                tasks, wikis, and databases.</p>
+                            <div class="mt-3 flex items-center gap-2 text-xs text-gray-500 font-medium">
+                                <span class="flex items-center gap-1"><i
+                                        class="ri-checkbox-circle-fill text-green-500"></i> Productivity</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-events" class="tab-content block">
+                <div class="mb-8 flex justify-between items-end">
+                    <div>
+                        <h1 class="text-3xl font-heading font-bold text-gray-900 mb-2">Events</h1>
+                        <p class="text-gray-600">Upcoming conferences, pitch days, and webinars for 2026.</p>
+                    </div>
+                    <div class="flex bg-white border border-gray-200 rounded-lg p-1 gap-1">
+                        <button class="p-2 rounded bg-gray-100 text-gray-900"><i
+                                class="ri-layout-grid-fill"></i></button>
+                        <button class="p-2 rounded hover:bg-gray-50 text-gray-500"><i
+                                class="ri-list-check"></i></button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <div
+                        class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden hover:translate-y-[-4px] transition-all duration-300 group">
+                        <div class="h-40 bg-gradient-to-r from-blue-900 to-indigo-900 relative">
+                            <div
+                                class="absolute top-3 left-3 bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                                Conference
+                            </div>
+                            <div
+                                class="absolute bottom-[-16px] right-4 bg-white shadow-md rounded-lg p-2 text-center border border-gray-100 w-16">
+                                <span class="block text-xs text-red-600 font-bold uppercase">Jan</span>
+                                <span class="block text-xl font-black text-gray-900 leading-none">06</span>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-6">
+                            <div class="mb-3">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                    CES 2026</h3>
+                                <p class="text-xs text-gray-500 mt-1 flex items-center gap-1"><i
+                                        class="ri-map-pin-line"></i> Las Vegas, NV</p>
+                            </div>
+                            <p class="text-sm text-gray-600 line-clamp-2 mb-4">The most powerful tech event in the
+                                world. The proving ground for breakthrough technologies.</p>
+                            <button
+                                class="w-full py-2 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:border-gray-300 transition-all">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden hover:translate-y-[-4px] transition-all duration-300 group">
+                        <div class="h-40 bg-[#F26522] relative flex items-center justify-center">
+                            <i class="ri-y-combinator-line text-white text-6xl"></i>
+                            <div
+                                class="absolute top-3 left-3 bg-white/20 backdrop-blur-md border border-white/20 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                                Pitch Day
+                            </div>
+                            <div
+                                class="absolute bottom-[-16px] right-4 bg-white shadow-md rounded-lg p-2 text-center border border-gray-100 w-16">
+                                <span class="block text-xs text-red-600 font-bold uppercase">Mar</span>
+                                <span class="block text-xl font-black text-gray-900 leading-none">16</span>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-6">
+                            <div class="mb-3">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                    YC W26 Demo Day</h3>
+                                <p class="text-xs text-gray-500 mt-1 flex items-center gap-1"><i
+                                        class="ri-map-pin-line"></i> San Francisco / Virtual</p>
+                            </div>
+                            <p class="text-sm text-gray-600 line-clamp-2 mb-4">Two days of presentations from the latest
+                                batch of Y Combinator startups to selected investors.</p>
+                            <button
+                                class="w-full py-2 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:border-gray-300 transition-all">
+                                Request Invite
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden hover:translate-y-[-4px] transition-all duration-300 group">
+                        <div class="h-40 bg-gray-900 relative flex items-center justify-center">
+                            <i class="ri-calendar-event-fill text-gray-700 text-6xl"></i>
+                            <div
+                                class="absolute top-3 left-3 bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                                Webinar
+                            </div>
+                            <div
+                                class="absolute bottom-[-16px] right-4 bg-white shadow-md rounded-lg p-2 text-center border border-gray-100 w-16">
+                                <span class="block text-xs text-red-600 font-bold uppercase">Feb</span>
+                                <span class="block text-xl font-black text-gray-900 leading-none">09</span>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-6">
+                            <div class="mb-3">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                    Fundraising in 2026</h3>
+                                <p class="text-xs text-gray-500 mt-1 flex items-center gap-1"><i
+                                        class="ri-video-chat-line"></i> Online • Zoom</p>
+                            </div>
+                            <p class="text-sm text-gray-600 line-clamp-2 mb-4">A tactical workshop on navigating the
+                                current VC landscape with partners from Sequoia.</p>
+                            <button
+                                class="w-full py-2 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:border-gray-300 transition-all">
+                                Register Free
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden hover:translate-y-[-4px] transition-all duration-300 group">
+                        <div class="h-40 bg-green-700 relative flex items-center justify-center">
+                            <i class="ri-robot-2-line text-white/50 text-6xl"></i>
+                            <div
+                                class="absolute top-3 left-3 bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                                Conf
+                            </div>
+                            <div
+                                class="absolute bottom-[-16px] right-4 bg-white shadow-md rounded-lg p-2 text-center border border-gray-100 w-16">
+                                <span class="block text-xs text-red-600 font-bold uppercase">Mar</span>
+                                <span class="block text-xl font-black text-gray-900 leading-none">16</span>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-6">
+                            <div class="mb-3">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                    NVIDIA GTC 2026</h3>
+                                <p class="text-xs text-gray-500 mt-1 flex items-center gap-1"><i
+                                        class="ri-map-pin-line"></i> San Jose, CA</p>
+                            </div>
+                            <p class="text-sm text-gray-600 line-clamp-2 mb-4">The conference for the era of AI and the
+                                metaverse. Connect with developers and researchers.</p>
+                            <button
+                                class="w-full py-2 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:border-gray-300 transition-all">
+                                Get Tickets
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-advisors" class="tab-content hidden">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-heading font-bold text-gray-900 mb-2">Advisors</h1>
+                    <p class="text-gray-600">Connect with domain experts, legal counsel, and experienced mentors.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div
+                        class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center relative group hover:border-primary transition-colors">
+                        <span
+                            class="absolute top-4 right-4 bg-blue-50 text-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wide">Mentor</span>
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Chen&background=0D8ABC&color=fff&size=128"
+                            class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-lg" alt="Avatar">
+                        <h3 class="text-lg font-bold text-gray-900">Sarah Chen</h3>
+                        <p class="text-primary text-sm font-medium mb-1">Ex-YC Founder</p>
+                        <p class="text-xs text-gray-500 mb-4">Specializes in B2B SaaS GTM</p>
+                        <hr class="border-gray-100 my-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs text-gray-400 font-medium">Rate</span>
+                            <span class="text-sm font-bold text-gray-900">Free / 15m</span>
+                        </div>
+                        <button
+                            class="w-full py-2 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all">Book
+                            Office Hours</button>
+                    </div>
+
+                    <div
+                        class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center relative group hover:border-primary transition-colors">
+                        <span
+                            class="absolute top-4 right-4 bg-purple-50 text-purple-600 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wide">Legal</span>
+                        <img src="https://ui-avatars.com/api/?name=David+Ross&background=635BFF&color=fff&size=128"
+                            class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-lg" alt="Avatar">
+                        <h3 class="text-lg font-bold text-gray-900">David Ross</h3>
+                        <p class="text-primary text-sm font-medium mb-1">Partner, Cooley LLP</p>
+                        <p class="text-xs text-gray-500 mb-4">IP & Fundraising Contracts</p>
+                        <hr class="border-gray-100 my-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs text-gray-400 font-medium">Rate</span>
+                            <span class="text-sm font-bold text-gray-900">$300 / hr</span>
+                        </div>
+                        <button
+                            class="w-full py-2 bg-white border border-gray-200 text-gray-700 rounded-lg text-sm font-semibold hover:bg-gray-50 transition-all">Contact</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-funding" class="tab-content hidden">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-heading font-bold text-gray-900 mb-2">Funding & Grants</h1>
+                    <p class="text-gray-600">Non-dilutive grants, accelerator applications, and angel networks.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div
+                        class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-6 hover:shadow-md transition-shadow">
+                        <div
+                            class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl shrink-0">
+                            <i class="ri-government-line"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="text-lg font-bold text-gray-900">NSF SBIR Phase I</h3>
+                                <span
+                                    class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">Grant</span>
+                            </div>
+                            <p class="text-sm text-gray-600">America's Seed Fund. Focus on high-impact technology R&D.
+                            </p>
+                        </div>
+                        <div class="text-left md:text-right shrink-0">
+                            <div class="text-xl font-bold text-gray-900">$275,000</div>
+                            <div class="text-xs text-gray-500">Non-dilutive</div>
+                        </div>
+                        <button
+                            class="px-5 py-2 bg-white border border-gray-200 hover:border-primary hover:text-primary text-gray-700 font-semibold rounded-lg text-sm transition-all">
+                            Learn More
+                        </button>
+                    </div>
+
+                    <div
+                        class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-6 hover:shadow-md transition-shadow">
+                        <div
+                            class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-xl shrink-0">
+                            <i class="ri-rocket-2-line"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="text-lg font-bold text-gray-900">Y Combinator S26</h3>
+                                <span
+                                    class="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-0.5 rounded-full">Accelerator</span>
+                            </div>
+                            <p class="text-sm text-gray-600">The world's premier startup accelerator. Standard deal for
+                                7% equity.</p>
+                        </div>
+                        <div class="text-left md:text-right shrink-0">
+                            <div class="text-xl font-bold text-gray-900">$125k + $375k</div>
+                            <div class="text-xs text-gray-500">Equity Investment</div>
+                        </div>
+                        <button
+                            class="px-5 py-2 bg-primary text-white font-semibold rounded-lg text-sm hover:bg-blue-700 transition-all">
+                            Apply Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-learn" class="tab-content hidden">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-heading font-bold text-gray-900 mb-2">Learn</h1>
+                    <p class="text-gray-600">Curated playbooks, founder stories, and crash courses.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div
+                        class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden group cursor-pointer">
+                        <div class="h-48 bg-gray-100 relative">
+                            <div class="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-400">
+                                <i class="ri-book-open-page-line text-4xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-primary text-xs font-bold uppercase tracking-wide">Guide</span>
+                            <h3
+                                class="text-lg font-bold text-gray-900 mt-2 mb-2 group-hover:text-primary transition-colors">
+                                The 30-Day Pitch Deck Guide</h3>
+                            <p class="text-sm text-gray-600 line-clamp-2">A step-by-step breakdown of how to build a
+                                deck that gets you funded in 2026.</p>
+                            <div class="mt-4 flex items-center justify-between text-xs text-gray-500">
+                                <span>By Entreprenote</span>
+                                <span>12 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden group cursor-pointer">
+                        <div class="h-48 bg-gray-900 relative">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div
+                                    class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                                    <i class="ri-play-fill text-white text-2xl ml-1"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-red-500 text-xs font-bold uppercase tracking-wide">Video Course</span>
+                            <h3
+                                class="text-lg font-bold text-gray-900 mt-2 mb-2 group-hover:text-primary transition-colors">
+                                Product Market Fit 101</h3>
+                            <p class="text-sm text-gray-600 line-clamp-2">Learn how to measure retention and talk to
+                                users to find PMF.</p>
+                            <div class="mt-4 flex items-center justify-between text-xs text-gray-500">
+                                <span>YC Startup School</span>
+                                <span>4 Modules</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <footer class="bg-white border-t border-gray-200 w-full">
+        <div class="px-4 md:px-10 lg:px-20 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+
+                <!-- Center Column - Form (takes max space) -->
+                <div class="md:col-span-4">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Connect</h3>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="https://www.instagram.com/getentreprenote" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all">
+                            <i class="ri-instagram-line ri-lg"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/entreprenote" target="_blank"
+                            rel="noopener noreferrer" aria-label="LinkedIn"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all">
+                            <i class="ri-linkedin-fill ri-lg"></i>
+                        </a>
+                        <a href="https://x.com/entreprenote" target="_blank" rel="noopener noreferrer"
+                            aria-label="Twitter"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all">
+                            <i class="ri-twitter-fill ri-lg"></i>
+                        </a>
+                        <a href="https://medium.com/entreprenote" target="_blank" rel="noopener noreferrer"
+                            aria-label="Medium"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all">
+                            <i class="ri-medium-fill ri-lg"></i>
+                        </a>
+                        <!-- Reddit -->
+                        <a href="https://www.reddit.com/r/entreprenote/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Reddit"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all">
+                            <i class="ri-reddit-fill ri-lg"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Right Column -->
+                <div class="md:col-span-4">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank"
+                                class="text-[#0052D9] hover:text-primary font-bold">Notify Me</a></li>
+                        <li><a href="https://medium.com/entreprenote" target="_blank"
+                                class="text-gray-600 hover:text-primary font-bold">Blog</a></li>
+                        <li><a href="terms-service.html" class="text-gray-600 hover:text-primary">Terms of
+                                Service</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-600 hover:text-primary">Privacy
+                                Policy</a></li>
+                        <li>
+                            <a href="https://forms.gle/Pwa4waL5eCLaiwLX6" target="_blank"
+                                class="text-gray-600 hover:text-primary">Payment Resolutions</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Left Column -->
+                <div class="md:col-span-4">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Entreprenote Newsletter</h3>
+                    <iframe src="https://entreprenote.substack.com/embed"
+                        style="width:100%; min-height:320px; border:1px solid #EEE; background:white;" frameborder="0"
+                        scrolling="no"></iframe>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-600 text-sm">© 2026 Entreprenote</p>
+                    <div class="mt-4 md:mt-0 flex items-center space-x-4">
+                        <div class="flex items-center">
+                            <p class="text-gray-600 font-bold text-sm mr-2">
+                                Think. <b class="text-[#0052D9]"> Note. </b> Grow.
+                            </p>
+                            <!-- <a href="index.html" class="flex items-center gap-2">
+                                                    <svg class="h-4 w-auto" viewBox="0 0 126 46" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M0.5 11.5C0.5 7.35786 3.85786 4 8 4L34 4C38.1421 4 41.5 7.35786 41.5 11.5L41.5 37.5C41.5 41.6421 38.1421 45 34 45L0.5 45L0.5 11.5Z"
+                                                            fill="#0052D9" stroke="#0052D9" />
+                                                        <mask id="path-2-inside-1_7599_1599" fill="#0052D9">
+                                                            <path
+                                                                d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z" />
+                                                        </mask>
+                                                        <path
+                                                            d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z"
+                                                            fill="#0052D9" />
+                                                        <path
+                                                            d="M92 3.5L92 2.5L92 3.5ZM118 3.5L118 2.5L118 3.5ZM126 11.5L127 11.5L126 11.5ZM118 45.5L118 46.5L118 45.5ZM92 45.5L92 46.5L92 45.5ZM84 37.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.5039L95.6025 24.504L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014L105.002 33.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.504L114.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055L105.002 15.1055L105.002 16.1055ZM84 11.5L85 11.5C85 7.63401 88.134 4.5 92 4.5L92 3.5L92 2.5C87.0294 2.5 83 6.52944 83 11.5L84 11.5ZM92 3.5L92 4.5L118 4.5L118 3.5L118 2.5L92 2.5L92 3.5ZM118 3.5L118 4.5C121.866 4.5 125 7.63401 125 11.5L126 11.5L127 11.5C127 6.52944 122.971 2.5 118 2.5L118 3.5ZM126 11.5L125 11.5L125 37.5L126 37.5L127 37.5L127 11.5L126 11.5ZM126 37.5L125 37.5C125 41.366 121.866 44.5 118 44.5L118 45.5L118 46.5C122.971 46.5 127 42.4706 127 37.5L126 37.5ZM118 45.5L118 44.5L92 44.5L92 45.5L92 46.5L118 46.5L118 45.5ZM92 45.5L92 44.5C88.134 44.5 85 41.366 85 37.5L84 37.5L83 37.5C83 42.4706 87.0294 46.5 92 46.5L92 45.5ZM84 37.5L85 37.5L85 11.5L84 11.5L83 11.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.504C95.6028 29.6942 99.8108 33.9013 105.002 33.9014L105.002 32.9014L105.002 31.9014C100.915 31.9013 97.6027 28.5892 97.6025 24.5039L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014C110.193 33.9014 114.402 29.6943 114.402 24.504L113.402 24.5039L112.402 24.5039C112.402 28.5891 109.089 31.9014 105.002 31.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.5039C114.402 19.3134 110.193 15.1055 105.002 15.1055L105.002 16.1055L105.002 17.1055C109.089 17.1055 112.402 20.4184 112.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055C99.8106 15.1055 95.6025 19.3136 95.6025 24.5039L96.6025 24.5039L97.6025 24.5039C97.6025 20.4183 100.915 17.1055 105.002 17.1055L105.002 16.1055Z"
+                                                            fill="#0052D9" mask="url(#path-2-inside-1_7599_1599)" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M53.6667 -0.000164212C54.2855 -0.000164212 54.879 0.239525 55.3166 0.666168C55.7542 1.09281 56 1.67147 56 2.27484V4.54984H51.3333V2.27484C51.3333 1.67147 51.5792 1.09281 52.0168 0.666168C52.4543 0.239525 53.0478 -0.000164212 53.6667 -0.000164212ZM74.6667 4.54984H77C78.8565 4.54984 80.637 5.26891 81.9497 6.54883C83.2625 7.82876 84 9.56475 84 11.3748V38.6748C84 40.4849 83.2625 42.2209 81.9497 43.5008C80.637 44.7808 78.8565 45.4998 77 45.4998H49C47.1435 45.4998 45.363 44.7808 44.0503 43.5008C42.7375 42.2209 42 40.4849 42 38.6748V11.3748C42 9.56475 42.7375 7.82876 44.0503 6.54883C45.363 5.26891 47.1435 4.54984 49 4.54984H51.3333V11.3748C51.3333 11.9782 51.5792 12.5569 52.0168 12.9835C52.4543 13.4101 53.0478 13.6498 53.6667 13.6498C54.2855 13.6498 54.879 13.4101 55.3166 12.9835C55.7542 12.5569 56 11.9782 56 11.3748V4.54984H60.6667V11.3748C60.6667 11.9782 60.9125 12.5569 61.3501 12.9835C61.7877 13.4101 62.3812 13.6498 63 13.6498C63.6188 13.6498 64.2123 13.4101 64.6499 12.9835C65.0875 12.5569 65.3333 11.9782 65.3333 11.3748V4.54984H70V11.3748C70 11.9782 70.2458 12.5569 70.6834 12.9835C71.121 13.4101 71.7145 13.6498 72.3333 13.6498C72.9522 13.6498 73.5457 13.4101 73.9833 12.9835C74.4208 12.5569 74.6667 11.9782 74.6667 11.3748V4.54984ZM74.6667 4.54984H70V2.27484C70 1.67147 70.2458 1.09281 70.6834 0.666168C71.121 0.239525 71.7145 -0.000164212 72.3333 -0.000164212C72.9522 -0.000164212 73.5457 0.239525 73.9833 0.666168C74.4208 1.09281 74.6667 1.67147 74.6667 2.27484V4.54984ZM65.3333 4.54984V2.27484C65.3333 1.67147 65.0875 1.09281 64.6499 0.666168C64.2123 0.239525 63.6188 -0.000164212 63 -0.000164212C62.3812 -0.000164212 61.7877 0.239525 61.3501 0.666168C60.9125 1.09281 60.6667 1.67147 60.6667 2.27484V4.54984H65.3333Z"
+                                                            fill="#0052D9" />
+                                                    </svg>
+                                                    <h2 class="text-[#0052D9] text-lg font-bold leading-tight tracking-[-0.015em]">
+                                                        Entreprenote</h2>
+                                                </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sidebar Data Configuration
+        const sidebarData = {
+            'services': [
+                { name: 'Discounted Services', icon: 'ri-percent-line', active: true },
+                { name: 'Vetted Providers', icon: 'ri-verified-badge-line' },
+                { name: 'Legal & Accounting', icon: 'ri-scales-3-line' },
+                { name: 'Development', icon: 'ri-code-s-slash-line' },
+                { name: 'Marketing Tools', icon: 'ri-megaphone-line' }
+            ],
+            'events': [
+                { name: 'All Events', icon: 'ri-calendar-line', active: true },
+                { name: 'Conferences', icon: 'ri-building-4-line' },
+                { name: 'Accelerators', icon: 'ri-rocket-line' },
+                { name: 'Pitch / Demo Days', icon: 'ri-mic-line' },
+                { name: 'Hackathons', icon: 'ri-terminal-box-line' },
+                { name: 'Webinars', icon: 'ri-computer-line' }
+            ],
+            'advisors': [
+                { name: 'Browse All', icon: 'ri-group-line', active: true },
+                { name: 'Mentors (Free)', icon: 'ri-emotion-happy-line' },
+                { name: 'Paid Advisors', icon: 'ri-briefcase-line' },
+                { name: 'Legal Experts', icon: 'ri-government-line' },
+                { name: 'Finance', icon: 'ri-funds-line' },
+                { name: 'Product Growth', icon: 'ri-line-chart-line' }
+            ],
+            'funding': [
+                { name: 'All Opportunities', icon: 'ri-money-dollar-circle-line', active: true },
+                { name: 'Grants', icon: 'ri-gift-line' },
+                { name: 'Angel Networks', icon: 'ri-shake-hands-line' },
+                { name: 'VC Funds', icon: 'ri-briefcase-4-line' },
+                { name: 'Crowdfunding', icon: 'ri-group-2-line' }
+            ],
+            'learn': [
+                { name: 'Latest', icon: 'ri-newspaper-line', active: true },
+                { name: 'Courses', icon: 'ri-book-open-line' },
+                { name: 'Founder Stories', icon: 'ri-user-voice-line' },
+                { name: 'Fundraising 101', icon: 'ri-bank-line' },
+                { name: 'Templates', icon: 'ri-file-copy-2-line' }
+            ]
+        };
+
+        // Render Sidebar Function
+        function renderSidebar(tabKey) {
+            const container = document.getElementById('sidebar-content');
+            container.innerHTML = ''; // Clear current
+
+            const items = sidebarData[tabKey] || [];
+
+            items.forEach(item => {
+                const btn = document.createElement('button');
+                // Styling classes
+                let classes = "w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all mb-1 flex items-center gap-3 ";
+                if (item.active) {
+                    classes += "bg-blue-50 text-primary font-bold";
+                } else {
+                    classes += "text-gray-600 hover:bg-gray-50 hover:text-gray-900";
+                }
+                btn.className = classes;
+                btn.innerHTML = `<i class="${item.icon} text-lg"></i> ${item.name}`;
+                container.appendChild(btn);
+            });
+        }
+
+        // Tab Switching Logic
+        function switchTab(tabName) {
+            // 1. Update Content Views
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.remove('active');
+                // Small delay to allow display:none to apply before adding opacity class
+                setTimeout(() => el.style.display = 'none', 0);
+            });
+
+            const activeContent = document.getElementById('view-' + tabName);
+            activeContent.style.display = 'block';
+            // Force reflow
+            void activeContent.offsetWidth;
+            activeContent.classList.add('active');
+
+            // 2. Update Nav Buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if (btn.dataset.tab === tabName) {
+                    btn.classList.add('text-primary', 'bg-blue-50', 'ring-1', 'ring-blue-100');
+                    btn.classList.remove('text-gray-600');
+                } else {
+                    btn.classList.remove('text-primary', 'bg-blue-50', 'ring-1', 'ring-blue-100');
+                    btn.classList.add('text-gray-600');
+                }
+            });
+
+            // 3. Update Sidebar
+            renderSidebar(tabName);
+
+            // 4. Scroll to top of content (mobile UX)
+            if (window.innerWidth < 1024) {
+                // Optional: Scroll slightly down if on mobile
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Default to 'events' or whatever you prefer
+            switchTab('events');
+
+            // Sticky Nav Shadow Effect
+            const nav = document.getElementById('sticky-nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 80) {
+                    nav.classList.add('sticky-nav-scrolled');
+                } else {
+                    nav.classList.remove('sticky-nav-scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
