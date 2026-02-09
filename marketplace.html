@@ -98,7 +98,8 @@
         <div class="layout-container flex h-full grow flex-col">
             <!-- Header Section (From index.html) -->
             <header class="bg-white border-b border-b-[#eaedf1]">
-                <div class="flex items-center justify-between px-4 md:px-10 py-3">
+                <div
+                    class="flex flex-col items-start gap-3 px-4 md:px-10 py-3 sm:flex-row sm:items-center sm:justify-between">
                     <div class="flex items-center gap-1">
                         <a href="index.html" class="flex items-center gap-1">
                             <!-- keep your existing logo svg here -->
@@ -125,17 +126,16 @@
                         </a>
                     </div>
 
-                    <div class="flex items-center gap-2">
-
-                        <!-- 
-                        <a href="#"
-                            class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
+                    <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+                        <a href="https://trello.com/b/YfzA88B8/entreprenote-feature-requests" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex  items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
                             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                                    d="M12 4v16m8-8H4" />
                             </svg>
-                            Docs
-                        </a> -->
+                            Feature Request
+                        </a>
 
                         <a href="https://forms.gle/tNuReTGmSbRGmPKCA" target="_blank" rel="noopener noreferrer"
                             class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
@@ -146,16 +146,14 @@
                             Feedback
                         </a>
 
-                        <!-- <a href="#"
+                        <a href="https://app.entreprenote.com/" target="_blank" rel="noopener noreferrer"
                             class="group relative inline-flex items-center px-3 py-1.5 pr-3 text-xs font-semibold text-[#0052D9] rounded-full border border-[#0052D9]/20 bg-[#fff]/10 backdrop-blur-sm hover:bg-[#0052D9] hover:text-white transition-all duration-200 hover:pr-7">
                             Entreprenote App
                             <span
                                 class="absolute right-2 opacity-0 translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">
                                 ➜
                             </span>
-                        </a> -->
-
-
+                        </a>
                     </div>
                 </div>
             </header>
@@ -174,25 +172,44 @@
             <main class="marketplace-content bg-gray-50 flex-grow">
 
                 <!-- Hero Section -->
-                <section class="relative overflow-hidden p-20">
+                <section class="relative overflow-hidden p-4 flex flex-col gap-6 pt-10 pb-16 sm:pt-16 sm:pb-24">
                     <div class="bg-white rounded-2xl overflow-hidden relative max-w-[1280px] mx-auto shadow-xl"
                         style="background-color: rgba(0, 82, 217, 1);">
 
                         <!-- <div class="absolute ">
                         </div> -->
 
-                        <div class="relative z-10 py-16 px-8 text-center">
+                        <div class="relative z-10 py-10 px-5 sm:py-16 sm:px-8 text-center">
                             <img src="./images/marketplace-icon-white.svg" alt="Marketplace Icon"
                                 class="mx-auto mb-6 h-16 w-16 object-contain" />
                             <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
                                 Entreprenote Marketplace
                             </h1>
-                            <p class="text-lg text-white/90  max-w-2xl mx-auto">
+                            <p class="text-base sm:text-lg text-white/90 max-w-2xl mx-auto">
                                 Discover powerful widgets and templates to supercharge your brainstorming and planning
-                                process.
+                                process on the Entreprenote App Idea Board.
                             </p>
+                            <br />
+                            <a href="#"
+                                class="inline-flex  items-center gap-2 p-2 text-sm rounded-full font-semibold text-[#fff] bg-[#0052D9] hover:bg-[#fff]/10 border border-[#fff]">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                                </svg>
+                                Learn More
+                            </a>
+                            <br />
 
-
+                            <br />
+                            <hr />
+                            <br />
+                            <p class="text-sm text-white/60 max-w-2xl m-0">
+                                Make templates or widgets for Entreprenote Idea Canvas and earn revenue sharing!
+                            </p>
+                            <a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex w-full sm:w-auto min-w-[84px] max-w-[480px] items-center justify-center rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] hover:bg-white/10 mt-2 text-[#fff] hover:bg-[#0052D9]/90 hover:text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                                <span class="truncate">Submit Widget or Template</span>
+                            </a>
                             <!-- Search Placeholder -->
                             <!-- <div class="max-w-md mx-auto">
                                 <div class="relative">
@@ -206,17 +223,17 @@
                             </div> -->
                         </div>
                     </div>
-                    <div
-                        class="bg-white rounded-md overflow-hidden max-w-[1280px] mx-auto p-8 pt-16 flex items-center justify-between gap-6 -mt-10 shadow-md">
+                    <!-- <div
+                        class="bg-white rounded-md overflow-hidden max-w-[1280px] mx-auto p-5 pt-10 sm:p-8 sm:pt-16 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 -mt-10 shadow-md">
                         <p class="text-sm text-gray-600 max-w-2xl m-0">
                             Make templates or widgets for Entreprenote Idea Canvas and earn revenue sharing!
                         </p>
                         <a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank" rel="noopener noreferrer"
                             onclick="gtag('event','blog_click',{event_category:'cta',event_label:'Blog'});"
-                            class="inline-flex min-w-[84px] max-w-[480px] items-center justify-center rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-[#fff] hover:bg-[#0052D9]/90 hover:text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                            class="inline-flex w-full sm:w-auto min-w-[84px] max-w-[480px] items-center justify-center rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-[#fff] hover:bg-[#0052D9]/90 hover:text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
                             <span class="truncate">Submit Widget or Template</span>
                         </a>
-                    </div>
+                    </div> -->
                 </section>
 
                 <!-- Widgets Section -->
