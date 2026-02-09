@@ -155,17 +155,21 @@
         <div class="flex flex-col items-center justify-center mt-6 mb-6 gap-6">
           <!-- Div 1 -->
           <main class="layout-content-container flex flex-col w-full max-w-screen-xl flex-1">
-            <div class="@container">
+            <!-- <div class="@container">
               <div class="@[480px]:p-4">
                 <div
                   class="w-full flex min-h-[420px] md:min-h-[550px] rounded-2xl @[480px]:min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-2xl items-center justify-center p-5 md:p-6 shadow-lg"
-                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("./images/featured.jpg");'>
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%), url("./images/featured_entpn_app.png");'>
                   <div class="flex flex-col gap-2 text-center">
                     <img src="./images/logo.svg" alt="Entreprenote logo" class="mx-auto h-12 w-auto @[480px]:h-12" />
-                    <h1
-                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                      Refine Your Startup Vision
-                    </h1>
+                    <h2
+                      class="flex flex-wrap items-center justify-center gap-2 text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                      Entreprenote App
+                      <span
+                        class="inline-block ml-2 px-2 py-1 text-xs font-medium tracking-normal bg-[#fff]/40 text-[#0052D9] rounded-full border border-[#0052D9] whitespace-nowrap">
+                        Public Beta
+                      </span>
+                    </h2>
                     <h2
                       class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
                       Entreprenote helps entrepreneurs brainstorm, organize, and refine
@@ -174,6 +178,57 @@
                     </h2>
                   </div>
                   <div class="flex-wrap gap-3 flex justify-center">
+                    <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
+                      onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'Notify Me'});"
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                      <span class="truncate">Entreprenote App</span>
+                    </a>
+
+                    <a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank" rel="noopener noreferrer"
+                      onclick="gtag('event','blog_click',{event_category:'cta',event_label:'Blog'});"
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#fff] text-[#101518] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                      <span class="truncate">Signup for BETA!</span>
+                    </a>
+
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="@container">
+              <div class="@[480px]:p-4">
+                <!-- Refine Your Startup Vision -->
+                <div
+                  class="w-full flex min-h-[420px] md:min-h-[550px] rounded-t-2xl rounded-b-none @[480px]:min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 items-center justify-center p-5 md:p-6 shadow-lg"
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, #0052D9), url("./images/featured_entpn_app.png");'>
+                  <div class="w-full flex flex-col gap-4 items-center text-left lg:pl-0">
+
+                    <img src="./images/logo.svg" alt="Entreprenote logo" class="h-12 w-auto" />
+
+                    <h2
+                      class="flex flex-wrap items-center gap-2 text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">
+                      Entreprenote App
+                      <span
+                        class="inline-block px-2 py-1 text-xs font-medium tracking-normal bg-white/80 text-[#0052D9] rounded-full border border-[#0052D9] whitespace-nowrap">
+                        Public Beta
+                      </span>
+                    </h2>
+
+                    <p class="text-white text-sm font-normal text-center leading-normal @[480px]:text-base">
+                      Entreprenote helps entrepreneurs brainstorm, organize, and refine
+                      their vision <br />with AI-powered note-taking, turning uncertainty
+                      into clarity
+                    </p>
+
+                    <div class="flex flex-wrap gap-3">
+                      <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
+                        onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'go_to_entpn_app'});"
+                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#fff] hover:bg-[#fff]/90 text-[#0052D9] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base">
+                        <span class="truncate">Go to Entreprenote App ></span>
+                      </a>
+                    </div>
+                  </div>
+                  <!-- <div class="flex-wrap gap-3 flex justify-center">
                     <a href="https://www.notion.com/@entreprenote" target="_blank" rel="noopener noreferrer"
                       onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'Notify Me'});"
                       class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
@@ -186,16 +241,71 @@
                       <span class="truncate">Signup for BETA!</span>
                     </a>
 
+                  </div> -->
+                </div>
+                <!-- CTA -->
+                <div
+                  class="w-full flex flex-col gap-6 rounded-b-[12px] bg-[#0052D9] pb-6 px-6 shadow-lg lg:flex-row lg:items-center">
+                  <div class="w-full lg:w-1/2">
+                    <div class="aspect-video w-full overflow-hidden rounded-xl bg-black/20">
+                      <iframe class="h-full w-full" src="https://www.youtube.com/embed/nbi0xnHOApE?si=mirew5pIargmGYAH"
+                        title="Entreprenote Demo" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                    </div>
+                  </div>
+
+                  <div class="w-full lg:w-1/2 flex flex-col gap-4 items-start text-left lg:pl-4">
+                    <!-- <img src="./images/logo.svg" alt="Entreprenote logo" class="h-12 w-auto" /> -->
+
+                    <h2
+                      class="flex flex-wrap items-center gap-2 text-white text-lg font-black leading-tight tracking-[-0.033em] @[480px]:text-xl">
+                      <span
+                        class="inline-block px-2 py-1 text-xs font-medium tracking-normal bg-white text-red-800 rounded-full border border-[#0052D9] whitespace-nowrap">
+                        🔴 LIVE
+                      </span>
+                      Demo: Entreprenote App
+                    </h2>
+
+                    <p class="text-white text-sm font-normal leading-normal @[480px]:text-base">
+                      Learn how to use <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
+                        onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'demo_entpn_app_tl_1'});"
+                        class="underline">Entreprenote
+                        App</a> to refine your startup vision and validate ideas with this
+                      quick
+                      demo video. We'll do it in a fun brainstorming workshop style, and you'll get to see the features
+                      you'll get if you create an account on <a href="https://app.entreprenote.com" target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'demo_entpn_app_tl_2'});"
+                        class="underline">Entreprenote
+                        App</a>!
+                    </p>
+                    <span
+                      class="inline-block px-2 py-1 text-xs font-medium tracking-normal bg-white text-black-800 rounded-full border border-[#0052D9] whitespace-nowrap">
+                      Duration: 32 mins
+                    </span>
+                    <!-- 
+                    <div class="flex flex-wrap gap-3">
+                      <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
+                        onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'Notify Me'});"
+                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base">
+                        <span class="truncate">Entreprenote App</span>
+                      </a>
+                    </div> -->
                   </div>
                 </div>
               </div>
             </div>
+
           </main>
           <!-- Div 2 -->
           <section class="flex flex-col items-center justify-center w-full">
             <div class="layout-content-container flex flex-col w-full max-w-screen-xl flex-1">
               <div class="@container">
                 <div class="@[480px]:p-4">
+
+
+                  <!-- Catalyst -->
                   <div
                     class="w-full flex min-h-[420px] md:min-h-[550px] rounded-2xl @[480px]:min-h-[480px] flex-col gap-6 bg-[#0052D9] bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-2xl items-center justify-center p-5 md:p-6 shadow-lg">
                     <div class="flex flex-col gap-2 text-center">
@@ -272,6 +382,12 @@
                   aria-label="Reddit"
                   class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all">
                   <i class="ri-reddit-fill ri-lg"></i>
+                </a>
+                <!-- Youtube -->
+                <a href="https://www.youtube.com/@entreprenote" target="_blank" rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all">
+                  <i class="ri-youtube-fill ri-lg"></i>
                 </a>
               </div>
 
