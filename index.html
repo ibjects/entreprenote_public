@@ -22,11 +22,11 @@
 
   <title>Entreprenote - Refine Your Startup Vision & Validate Ideas</title>
   <link rel="canonical" href="https://entreprenote.com/" />
-  <script>
+  <!-- <script>
     if (location.pathname.endsWith("/index.html") || location.pathname.endsWith("index") || location.pathname === "/index" || location.pathname === "/admin") {
       location.replace("https://entreprenote.com/");
     }
-  </script>
+  </script> -->
 
   <link rel="icon" type="image/png" href="./images/favicon.png" />
 
@@ -126,7 +126,7 @@
     <div class="layout-container flex h-full grow flex-col">
       <!-- Header Section -->
       <header class="bg-white border-b border-b-[#eaedf1]">
-        <div class="flex flex-col items-start gap-3 px-4 md:px-10 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex flex-col items-center gap-3 px-4 md:px-10 py-3 sm:flex-row sm:items-center sm:justify-between">
           <div class="flex items-center gap-1">
             <a href="index.html" class="flex items-center gap-1">
               <!-- keep your existing logo svg here -->
@@ -153,7 +153,7 @@
             </a>
           </div>
 
-          <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+          <div class="flex flex-wrap justify-center items-center gap-2 w-full sm:w-auto sm:justify-end">
             <a href="https://trello.com/b/YfzA88B8/entreprenote-feature-requests" target="_blank"
               rel="noopener noreferrer"
               class="inline-flex  items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
@@ -172,7 +172,8 @@
               Feedback
             </a>
 
-            <a href="#" target="_blank" rel="noopener noreferrer"
+            <a href="https://entreprenote.notion.site/Entreprenote-Docs-30e1935e8c4c80c89a40deffa1dfa129"
+              target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -219,206 +220,209 @@
         </div>
       </header> -->
       <!-- Hero Section -->
-      <div class="px-4 md:px-10 lg:px-20">
-        <div class="flex flex-col items-center justify-center mt-6 mb-6 gap-6">
-          <!-- Div 1 -->
-          <main class="layout-content-container flex flex-col w-full max-w-screen-xl flex-1">
-            <!-- <div class="@container">
-              <div class="@[480px]:p-4">
-                <div
-                  class="w-full flex min-h-[420px] md:min-h-[550px] rounded-2xl @[480px]:min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-2xl items-center justify-center p-5 md:p-6 shadow-lg"
-                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%), url("./images/featured_entpn_app.png");'>
-                  <div class="flex flex-col gap-2 text-center">
-                    <img src="./images/logo.svg" alt="Entreprenote logo" class="mx-auto h-12 w-auto @[480px]:h-12" />
-                    <h2
-                      class="flex flex-wrap items-center justify-center gap-2 text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                      Entreprenote App
-                      <span
-                        class="inline-block ml-2 px-2 py-1 text-xs font-medium tracking-normal bg-[#fff]/40 text-[#0052D9] rounded-full border border-[#0052D9] whitespace-nowrap">
-                        Public Beta
-                      </span>
-                    </h2>
-                    <h2
-                      class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                      Entreprenote helps entrepreneurs brainstorm, organize, and refine
-                      their vision <br />with
-                      AI-powered note-taking, turning uncertainty into clarity
-                    </h2>
-                  </div>
-                  <div class="flex-wrap gap-3 flex justify-center">
-                    <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
-                      onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'Notify Me'});"
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                      <span class="truncate">Entreprenote App</span>
-                    </a>
+      <div class="w-full">
 
-                    <a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank" rel="noopener noreferrer"
-                      onclick="gtag('event','blog_click',{event_category:'cta',event_label:'Blog'});"
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#fff] text-[#101518] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                      <span class="truncate">Signup for BETA!</span>
-                    </a>
+        <!-- ── Part 1: Main Hero ── -->
+        <section aria-label="Entreprenote – AI-Powered Startup Idea Validation">
+          <div class="relative w-full overflow-hidden"
+            style="background: linear-gradient(135deg, #001a5c 0%, #0052D9 55%, #1a6fff 100%);">
+            <!-- Subtle grid pattern overlay -->
+            <div class="absolute inset-0 opacity-10"
+              style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 32px 32px;">
+            </div>
 
-                  </div>
-                </div>
+            <div
+              class="relative z-10 mx-auto max-w-screen-xl px-4 md:px-10 py-20 md:py-28 flex flex-col items-center text-center gap-6">
+
+              <!-- Badge -->
+              <div
+                class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold text-white/90 backdrop-blur-sm">
+                <span class="h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
+                Now in Public Beta
               </div>
-            </div> -->
 
-            <div class="@container">
-              <div class="@[480px]:p-4">
-                <!-- Refine Your Startup Vision -->
+              <!-- H1 — primary SEO/AEO keyword target -->
+              <h1 class="max-w-3xl text-4xl md:text-6xl font-black tracking-tight text-white leading-[1.1]">
+                Validate Your Startup Idea<br class="hidden md:block" />
+                <span style="color: #a8c8ff;">Before You Build Anything</span>
+              </h1>
+
+              <!-- Subheadline — answer-engine optimised, mirrors user search intent -->
+              <p class="max-w-2xl text-base md:text-xl text-white/80 leading-relaxed">
+                Entreprenote is the AI-powered workspace that asks the right questions — helping entrepreneurs clarify,
+                stress-test, and structure their ideas into actionable plans. No fluff, no guessing. Just clarity.
+              </p>
+
+              <!-- CTAs -->
+              <div class="flex flex-wrap justify-center gap-3 mt-2">
+                <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
+                  onclick="gtag('event','go_to_entpn_app',{event_category:'cta',event_label:'hero_primary_cta'});"
+                  class="group inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm md:text-base font-bold text-[#0052D9] shadow-lg hover:bg-white/90 transition-all duration-200">
+                  Entreprenote App
+                  <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                      d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+                <a href="https://www.youtube.com/watch?v=DrNaoxwbafg" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3 text-sm md:text-base font-semibold text-white backdrop-blur-sm hover:bg-white/20 transition-all duration-200">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Watch Demo
+                </a>
+              </div>
+
+              <!-- Trust signals -->
+              <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 text-xs text-white/60">
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  For founders at the idea stage
+                </span>
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  AI-guided idea due diligence
+                </span>
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Built for ideas still in your head
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Part 2: How It Works (3-step value prop) ── -->
+        <section aria-label="How Entreprenote works" class="w-full bg-white">
+          <div class="mx-auto max-w-screen-xl px-4 md:px-10 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+              <!-- Step 1 -->
+              <div class="rounded-2xl bg-gray-50 border border-gray-200 p-6 flex flex-col gap-3">
                 <div
-                  class="w-full flex min-h-[520px] md:min-h-[650px] rounded-t-2xl rounded-b-none @[480px]:min-h-[580px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 items-center justify-center p-5 md:p-6 "
-                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, #0052D9), url("./images/featured_entpn_app.png");'>
-                  <div class="w-full flex flex-col gap-4 items-center text-left lg:pl-0">
-
-                    <img src="./images/logo.svg" alt="Entreprenote logo" class="h-12 w-auto" />
-
-                    <h2
-                      class="flex flex-wrap items-center gap-2 text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">
-                      Entreprenote App
-                      <span
-                        class="inline-block px-2 py-1 text-xs font-medium tracking-normal bg-white/80 text-[#0052D9] rounded-full border border-[#0052D9] whitespace-nowrap">
-                        Public Beta
-                      </span>
-                    </h2>
-
-                    <p class="text-white text-sm font-normal text-center @[480px]:text-base">
-                      Entreprenote helps entrepreneurs brainstorm, organize, and refine
-                      their vision <br />with AI-powered note-taking, turning uncertainty
-                      into clarity
-                    </p>
-
-                    <div class="flex flex-wrap gap-3">
-                      <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event','go_to_entpn_app',{event_category:'cta',event_label:'go_to_entpn_app_main_cta'});"
-                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#fff] hover:bg-[#fff]/90 text-[#0052D9] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base">
-                        <span class="truncate">Go to Entreprenote App ></span>
-                      </a>
-                    </div>
-                  </div>
-                  <!-- <div class="flex-wrap gap-3 flex justify-center">
-                    <a href="https://www.notion.com/@entreprenote" target="_blank" rel="noopener noreferrer"
-                      onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'Notify Me'});"
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                      <span class="truncate">Explore Notion Store</span>
-                    </a>
-
-                    <a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank" rel="noopener noreferrer"
-                      onclick="gtag('event','blog_click',{event_category:'cta',event_label:'Blog'});"
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#fff] text-[#101518] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                      <span class="truncate">Signup for BETA!</span>
-                    </a>
-
-                  </div> -->
+                  class="w-10 h-10 rounded-xl bg-[#0052D9] flex items-center justify-center text-white font-black text-lg">
+                  1
                 </div>
-                <!-- CTA -->
+                <h2 class="text-gray-900 font-bold text-base">Dump Your Raw Idea</h2>
+                <p class="text-gray-500 text-sm leading-relaxed">Start with whatever you've got — a vague thought, a gap
+                  you
+                  noticed, a problem you keep running into. Entreprenote meets you where you are.</p>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="rounded-2xl bg-gray-50 border border-gray-200 p-6 flex flex-col gap-3">
                 <div
-                  class="w-full flex flex-col gap-6 rounded-b-[12px] bg-[#0052D9] pb-6 px-6 lg:flex-row lg:items-center">
-                  <div class="w-full lg:w-1/2">
-                    <div class="aspect-video w-full overflow-hidden rounded-xl bg-black/20">
-                      <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/DrNaoxwbafg?si=7SnG_4E5pqwP4TgV"
-                        title="How to use Entreprenote App to refine your startup vision and validate ideas - Demo Video"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
+                  class="w-10 h-10 rounded-xl bg-[#0052D9] flex items-center justify-center text-white font-black text-lg">
+                  2
+                </div>
+                <h2 class="text-gray-900 font-bold text-base">AI-Powered Sticky Notes</h2>
+                <p class="text-gray-500 text-sm leading-relaxed">Drop your rough thoughts into sticky notes. AI helps
+                  organize them and
+                  asks smart follow-ups to turn scattered ideas into clear direction.</p>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="rounded-2xl bg-gray-50 border border-gray-200 p-6 flex flex-col gap-3">
+                <div
+                  class="w-10 h-10 rounded-xl bg-[#0052D9] flex items-center justify-center text-white font-black text-lg">
+                  3
+                </div>
+                <h2 class="text-gray-900 font-bold text-base">Get Clarity. Move Fast.</h2>
+                <p class="text-gray-500 text-sm leading-relaxed">Walk away with a structured breakdown of your idea —
+                  what's
+                  strong, what needs work, and what to do next. Turn uncertainty into a plan of action.</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Part 3: Demo Video ── -->
+        <section id="demo-video" aria-label="Entreprenote product demo video" class="w-full bg-white">
+          <div class="mx-auto max-w-screen-xl px-4 md:px-10 pb-16">
+            <div class="rounded-2xl bg-gray-50 border border-gray-200 overflow-hidden">
+              <div class="flex flex-col lg:flex-row">
+
+                <!-- Video -->
+                <div class="w-full lg:w-3/5">
+                  <div class="aspect-video w-full bg-black">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/DrNaoxwbafg?si=7SnG_4E5pqwP4TgV"
+                      title="How to validate your startup idea with Entreprenote – Product Demo" frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                  </div>
+                </div>
+
+                <!-- Copy -->
+                <div class="w-full lg:w-2/5 flex flex-col justify-center gap-5 p-6 lg:p-10">
+                  <div
+                    class="inline-flex items-center gap-2 self-start rounded-full bg-red-50 border border-red-200 px-3 py-1 text-xs font-bold text-red-600">
+                    <span class="h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
+                    LIVE DEMO
                   </div>
 
-                  <div class="w-full lg:w-1/2 flex flex-col gap-4 items-start text-left lg:pl-4">
-                    <!-- <img src="./images/logo.svg" alt="Entreprenote logo" class="h-12 w-auto" /> -->
+                  <h2 class="text-gray-900 text-xl md:text-2xl font-black leading-snug">
+                    See How Entrepreneurs Validate Ideas using Entreprenote App!
+                  </h2>
 
-                    <h2
-                      class="flex flex-wrap items-center gap-2 text-white text-lg font-black leading-tight tracking-[-0.033em] @[480px]:text-xl">
-                      <span
-                        class="inline-block px-2 py-1 text-xs font-bold tracking-normal bg-white text-red-800 rounded-full border border-[#0052D9] whitespace-nowrap">
-                        🔴 LIVE
-                      </span>
-                      Demo: Entreprenote App
-                    </h2>
+                  <p class="text-gray-500 text-sm leading-relaxed">
+                    Watch a real brainstorming session inside <a href="https://app.entreprenote.com" target="_blank"
+                      rel="noopener noreferrer"
+                      onclick="gtag('event','go_to_entpn_app',{event_category:'cta',event_label:'demo_inline_link'});"
+                      class="text-[#0052D9] underline underline-offset-2 hover:text-[#0052D9]/80">Entreprenote App</a>.
+                    From raw
+                    idea to structured clarity — AI questions, note-taking, and a clear path forward.
+                  </p>
 
-                    <p class="text-white text-sm font-normal leading-normal @[480px]:text-base">
-                      Learn how to use <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event','go_to_entpn_app',{event_category:'cta',event_label:'demo_entpn_app_tl_1'});"
-                        class="underline">Entreprenote
-                        App</a> to refine your startup vision and validate ideas with this
-                      quick
-                      demo video. We'll do it in a fun brainstorming workshop style, and you'll get to see the features
-                      you'll get if you create an account on <a href="https://app.entreprenote.com" target="_blank"
-                        rel="noopener noreferrer"
-                        onclick="gtag('event','go_to_entpn_app',{event_category:'cta',event_label:'demo_entpn_app_tl_2'});"
-                        class="underline">Entreprenote
-                        App</a>!
-                    </p>
-                    <span
-                      class="inline-block px-2 py-1 text-xs font-medium tracking-normal bg-white text-black-800 rounded-full border border-[#0052D9] whitespace-nowrap">
-                      Duration: 12 mins
+                  <div class="flex flex-wrap gap-2 text-xs text-gray-400">
+                    <span class="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      12 min watch
                     </span>
-                    <!-- 
-                    <div class="flex flex-wrap gap-3">
-                      <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event','go_to_entpn_app',{event_category:'cta',event_label:'Notify Me'});"
-                        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base">
-                        <span class="truncate">Entreprenote App</span>
-                      </a>
-                    </div> -->
+                    <!-- <span class="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.347.346A4.002 4.002 0 0112 16a4.002 4.002 0 01-2.796-1.154l-.348-.346z" />
+                      </svg>
+                      Real startup idea walkthrough
+                    </span> -->
                   </div>
+
+                  <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
+                    onclick="gtag('event','go_to_entpn_app',{event_category:'cta',event_label:'demo_section_cta'});"
+                    class="group inline-flex items-center gap-2 self-start rounded-xl bg-[#0052D9] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#0052D9]/90 transition-all duration-200">
+                    Try It Free
+                    <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                        d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </a>
                 </div>
+
               </div>
             </div>
+          </div>
+        </section>
 
-          </main>
-          <!-- Div 2 -->
-          <section class="flex flex-col items-center justify-center w-full">
-            <div class="layout-content-container flex flex-col w-full max-w-screen-xl flex-1">
-              <div class="@container">
-                <div class="@[480px]:p-4">
-
-
-                  <!-- Catalyst -->
-                  <!-- <div
-                    class="w-full flex min-h-[420px] md:min-h-[550px] rounded-2xl @[480px]:min-h-[480px] flex-col gap-6 bg-[#0052D9] bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-2xl items-center justify-center p-5 md:p-6 shadow-lg">
-                    <div class="flex flex-col gap-2 text-center">
-
-                      <img src="./images/catalyst_icon.svg" alt="Catalyst by Entreprenote logo"
-                        class="mx-auto h-24 w-auto @[480px]:h-24" />
-                      <h2
-                        class="flex flex-wrap items-center justify-center gap-2 text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                        Catalyst
-                        <span
-                          class="inline-block ml-2 px-2 py-1 text-xs font-medium tracking-normal bg-red-100 text-red-800 rounded-full whitespace-nowrap">
-                          BETA
-                        </span>
-                      </h2>
-                      <h2
-                        class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                        Catalyst by Entreprenote is a community-driven home for real problem statements <br />and
-                        unbuilt
-                        ideas
-                        from people
-                        worldwide—dive in, get inspired, and choose what you want to build next.
-                      </h2>
-                    </div>
-                    <div class="flex-wrap gap-3 flex justify-center">
-                      <a href="https://www.notion.com/@entreprenote" target="_blank" rel="noopener noreferrer"
-                      onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'Notify Me'});"
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                      <span class="truncate">Explore Notion Store</span>
-                    </a>
-
-                      <a href="https://catalyst.entreprenote.com/" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event','blog_click',{event_category:'cta',event_label:'Blog'});"
-                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#fff] text-[#101518] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                        <span class="truncate"> Explore Catalyst</span>
-                      </a>
-
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
       </div>
       <!-- Footer Section -->
       <footer class="bg-white border-t border-gray-200 w-full">
