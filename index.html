@@ -1,6 +1,10 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CPBY4JYJVZ"></script>
   <script>
@@ -15,100 +19,211 @@
   <!-- Force HTTPS -->
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-  <link rel="alternate" type="text/markdown" href="/llms.txt" />
-  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
-    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" />
+  <!-- Performance: preconnect to third-party origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
 
-  <title>Entreprenote - Refine Your Startup Vision & Validate Ideas</title>
-  <link rel="canonical" href="https://entreprenote.com/" />
-  <!-- <script>
-    if (location.pathname.endsWith("/index.html") || location.pathname.endsWith("index") || location.pathname === "/index" || location.pathname === "/admin") {
-      location.replace("https://entreprenote.com/");
-    }
-  </script> -->
-
-  <link rel="icon" type="image/png" href="./images/favicon.png" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- ===== Primary SEO ===== -->
+  <title>Validate Your Startup Idea with AI | Entreprenote</title>
   <meta name="description"
-    content="Have an idea but not sure what to do next? Entreprenote helps you think through, structure, and validate your ideas step-by-step using AI-powered guided questions — so you can turn thoughts into action fast." />
-  <meta name="summary"
-    content="Entreprenote is an AI-powered workspace that guides entrepreneurs from idea to clarity. By answering structured questions, users transform raw thoughts into actionable plans." />
-  <meta name="robots" content="index, follow" />
+    content="Have an idea but not sure what's next? Entreprenote's AI-guided questions help you validate, structure, and turn your startup idea into an actionable plan. Free to start." />
+  <link rel="canonical" href="https://entreprenote.com/" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="author" content="Entreprenote" />
+  <meta name="application-name" content="Entreprenote" />
+  <meta name="theme-color" content="#0052D9" />
+
+  <!-- Discovery: sitemap + llms.txt for AI answer engines -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-  <!-- <meta name="keywords"
-    content="AI note taking app, entrepreneur ideas, startup brainstorming, business idea organizer, productivity for founders"> -->
-  <meta name="keywords"
-    content="Idea Validation, what to do with my idea, startup idea validation, brainstorm business ideas, AI for entrepreneurs, idea planning app, turn ideas into action, startup thinking tool, productivity for founders, entrepreneur">
+  <link rel="alternate" type="text/markdown" href="/llms.txt" />
 
-  <!-- Social Media -->
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="apple-touch-icon" href="/images/favicon.png" />
+
+  <!-- ===== Open Graph (Facebook, LinkedIn, WhatsApp, Slack…) ===== -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Entreprenote" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://entreprenote.com/" />
-  <meta property="og:title" content="Entreprenote: Think. Note. Grow." />
+  <meta property="og:title" content="Validate Your Startup Idea with AI | Entreprenote" />
   <meta property="og:description"
-    content="Entreprenote is an AI-powered note-taking app helping entrepreneurs brainstorm, organize, and refine their ideas." />
-  <meta property="og:image" content="https://entreprenote.com/images/featured.jpg" />
+    content="Entreprenote is the AI-powered workspace that asks the right questions — helping entrepreneurs clarify, stress-test, and structure their ideas into actionable plans." />
+  <meta property="og:image" content="https://entreprenote.com/images/featured@2x.jpg" />
+  <meta property="og:image:width" content="1850" />
+  <meta property="og:image:height" content="1040" />
+  <meta property="og:image:alt" content="Entreprenote — AI-powered startup idea validation workspace" />
+  <meta property="og:see_also" content="https://catalyst.entreprenote.com/" />
+  <meta property="og:see_also" content="https://www.notion.com/@entreprenote" />
 
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://entreprenote.com/" />
-  <meta property="twitter:title" content="Entreprenote: Think. Note. Grow." />
-  <meta property="twitter:description"
-    content="Entreprenote is an AI-powered note-taking app helping entrepreneurs brainstorm, organize, and refine their ideas." />
-  <meta property="twitter:image" content="https://entreprenote.com/images/featured.jpg" />
+  <!-- ===== X / Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@entreprenote" />
+  <meta name="twitter:url" content="https://entreprenote.com/" />
+  <meta name="twitter:title" content="Validate Your Startup Idea with AI | Entreprenote" />
+  <meta name="twitter:description"
+    content="Entreprenote is the AI-powered workspace that asks the right questions — helping entrepreneurs clarify, stress-test, and structure their ideas into actionable plans." />
+  <meta name="twitter:image" content="https://entreprenote.com/images/featured@2x.jpg" />
+  <meta name="twitter:image:alt" content="Entreprenote — AI-powered startup idea validation workspace" />
+
+  <!-- Fonts -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" />
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <!-- Remix Icon for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 
-  <meta property="og:see_also" content="https://catalyst.entreprenote.com/" />
-  <meta property="og:see_also" content="https://www.notion.com/@entreprenote" />
-
-  <meta name="intent"
-    content="guide entrepreneurs on what to do next with their ideas using AI questions and structured thinking" />
-
-  <!-- Schema.org -->
+  <!-- ===== Schema.org (single @graph: Organization, WebSite, WebPage, App, Video, FAQ) ===== -->
   <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Entreprenote",
-        "url": "https://entreprenote.com",
-        "logo": "https://entreprenote.com/images/logo.svg",
-        "sameAs": [
-          "https://x.com/entreprenote",
-          "https://www.instagram.com/getentreprenote",
-          "https://www.linkedin.com/company/entreprenote",
-          "https://medium.com/entreprenote"
-        ],
-        "description": "Entreprenote helps people with ideas structure and validate them before execution, turning uncertainty into clarity."
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Entreprenote",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web",
-        "offers": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
         {
-            "@type": "Offer",
-            "name": "Free Tier",
-            "price": "0",
-            "priceCurrency": "USD",
-            "description": "Includes all the features provided by Entreprenote, but no AI capabilities."
+          "@type": "Organization",
+          "@id": "https://entreprenote.com/#organization",
+          "name": "Entreprenote",
+          "url": "https://entreprenote.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://entreprenote.com/#logo",
+            "url": "https://entreprenote.com/images/logo.svg",
+            "caption": "Entreprenote logo"
           },
-          {
-            "@type": "Offer",
-            "name": "Pro Tier",
-            "price": "~9.99", 
-            "priceCurrency": "USD",
-            "description": "Full access to all AI capabilities."
-          }],
-        "description": "AI-powered guided questions to validate startup ideas. Turning uncertainty into clarity."
-      }
-    ]
+          "slogan": "Think. Note. Grow.",
+          "email": "hello@entreprenote.com",
+          "sameAs": [
+            "https://x.com/entreprenote",
+            "https://www.instagram.com/getentreprenote",
+            "https://www.linkedin.com/company/entreprenote",
+            "https://medium.com/entreprenote",
+            "https://www.reddit.com/r/entreprenote/",
+            "https://www.youtube.com/@entreprenote",
+            "https://entreprenote.substack.com/"
+          ],
+          "description": "Entreprenote helps people with ideas structure and validate them before execution, turning uncertainty into clarity."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://entreprenote.com/#website",
+          "url": "https://entreprenote.com/",
+          "name": "Entreprenote",
+          "inLanguage": "en",
+          "publisher": { "@id": "https://entreprenote.com/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://entreprenote.com/#webpage",
+          "url": "https://entreprenote.com/",
+          "name": "Validate Your Startup Idea with AI | Entreprenote",
+          "description": "Entreprenote's AI-guided questions help you validate, structure, and turn your startup idea into an actionable plan.",
+          "inLanguage": "en",
+          "isPartOf": { "@id": "https://entreprenote.com/#website" },
+          "about": { "@id": "https://entreprenote.com/#organization" },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://entreprenote.com/images/featured@2x.jpg",
+            "width": 1850,
+            "height": 1040
+          }
+        },
+        {
+          "@type": ["WebApplication", "SoftwareApplication"],
+          "@id": "https://entreprenote.com/#app",
+          "name": "Entreprenote",
+          "url": "https://app.entreprenote.com/",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "browserRequirements": "Requires JavaScript. Works in all modern browsers.",
+          "description": "AI-powered guided questions to validate startup ideas. Turning uncertainty into clarity.",
+          "image": "https://entreprenote.com/images/featured@2x.jpg",
+          "screenshot": "https://entreprenote.com/images/featured_entpn_app.png",
+          "publisher": { "@id": "https://entreprenote.com/#organization" },
+          "featureList": [
+            "AI-guided startup idea validation questions",
+            "AI-powered sticky notes for brainstorming",
+            "Structured breakdown of strengths, gaps, and next steps",
+            "Catalyst community dashboard for unbuilt ideas and real-world problems"
+          ],
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Free Tier",
+              "price": "0",
+              "priceCurrency": "USD",
+              "description": "Includes all the features provided by Entreprenote, but no AI capabilities."
+            },
+            {
+              "@type": "Offer",
+              "name": "Pro Tier",
+              "price": "9.99",
+              "priceCurrency": "USD",
+              "description": "Full access to all AI capabilities."
+            }
+          ]
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://entreprenote.com/#demo-video",
+          "name": "How to Use Entreprenote App? — Startup Idea Validation Demo",
+          "description": "Watch a real brainstorming session inside the Entreprenote App: from raw idea to structured clarity with AI questions, note-taking, and a clear path forward.",
+          "thumbnailUrl": "https://i.ytimg.com/vi/DrNaoxwbafg/maxresdefault.jpg",
+          "uploadDate": "2026-06-01",
+          "duration": "PT12M",
+          "contentUrl": "https://www.youtube.com/watch?v=DrNaoxwbafg",
+          "embedUrl": "https://www.youtube.com/embed/DrNaoxwbafg",
+          "publisher": { "@id": "https://entreprenote.com/#organization" }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://entreprenote.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Entreprenote?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Entreprenote is an AI-powered workspace for the idea stage of a startup. It asks you structured, guided questions that help you clarify, stress-test, and organize a raw idea into an actionable plan — before you spend time or money building."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I validate a startup idea with Entreprenote?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You start by dumping your raw idea into the app. AI-powered sticky notes help you organize your thoughts, and guided follow-up questions stress-test your problem statement, target audience, and assumptions. You end up with a structured breakdown of what's strong, what needs work, and what to do next."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Entreprenote free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The Free tier includes all core Entreprenote features without AI capabilities. The Pro tier (around $9.99/month) unlocks full access to all AI capabilities."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who is Entreprenote for?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Entreprenote is built for founders and entrepreneurs at the idea stage — anyone with an idea still in their head who wants clarity on what to do next, before building a product or writing a business plan."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need a business plan before using Entreprenote?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Entreprenote is designed for the step before the business plan. Bring a vague thought, a gap you noticed, or a problem you keep running into — the AI-guided questions help you turn it into structure and direction."
+              }
+            }
+          ]
+        }
+      ]
+    }
   </script>
 </head>
 
@@ -419,6 +534,67 @@
                 </div>
 
               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Part 4: FAQ (matches FAQPage schema in <head> — keep both in sync) ── -->
+        <section id="faq" aria-label="Frequently asked questions about Entreprenote" class="w-full bg-white">
+          <div class="mx-auto max-w-screen-xl px-4 md:px-10 pb-16">
+            <h2 class="text-gray-900 text-2xl md:text-3xl font-black mb-6">Frequently Asked Questions</h2>
+            <div class="grid grid-cols-1 gap-3 max-w-3xl">
+
+              <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
+                <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
+                  <h3 class="text-gray-900 font-bold text-base">What is Entreprenote?</h3>
+                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm leading-relaxed mt-3">Entreprenote is an AI-powered workspace for the
+                  idea stage of a startup. It asks you structured, guided questions that help you clarify, stress-test,
+                  and organize a raw idea into an actionable plan — before you spend time or money building.</p>
+              </details>
+
+              <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
+                <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
+                  <h3 class="text-gray-900 font-bold text-base">How do I validate a startup idea with Entreprenote?</h3>
+                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm leading-relaxed mt-3">You start by dumping your raw idea into the app.
+                  AI-powered sticky notes help you organize your thoughts, and guided follow-up questions stress-test
+                  your problem statement, target audience, and assumptions. You end up with a structured breakdown of
+                  what's strong, what needs work, and what to do next.</p>
+              </details>
+
+              <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
+                <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
+                  <h3 class="text-gray-900 font-bold text-base">Is Entreprenote free?</h3>
+                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm leading-relaxed mt-3">Yes. The Free tier includes all core Entreprenote
+                  features without AI capabilities. The Pro tier (around $9.99/month) unlocks full access to all AI
+                  capabilities.</p>
+              </details>
+
+              <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
+                <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
+                  <h3 class="text-gray-900 font-bold text-base">Who is Entreprenote for?</h3>
+                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm leading-relaxed mt-3">Entreprenote is built for founders and
+                  entrepreneurs at the idea stage — anyone with an idea still in their head who wants clarity on what
+                  to do next, before building a product or writing a business plan.</p>
+              </details>
+
+              <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
+                <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
+                  <h3 class="text-gray-900 font-bold text-base">Do I need a business plan before using Entreprenote?</h3>
+                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm leading-relaxed mt-3">No. Entreprenote is designed for the step before
+                  the business plan. Bring a vague thought, a gap you noticed, or a problem you keep running into — the
+                  AI-guided questions help you turn it into structure and direction.</p>
+              </details>
+
             </div>
           </div>
         </section>
