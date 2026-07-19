@@ -337,6 +337,110 @@
       return tags.slice(0, 3).map(tag => `<span class="flex items-center gap-1"><i class="ri-checkbox-circle-fill text-green-500"></i>${escapeHTML(tag)}</span>`).join('');
     }
 
+    const CATEGORY_MAP = {
+      Funding: 'funding', funding: 'funding',
+      Event: 'events', Events: 'events', events: 'events',
+      Advisor: 'advisors', Advisors: 'advisors', advisors: 'advisors',
+      Learning: 'learn', Learn: 'learn', learn: 'learn',
+      Tool: 'services', Service: 'services', Services: 'services', services: 'services'
+    };
+
+    function decodeHTML(value = '') {
+      const textarea = document.createElement('textarea');
+      textarea.innerHTML = String(value);
+      return textarea.value;
+    }
+
+    function toISODate(value = '') {
+      if (!value) return '';
+      const raw = String(value).trim();
+      if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw;
+      const parsed = new Date(raw.replace(/-/g, ' '));
+      return Number.isNaN(parsed.getTime()) ? '' : parsed.toISOString().slice(0, 10);
+    }
+
+    function extractDate(description = '', label = '') {
+      const pattern = new RegExp(String.raw`${label}\s*:\s*(\d{1,2}-[A-Za-z]{3,9}-\d{4}|\d{1,2}\/\d{1,2}\/\d{4}|\d{4}-\d{2}-\d{2})`, 'i');
+      const match = String(description).match(pattern);
+      return match ? toISODate(match[1]) : '';
+    }
+
+    function deriveSubcategory(item, category) {
+      const text = `${item.title || ''} ${item.description || ''}`.toLowerCase();
+
+      if (category === 'funding') {
+        if (/prize|competition|challenge|contest/.test(text)) return 'Prize / Challenge';
+        if (/angel|venture capital|\bvc\b|seed fund|investment/.test(text)) return 'Angel / VC';
+        if (/non[- ]?dilutive/.test(text)) return 'Non-dilutive';
+        return 'Grant';
+      }
+
+      if (category === 'events') {
+        if (/hackathon/.test(text)) return 'Hackathon';
+        if (/accelerator/.test(text)) return 'Accelerator';
+        if (/incubator/.test(text)) return 'Incubator';
+        if (/fellowship/.test(text)) return 'Fellowship';
+        if (/competition|challenge|contest/.test(text)) return 'Competition / Challenge';
+        if (/conference|summit|forum|expo/.test(text)) return 'Conference';
+        if (/webinar/.test(text)) return 'Webinar';
+        if (/workshop/.test(text)) return 'Workshop';
+        return 'Program';
+      }
+
+      if (category === 'advisors') {
+        if (/legal|lawyer|attorney/.test(text)) return 'Legal';
+        if (/finance|accounting|tax/.test(text)) return 'Finance';
+        if (/product|growth|marketing/.test(text)) return 'Product & Growth';
+        if (/office hours/.test(text)) return 'Office Hours';
+        return 'Mentorship';
+      }
+
+      if (category === 'services') {
+        if (/credit|discount|perk|free trial/.test(text)) return 'Founder Perk';
+        if (/agency|consulting|service/.test(text)) return 'Professional Service';
+        return 'Startup Tool';
+      }
+
+      if (/course/.test(text)) return 'Course';
+      if (/workshop/.test(text)) return 'Workshop';
+      if (/template/.test(text)) return 'Template';
+      if (/guide|playbook|handbook/.test(text)) return 'Guide';
+      return 'Learning Program';
+    }
+
+    function normalizeItem(item) {
+      if (!item || typeof item !== 'object') return null;
+      const category = CATEGORY_MAP[String(item.category || '').trim()];
+      const url = item.url || item.link || '';
+      if (!category || !url || safeURL(url) === '#') return null;
+
+      const description = decodeHTML(item.description || '');
+      const deadline = item.deadline || extractDate(description, 'Deadline') || extractDate(description, 'Closing');
+      const startDate = item.start_date || extractDate(description, 'Opening');
+
+      const actionByCategory = {
+        funding: 'View Funding',
+        events: 'View Opportunity',
+        advisors: 'Connect',
+        services: 'Explore Resource',
+        learn: 'Open Resource'
+      };
+
+      return {
+        ...item,
+        title: decodeHTML(item.title || ''),
+        description,
+        category,
+        url,
+        subcategory: item.subcategory || deriveSubcategory({ ...item, description }, category),
+        deadline,
+        start_date: startDate,
+        last_seen: item.last_seen || item.updated_at || '',
+        verified_at: item.verified_at || item.updated_at || '',
+        action: item.action || actionByCategory[category]
+      };
+    }
+
     function buildCard(item) {
       const title = escapeHTML(item.title);
       const description = escapeHTML(item.description);
@@ -446,7 +550,11 @@
     }
 
     function renderNav() {
-      $('#nav-container').innerHTML = Object.entries(CONFIG.meta).map(([key, meta]) => {
+      const availableTabs = Object.entries(CONFIG.meta).filter(([key]) =>
+        state.items.some(item => item.category === key)
+      );
+
+      $('#nav-container').innerHTML = availableTabs.map(([key, meta]) => {
         const selected = key === state.activeTab;
         const classes = selected ? 'text-primary bg-blue-50 ring-1 ring-blue-100' : 'text-gray-600 hover:bg-gray-50 hover:text-primary';
         const count = state.items.filter(item => item.category === key).length;
@@ -461,12 +569,23 @@
     }
 
     function renderSidebar() {
-      const categories = CONFIG.categories[state.activeTab] || [];
+      const meta = CONFIG.meta[state.activeTab];
+      const derivedTypes = [...new Set(
+        state.items
+          .filter(item => item.category === state.activeTab)
+          .map(item => item.subcategory)
+          .filter(Boolean)
+      )].sort((a, b) => a.localeCompare(b));
+
+      const categories = [`All ${meta ? meta.label : 'Listings'}`, ...derivedTypes];
       $('#sidebar-container').innerHTML = categories.map((category, index) => {
         const value = index === 0 ? '' : category;
         const selected = state.activeSubcategory === value;
         const classes = selected ? 'bg-blue-50 text-primary font-bold' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900';
-        return `<button data-subcategory="${escapeHTML(value)}" class="mb-1 flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-sm font-medium transition-all ${classes}"><i class="${selected ? 'ri-arrow-right-s-line text-lg' : 'ri-checkbox-blank-circle-line ml-1 text-xs opacity-50'}"></i>${escapeHTML(category)}</button>`;
+        const count = index === 0
+          ? state.items.filter(item => item.category === state.activeTab).length
+          : state.items.filter(item => item.category === state.activeTab && item.subcategory === category).length;
+        return `<button data-subcategory="${escapeHTML(value)}" class="mb-1 flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-sm font-medium transition-all ${classes}"><i class="${selected ? 'ri-arrow-right-s-line text-lg' : 'ri-checkbox-blank-circle-line ml-1 text-xs opacity-50'}"></i><span class="flex-grow">${escapeHTML(category)}</span><span class="text-[10px] opacity-60">${count}</span></button>`;
       }).join('');
 
       document.querySelectorAll('[data-subcategory]').forEach(button => button.addEventListener('click', () => {
@@ -538,7 +657,10 @@
         const payload = await response.json();
         const list = Array.isArray(payload) ? payload : payload.items;
         if (!Array.isArray(list)) throw new Error('data.json must contain an array');
-        state.items = list.filter(item => item && CONFIG.meta[item.category] && safeURL(item.url) !== '#');
+
+        state.items = list.map(normalizeItem).filter(Boolean);
+        if (!state.items.length) throw new Error('No compatible records found in data.json');
+
         if (!state.items.some(item => item.category === state.activeTab)) {
           state.activeTab = Object.keys(CONFIG.meta).find(key => state.items.some(item => item.category === key)) || 'events';
         }
