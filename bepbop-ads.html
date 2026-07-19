@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEAVES.SYS | Times Square Feed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@300;700&display=swap');
+
+        :root {
+            --ts-black: #050505;
+            --ts-neon-green: #00FF66;
+            --ts-neon-blue: #0066FF;
+            --ts-neon-pink: #FF00CC;
+        }
+
+        body {
+            background-color: var(--ts-black);
+            font-family: 'Inter', sans-serif;
+            color: white;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 102, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 204, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Fixed Ticker */
+        .ticker-wrap {
+            overflow: hidden;
+            background: #ffde00;
+            color: black;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 12px 0;
+            white-space: nowrap;
+            box-shadow: 0 5px 30px rgba(255, 222, 0, 0.4);
+            z-index: 1000;
+        }
+
+        .ticker {
+            display: inline-block;
+            animation: ticker 40s linear infinite;
+            font-size: 14px;
+            letter-spacing: 0.15em;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Responsive Masonry Grid */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+            width: 100%;
+            display: block !important;
+        }
+
+        @media (min-width: 640px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .masonry-grid {
+                column-count: 4;
+            }
+        }
+
+        .ad-card {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            background: #111;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+            display: block;
+            width: 100%;
+        }
+
+        .ad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Digital Billboard Effects */
+        .ad-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            background-size: 100% 4px, 4px 100%;
+            pointer-events: none;
+            z-index: 5;
+            opacity: 0.3;
+        }
+
+        /* Specific Ad Styles */
+        .ad-purple-intern {
+            background: #b18cf5;
+            color: black;
+        }
+
+        .ad-festival {
+            background: #f15a24;
+            color: #2e3192;
+        }
+
+        .ad-flash {
+            background: #ffffff;
+            color: black;
+        }
+
+        .ad-kite {
+            background: linear-gradient(135deg, #bd83f8 0%, #f59eaf 100%);
+            color: black;
+        }
+
+        .ad-pixelcon {
+            background: #fdfaf1;
+            color: black;
+        }
+
+        .ad-penalty {
+            background: #064e3b;
+            border: 4px solid #bef264;
+            color: white;
+        }
+
+        .glow-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        #loader {
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            width: 100%;
+            visibility: hidden;
+        }
+
+        #loader.active {
+            visibility: visible;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            background: #00FF66;
+            border-radius: 50%;
+            margin: 0 4px;
+            animation: bounce 0.6s infinite alternate;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce {
+            to {
+                transform: translateY(-10px);
+                opacity: 0.3;
+            }
+        }
+
+        .blue-tint {
+            filter: sepia(100%) hue-rotate(185deg) saturate(300%) contrast(140%);
+        }
+    </style>
+</head>
+
+<body class="pt-20">
+
+    <!-- TOP TICKER -->
+    <div class="ticker-wrap fixed top-0 w-full z-[1000]">
+        <div class="ticker">
+            NYC TIMES SQUARE LIVE FEED • BEBOP UTOPIA FUND: $2,405,100 RAISED • NEXT LUCKY DRAW IN 02:14:55 • WATCH ADS,
+            SAVE THE WORLD • ADVERTISE HERE • UPLOAD YOUR WEAVE •
+            NYC TIMES SQUARE LIVE FEED • BEBOP UTOPIA FUND: $2,405,100 RAISED • NEXT LUCKY DRAW IN 02:14:55 • WATCH ADS,
+            SAVE THE WORLD • ADVERTISE HERE • UPLOAD YOUR WEAVE •
+        </div>
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="container mx-auto px-4 py-8 max-w-[1600px]">
+        <div id="ad-grid" class="masonry-grid">
+            <!-- INJECTED ADS -->
+        </div>
+
+        <div id="loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <script>
+        const AD_TEMPLATES = [
+            {
+                type: 'intern',
+                name: 'DANIEL KIM',
+                role: 'ACCOUNTING INTERN',
+                img: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=600&auto=format&fit=crop',
+                style: 'ad-purple-intern'
+            },
+            {
+                type: 'festival',
+                title: 'RIOT CHOIR',
+                location: 'East Lawn Stage',
+                brand: 'QUINCYTOWN MUSIC FESTIVAL',
+                img: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=600&auto=format&fit=crop',
+                style: 'ad-festival'
+            },
+            {
+                type: 'flash',
+                code: 'FLASH20',
+                off: '20% OFF EVERYTHING',
+                ends: 'ENDS FRIDAY MIDNIGHT',
+                url: 'WWW.KINSTUDIO.COM',
+                style: 'ad-flash'
+            },
+            {
+                type: 'kite',
+                name: 'JULIAN LLOYD',
+                role: 'SENIOR MARKETING MANAGER',
+                brand: 'KITE',
+                img: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=600&auto=format&fit=crop',
+                style: 'ad-kite'
+            },
+            {
+                type: 'pixelcon',
+                name: 'Daniel Griffiths',
+                role: 'Speaker',
+                brand: 'PIXELCON SAN DIEGO',
+                img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop',
+                style: 'ad-pixelcon'
+            },
+            {
+                type: 'penalty',
+                title: 'PENALTY SHOOTOUT',
+                desc: 'Score 3 goals to win points!',
+                style: 'ad-penalty'
+            }
+        ];
+
+        const grid = document.getElementById('ad-grid');
+        const loader = document.getElementById('loader');
+        let loading = false;
+
+        function createAd(data) {
+            const card = document.createElement('div');
+            card.className = `ad-card overflow-hidden ${data.style}`;
+
+            let html = '';
+            if (data.type === 'intern') {
+                html = `<img src="${data.img}" class="w-full h-auto grayscale contrast-125 brightness-110"><div class="p-6"><h2 class="text-4xl font-black leading-none mb-1 tracking-tighter uppercase">${data.name}</h2><p class="text-[10px] font-bold tracking-[0.3em] uppercase opacity-60">${data.role}</p></div>`;
+            } else if (data.type === 'festival') {
+                html = `<div class="p-5 relative"><div class="absolute top-6 right-6 bg-white text-black font-black px-2 py-1 text-[9px] rounded uppercase z-10">VIP ACCESS</div><div class="aspect-square w-full overflow-hidden rounded-sm mb-5"><img src="${data.img}" class="w-full h-full object-cover"></div><h2 class="text-5xl font-black tracking-tighter uppercase leading-[0.85] mb-2">${data.title}</h2><p class="font-serif italic text-lg opacity-80 mb-6">${data.location}</p><div class="bg-indigo-900 text-white p-4 text-center"><p class="text-[8px] font-black uppercase tracking-widest leading-none">${data.brand}</p></div></div>`;
+            } else if (data.type === 'flash') {
+                html = `<div class="p-10 flex flex-col items-center text-center"><div class="w-10 h-10 bg-black rounded-full mb-10 shadow-lg"></div><p class="text-[10px] font-black uppercase tracking-[0.2em] mb-12 leading-relaxed">${data.off}<br>${data.ends}</p><p class="text-[9px] font-bold opacity-30 mb-2">USE CODE AT CHECKOUT</p><h2 class="text-7xl font-black text-blue-600 mb-12 tracking-tighter italic">${data.code}</h2><p class="text-[10px] font-black tracking-widest uppercase">SHOP NOW AT<br>${data.url}</p></div>`;
+            } else if (data.type === 'kite') {
+                html = `<div class="p-8"><div class="flex items-center gap-2 mb-8"><span class="text-black font-black italic text-sm">❖ ${data.brand}</span></div><h2 class="text-5xl font-black tracking-tighter leading-[0.8] mb-4">${data.name.split(' ').join('<br>')}</h2><p class="text-[10px] font-bold uppercase tracking-widest text-black/50">${data.role}</p></div><div class="bg-black flex items-end"><img src="${data.img}" class="w-4/5 h-auto grayscale contrast-125"><div class="w-1/5 h-full min-h-[100px] bg-neutral-900"></div></div>`;
+            } else if (data.type === 'pixelcon') {
+                html = `<div class="p-8 pt-16 bg-stone-100 relative"><h2 class="text-center text-5xl font-serif leading-[0.9] mb-10 tracking-tighter">${data.name.split(' ').join('<br>')}</h2><div class="relative mx-auto w-5/6"><img src="${data.img}" class="w-full h-auto blue-tint"></div><div class="bg-white p-5 flex justify-between items-center mt-10 border-t border-black/5"><span class="font-black text-[9px] uppercase tracking-tighter">❖ PIXELCON<br>SAN DIEGO</span><span class="font-serif italic text-sm">${data.role}</span></div></div>`;
+            } else {
+                html = `<div class="p-12 text-center flex flex-col items-center justify-center min-h-[350px]"><div class="w-16 h-16 bg-lime-400 rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-[0_0_30px_#bef264]">⚽</div><h2 class="text-4xl font-black italic text-white mb-2 tracking-tighter uppercase leading-none">PENALTY<br>SHOOTOUT</h2><p class="text-[11px] text-lime-400 font-bold tracking-[0.2em] uppercase mb-10 opacity-70">${data.desc}</p><button class="w-full bg-lime-400 text-black font-black py-4 rounded-sm text-[11px] uppercase tracking-widest hover:bg-white transition-all shadow-lg">Enter Arena</button></div>`;
+            }
+
+            card.innerHTML = html + '<div class="glow-overlay"></div>';
+            return card;
+        }
+
+        function injectAds(count) {
+            const fragment = document.createDocumentFragment();
+            for (let i = 0; i < count; i++) {
+                const random = AD_TEMPLATES[Math.floor(Math.random() * AD_TEMPLATES.length)];
+                fragment.appendChild(createAd(random));
+            }
+            grid.appendChild(fragment);
+        }
+
+        // Infinite Scroll
+        window.onscroll = () => {
+            if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 800) {
+                if (!loading) {
+                    loading = true;
+                    loader.classList.add('active');
+                    setTimeout(() => {
+                        injectAds(12);
+                        loading = false;
+                        loader.classList.remove('active');
+                    }, 500);
+                }
+            }
+        };
+
+        // Start immediately
+        document.addEventListener('DOMContentLoaded', () => {
+            injectAds(24); // Heavy initial load to ensure scrollability
+        });
+    </script>
+</body>
+
+</html>

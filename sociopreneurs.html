@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genius Connect | Entrepreneurial DNA Test</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .shape-icon {
+            transition: all 0.3s ease;
+        }
+
+        .option-card:hover .shape-icon {
+            transform: scale(1.1);
+        }
+
+        /* Custom Scrollbar for results */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dna-green': '#10b981',
+                        'dna-blue': '#3b82f6',
+                        'dna-red': '#ef4444',
+                        'dna-yellow': '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i data-lucide="dna" class="text-indigo-600 w-6 h-6"></i>
+                <span class="font-bold text-xl tracking-tight text-gray-900">Genius Connect</span>
+            </div>
+            <div class="text-sm font-medium text-gray-500">Alpha v1.0</div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex items-center justify-center p-4">
+
+        <!-- Screen 1: Welcome -->
+        <div id="welcome-screen" class="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8 text-center fade-in">
+            <div class="bg-indigo-50 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="scan-face" class="text-indigo-600 w-10 h-10"></i>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">Discover Your Entrepreneurial DNA</h1>
+            <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                Unlock your Shape, Color, and Archetype to find your perfect co-founder match.
+                Based on the 16-Type Entrepreneurial Logic.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 mb-8 text-left max-w-md mx-auto">
+                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                    <i data-lucide="shapes" class="text-indigo-500"></i>
+                    <span class="text-sm font-medium">Uncover your Structure</span>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                    <i data-lucide="palette" class="text-indigo-500"></i>
+                    <span class="text-sm font-medium">Find your Temperament</span>
+                </div>
+            </div>
+
+            <button onclick="app.startQuiz()"
+                class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-lg hover:shadow-indigo-500/30 flex items-center gap-2 mx-auto">
+                Start Analysis <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Screen 2: Quiz -->
+        <div id="quiz-screen" class="max-w-2xl w-full hidden fade-in">
+            <!-- Progress Bar -->
+            <div class="mb-6">
+                <div class="flex justify-between text-sm font-medium text-gray-500 mb-2">
+                    <span id="progress-text">Question 1/12</span>
+                    <span id="category-badge"
+                        class="text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded text-xs uppercase tracking-wide">Structure</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div id="progress-bar" class="bg-indigo-600 h-2.5 rounded-full transition-all duration-500"
+                        style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden">
+                <h2 id="question-text" class="text-2xl font-bold text-gray-900 mb-8 leading-snug">Question goes here?
+                </h2>
+
+                <div id="options-container" class="grid gap-4">
+                    <!-- Buttons injected via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 3: Loading -->
+        <div id="loading-screen" class="max-w-md w-full hidden text-center fade-in">
+            <div class="relative w-24 h-24 mx-auto mb-6">
+                <div class="absolute inset-0 border-4 border-gray-200 rounded-full"></div>
+                <div class="absolute inset-0 border-4 border-indigo-600 rounded-full border-t-transparent animate-spin">
+                </div>
+                <i data-lucide="cpu" class="absolute inset-0 m-auto text-gray-400 w-8 h-8"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Calculating your Profile...</h3>
+            <p class="text-gray-500 mt-2">Mapping shape, color, and archetypes.</p>
+        </div>
+
+        <!-- Screen 4: Results -->
+        <div id="results-screen" class="max-w-4xl w-full hidden fade-in pb-10">
+
+            <!-- Result Header -->
+            <div class="text-center mb-8">
+                <div
+                    class="inline-flex items-center justify-center p-2 bg-white rounded-full shadow-sm mb-4 border border-gray-100">
+                    <span
+                        class="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Your
+                        Archetype</span>
+                </div>
+                <h2 id="result-title" class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">The Visionary</h2>
+                <div id="result-code" class="text-xl font-mono text-indigo-600 font-bold">ENTP</div>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Main Profile Card -->
+                <div class="md:col-span-2 space-y-6">
+                    <!-- DNA Card -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                        <div id="color-header" class="h-2 bg-indigo-500"></div>
+                        <div class="p-6 md:p-8">
+                            <div class="flex items-start justify-between mb-6">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Entrepreneurial DNA</h3>
+                                    <p class="text-gray-500 text-sm">Your structural and temperamental composition.</p>
+                                </div>
+                                <div id="shape-icon-container" class="p-3 bg-gray-50 rounded-xl">
+                                    <!-- Icon injected -->
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                                <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
+                                    <div class="text-xs text-gray-500 uppercase font-bold mb-1">Your Shape</div>
+                                    <div id="result-shape" class="text-lg font-bold text-gray-800">Triangle</div>
+                                    <div id="shape-desc" class="text-xs text-gray-500 mt-1">Strategic & Changing</div>
+                                </div>
+                                <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
+                                    <div class="text-xs text-gray-500 uppercase font-bold mb-1">Your Color</div>
+                                    <div id="result-color" class="text-lg font-bold text-gray-800">Red</div>
+                                    <div id="color-desc" class="text-xs text-gray-500 mt-1">Bold & Competitive</div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-gray-900 flex items-center gap-2">
+                                        <i data-lucide="zap" class="w-4 h-4 text-yellow-500"></i> Superpowers
+                                    </h4>
+                                    <p id="result-strengths" class="text-gray-600 text-sm mt-1 leading-relaxed">Great at
+                                        pitching and pivoting.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 flex items-center gap-2">
+                                        <i data-lucide="alert-triangle" class="w-4 h-4 text-red-500"></i> Blind Spots
+                                    </h4>
+                                    <p id="result-weakness" class="text-gray-600 text-sm mt-1 leading-relaxed">Needs an
+                                        executor.</p>
+                                </div>
+                                <div class="bg-blue-50 p-4 rounded-lg mt-4 border border-blue-100">
+                                    <h4 class="font-bold text-blue-900 text-sm flex items-center gap-2 mb-1">
+                                        <i data-lucide="lightbulb" class="w-4 h-4"></i> Behavioral Logic
+                                    </h4>
+                                    <p id="result-logic" class="text-blue-800 text-sm italic">"Use your current
+                                        resources rather than waiting for capital."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Match Card -->
+                <div class="md:col-span-1">
+                    <div class="bg-slate-900 text-white rounded-2xl shadow-xl overflow-hidden h-full flex flex-col">
+                        <div class="p-6 md:p-8 flex-grow">
+                            <div class="inline-block bg-indigo-500 text-xs font-bold px-2 py-1 rounded mb-4">GENIUS
+                                CONNECT</div>
+                            <h3 class="text-xl font-bold mb-2">Ideal Co-Founder</h3>
+                            <p class="text-slate-400 text-sm mb-6">To build a scalable business, you need someone who
+                                covers your blind spots.</p>
+
+                            <div class="bg-slate-800 rounded-xl p-5 border border-slate-700 text-center">
+                                <div
+                                    class="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i id="match-icon" data-lucide="user" class="text-white w-8 h-8"></i>
+                                </div>
+                                <div id="match-title" class="text-lg font-bold text-white">The Planner</div>
+                                <div id="match-code" class="text-sm text-indigo-400 font-mono mb-2">ISTJ</div>
+                                <p id="match-reason" class="text-xs text-slate-400 leading-tight">One generates ideas;
+                                    the other ensures the wheels don't fall off.</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-800 p-4 text-center">
+                            <button onclick="location.reload()"
+                                class="text-sm text-slate-300 hover:text-white font-medium flex items-center justify-center gap-2 w-full">
+                                <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Retake Test
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- DATA & CONTENT ---
+
+        const questions = [
+            // --- SHAPE (Structure) Q1-4 ---
+            {
+                id: 1,
+                category: "Structure",
+                text: "When approaching a new project, what is your default mode?",
+                options: [
+                    { text: "Methodical planning and consistent structure.", value: "Square" },
+                    { text: "Taking control and leading with a vision.", value: "Circle" },
+                    { text: "Solving complex, shifting strategic problems.", value: "Triangle" },
+                    { text: "Bridging different ideas adaptively.", value: "Dome" }
+                ]
+            },
+            {
+                id: 2,
+                category: "Structure",
+                text: "How do you handle rapid change?",
+                options: [
+                    { text: "I resist it; I prefer stability and order.", value: "Square" },
+                    { text: "I manage it by taking charge of the direction.", value: "Circle" },
+                    { text: "I thrive on it; it's a puzzle to solve.", value: "Triangle" },
+                    { text: "I flow with it; I focus on the holistic picture.", value: "Dome" }
+                ]
+            },
+            {
+                id: 3,
+                category: "Structure",
+                text: "Which statement sounds most like you?",
+                options: [
+                    { text: "The devil is in the details.", value: "Square" },
+                    { text: "Follow me, I know the way.", value: "Circle" },
+                    { text: "Let's innovate a better way.", value: "Triangle" },
+                    { text: "Let's see how this connects to everything.", value: "Dome" }
+                ]
+            },
+            {
+                id: 4,
+                category: "Structure",
+                text: "What is your decision-making style?",
+                options: [
+                    { text: "Sensing: Focusing on concrete details.", value: "Square" }, // Assessing Sensing trait
+                    { text: "Directing: Focusing on the end goal.", value: "Circle" },
+                    { text: "Intuition: Focusing on possibilities.", value: "Triangle" }, // Assessing Intuition trait
+                    { text: "Synthesizing: Focusing on harmony.", value: "Dome" }
+                ]
+            },
+
+            // --- COLOR (Temperament) Q5-8 ---
+            {
+                id: 5,
+                category: "Temperament",
+                text: "What drives your primary business decisions?",
+                options: [
+                    { text: "Safety, ethics, and sustainability.", value: "Green" },
+                    { text: "Data, logic, and research.", value: "Blue" },
+                    { text: "Competition, ambition, and winning.", value: "Red" },
+                    { text: "Community, empathy, and social impact.", value: "Yellow" }
+                ]
+            },
+            {
+                id: 6,
+                category: "Temperament",
+                text: "How do you view risk?",
+                options: [
+                    { text: "I avoid it unless it's calculated and safe.", value: "Green" },
+                    { text: "I analyze it deeply before moving.", value: "Blue" },
+                    { text: "I embrace it if the reward is high.", value: "Red" },
+                    { text: "I take it if it helps the community.", value: "Yellow" }
+                ]
+            },
+            {
+                id: 7,
+                category: "Temperament",
+                text: "In a team setting, you are usually the one who...",
+                options: [
+                    { text: "Ensures everyone is comfortable and heard.", value: "Green" },
+                    { text: "Fact-checks and ensures accuracy.", value: "Blue" },
+                    { text: "Pushes the team to move faster and win.", value: "Red" },
+                    { text: "Builds relationships and morale.", value: "Yellow" }
+                ]
+            },
+            {
+                id: 8,
+                category: "Temperament",
+                text: "What is your biggest weakness?",
+                options: [
+                    { text: "Perfectionism or being too cautious.", value: "Green" },
+                    { text: "Analysis paralysis or emotional detachment.", value: "Blue" },
+                    { text: "Aggressiveness or taking too much risk.", value: "Red" },
+                    { text: "Overcommitting to please others.", value: "Yellow" }
+                ]
+            },
+
+            // --- ARCHETYPE (Motivation) Q9-12 ---
+            {
+                id: 9,
+                category: "Motivation",
+                text: "How do you prefer to start a venture?",
+                options: [
+                    { text: "Bird-in-Hand: Start now with what I have.", value: "Hustler" },
+                    { text: "Research First: Due diligence before action.", value: "Researcher" },
+                    { text: "Big Idea: Obsessed with the next big thing.", value: "Innovator" },
+                    { text: "Mission First: Solving a societal problem.", value: "Social" }
+                ]
+            },
+            {
+                id: 10,
+                category: "Motivation",
+                text: "Which resource do you value most?",
+                options: [
+                    { text: "Grit and Sweat Equity.", value: "Hustler" },
+                    { text: "Information and Data.", value: "Researcher" },
+                    { text: "Vision and Novelty.", value: "Innovator" },
+                    { text: "Existing Assets (I prefer buying).", value: "Buyer" }
+                ]
+            },
+            {
+                id: 11,
+                category: "Motivation",
+                text: "What is your ultimate goal?",
+                options: [
+                    { text: "Financial freedom through hard work.", value: "Hustler" },
+                    { text: "Understanding the market perfectly.", value: "Researcher" },
+                    { text: "Creating a legacy of innovation.", value: "Innovator" },
+                    { text: "Making a positive change in the world.", value: "Social" }
+                ]
+            },
+            {
+                id: 12,
+                category: "Motivation",
+                text: "Final Question: What is your logic style?",
+                options: [
+                    { text: "Effectual: I adapt my goals as I go.", value: "Hustler" },
+                    { text: "Causal: I set a goal and find the means.", value: "Researcher" }, // Also fits Buyer
+                    { text: "Visionary: I see the future and pull it here.", value: "Innovator" },
+                    { text: "Holistic: I integrate value for everyone.", value: "Social" }
+                ]
+            }
+        ];
+
+        // The 16 Profile Matrix (Shape + Color Mapping)
+        // Logic derived from prompt: Triangle=Intuitive/Strategy, Square=Sensing/Structure, Circle=Judging/Control, Dome=Feeling/Adaptive
+        // Colors: Red=Extroverted Thinking/Sensing, Blue=Introverted Thinking/Sensing, Yellow=Feeling, Green=Ethical/Sensing
+        const profiles = {
+            "Triangle-Red": {
+                name: "The Visionary",
+                code: "ENTP",
+                desc: "Innovative Entrepreneur. Great at pitching and pivoting but needs an executor.",
+                strengths: "Innovation, Adaptability, Charisma",
+                weaknesses: "Follow-through, Routine tasks",
+                logic: "Effectual: Pivot fast based on market feedback.",
+                match: { name: "The Planner", code: "ISTJ", reason: "You generate ideas; they ensure the wheels don't fall off." }
+            },
+            "Triangle-Blue": {
+                name: "The Architect",
+                code: "INTP",
+                desc: "Strategic thinker who builds complex systems in their mind.",
+                strengths: "System design, Logic, Analysis",
+                weaknesses: "Analysis paralysis, Social networking",
+                logic: "Causal: Don't let data stop your progress. Ship it.",
+                match: { name: "The Mentor", code: "ENFJ", reason: "They handle people and marketing; you perfect the product." }
+            },
+            "Triangle-Green": {
+                name: "The Artisan",
+                code: "ISFP",
+                desc: "Creative Producer. Focuses on quality and user experience over scaling.",
+                strengths: "Aesthetics, UX, Authenticity",
+                weaknesses: "Scaling operations, Long-term planning",
+                logic: "Effectual: Use your craft to build value, then systemize.",
+                match: { name: "The Executive", code: "ESTJ", reason: "You create the soul; they build the structure to scale it." }
+            },
+            "Triangle-Yellow": {
+                name: "The Campaigner",
+                code: "ENFP",
+                desc: "Energetic and enthusiastic, you see potential in everyone and everything.",
+                strengths: "Networking, Ideation, Optimism",
+                weaknesses: "Focus, Detailed execution",
+                logic: "Effectual: Leverage your network to bootstrap.",
+                match: { name: "The Specialist", code: "INTJ", reason: "They ground your vision with a concrete plan." }
+            },
+
+            "Circle-Red": {
+                name: "The Commander",
+                code: "ENTJ",
+                desc: "Scalable Startup Entrepreneur. Focused on efficiency and strategic growth.",
+                strengths: "Leadership, Scaling, Efficiency",
+                weaknesses: "Empathy, Patience with details",
+                logic: "Causal: Set the goal, then drive the team relentlessly.",
+                match: { name: "The Artisan", code: "INFP", reason: "They bring the human element you might overlook." } // Avoiding ENTJ+ENTJ
+            },
+            "Circle-Blue": {
+                name: "The Mastermind",
+                code: "INTJ",
+                desc: "Strategic and determined. You play the long game.",
+                strengths: "Long-term strategy, Efficiency",
+                weaknesses: "Social nuances, Over-analyzing",
+                logic: "Causal: Trust your plan but allow for small pivots.",
+                match: { name: "The Campaigner", code: "ENFP", reason: "They bring the energy to sell your master plan." }
+            },
+            "Circle-Green": {
+                name: "The Operator",
+                code: "ESTP",
+                desc: "Action-oriented deal-maker. You learn by doing.",
+                strengths: "Sales, Crisis management, Action",
+                weaknesses: "Long-term theory, Planning",
+                logic: "Effectual: Bird-in-hand. Sell first, build later.",
+                match: { name: "The Defender", code: "ISFJ", reason: "You drive sales; they stabilize backend fulfillment." }
+            },
+            "Circle-Yellow": {
+                name: "The Mentor",
+                code: "ENFJ",
+                desc: "Charismatic leader who inspires others to follow a vision.",
+                strengths: "Communication, Empathy, Leadership",
+                weaknesses: "Tough decisions, Conflict",
+                logic: "Holistic: Build a community, and the business will follow.",
+                match: { name: "The Architect", code: "INTP", reason: "You sell the vision; they build the tech." }
+            },
+
+            "Square-Red": {
+                name: "The Executive",
+                code: "ESTJ",
+                desc: "Traditional, organized, and gets things done.",
+                strengths: "Management, Logistics, Reliability",
+                weaknesses: "Flexibility, Innovation",
+                logic: "Causal: Standardize processes to scale.",
+                match: { name: "The Artisan", code: "ISFP", reason: "They innovate the product; you scale the business." }
+            },
+            "Square-Blue": {
+                name: "The Planner",
+                code: "ISTJ",
+                desc: "Cautious and reliable. The backbone of operations.",
+                strengths: "Due diligence, Operations, Risk Mgmt",
+                weaknesses: "Risk aversion, Rapid pivoting",
+                logic: "Causal: Trust the data, but don't fear calculated risk.",
+                match: { name: "The Visionary", code: "ENTP", reason: "They bring the big ideas; you make them real." }
+            },
+            "Square-Green": {
+                name: "The Defender",
+                code: "ISFJ",
+                desc: "Loyal and hardworking. You build steady, reliable businesses.",
+                strengths: "Customer service, Reliability, Detail",
+                weaknesses: "Undervaluing self, Change",
+                logic: "Holistic: Slow and steady wins the race.",
+                match: { name: "The Hustler", code: "ESTP", reason: "They push for growth; you ensure quality remains." }
+            },
+            "Square-Yellow": {
+                name: "The Provider",
+                code: "ESFJ",
+                desc: "People-focused and practical. You build community-based businesses.",
+                strengths: "Loyalty, Team building, Practicality",
+                weaknesses: "Criticism, Abstract strategy",
+                logic: "Holistic: Your network is your net worth.",
+                match: { name: "The Intellectual", code: "INTP", reason: "They provide the strategy; you provide the team." }
+            },
+
+            "Dome-Red": {
+                name: "The Virtuoso",
+                code: "ISTP",
+                desc: "Bold but practical experimenter. Master of tools and tactics.",
+                strengths: "Troubleshooting, Hands-on skills",
+                weaknesses: "Long-term commitment, Communication",
+                logic: "Effectual: Tinker until it works, then scale.",
+                match: { name: "The Mentor", code: "ENFJ", reason: "They manage the people; you manage the product." }
+            },
+            "Dome-Blue": {
+                name: "The Dreamer",
+                code: "INFP",
+                desc: "Idealistic and creative. You want your business to have meaning.",
+                strengths: "Values, Creativity, Passion",
+                weaknesses: "Data, Hard sales",
+                logic: "Holistic: Align profit with purpose.",
+                match: { name: "The Commander", code: "ENTJ", reason: "They provide the drive to make your dreams reality." }
+            },
+            "Dome-Green": {
+                name: "The Peacemaker",
+                code: "ISFP", // Alternate mapping for Dome/Green overlap
+                desc: "Gentle and artistic. You prefer harmony and flow.",
+                strengths: "Adaptability, aesthetics, empathy",
+                weaknesses: "Competitiveness, Conflict",
+                logic: "Holistic: Create something beautiful and true.",
+                match: { name: "The Executive", code: "ESTJ", reason: "They handle the business side; you handle the art." }
+            },
+            "Dome-Yellow": {
+                name: "The Advocate",
+                code: "INFJ",
+                desc: "Social Entrepreneur. Dedicated to long-term mission and purpose.",
+                strengths: "Vision, Integrity, Insight",
+                weaknesses: "Burnout, Perfectionism",
+                logic: "Visionary: Keep your eyes on the horizon.",
+                match: { name: "The Hustler", code: "ESTP", reason: "They act on the present; you plan for the future." }
+            }
+        };
+
+        // --- APP STATE & LOGIC ---
+
+        const app = {
+            currentStep: 0,
+            scores: {
+                Square: 0, Circle: 0, Triangle: 0, Dome: 0,
+                Red: 0, Blue: 0, Green: 0, Yellow: 0,
+                Hustler: 0, Researcher: 0, Innovator: 0, Social: 0, Buyer: 0
+            },
+
+            init: function () {
+                lucide.createIcons();
+            },
+
+            startQuiz: function () {
+                document.getElementById('welcome-screen').classList.add('hidden');
+                document.getElementById('quiz-screen').classList.remove('hidden');
+                document.getElementById('quiz-screen').classList.add('flex', 'flex-col');
+                this.renderQuestion();
+            },
+
+            renderQuestion: function () {
+                const q = questions[this.currentStep];
+
+                // Update Progress
+                const progressPct = ((this.currentStep + 1) / questions.length) * 100;
+                document.getElementById('progress-bar').style.width = `${progressPct}%`;
+                document.getElementById('progress-text').innerText = `Question ${this.currentStep + 1}/${questions.length}`;
+                document.getElementById('category-badge').innerText = q.category;
+
+                // Update Text
+                document.getElementById('question-text').innerText = q.text;
+
+                // Render Options
+                const container = document.getElementById('options-container');
+                container.innerHTML = '';
+
+                q.options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = "option-card w-full text-left p-6 rounded-xl border-2 border-transparent bg-gray-50 hover:bg-indigo-50 hover:border-indigo-500 transition-all duration-200 group flex items-center justify-between";
+                    btn.onclick = () => this.handleAnswer(opt.value);
+
+                    btn.innerHTML = `
+                        <span class="font-medium text-gray-700 group-hover:text-indigo-700 text-lg">${opt.text}</span>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-gray-300 group-hover:text-indigo-500 transition-colors"></i>
+                    `;
+                    container.appendChild(btn);
+                });
+                lucide.createIcons();
+            },
+
+            handleAnswer: function (value) {
+                // Increment score
+                if (this.scores[value] !== undefined) {
+                    this.scores[value]++;
+                } else {
+                    // Fallback for types not strictly initialized (though all should be)
+                    this.scores[value] = 1;
+                }
+
+                // Next Step
+                this.currentStep++;
+                if (this.currentStep < questions.length) {
+                    this.renderQuestion();
+                } else {
+                    this.finishQuiz();
+                }
+            },
+
+            finishQuiz: function () {
+                document.getElementById('quiz-screen').classList.add('hidden');
+                document.getElementById('loading-screen').classList.remove('hidden');
+
+                setTimeout(() => {
+                    this.calculateResults();
+                }, 1500);
+            },
+
+            calculateResults: function () {
+                // 1. Determine dominant Shape
+                const shapes = ['Square', 'Circle', 'Triangle', 'Dome'];
+                const dominantShape = shapes.reduce((a, b) => this.scores[a] >= this.scores[b] ? a : b);
+
+                // 2. Determine dominant Color
+                const colors = ['Red', 'Blue', 'Green', 'Yellow'];
+                const dominantColor = colors.reduce((a, b) => this.scores[a] >= this.scores[b] ? a : b);
+
+                // 3. Determine Motivation (for flavor text, not primary mapping in this simplified version)
+                const motivations = ['Hustler', 'Researcher', 'Innovator', 'Social', 'Buyer'];
+                const dominantMotivation = motivations.reduce((a, b) => this.scores[a] >= this.scores[b] ? a : b);
+
+                // 4. Map to Profile
+                const key = `${dominantShape}-${dominantColor}`;
+                let result = profiles[key];
+
+                // Fallback if exact match logic fails (shouldn't happen with matrix)
+                if (!result) {
+                    result = profiles["Triangle-Red"]; // Default fallback
+                }
+
+                this.renderResults(dominantShape, dominantColor, dominantMotivation, result);
+            },
+
+            renderResults: function (shape, color, motivation, profile) {
+                document.getElementById('loading-screen').classList.add('hidden');
+                document.getElementById('results-screen').classList.remove('hidden');
+
+                // Set Colors dynamically based on Result Color
+                const colorMap = {
+                    'Red': 'text-red-600', 'bg-Red': 'bg-red-500',
+                    'Blue': 'text-blue-600', 'bg-Blue': 'bg-blue-500',
+                    'Green': 'text-green-600', 'bg-Green': 'bg-green-500',
+                    'Yellow': 'text-yellow-600', 'bg-Yellow': 'bg-yellow-500',
+                };
+
+                const headerColor = document.getElementById('color-header');
+                headerColor.className = `h-2 ${colorMap['bg-' + color]}`;
+
+                // Populate Text
+                document.getElementById('result-title').innerText = profile.name;
+                document.getElementById('result-code').innerText = profile.code;
+                document.getElementById('result-code').className = `text-xl font-mono font-bold ${colorMap[color]}`;
+
+                document.getElementById('result-shape').innerText = shape;
+                document.getElementById('result-color').innerText = color;
+                document.getElementById('result-color').className = `text-lg font-bold ${colorMap[color]}`;
+
+                document.getElementById('result-strengths').innerText = profile.strengths;
+                document.getElementById('result-weakness').innerText = profile.weaknesses;
+                document.getElementById('result-logic').innerText = `"${profile.logic}"`;
+
+                // Set Shape Icon
+                const shapeContainer = document.getElementById('shape-icon-container');
+                let shapeIcon = 'box';
+                if (shape === 'Circle') shapeIcon = 'circle';
+                if (shape === 'Triangle') shapeIcon = 'triangle';
+                if (shape === 'Dome') shapeIcon = 'umbrella'; // close approx
+                shapeContainer.innerHTML = `<i data-lucide="${shapeIcon}" class="${colorMap[color]} w-8 h-8"></i>`;
+
+                // Populate Match
+                document.getElementById('match-title').innerText = profile.match.name;
+                document.getElementById('match-code').innerText = profile.match.code;
+                document.getElementById('match-reason').innerText = profile.match.reason;
+
+                lucide.createIcons();
+            }
+        };
+
+        // Initialize App
+        app.init();
+
+    </script>
+</body>
+
+</html>

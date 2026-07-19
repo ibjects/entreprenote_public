@@ -21,7 +21,7 @@ jobs:
                   python-version: "3.10"
 
             - name: Install Libraries
-              run: pip install feedparser google-generativeai
+              run: pip install feedparser google-genai
 
             - name: Run Curator Script (Inside Access Folder)
               env:
