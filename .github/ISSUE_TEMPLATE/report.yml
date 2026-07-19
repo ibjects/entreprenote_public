@@ -1,0 +1,32 @@
+name: Report a listing problem
+about: Flag an expired, duplicated, unsafe, or inaccurate listing
+labels: [content-review]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Listing or source URL
+      placeholder: Paste the link here
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: Problem
+      options:
+        - Expired or closed
+        - Inaccurate summary
+        - Duplicate
+        - Broken link
+        - Suspicious or unsafe
+        - Wrong category
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Explain what should be corrected. Do not include sensitive personal information.
+    validations:
+      required: true

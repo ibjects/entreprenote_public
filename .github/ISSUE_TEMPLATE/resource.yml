@@ -1,0 +1,68 @@
+name: Submit a resource
+about: Suggest a founder opportunity or evergreen resource for Access
+labels: [submission]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping founders discover useful opportunities. Submit only public, legitimate resources. Never include private personal data.
+  - type: input
+    id: title
+    attributes:
+      label: Resource title
+      placeholder: Example: Global Climate Startup Accelerator
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Official URL
+      placeholder: https://example.org/apply
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Funding
+        - Accelerator or incubator
+        - Event
+        - Advisor or mentorship
+        - Service or founder perk
+        - Learning
+    validations:
+      required: true
+  - type: input
+    id: organization
+    attributes:
+      label: Organizer
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Why is it useful to founders?
+      description: Keep this factual and concise.
+    validations:
+      required: true
+  - type: input
+    id: deadline
+    attributes:
+      label: Deadline or event date
+      description: Leave blank for evergreen resources.
+      placeholder: 2026-10-31
+  - type: input
+    id: location
+    attributes:
+      label: Location or online availability
+      placeholder: Global, online
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: I linked the official or primary source.
+          required: true
+        - label: I am not submitting a guaranteed-return, gambling, deceptive, or unrelated promotion.
+          required: true

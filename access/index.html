@@ -2,543 +2,562 @@
 <html lang="en">
 
 <head>
-    <!-- Google Analytics (Keep at top for accurate tracking) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CPBY4JYJVZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-CPBY4JYJVZ');
-    </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CPBY4JYJVZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CPBY4JYJVZ');
+  </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <title>Access by Entreprenote | Founder Opportunities, Funding & Resources</title>
+  <meta name="description"
+    content="An AI-curated directory of active startup programs, hackathons, accelerators, grants, advisors, tools, and founder learning resources.">
+  <meta name="keywords"
+    content="startup opportunities, startup grants, accelerators, incubators, hackathons, founder mentors, entrepreneur resources">
+  <meta name="author" content="Entreprenote">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://entreprenote.com/access/">
 
-    <!-- ========================================== -->
-    <!-- 🚀 PRIMARY SEO METADATA -->
-    <!-- ========================================== -->
-    <title>Access by Entreprenote | AI-Curated Startup Resources, Funding & Tools</title>
-    <meta name="description"
-        content="Discover top AI-curated startup resources, funding grants, founder events, advisors, and tools. Access by Entreprenote updates daily to fuel your startup growth.">
-    <meta name="keywords"
-        content="startup resources, funding for startups, founder tools, startup events, AI startup curation, entrepreneur hub, indie hacker resources, accelerator grants, Entreprenote">
-    <meta name="author" content="Entreprenote">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://entreprenote.com/access/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://entreprenote.com/access/">
+  <meta property="og:title" content="Access by Entreprenote">
+  <meta property="og:description" content="AI-curated opportunities and practical resources for founders.">
+  <meta property="og:image" content="https://entreprenote.com/images/og-access-banner.png">
 
-    <!-- ========================================== -->
-    <!-- 📱 OPEN GRAPH (For Facebook, LinkedIn, Discord sharing) -->
-    <!-- ========================================== -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://entreprenote.com/access/">
-    <meta property="og:title" content="Access by Entreprenote | Free Startup Resources & Funding">
-    <meta property="og:description"
-        content="The 100% automated, AI-curated hub for early-stage founders. Find grants, vetted tools, events, and advisors.">
-    <!-- Note: Update the URL below to an actual 1200x630 banner image you host for link previews -->
-    <meta property="og:image" content="https://entreprenote.com/images/og-access-banner.png">
-    <meta property="og:site_name" content="Entreprenote">
-    <meta property="og:locale" content="en_US">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
 
-    <!-- ========================================== -->
-    <!-- 🐦 TWITTER / X CARDS -->
-    <!-- ========================================== -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@entreprenote">
-    <meta name="twitter:creator" content="@entreprenote">
-    <meta name="twitter:title" content="Access by Entreprenote | Startup Resources & Funding">
-    <meta name="twitter:description"
-        content="The 100% automated, AI-curated hub for early-stage founders. Find grants, vetted tools, events, and advisors.">
-    <meta name="twitter:image" content="https://entreprenote.com/images/og-access-banner.png">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0052D9',
+            secondary: '#008DFF',
+            surface: '#F3F8FF'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Manrope', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
 
-    <!-- ========================================== -->
-    <!-- 🧠 JSON-LD SCHEMA MARKUP (For Google Rich Snippets) -->
-    <!-- ========================================== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Access by Entreprenote | Startup Resources",
-      "description": "An AI-curated directory of funding, tools, advisors, and events for startup founders and entrepreneurs.",
-      "url": "https://entreprenote.com/access/",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Entreprenote",
-        "url": "https://entreprenote.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://entreprenote.com/images/access-icon.svg"
-        },
-        "sameAs": [
-          "https://x.com/entreprenote",
-          "https://www.linkedin.com/company/entreprenote",
-          "https://www.instagram.com/getentreprenote"
-        ]
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F3F8FF;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .fade-in {
+      animation: fadeIn .3s ease-out forwards;
+      opacity: 0;
+      transform: translateY(5px);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
-    </script>
 
-    <!-- Preconnect to speed up font loading (Core Web Vitals SEO) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    .sticky-nav-scrolled {
+      box-shadow: 0 4px 12px rgba(15, 23, 42, .08);
+      border-bottom-color: #dbe3ef;
+    }
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0052D9',
-                        secondary: '#008DFF',
-                        surface: '#F3F8FF'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Manrope', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F3F8FF;
-        }
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Manrope', sans-serif;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.3s ease-in-out forwards;
-            opacity: 0;
-            transform: translateY(5px);
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .sticky-nav-scrolled {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid #eaedf1;
-        }
-
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
 </head>
 
-<body class="flex flex-col min-h-screen">
+<body class="flex min-h-screen flex-col text-slate-900">
+  <header class="border-b border-[#eaedf1] bg-white">
+    <div class="flex items-center justify-between px-4 py-3 md:px-10">
+      <a href="../index.html" class="flex items-center gap-1" aria-label="Back to Entreprenote homepage">
+        <img src="../images/access-icon.svg" alt="Access by Entreprenote Logo"
+          style="height: 20px; width: 20px; object-fit: contain;"
+          onerror="this.src='https://ui-avatars.com/api/?name=A&background=0052D9&color=fff'" />
+        <h2 class="text-lg font-bold tracking-[-0.015em] text-black">Access</h2>
+        <span class="rounded-full bg-orange-100 px-2 py-0.5 text-xs font-bold text-orange-500">Beta</span>
+      </a>
 
-    <!-- Header Section -->
-    <header class="bg-white border-b border-b-[#eaedf1]">
-        <div class="flex items-center justify-between px-4 md:px-10 py-3">
-            <div class="flex items-center gap-1">
-                <a href="../index.html" class="flex items-center gap-1" aria-label="Back to Entreprenote Homepage">
-                    <img src="./images/access-icon.svg" alt="Access by Entreprenote Logo"
-                        class="mx-auto h-8 w-8 object-contain"
-                        onerror="this.src='https://ui-avatars.com/api/?name=A&background=0052D9&color=fff'" />
-                    <h2 class="text-[#000] text-lg font-bold leading-tight tracking-[-0.015em]">Access</h2>
-                    <span class="bg-orange-100 text-orange-500 text-xs font-bold px-2 py-0.5 rounded-full">Beta</span>
-                </a>
-            </div>
-
-            <div class="flex items-center gap-2">
-                <a href="#"
-                    class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent"
-                    aria-label="View Documentation">
-                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-                    </svg>
-                    Docs
-                </a>
-                <a href="https://forms.gle/tNuReTGmSbRGmPKCA" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent"
-                    aria-label="Provide Feedback">
-                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                    </svg>
-                    Feedback
-                </a>
-                <a href="https://app.entreprenote.com" target="_blank"
-                    class="group relative inline-flex items-center px-3 py-1.5 pr-3 text-xs font-semibold text-[#0052D9] rounded-full border border-[#000]/40 bg-[#fff]/10 backdrop-blur-sm hover:bg-[#0052D9] hover:text-white transition-all duration-200 hover:pr-7">
-                    Entreprenote App
-                    <span
-                        class="absolute right-2 opacity-0 translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">➜</span>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Sticky Top Navigation Filters -->
-    <nav id="sticky-nav" aria-label="Resource Categories"
-        class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-all duration-200">
-        <div class="max-w-[1400px] mx-auto px-4 md:px-10">
-            <div class="flex items-center gap-1 overflow-x-auto hide-scrollbar py-2" id="nav-container">
-                <!-- Loaded dynamically via JS -->
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Dynamic Content Context Wrapper -->
-    <div
-        class="flex-grow max-w-[1400px] mx-auto w-full px-4 md:px-10 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
-        <!-- Left Sidebar Filter Layout Component -->
-        <aside class="hidden lg:block lg:col-span-3 sticky top-[140px] transition-all">
-            <nav aria-label="Sidebar Sub-categories"
-                class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                <div class="p-3" id="sidebar-container">
-                    <!-- Loaded dynamically via JS -->
-                </div>
-            </nav>
-
-            <div
-                class="mt-6 bg-gradient-to-br from-primary to-blue-600 rounded-xl p-6 text-white text-center shadow-lg">
-                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm"
-                    aria-hidden="true">
-                    <i class="ri-add-line text-2xl"></i>
-                </div>
-                <h4 class="font-bold text-lg mb-2">Have a Resource?</h4>
-                <p class="text-blue-100 text-sm mb-4">Submit your event, service, or grant to Entreprenote Access.</p>
-                <a href="https://forms.gle/tNuReTGmSbRGmPKCA" target="_blank"
-                    class="block w-full py-2 bg-white text-primary text-center font-bold rounded-lg text-sm hover:bg-blue-50 transition-colors">
-                    Submit Listing
-                </a>
-            </div>
-        </aside>
-
-        <!-- Main Display Feed Section -->
-        <main class="col-span-1 lg:col-span-9" aria-live="polite">
-            <div class="mb-8" id="section-header">
-                <!-- Managed via JS -->
-            </div>
-
-            <div id="content-grid" class="grid gap-6">
-                <p style="text-align:center; grid-column: 1/-1; color: #94a3b8;">Curating latest startup resources via
-                    LLM Engine...</p>
-            </div>
-        </main>
+      <div class="flex items-center gap-2">
+        <a href="https://forms.gle/tNuReTGmSbRGmPKCA" target="_blank" rel="noopener noreferrer"
+          class="hidden items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-primary hover:bg-blue-50 sm:inline-flex">
+          <i class="ri-chat-1-line"></i> Feedback
+        </a>
+        <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
+          class="group relative inline-flex items-center rounded-full border border-black/40 px-3 py-1.5 pr-3 text-xs font-semibold text-primary transition-all hover:bg-primary hover:pr-7 hover:text-white">
+          Entreprenote App
+          <span
+            class="absolute right-2 translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100">➜</span>
+        </a>
+      </div>
     </div>
+  </header>
 
-    <!-- Footer Section -->
-    <footer class="bg-white border-t border-gray-200 w-full">
-        <div class="px-4 md:px-10 lg:px-20 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                <div class="md:col-span-4">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Connect</h3>
-                    <div class="mt-6 flex space-x-4">
-                        <a href="https://www.instagram.com/getentreprenote" target="_blank" rel="noopener noreferrer"
-                            aria-label="Follow us on Instagram"
-                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all"><i
-                                class="ri-instagram-line ri-lg"></i></a>
-                        <a href="https://www.linkedin.com/company/entreprenote" target="_blank"
-                            rel="noopener noreferrer" aria-label="Connect with us on LinkedIn"
-                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all"><i
-                                class="ri-linkedin-fill ri-lg"></i></a>
-                        <a href="https://x.com/entreprenote" target="_blank" rel="noopener noreferrer"
-                            aria-label="Follow us on X (Twitter)"
-                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all"><i
-                                class="ri-twitter-fill ri-lg"></i></a>
-                        <a href="https://medium.com/entreprenote" target="_blank" rel="noopener noreferrer"
-                            aria-label="Read our articles on Medium"
-                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all"><i
-                                class="ri-medium-fill ri-lg"></i></a>
-                        <a href="https://www.reddit.com/r/entreprenote/" target="_blank" rel="noopener noreferrer"
-                            aria-label="Join our Reddit community"
-                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all"><i
-                                class="ri-reddit-fill ri-lg"></i></a>
-                    </div>
-                </div>
-
-                <div class="md:col-span-4">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
-                    <ul class="space-y-3">
-                        <li><a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank"
-                                class="text-[#0052D9] hover:text-primary font-bold">Notify Me</a></li>
-                        <li><a href="https://medium.com/entreprenote" target="_blank"
-                                class="text-gray-600 hover:text-primary font-bold">Blog</a></li>
-                        <li><a href="privacy-policy.html" class="text-gray-600 hover:text-primary">Privacy Policy</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="md:col-span-4">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Entreprenote Newsletter</h3>
-                    <iframe src="https://entreprenote.substack.com/embed"
-                        style="width:100%; min-height:220px; border:1px solid #EEE; background:white;" frameborder="0"
-                        scrolling="no" title="Subscribe to Entreprenote Newsletter"></iframe>
-                </div>
-            </div>
-            <div class="mt-12 pt-8 border-t border-gray-200">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-600 text-sm">© 2026 Entreprenote</p>
-                    <p class="text-gray-600 font-bold text-sm mr-2">Think. <b class="text-[#0052D9]"> Note. </b> Grow.
-                    </p>
-                </div>
-            </div>
+  <section class="border-b border-blue-100 bg-white">
+    <div class="mx-auto max-w-[1400px] px-4 py-8 md:px-10 md:py-11">
+      <div class="max-w-3xl">
+        <div
+          class="mb-3 inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+          <span class="h-2 w-2 animate-pulse rounded-full bg-green-500"></span>
+          AI-curated and refreshed automatically
         </div>
-    </footer>
+        <h1 class="text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">The founder opportunity layer.
+        </h1>
+        <p class="mt-4 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">Discover active accelerators, grants,
+          challenges, hackathons, advisors, startup services, and practical learning resources—without digging through
+          startup news.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Async Dynamic Data Runtime Controller -->
-    <script>
-        const appConfiguration = {
-            meta: {
-                All: { label: 'All Resources', icon: 'ri-apps-2-line', title: 'All Discovered Updates', desc: 'Real-time pipeline monitoring tools, events, capital, and founder workflows.' },
-                Tool: { label: 'Tools & Services', icon: 'ri-briefcase-4-line', title: 'Services & Startup Stacks', desc: 'Vetted tools, AI frameworks, and platforms parsed for fast optimization.' },
-                Event: { label: 'Events & Programs', icon: 'ri-calendar-event-line', title: 'Ecosystem Gatherings', desc: 'Accelerators, demo matches, hackathons, and local networking assemblies.' },
-                Advisor: { label: 'Advisors & Legal', icon: 'ri-user-star-line', title: 'Mentorship Pools', desc: 'Domain technicians, strategic consulting agents, and business panels.' },
-                Funding: { label: 'Funding & Grants', icon: 'ri-money-dollar-circle-line', title: 'Available Capital Lines', desc: 'Non-dilutive allocations, grants, angel portals, and strategic venture groups.' },
-                Learning: { label: 'Learning Assets', icon: 'ri-graduation-cap-line', title: 'Education & Frameworks', desc: 'Operational playbooks, strategic execution models, and masterclasses.' }
-            },
-            sidebarCategories: {
-                All: ['Trending Content', 'Latest Processing Runs'],
-                Tool: ['Software Utilities', 'AI Implementations', 'Developer Frameworks'],
-                Event: ['Global Schedules', 'Founder Bootcamps', 'Conferences'],
-                Advisor: ['Expert Systems', 'Legal Vetting', 'Growth Consultancies'],
-                Funding: ['Active Programs', 'Grants Matrix', 'Angel Channels'],
-                Learning: ['Guides', 'Playbooks', 'Founders Roadmap']
-            }
-        };
+  <nav id="sticky-nav" class="sticky top-0 z-40 border-b border-gray-200 bg-white/95 backdrop-blur-sm transition-all"
+    aria-label="Resource categories">
+    <div class="mx-auto max-w-[1400px] px-4 md:px-10">
+      <div id="nav-container" class="hide-scrollbar flex items-center gap-1 overflow-x-auto py-2"></div>
+    </div>
+  </nav>
 
-        // UI Premium Template Renderer Matching the exact card styles
-        function buildPremiumCard(category, item) {
-            const cleanUrl = item.link || '#';
-            const safeTitle = item.title.replace(/"/g, '&quot;');
+  <div
+    class="mx-auto grid w-full max-w-[1400px] flex-grow grid-cols-1 items-start gap-8 px-4 py-8 md:px-10 lg:grid-cols-12">
+    <aside class="hidden lg:sticky lg:top-[88px] lg:col-span-3 lg:block">
+      <nav class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm" aria-label="Subcategories">
+        <div class="border-b border-gray-100 px-5 py-4">
+          <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Filter</p>
+          <p class="mt-1 text-sm font-semibold text-slate-800">Opportunity type</p>
+        </div>
+        <div id="sidebar-container" class="p-3"></div>
+      </nav>
 
-            if (category === 'Tool') {
-                return `
-                <article class="fade-in bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all flex items-start gap-4 group">
-                    <div class="w-16 h-16 shrink-0 bg-[#635BFF]/10 rounded-lg flex items-center justify-center" aria-hidden="true">
-                        <i class="ri-code-line text-3xl text-[#635BFF]"></i>
+      <div class="mt-6 rounded-xl bg-gradient-to-br from-primary to-blue-600 p-6 text-center text-white shadow-lg">
+        <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+          <i class="ri-add-line text-2xl"></i>
+        </div>
+        <h4 class="mb-2 text-lg font-bold">Have a resource?</h4>
+        <p class="mb-4 text-sm text-blue-100">Submit a founder program, event, grant, mentor, or useful service.</p>
+        <a href="https://forms.gle/tNuReTGmSbRGmPKCA" target="_blank" rel="noopener noreferrer"
+          class="block w-full rounded-lg bg-white py-2 text-center text-sm font-bold text-primary transition-colors hover:bg-blue-50">Submit
+          Listing</a>
+      </div>
+
+      <div class="mt-4 rounded-xl border border-blue-100 bg-blue-50 p-4 text-xs leading-5 text-slate-600">
+        <strong class="text-slate-800">Verify before applying.</strong> Access links to third-party websites. Deadlines
+        and terms can change after publication.
+      </div>
+    </aside>
+
+    <main class="col-span-1 lg:col-span-9" aria-live="polite">
+      <div
+        class="mb-6 flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-4 shadow-sm sm:flex-row sm:items-center">
+        <label class="relative flex-grow">
+          <span class="sr-only">Search resources</span>
+          <i class="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input id="search-input" type="search" placeholder="Search title, organizer, location, or tag..."
+            class="w-full rounded-lg border-gray-200 py-2.5 pl-10 pr-4 text-sm focus:border-primary focus:ring-primary">
+        </label>
+        <select id="sort-select" class="rounded-lg border-gray-200 text-sm focus:border-primary focus:ring-primary">
+          <option value="recommended">Recommended</option>
+          <option value="deadline">Deadline soon</option>
+          <option value="newest">Recently discovered</option>
+        </select>
+      </div>
+
+      <div id="section-header" class="mb-8"></div>
+      <div id="content-grid" class="grid gap-6">
+        <div class="col-span-full rounded-xl border border-gray-200 bg-white p-12 text-center text-slate-500">
+          <i class="ri-loader-4-line mb-3 inline-block animate-spin text-3xl text-primary"></i>
+          <p>Loading curated founder opportunities...</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="w-full border-t border-gray-200 bg-white">
+    <div class="px-4 py-12 md:px-10 lg:px-20">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-12">
+        <div class="md:col-span-4">
+          <h3 class="mb-4 text-lg font-semibold text-gray-900">Connect</h3>
+          <div class="mt-6 flex space-x-4">
+            <a href="https://www.instagram.com/getentreprenote" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram"
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all hover:text-primary"><i
+                class="ri-instagram-line ri-lg"></i></a>
+            <a href="https://www.linkedin.com/company/entreprenote" target="_blank" rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all hover:text-primary"><i
+                class="ri-linkedin-fill ri-lg"></i></a>
+            <a href="https://x.com/entreprenote" target="_blank" rel="noopener noreferrer" aria-label="X"
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all hover:text-primary"><i
+                class="ri-twitter-x-line ri-lg"></i></a>
+            <a href="https://medium.com/entreprenote" target="_blank" rel="noopener noreferrer" aria-label="Medium"
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all hover:text-primary"><i
+                class="ri-medium-fill ri-lg"></i></a>
+            <a href="https://www.reddit.com/r/entreprenote/" target="_blank" rel="noopener noreferrer"
+              aria-label="Reddit"
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all hover:text-primary"><i
+                class="ri-reddit-fill ri-lg"></i></a>
+          </div>
+        </div>
+
+        <div class="md:col-span-4">
+          <h3 class="mb-4 text-lg font-semibold text-gray-900">Quick Links</h3>
+          <ul class="space-y-3 text-sm">
+            <li><a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank" rel="noopener noreferrer"
+                class="font-bold text-primary">Notify Me</a></li>
+            <li><a href="https://medium.com/entreprenote" target="_blank" rel="noopener noreferrer"
+                class="font-bold text-gray-600 hover:text-primary">Blog</a></li>
+            <li><a href="privacy-policy.html" class="text-gray-600 hover:text-primary">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4">
+          <h3 class="mb-4 text-lg font-semibold text-gray-900">Entreprenote Newsletter</h3>
+          <iframe src="https://entreprenote.substack.com/embed"
+            style="width:100%; min-height:220px; border:1px solid #EEE; background:white;" frameborder="0"
+            scrolling="no" title="Subscribe to Entreprenote Newsletter"></iframe>
+        </div>
+      </div>
+      <div class="mt-12 border-t border-gray-200 pt-8">
+        <div class="flex flex-col items-center justify-between md:flex-row">
+          <p class="text-sm text-gray-600">© 2026 Entreprenote</p>
+          <p class="mr-2 text-sm font-bold text-gray-600">Think. <b class="text-primary">Note.</b> Grow.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const CONFIG = {
+      meta: {
+        services: { label: 'Services', icon: 'ri-briefcase-4-line', title: 'Services & Tools', desc: 'Founder perks, startup platforms, credits, and professional services that help you build faster.' },
+        events: { label: 'Events & Programs', icon: 'ri-calendar-event-line', title: 'Events, Challenges & Programs', desc: 'Active hackathons, accelerators, incubators, competitions, fellowships, and founder events.' },
+        advisors: { label: 'Advisors', icon: 'ri-user-star-line', title: 'Advisors & Mentorship', desc: 'Mentorship programs, office hours, legal support, and specialist advice for founders.' },
+        funding: { label: 'Funding & Grants', icon: 'ri-money-dollar-circle-line', title: 'Funding & Grants', desc: 'Open grants, non-dilutive funding, prize competitions, and startup investment channels.' },
+        learn: { label: 'Learn', icon: 'ri-graduation-cap-line', title: 'Founder Learning', desc: 'Practical courses, workshops, guides, templates, and founder education resources.' }
+      },
+      categories: {
+        services: ['All Services', 'Founder Resource', 'Startup Tool', 'Professional Service', 'Founder Perk'],
+        events: ['All Events & Programs', 'Hackathon', 'Competition / Challenge', 'Accelerator', 'Incubator', 'Conference', 'Webinar', 'Fellowship'],
+        advisors: ['All Advisors', 'Mentorship', 'Office Hours', 'Legal', 'Finance', 'Product & Growth'],
+        funding: ['All Funding', 'Grant / Prize', 'Grant', 'Prize', 'Non-dilutive', 'Angel / VC'],
+        learn: ['All Learning', 'Learning Program', 'Course', 'Workshop', 'Guide', 'Template']
+      }
+    };
+
+    const state = {
+      items: [],
+      activeTab: 'events',
+      activeSubcategory: '',
+      query: '',
+      sort: 'recommended'
+    };
+
+    const $ = (selector) => document.querySelector(selector);
+
+    function escapeHTML(value = '') {
+      return String(value).replace(/[&<>'"]/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+      })[char]);
+    }
+
+    function safeURL(value = '') {
+      try {
+        const url = new URL(value, window.location.href);
+        return ['http:', 'https:'].includes(url.protocol) ? url.href : '#';
+      } catch { return '#'; }
+    }
+
+    function formatDate(value, fallback = '') {
+      if (!value) return fallback;
+      const parsed = new Date(`${value}T00:00:00`);
+      if (Number.isNaN(parsed.getTime())) return fallback;
+      return new Intl.DateTimeFormat('en', { month: 'short', day: '2-digit', year: 'numeric' }).format(parsed);
+    }
+
+    function dateParts(value) {
+      if (!value) return { month: 'OPEN', day: 'NOW' };
+      const parsed = new Date(`${value}T00:00:00`);
+      if (Number.isNaN(parsed.getTime())) return { month: 'OPEN', day: 'NOW' };
+      return {
+        month: parsed.toLocaleDateString('en', { month: 'short' }).toUpperCase(),
+        day: String(parsed.getDate()).padStart(2, '0')
+      };
+    }
+
+    function sourceInitials(value = '') {
+      return value.split(/\s+/).filter(Boolean).slice(0, 2).map(word => word[0]).join('').toUpperCase() || 'A';
+    }
+
+    function itemTags(item) {
+      const tags = Array.isArray(item.tags) ? item.tags : [];
+      return tags.slice(0, 3).map(tag => `<span class="flex items-center gap-1"><i class="ri-checkbox-circle-fill text-green-500"></i>${escapeHTML(tag)}</span>`).join('');
+    }
+
+    function buildCard(item) {
+      const title = escapeHTML(item.title);
+      const description = escapeHTML(item.description);
+      const url = safeURL(item.url);
+      const source = escapeHTML(item.organizer || item.source || 'Verified source');
+      const subcategory = escapeHTML(item.subcategory || 'Opportunity');
+      const action = escapeHTML(item.action || 'View Opportunity');
+      const deadlineText = item.deadline ? `Deadline ${formatDate(item.deadline)}` : 'Open / rolling';
+
+      if (item.category === 'services') {
+        return `
+                <article class="fade-in group flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:shadow-md">
+                    <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-[#635BFF]/10" aria-hidden="true">
+                        <i class="ri-tools-line text-3xl text-[#635BFF]"></i>
                     </div>
-                    <div class="flex-grow">
-                        <div class="flex justify-between items-start gap-2">
-                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-primary transition-colors">${item.title}</h3>
-                            <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded shrink-0">Vetted</span>
+                    <div class="min-w-0 flex-grow">
+                        <div class="flex items-start justify-between gap-2">
+                            <h3 class="text-lg font-bold text-gray-900 transition-colors group-hover:text-primary">${title}</h3>
+                            <span class="shrink-0 rounded bg-green-100 px-2 py-1 text-xs font-bold text-green-700">${escapeHTML(item.cost || subcategory)}</span>
                         </div>
-                        <p class="text-sm text-gray-600 mt-1 line-clamp-2">${item.description}</p>
-                        <div class="mt-3 flex items-center gap-2 text-xs text-gray-500 font-medium">
-                            <span class="flex items-center gap-1"><i class="ri-checkbox-circle-fill text-green-500"></i> Active Launch</span>
+                        <p class="mt-1 line-clamp-3 text-sm text-gray-600">${description}</p>
+                        <div class="mt-3 flex flex-wrap items-center gap-3 text-xs font-medium text-gray-500">${itemTags(item)}</div>
+                        <div class="mt-4 flex items-center justify-between gap-3 border-t border-gray-100 pt-3">
+                            <span class="truncate text-xs text-gray-400">${source}</span>
+                            <a href="${url}" target="_blank" rel="noopener noreferrer" class="shrink-0 text-sm font-semibold text-primary hover:underline">${action} →</a>
                         </div>
-                        <a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-sm text-primary font-semibold hover:underline" aria-label="Explore Tool: ${safeTitle}">Explore Tool →</a>
                     </div>
                 </article>`;
-            }
+      }
 
-            if (category === 'Event') {
-                return `
-                <article class="fade-in bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden hover:translate-y-[-4px] transition-all duration-300 group">
-                    <div class="h-40 bg-gradient-to-r from-blue-900 to-indigo-900 relative flex items-center justify-center" aria-hidden="true">
-                        <i class="ri-global-line text-white/20 text-6xl"></i>
-                        <div class="absolute top-3 left-3 bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
-                            ${item.category}
-                        </div>
-                        <div class="absolute bottom-[-16px] right-4 bg-white shadow-md rounded-lg p-2 text-center border border-gray-100 w-16">
-                            <span class="block text-xs text-red-600 font-bold uppercase">LIVE</span>
-                            <span class="block text-lg font-black text-gray-900 leading-none">2026</span>
+      if (item.category === 'events') {
+        const date = dateParts(item.deadline || item.start_date);
+        const location = escapeHTML(item.location || (item.online ? 'Online' : 'See official page'));
+        return `
+                <article class="fade-in group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                    <div class="relative flex h-40 items-center justify-center bg-gradient-to-r from-blue-900 to-indigo-900" aria-hidden="true">
+                        <i class="ri-global-line text-6xl text-white/20"></i>
+                        <div class="absolute left-3 top-3 rounded-md border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md">${subcategory}</div>
+                        <div class="absolute bottom-[-16px] right-4 w-16 rounded-lg border border-gray-100 bg-white p-2 text-center shadow-md">
+                            <span class="block text-xs font-bold uppercase text-red-600">${date.month}</span>
+                            <span class="block text-lg font-black leading-none text-gray-900">${date.day}</span>
                         </div>
                     </div>
                     <div class="p-5 pt-6">
-                        <div class="mb-3">
-                            <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">${item.title}</h3>
-                            <p class="text-xs text-gray-500 mt-1 flex items-center gap-1"><i class="ri-map-pin-line"></i> Global Ecosystem / Online</p>
+                        <h3 class="line-clamp-2 text-lg font-bold leading-tight transition-colors group-hover:text-primary">${title}</h3>
+                        <p class="mt-1 flex items-center gap-1 text-xs text-gray-500"><i class="ri-map-pin-line"></i>${location}</p>
+                        <p class="mb-4 mt-3 line-clamp-3 text-sm text-gray-600">${description}</p>
+                        <div class="mb-3 flex items-center justify-between gap-2 text-xs text-gray-400"><span class="truncate">${source}</span><span class="shrink-0">${escapeHTML(deadlineText)}</span></div>
+                        <a href="${url}" target="_blank" rel="noopener noreferrer" class="block w-full rounded-lg border border-gray-200 bg-gray-50 py-2 text-center text-sm font-semibold text-gray-700 transition-all hover:border-primary hover:text-primary">${action}</a>
+                    </div>
+                </article>`;
+      }
+
+      if (item.category === 'advisors') {
+        const initials = sourceInitials(item.organizer || item.title);
+        return `
+                <article class="fade-in group relative rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-colors hover:border-primary">
+                    <span class="absolute right-4 top-4 rounded bg-purple-50 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-purple-600">${subcategory}</span>
+                    <div class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full border-4 border-white bg-[#635BFF] text-xl font-black text-white shadow-lg">${escapeHTML(initials)}</div>
+                    <h3 class="line-clamp-2 text-lg font-bold text-gray-900">${title}</h3>
+                    <p class="mb-1 text-sm font-medium text-primary">${source}</p>
+                    <p class="mb-4 line-clamp-3 text-xs text-gray-500">${description}</p>
+                    <hr class="my-4 border-gray-100">
+                    <div class="mb-4 flex items-center justify-between gap-2">
+                        <span class="text-xs font-medium text-gray-400">Access</span>
+                        <span class="text-sm font-bold text-gray-900">${escapeHTML(item.cost || 'See details')}</span>
+                    </div>
+                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="block w-full rounded-lg bg-primary py-2 text-sm font-semibold text-white transition-all hover:bg-blue-700">${action}</a>
+                </article>`;
+      }
+
+      if (item.category === 'funding') {
+        return `
+                <article class="fade-in flex flex-col items-start gap-5 rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md md:flex-row md:items-center">
+                    <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-green-100 text-xl text-green-600"><i class="ri-money-dollar-circle-line"></i></div>
+                    <div class="min-w-0 flex-grow">
+                        <div class="mb-1 flex flex-wrap items-center gap-3">
+                            <h3 class="text-lg font-bold text-gray-900">${title}</h3>
+                            <span class="rounded-full bg-green-100 px-2 py-0.5 text-xs font-bold text-green-700">${subcategory}</span>
                         </div>
-                        <p class="text-sm text-gray-600 line-clamp-2 mb-4">${item.description}</p>
-                        <a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="block w-full py-2 bg-gray-50 border border-gray-200 text-center text-gray-700 font-semibold text-sm rounded-lg hover:bg-gray-100 transition-all" aria-label="Register for event: ${safeTitle}">
-                            View Registration Hub
-                        </a>
+                        <p class="line-clamp-3 text-sm text-gray-600">${description}</p>
+                        <p class="mt-2 text-xs text-gray-400">${source} · ${escapeHTML(deadlineText)}</p>
                     </div>
+                    <div class="shrink-0 text-left md:min-w-[125px] md:text-right">
+                        <div class="text-lg font-bold text-gray-900">${escapeHTML(item.amount || 'Open call')}</div>
+                        <div class="text-xs text-gray-500">${escapeHTML(item.eligibility || 'See eligibility')}</div>
+                    </div>
+                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="shrink-0 rounded-lg border border-gray-200 bg-white px-5 py-2 text-center text-sm font-semibold text-gray-700 transition-all hover:border-primary hover:text-primary">${action}</a>
                 </article>`;
-            }
+      }
 
-            if (category === 'Advisor') {
-                const avatarSeed = encodeURIComponent(item.title);
-                return `
-                <article class="fade-in bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center relative group hover:border-primary transition-colors">
-                    <span class="absolute top-4 right-4 bg-purple-50 text-purple-600 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wide">Verified Asset</span>
-                    <img src="https://ui-avatars.com/api/?name=${avatarSeed}&background=635BFF&color=fff&size=128" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-lg" alt="${safeTitle} Avatar">
-                    <h3 class="text-lg font-bold text-gray-900 line-clamp-1">${item.title}</h3>
-                    <p class="text-primary text-sm font-medium mb-1">Ecosystem Advisory</p>
-                    <p class="text-xs text-gray-500 mb-4 line-clamp-2">${item.description}</p>
-                    <hr class="border-gray-100 my-4">
-                    <a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="block w-full py-2 rounded-lg text-sm text-center font-semibold bg-primary text-white hover:bg-blue-700 transition-all" aria-label="Connect with ${safeTitle}">Connect / Access Channel</a>
-                </article>`;
-            }
-
-            if (category === 'Funding') {
-                return `
-                <article class="fade-in bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-6 hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl shrink-0" aria-hidden="true">
-                        <i class="ri-money-dollar-circle-line"></i>
-                    </div>
-                    <div class="flex-grow">
-                        <div class="flex items-center gap-3 mb-1">
-                            <h3 class="text-lg font-bold text-gray-900">${item.title}</h3>
-                            <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">Capital Resource</span>
-                        </div>
-                        <p class="text-sm text-gray-600">${item.description}</p>
-                    </div>
-                    <div class="text-left md:text-right shrink-0">
-                        <div class="text-xl font-bold text-gray-900">Open Matrix</div>
-                        <div class="text-xs text-gray-500">Non-Dilutive / Active</div>
-                    </div>
-                    <a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="px-5 py-2 font-semibold bg-white border border-gray-200 hover:border-primary hover:text-primary text-gray-700 text-center rounded-lg text-sm transition-all shrink-0" aria-label="Apply for funding: ${safeTitle}">
-                        Apply Here
-                    </a>
-                </article>`;
-            }
-
-            // Fallback default structure for Learning/Assets
-            return `
-            <article class="fade-in bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden group cursor-pointer">
-                <div class="h-48 bg-gray-900 relative flex items-center justify-center" aria-hidden="true">
-                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                        <i class="ri-play-fill text-white text-2xl ml-1"></i>
-                    </div>
+      return `
+            <article class="fade-in group cursor-pointer overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+                <div class="relative flex h-48 items-center justify-center bg-gray-900" aria-hidden="true">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm"><i class="ri-book-open-line text-2xl text-white"></i></div>
                 </div>
                 <div class="p-5">
-                    <span class="text-red-500 text-xs font-bold uppercase tracking-wide">${item.category || 'Asset'}</span>
-                    <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2 group-hover:text-primary transition-colors">${item.title}</h3>
-                    <p class="text-sm text-gray-600 line-clamp-2">${item.description}</p>
-                    <div class="mt-4 pt-2 flex items-center justify-between border-t border-gray-50 text-xs text-gray-500">
-                        <span>Automated Curation Engine</span>
-                        <a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline" aria-label="Access guide: ${safeTitle}">Access Guide →</a>
+                    <span class="text-xs font-bold uppercase tracking-wide text-red-500">${subcategory}</span>
+                    <h3 class="mb-2 mt-2 line-clamp-2 text-lg font-bold text-gray-900 transition-colors group-hover:text-primary">${title}</h3>
+                    <p class="line-clamp-3 text-sm text-gray-600">${description}</p>
+                    <div class="mt-4 flex items-center justify-between gap-3 border-t border-gray-50 pt-3 text-xs text-gray-500">
+                        <span class="truncate">${source}</span>
+                        <a href="${url}" target="_blank" rel="noopener noreferrer" class="shrink-0 font-bold text-primary hover:underline">${action} →</a>
                     </div>
                 </div>
             </article>`;
-        }
+    }
 
-        // Execution Context Controller
-        document.addEventListener('DOMContentLoaded', async () => {
-            const gridContainer = document.getElementById('content-grid');
-            const navContainer = document.getElementById('nav-container');
-            const sidebarContainer = document.getElementById('sidebar-container');
-            const headerContainer = document.getElementById('section-header');
+    function renderNav() {
+      $('#nav-container').innerHTML = Object.entries(CONFIG.meta).map(([key, meta]) => {
+        const selected = key === state.activeTab;
+        const classes = selected ? 'text-primary bg-blue-50 ring-1 ring-blue-100' : 'text-gray-600 hover:bg-gray-50 hover:text-primary';
+        const count = state.items.filter(item => item.category === key).length;
+        return `<button data-tab="${key}" class="whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition-all ${classes}" aria-pressed="${selected}"><i class="${meta.icon} mr-1"></i>${meta.label}<span class="ml-1 text-[10px] opacity-60">${count}</span></button>`;
+      }).join('');
 
-            let datasetMasterList = [];
-            let localizedCurrentTab = 'All';
+      document.querySelectorAll('[data-tab]').forEach(button => button.addEventListener('click', () => {
+        state.activeTab = button.dataset.tab;
+        state.activeSubcategory = '';
+        render();
+      }));
+    }
 
-            function updateActiveInterface(activeTab) {
-                localizedCurrentTab = activeTab;
+    function renderSidebar() {
+      const categories = CONFIG.categories[state.activeTab] || [];
+      $('#sidebar-container').innerHTML = categories.map((category, index) => {
+        const value = index === 0 ? '' : category;
+        const selected = state.activeSubcategory === value;
+        const classes = selected ? 'bg-blue-50 text-primary font-bold' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900';
+        return `<button data-subcategory="${escapeHTML(value)}" class="mb-1 flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-sm font-medium transition-all ${classes}"><i class="${selected ? 'ri-arrow-right-s-line text-lg' : 'ri-checkbox-blank-circle-line ml-1 text-xs opacity-50'}"></i>${escapeHTML(category)}</button>`;
+      }).join('');
 
-                // 1. Render Navigation
-                navContainer.innerHTML = Object.keys(appConfiguration.meta).map(key => {
-                    const viewConfig = appConfiguration.meta[key];
-                    const isSelected = key === activeTab;
-                    const styleStateClasses = isSelected
-                        ? "text-primary bg-blue-50 ring-1 ring-blue-100"
-                        : "text-gray-600 hover:bg-gray-50 hover:text-primary";
+      document.querySelectorAll('[data-subcategory]').forEach(button => button.addEventListener('click', () => {
+        state.activeSubcategory = button.dataset.subcategory || '';
+        render();
+      }));
+    }
 
-                    return `<button data-tab-trigger="${key}" class="group relative px-4 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${styleStateClasses}" aria-pressed="${isSelected}">
-                        <i class="${viewConfig.icon} mr-1" aria-hidden="true"></i> ${viewConfig.label}
-                    </button>`;
-                }).join('');
+    function getVisibleItems() {
+      const query = state.query.trim().toLowerCase();
+      let items = state.items.filter(item => item.category === state.activeTab);
+      if (state.activeSubcategory) {
+        const target = state.activeSubcategory.toLowerCase();
+        items = items.filter(item => String(item.subcategory || '').toLowerCase().includes(target) || target.includes(String(item.subcategory || '').toLowerCase()));
+      }
+      if (query) {
+        items = items.filter(item => [item.title, item.description, item.source, item.organizer, item.location, ...(item.tags || [])].join(' ').toLowerCase().includes(query));
+      }
+      if (state.sort === 'deadline') {
+        items.sort((a, b) => (a.deadline || '9999-12-31').localeCompare(b.deadline || '9999-12-31'));
+      } else if (state.sort === 'newest') {
+        items.sort((a, b) => String(b.last_seen || '').localeCompare(String(a.last_seen || '')));
+      }
+      return items;
+    }
 
-                document.querySelectorAll('[data-tab-trigger]').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const targetedKey = e.currentTarget.getAttribute('data-tab-trigger');
-                        updateActiveInterface(targetedKey);
-                    });
-                });
-
-                // 2. Render Sidebar
-                const listingGroupArray = appConfiguration.sidebarCategories[activeTab] || [];
-                sidebarContainer.innerHTML = listingGroupArray.map((categoryString, arrayIndex) => {
-                    const isFirstElement = arrayIndex === 0;
-                    const stylingClasses = isFirstElement
-                        ? "bg-blue-50 text-primary font-bold"
-                        : "text-gray-600 hover:bg-gray-50 hover:text-gray-900";
-
-                    return `<button class="w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all mb-1 flex items-center gap-3 ${stylingClasses}">
-                        ${isFirstElement ? '<i class="ri-arrow-right-s-line text-lg" aria-hidden="true"></i>' : '<i class="ri-checkbox-blank-circle-line text-xs opacity-50 ml-1" aria-hidden="true"></i>'} 
-                        ${categoryString}
-                    </button>`;
-                }).join('');
-
-                // 3. Render Component Header
-                const currentMetaData = appConfiguration.meta[activeTab];
-                headerContainer.innerHTML = `
-                <div class="flex justify-between items-end fade-in">
+    function renderHeader(visibleCount) {
+      const meta = CONFIG.meta[state.activeTab];
+      const latest = state.items.map(item => item.verified_at || item.last_seen).filter(Boolean).sort().at(-1);
+      const latestText = latest ? new Intl.DateTimeFormat('en', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(latest)) : 'Waiting for first update';
+      $('#section-header').innerHTML = `
+                <div class="fade-in flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
                     <div>
-                        <h1 class="text-3xl font-heading font-bold text-gray-900 mb-2">${currentMetaData.title}</h1>
-                        <p class="text-gray-600">${currentMetaData.desc}</p>
+                        <h2 class="mb-2 text-3xl font-bold text-gray-900">${meta.title}</h2>
+                        <p class="max-w-2xl text-gray-600">${meta.desc}</p>
                     </div>
-                    <div class="flex bg-white border border-gray-200 rounded-lg p-1 gap-1 h-10 shrink-0" aria-label="Layout toggle controls">
-                        <button class="px-2 rounded bg-gray-100 text-gray-900" aria-label="Grid View"><i class="ri-layout-grid-fill"></i></button>
-                        <button class="px-2 rounded hover:bg-gray-50 text-gray-500" aria-label="List View"><i class="ri-list-check"></i></button>
+                    <div class="shrink-0 text-left sm:text-right">
+                        <p class="text-sm font-bold text-slate-800">${visibleCount} verified listings</p>
+                        <p class="mt-1 text-xs text-slate-400">Last AI check: ${escapeHTML(latestText)}</p>
                     </div>
                 </div>`;
+    }
 
-                // 4. Render Master Cards
-                const localizedFilteredArray = activeTab === 'All'
-                    ? datasetMasterList
-                    : datasetMasterList.filter(item => item.category === activeTab);
+    function renderCards() {
+      const items = getVisibleItems();
+      renderHeader(items.length);
+      const grid = $('#content-grid');
+      if (!items.length) {
+        grid.className = 'block w-full';
+        grid.innerHTML = `<div class="rounded-xl border border-gray-200 bg-white px-6 py-14 text-center"><i class="ri-search-eye-line text-4xl text-slate-300"></i><p class="mt-3 text-sm font-medium text-slate-500">No verified listings match this filter right now.</p></div>`;
+        return;
+      }
+      if (state.activeTab === 'services') grid.className = 'grid gap-6 grid-cols-1 md:grid-cols-2';
+      else if (state.activeTab === 'funding') grid.className = 'space-y-4 block w-full';
+      else grid.className = 'grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3';
+      grid.innerHTML = items.map(buildCard).join('');
+    }
 
-                if (localizedFilteredArray.length === 0) {
-                    gridContainer.className = "block w-full text-center py-12";
-                    gridContainer.innerHTML = `<p class="text-gray-500 text-sm">No updates currently verified in this field. Check back soon!</p>`;
-                    return;
-                }
+    function render() {
+      renderNav();
+      renderSidebar();
+      renderCards();
+    }
 
-                if (activeTab === 'Tool') {
-                    gridContainer.className = "grid gap-6 grid-cols-1 md:grid-cols-2";
-                } else if (activeTab === 'Funding') {
-                    gridContainer.className = "space-y-4 block w-full";
-                } else {
-                    gridContainer.className = "grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3";
-                }
+    async function loadData() {
+      try {
+        const response = await fetch(`data.json?t=${Date.now()}`, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const payload = await response.json();
+        const list = Array.isArray(payload) ? payload : payload.items;
+        if (!Array.isArray(list)) throw new Error('data.json must contain an array');
+        state.items = list.filter(item => item && CONFIG.meta[item.category] && safeURL(item.url) !== '#');
+        if (!state.items.some(item => item.category === state.activeTab)) {
+          state.activeTab = Object.keys(CONFIG.meta).find(key => state.items.some(item => item.category === key)) || 'events';
+        }
+        render();
+      } catch (error) {
+        console.error('Access data pipeline failed:', error);
+        $('#content-grid').className = 'block w-full';
+        $('#section-header').innerHTML = '';
+        $('#content-grid').innerHTML = `<div class="rounded-xl border border-amber-200 bg-amber-50 px-6 py-12 text-center"><i class="ri-robot-2-line text-4xl text-amber-500"></i><h2 class="mt-3 text-lg font-bold text-slate-900">The curator has not completed its first run.</h2><p class="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-600">Run the <strong>Auto-Curate and Deploy Access</strong> workflow from GitHub Actions. Existing listings will appear here as soon as <code>access/data.json</code> is generated.</p></div>`;
+      }
+    }
 
-                gridContainer.innerHTML = localizedFilteredArray.map(item => {
-                    return buildPremiumCard(item.category, item);
-                }).join('');
-            }
-
-            // Core JSON Data Pipeline
-            try {
-                const liveNetworkResponse = await fetch('data.json?t=' + new Date().getTime());
-                if (!liveNetworkResponse.ok) throw new Error("File context read exception error");
-
-                datasetMasterList = await liveNetworkResponse.json();
-                updateActiveInterface('All');
-            } catch (networkError) {
-                console.error("Pipeline failure: ", networkError);
-                gridContainer.className = "block w-full text-center py-12";
-                gridContainer.innerHTML = '<p style="color: #94a3b8;">Welcome to Access! The AI curation background script hasn\'t executed its first pass yet. Trigger your GitHub Action workspace to initialize the data pipeline stream.</p>';
-            }
-
-            // Sticky Nav Scroll Monitor
-            const trackingNavNode = document.getElementById('sticky-nav');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 80) trackingNavNode.classList.add('sticky-nav-scrolled');
-                else trackingNavNode.classList.remove('sticky-nav-scrolled');
-            });
-        });
-    </script>
+    document.addEventListener('DOMContentLoaded', () => {
+      $('#search-input').addEventListener('input', event => { state.query = event.target.value; renderCards(); });
+      $('#sort-select').addEventListener('change', event => { state.sort = event.target.value; renderCards(); });
+      window.addEventListener('scroll', () => $('#sticky-nav').classList.toggle('sticky-nav-scrolled', window.scrollY > 80));
+      loadData();
+    });
+  </script>
 </body>
 
 </html>

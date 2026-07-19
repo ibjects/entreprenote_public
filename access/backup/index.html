@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Access by Entreprenote curates startup funding, accelerators, events, advisors, services, and founder learning in one place.">
+  <meta name="theme-color" content="#f7f3ff">
+  <title>Access by Entreprenote</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#opportunities">Skip to opportunities</a>
+
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Access by Entreprenote home">
+      <!-- <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span> -->
+      <img src="../images/access-icon.svg" alt="Access by Entreprenote Logo"
+        style="height: 20px; width: 20px; object-fit: contain;"
+        onerror="this.src='https://ui-avatars.com/api/?name=A&background=0052D9&color=fff'" />
+      <span class="brand-copy">
+        <strong>Access</strong>
+        <small>by Entreprenote</small>
+      </span>
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="#opportunities">Discover</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="button button-small button-outline" id="submitLink"
+      href="https://github.com/OWNER/REPOSITORY/issues/new?template=resource.yml" target="_blank" rel="noopener">Submit
+      a resource</a>
+  </header>
+
+  <main>
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> Curated and refreshed automatically</div>
+        <h1 id="hero-title">Every useful founder opportunity. <em>One clear place.</em></h1>
+        <p>Explore funding, accelerators, events, advisors, practical services, and learning resources selected for
+          entrepreneurs—not buried in another endless feed.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#opportunities">Explore opportunities <span
+              aria-hidden="true">↘</span></a>
+          <button class="button button-ghost" id="savedShortcut" type="button">View saved <span
+              id="savedCount">0</span></button>
+        </div>
+        <div class="freshness" aria-live="polite">
+          <span>Last refreshed</span>
+          <strong id="lastUpdated">Loading…</strong>
+          <span class="divider">•</span>
+          <span id="recordCount">— opportunities</span>
+        </div>
+      </div>
+
+      <div class="hero-board" aria-label="Opportunity categories">
+        <article class="note note-purple" data-tilt="-3">
+          <span class="note-icon">◎</span>
+          <p>Funding</p>
+          <strong id="fundingCount">—</strong>
+          <small>grants & capital</small>
+        </article>
+        <article class="note note-yellow" data-tilt="2">
+          <span class="note-icon">✦</span>
+          <p>Programs</p>
+          <strong id="programCount">—</strong>
+          <small>accelerators & incubators</small>
+        </article>
+        <article class="note note-green" data-tilt="-1">
+          <span class="note-icon">↗</span>
+          <p>Events</p>
+          <strong id="eventCount">—</strong>
+          <small>meet, learn, connect</small>
+        </article>
+        <article class="note note-coral" data-tilt="3">
+          <span class="note-icon">◇</span>
+          <p>Learning</p>
+          <strong id="learningCount">—</strong>
+          <small>guides & founder skills</small>
+        </article>
+        <div class="board-stamp">Think. Note. Grow.</div>
+      </div>
+    </section>
+
+    <section class="discovery shell" id="opportunities" aria-labelledby="discover-title">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">The founder access layer</span>
+          <h2 id="discover-title">Find your next move</h2>
+        </div>
+        <p>Search by what you need now, then save the strongest options for later.</p>
+      </div>
+
+      <div class="filter-panel">
+        <label class="search-box" for="searchInput">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" />
+          </svg>
+          <input id="searchInput" type="search" placeholder="Search grants, accelerators, startup events…"
+            autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+
+        <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="Filter by category">
+          <button class="chip is-active" data-category="all" type="button">All</button>
+          <button class="chip" data-category="funding" type="button">Funding</button>
+          <button class="chip" data-category="program" type="button">Accelerators</button>
+          <button class="chip" data-category="event" type="button">Events</button>
+          <button class="chip" data-category="advisor" type="button">Advisors</button>
+          <button class="chip" data-category="service" type="button">Services</button>
+          <button class="chip" data-category="learning" type="button">Learning</button>
+          <button class="chip" data-category="saved" type="button">Saved</button>
+        </div>
+
+        <div class="secondary-filters">
+          <label>
+            <span>Location</span>
+            <select id="locationFilter">
+              <option value="all">Anywhere</option>
+              <option value="remote">Remote / online</option>
+              <option value="global">Global</option>
+              <option value="local">Location-specific</option>
+            </select>
+          </label>
+          <label>
+            <span>Cost</span>
+            <select id="costFilter">
+              <option value="all">Any cost</option>
+              <option value="free">Free</option>
+              <option value="paid">Paid</option>
+              <option value="equity">Equity-based</option>
+            </select>
+          </label>
+          <label>
+            <span>Sort</span>
+            <select id="sortFilter">
+              <option value="relevance">Best match</option>
+              <option value="newest">Newest</option>
+              <option value="deadline">Deadline soon</option>
+            </select>
+          </label>
+          <button class="text-button" id="clearFilters" type="button">Clear filters</button>
+        </div>
+      </div>
+
+      <div class="results-bar">
+        <p><strong id="visibleCount">0</strong> curated results</p>
+        <button class="text-button" id="copyResults" type="button">Copy filtered link</button>
+      </div>
+
+      <div class="card-grid" id="opportunityGrid" aria-live="polite"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <div class="empty-icon">⌁</div>
+        <h3>No matches yet</h3>
+        <p>Try a broader search or clear one of the filters.</p>
+        <button class="button button-outline" id="emptyClear" type="button">Clear filters</button>
+      </div>
+      <div class="load-more-wrap">
+        <button class="button button-outline" id="loadMore" type="button" hidden>Show more</button>
+      </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+      <div class="shell">
+        <div class="section-heading light">
+          <div>
+            <span class="kicker">Quiet automation, useful output</span>
+            <h2>How Access stays fresh</h2>
+          </div>
+          <p>The machine does the repetitive work. Clear rules keep the result trustworthy.</p>
+        </div>
+        <div class="process-grid">
+          <article><span>01</span>
+            <h3>Collect</h3>
+            <p>Approved public feeds and official opportunity pages are checked on schedule.</p>
+          </article>
+          <article><span>02</span>
+            <h3>Clean</h3>
+            <p>Duplicates, expired items, spam, and weak matches are removed automatically.</p>
+          </article>
+          <article><span>03</span>
+            <h3>Clarify</h3>
+            <p>AI classifies uncertain entries and writes short, founder-friendly summaries.</p>
+          </article>
+          <article><span>04</span>
+            <h3>Publish</h3>
+            <p>Validated data is committed to GitHub and the static site is redeployed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust shell" id="about">
+      <div class="trust-copy">
+        <span class="kicker">Built for informed action</span>
+        <h2>Discovery, not endorsement.</h2>
+        <p>Access links to third-party resources. Always verify deadlines, eligibility, fees, terms, and organizer
+          identity on the original source before applying or paying.</p>
+      </div>
+      <div class="trust-card">
+        <span>Source transparency</span>
+        <strong>Every listing links back to where it came from.</strong>
+        <p>Automated checks can reduce noise, but they cannot guarantee that every external claim remains current.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand brand-footer" href="./">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="brand-copy"><strong>Access</strong><small>by Entreprenote</small></span>
+        </a>
+        <p>A clearer path from idea to opportunity.</p>
+      </div>
+      <div>
+        <strong>Explore</strong>
+        <a href="#opportunities">Opportunities</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="https://entreprenote.com" target="_blank" rel="noopener">Entreprenote</a>
+      </div>
+      <div>
+        <strong>Important</strong>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a id="footerSubmitLink" href="https://github.com/OWNER/REPOSITORY/issues/new?template=resource.yml"
+          target="_blank" rel="noopener">Submit a resource</a>
+        <a id="reportLink" href="https://github.com/OWNER/REPOSITORY/issues/new?template=report.yml" target="_blank"
+          rel="noopener">Report a listing</a>
+      </div>
+      <div class="footer-signoff">
+        <span>Entreprenote</span>
+        <strong>Think. Note. Grow.</strong>
+        <small>© <span id="year"></span> Entreprenote</small>
+      </div>
+    </div>
+  </footer>
+
+  <template id="opportunityTemplate">
+    <article class="opportunity-card">
+      <div class="card-topline">
+        <span class="category-badge"></span>
+        <button class="save-button" type="button" aria-label="Save opportunity">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 3.75h12a.75.75 0 0 1 .75.75v16.2L12 16.65 5.25 20.7V4.5A.75.75 0 0 1 6 3.75Z" />
+          </svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="organization-row">
+          <span class="org-avatar"></span>
+          <span class="organization"></span>
+          <span class="verified" title="Source checked">✓</span>
+        </div>
+        <h3 class="title"></h3>
+        <p class="summary"></p>
+        <div class="meta-list"></div>
+        <div class="tag-list"></div>
+      </div>
+      <div class="card-footer">
+        <span class="source-label"></span>
+        <a class="card-link" target="_blank" rel="noopener noreferrer">View details <span
+            aria-hidden="true">↗</span></a>
+      </div>
+    </article>
+  </template>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="assets/js/app.js" defer></script>
+</body>
+
+</html>
