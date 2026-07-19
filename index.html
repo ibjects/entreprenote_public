@@ -1,6 +1,10 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CPBY4JYJVZ"></script>
   <script>
@@ -15,111 +19,297 @@
   <!-- Force HTTPS -->
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-  <link rel="alternate" type="text/markdown" href="/llms.txt" />
-  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
-    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" />
+  <!-- Performance: preconnect to third-party origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
 
-  <title>Entreprenote - Refine Your Startup Vision & Validate Ideas</title>
-  <link rel="canonical" href="https://entreprenote.com/" />
-  <link rel="icon" type="image/png" href="./images/favicon.png" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- ===== Primary SEO ===== -->
+  <title>Validate Your Startup Idea with AI | Entreprenote</title>
   <meta name="description"
-    content="Have an idea but not sure what to do next? Entreprenote helps you think through, structure, and validate your ideas step-by-step using AI-powered guided questions — so you can turn thoughts into action fast." />
-  <meta name="summary"
-    content="Entreprenote is an AI-powered workspace that guides entrepreneurs from idea to clarity. By answering structured questions, users transform raw thoughts into actionable plans." />
-  <meta name="robots" content="index, follow" />
+    content="Have an idea but not sure what's next? Entreprenote's AI-guided questions help you validate, structure, and turn your startup idea into an actionable plan. Free to start." />
+  <link rel="canonical" href="https://entreprenote.com/" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="author" content="Entreprenote" />
+  <meta name="application-name" content="Entreprenote" />
+  <meta name="theme-color" content="#0052D9" />
+
+  <!-- Discovery: sitemap + llms.txt for AI answer engines -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-  <!-- <meta name="keywords"
-    content="AI note taking app, entrepreneur ideas, startup brainstorming, business idea organizer, productivity for founders"> -->
-  <meta name="keywords"
-    content="Idea Validation, what to do with my idea, startup idea validation, brainstorm business ideas, AI for entrepreneurs, idea planning app, turn ideas into action, startup thinking tool, productivity for founders, entrepreneur">
+  <link rel="alternate" type="text/markdown" href="/llms.txt" />
 
-  <!-- Social Media -->
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="apple-touch-icon" href="/images/favicon.png" />
+
+  <!-- ===== Open Graph (Facebook, LinkedIn, WhatsApp, Slack…) ===== -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Entreprenote" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://entreprenote.com/" />
-  <meta property="og:title" content="Entreprenote: Think. Note. Grow." />
+  <meta property="og:title" content="Validate Your Startup Idea with AI | Entreprenote" />
   <meta property="og:description"
-    content="Entreprenote is an AI-powered note-taking app helping entrepreneurs brainstorm, organize, and refine their ideas." />
-  <meta property="og:image" content="https://entreprenote.com/images/featured.jpg" />
+    content="Entreprenote is the AI-powered workspace that asks the right questions — helping entrepreneurs clarify, stress-test, and structure their ideas into actionable plans." />
+  <meta property="og:image" content="https://entreprenote.com/images/featured@2x.jpg" />
+  <meta property="og:image:width" content="1850" />
+  <meta property="og:image:height" content="1040" />
+  <meta property="og:image:alt" content="Entreprenote — AI-powered startup idea validation workspace" />
+  <meta property="og:see_also" content="https://catalyst.entreprenote.com/" />
+  <meta property="og:see_also" content="https://www.notion.com/@entreprenote" />
 
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://entreprenote.com/" />
-  <meta property="twitter:title" content="Entreprenote: Think. Note. Grow." />
-  <meta property="twitter:description"
-    content="Entreprenote is an AI-powered note-taking app helping entrepreneurs brainstorm, organize, and refine their ideas." />
-  <meta property="twitter:image" content="https://entreprenote.com/images/featured.jpg" />
+  <!-- ===== X / Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@entreprenote" />
+  <meta name="twitter:url" content="https://entreprenote.com/" />
+  <meta name="twitter:title" content="Validate Your Startup Idea with AI | Entreprenote" />
+  <meta name="twitter:description"
+    content="Entreprenote is the AI-powered workspace that asks the right questions — helping entrepreneurs clarify, stress-test, and structure their ideas into actionable plans." />
+  <meta name="twitter:image" content="https://entreprenote.com/images/featured@2x.jpg" />
+  <meta name="twitter:image:alt" content="Entreprenote — AI-powered startup idea validation workspace" />
+
+  <!-- Fonts -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" />
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <!-- Remix Icon for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 
-  <meta property="og:see_also" content="https://catalyst.entreprenote.com/" />
-  <meta property="og:see_also" content="https://www.notion.com/@entreprenote" />
-
-  <meta name="intent"
-    content="guide entrepreneurs on what to do next with their ideas using AI questions and structured thinking" />
-
-  <!-- Schema.org -->
+  <!-- ===== Schema.org (single @graph: Organization, WebSite, WebPage, App, Video, FAQ) ===== -->
   <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Entreprenote",
-        "url": "https://entreprenote.com",
-        "logo": "https://entreprenote.com/images/logo.svg",
-        "sameAs": [
-          "https://x.com/entreprenote",
-          "https://www.instagram.com/getentreprenote",
-          "https://www.linkedin.com/company/entreprenote",
-          "https://medium.com/entreprenote"
-        ],
-        "description": "Entreprenote helps people with ideas structure and validate them before execution, turning uncertainty into clarity."
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Entreprenote",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web",
-        "offers": [
+    {
+      "@context": "https://schema.org",
+      "@graph": [
         {
-            "@type": "Offer",
-            "name": "Free Tier",
-            "price": "0",
-            "priceCurrency": "USD",
-            "description": "Includes all the features provided by Entreprenote, but no AI capabilities."
+          "@type": "Organization",
+          "@id": "https://entreprenote.com/#organization",
+          "name": "Entreprenote",
+          "url": "https://entreprenote.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://entreprenote.com/#logo",
+            "url": "https://entreprenote.com/images/logo.svg",
+            "caption": "Entreprenote logo"
           },
-          {
-            "@type": "Offer",
-            "name": "Pro Tier",
-            "price": "~9.99", 
-            "priceCurrency": "USD",
-            "description": "Full access to all AI capabilities."
-          }],
-        "description": "AI-powered guided questions to validate startup ideas. Turning uncertainty into clarity."
-      }
-    ]
+          "slogan": "Think. Note. Grow.",
+          "email": "hello@entreprenote.com",
+          "sameAs": [
+            "https://x.com/entreprenote",
+            "https://www.instagram.com/getentreprenote",
+            "https://www.linkedin.com/company/entreprenote",
+            "https://medium.com/entreprenote",
+            "https://www.reddit.com/r/entreprenote/",
+            "https://www.youtube.com/@entreprenote",
+            "https://entreprenote.substack.com/"
+          ],
+          "description": "Entreprenote helps people with ideas structure and validate them before execution, turning uncertainty into clarity."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://entreprenote.com/#website",
+          "url": "https://entreprenote.com/",
+          "name": "Entreprenote",
+          "inLanguage": "en",
+          "publisher": { "@id": "https://entreprenote.com/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://entreprenote.com/#webpage",
+          "url": "https://entreprenote.com/",
+          "name": "Validate Your Startup Idea with AI | Entreprenote",
+          "description": "Entreprenote's AI-guided questions help you validate, structure, and turn your startup idea into an actionable plan.",
+          "inLanguage": "en",
+          "isPartOf": { "@id": "https://entreprenote.com/#website" },
+          "about": { "@id": "https://entreprenote.com/#organization" },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://entreprenote.com/images/featured@2x.jpg",
+            "width": 1850,
+            "height": 1040
+          }
+        },
+        {
+          "@type": ["WebApplication", "SoftwareApplication"],
+          "@id": "https://entreprenote.com/#app",
+          "name": "Entreprenote",
+          "url": "https://app.entreprenote.com/",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "browserRequirements": "Requires JavaScript. Works in all modern browsers.",
+          "description": "AI-powered guided questions to validate startup ideas. Turning uncertainty into clarity.",
+          "image": "https://entreprenote.com/images/featured@2x.jpg",
+          "screenshot": "https://entreprenote.com/images/featured_entpn_app.png",
+          "publisher": { "@id": "https://entreprenote.com/#organization" },
+          "featureList": [
+            "AI-guided startup idea validation questions",
+            "AI-powered sticky notes for brainstorming",
+            "Structured breakdown of strengths, gaps, and next steps",
+            "Catalyst community dashboard for unbuilt ideas and real-world problems"
+          ],
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Free Tier",
+              "price": "0",
+              "priceCurrency": "USD",
+              "description": "Includes all the features provided by Entreprenote, but no AI capabilities."
+            },
+            {
+              "@type": "Offer",
+              "name": "Pro Tier",
+              "price": "9.99",
+              "priceCurrency": "USD",
+              "description": "Full access to all AI capabilities."
+            }
+          ]
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://entreprenote.com/#demo-video",
+          "name": "How to Use Entreprenote App? — Startup Idea Validation Demo",
+          "description": "Watch a real brainstorming session inside the Entreprenote App: from raw idea to structured clarity with AI questions, note-taking, and a clear path forward.",
+          "thumbnailUrl": "https://i.ytimg.com/vi/DrNaoxwbafg/maxresdefault.jpg",
+          "uploadDate": "2026-06-01",
+          "duration": "PT12M",
+          "contentUrl": "https://www.youtube.com/watch?v=DrNaoxwbafg",
+          "embedUrl": "https://www.youtube.com/embed/DrNaoxwbafg",
+          "publisher": { "@id": "https://entreprenote.com/#organization" }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://entreprenote.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Entreprenote?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Entreprenote is an AI-powered workspace for the idea stage of a startup. It asks you structured, guided questions that help you clarify, stress-test, and organize a raw idea into an actionable plan — before you spend time or money building."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I validate a startup idea with Entreprenote?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You start by dumping your raw idea into the app. AI-powered sticky notes help you organize your thoughts, and guided follow-up questions stress-test your problem statement, target audience, and assumptions. You end up with a structured breakdown of what's strong, what needs work, and what to do next."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Entreprenote free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The Free tier includes all core Entreprenote features without AI capabilities. The Pro tier (around $9.99/month) unlocks full access to all AI capabilities."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who is Entreprenote for?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Entreprenote is built for founders and entrepreneurs at the idea stage — anyone with an idea still in their head who wants clarity on what to do next, before building a product or writing a business plan."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need a business plan before using Entreprenote?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Entreprenote is designed for the step before the business plan. Bring a vague thought, a gap you noticed, or a problem you keep running into — the AI-guided questions help you turn it into structure and direction."
+              }
+            }
+          ]
+        }
+      ]
+    }
   </script>
 </head>
 
-<body style="background-color: #F3F8FF;">
+<body style="background-color: #0052D9;">
   <!-- Force HTTPS Redirect -->
-  <script>
+  <!-- <script>
     // Only redirect if not already on HTTPS and not on localhost
     if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
       window.location.href = window.location.href.replace('http:', 'https:');
     }
-  </script>
+  </script> -->
 
   <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
     style='font-family: Manrope, "Noto Sans", sans-serif;'>
     <div class="layout-container flex h-full grow flex-col">
       <!-- Header Section -->
-      <header class="flex items-center justify-center bg-white border-b border-b-[#eaedf1] px-4 md:px-10 py-3">
+      <header class="bg-white border-b border-b-[#eaedf1]">
+        <div class="flex flex-col items-center gap-3 px-4 md:px-10 py-3 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-1">
+            <a href="index.html" class="flex items-center gap-1">
+              <!-- keep your existing logo svg here -->
+              <svg class="h-4 w-auto" viewBox="0 0 126 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M0.5 11.5C0.5 7.35786 3.85786 4 8 4L34 4C38.1421 4 41.5 7.35786 41.5 11.5L41.5 37.5C41.5 41.6421 38.1421 45 34 45L0.5 45L0.5 11.5Z"
+                  fill="#000" stroke="#000" />
+                <mask id="path-2-inside-1_7599_1599" fill="#000">
+                  <path
+                    d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z" />
+                </mask>
+                <path
+                  d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z"
+                  fill="#000" />
+                <path
+                  d="M92 3.5L92 2.5L92 3.5ZM118 3.5L118 2.5L118 3.5ZM126 11.5L127 11.5L126 11.5ZM118 45.5L118 46.5L118 45.5ZM92 45.5L92 46.5L92 45.5ZM84 37.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.5039L95.6025 24.504L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014L105.002 33.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.504L114.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055L105.002 15.1055L105.002 16.1055ZM84 11.5L85 11.5C85 7.63401 88.134 4.5 92 4.5L92 3.5L92 2.5C87.0294 2.5 83 6.52944 83 11.5L84 11.5ZM92 3.5L92 4.5L118 4.5L118 3.5L118 2.5L92 2.5L92 3.5ZM118 3.5L118 4.5C121.866 4.5 125 7.63401 125 11.5L126 11.5L127 11.5C127 6.52944 122.971 2.5 118 2.5L118 3.5ZM126 11.5L125 11.5L125 37.5L126 37.5L127 37.5L127 11.5L126 11.5ZM126 37.5L125 37.5C125 41.366 121.866 44.5 118 44.5L118 45.5L118 46.5C122.971 46.5 127 42.4706 127 37.5L126 37.5ZM118 45.5L118 44.5L92 44.5L92 45.5L92 46.5L118 46.5L118 45.5ZM92 45.5L92 44.5C88.134 44.5 85 41.366 85 37.5L84 37.5L83 37.5C83 42.4706 87.0294 46.5 92 46.5L92 45.5ZM84 37.5L85 37.5L85 11.5L84 11.5L83 11.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.504C95.6028 29.6942 99.8108 33.9013 105.002 33.9014L105.002 32.9014L105.002 31.9014C100.915 31.9013 97.6027 28.5892 97.6025 24.5039L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014C110.193 33.9014 114.402 29.6943 114.402 24.504L113.402 24.5039L112.402 24.5039C112.402 28.5891 109.089 31.9014 105.002 31.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.5039C114.402 19.3134 110.193 15.1055 105.002 15.1055L105.002 16.1055L105.002 17.1055C109.089 17.1055 112.402 20.4184 112.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055C99.8106 15.1055 95.6025 19.3136 95.6025 24.5039L96.6025 24.5039L97.6025 24.5039C97.6025 20.4183 100.915 17.1055 105.002 17.1055L105.002 16.1055Z"
+                  fill="#000" mask="url(#path-2-inside-1_7599_1599)" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M53.6667 -0.000164212C54.2855 -0.000164212 54.879 0.239525 55.3166 0.666168C55.7542 1.09281 56 1.67147 56 2.27484V4.54984H51.3333V2.27484C51.3333 1.67147 51.5792 1.09281 52.0168 0.666168C52.4543 0.239525 53.0478 -0.000164212 53.6667 -0.000164212ZM74.6667 4.54984H77C78.8565 4.54984 80.637 5.26891 81.9497 6.54883C83.2625 7.82876 84 9.56475 84 11.3748V38.6748C84 40.4849 83.2625 42.2209 81.9497 43.5008C80.637 44.7808 78.8565 45.4998 77 45.4998H49C47.1435 45.4998 45.363 44.7808 44.0503 43.5008C42.7375 42.2209 42 40.4849 42 38.6748V11.3748C42 9.56475 42.7375 7.82876 44.0503 6.54883C45.363 5.26891 47.1435 4.54984 49 4.54984H51.3333V11.3748C51.3333 11.9782 51.5792 12.5569 52.0168 12.9835C52.4543 13.4101 53.0478 13.6498 53.6667 13.6498C54.2855 13.6498 54.879 13.4101 55.3166 12.9835C55.7542 12.5569 56 11.9782 56 11.3748V4.54984H60.6667V11.3748C60.6667 11.9782 60.9125 12.5569 61.3501 12.9835C61.7877 13.4101 62.3812 13.6498 63 13.6498C63.6188 13.6498 64.2123 13.4101 64.6499 12.9835C65.0875 12.5569 65.3333 11.9782 65.3333 11.3748V4.54984H70V11.3748C70 11.9782 70.2458 12.5569 70.6834 12.9835C71.121 13.4101 71.7145 13.6498 72.3333 13.6498C72.9522 13.6498 73.5457 13.4101 73.9833 12.9835C74.4208 12.5569 74.6667 11.9782 74.6667 11.3748V4.54984ZM74.6667 4.54984H70V2.27484C70 1.67147 70.2458 1.09281 70.6834 0.666168C71.121 0.239525 71.7145 -0.000164212 72.3333 -0.000164212C72.9522 -0.000164212 73.5457 0.239525 73.9833 0.666168C74.4208 1.09281 74.6667 1.67147 74.6667 2.27484V4.54984ZM65.3333 4.54984V2.27484C65.3333 1.67147 65.0875 1.09281 64.6499 0.666168C64.2123 0.239525 63.6188 -0.000164212 63 -0.000164212C62.3812 -0.000164212 61.7877 0.239525 61.3501 0.666168C60.9125 1.09281 60.6667 1.67147 60.6667 2.27484V4.54984H65.3333Z"
+                  fill="#000" />
+              </svg>
+              <h2 class="text-[#000] text-lg font-bold leading-tight tracking-[-0.015em]">Entreprenote
+              </h2>
+            </a>
+          </div>
+
+          <div class="flex flex-wrap justify-center items-center gap-2 w-full sm:w-auto sm:justify-end">
+            <a href="https://trello.com/b/YfzA88B8/entreprenote-feature-requests" target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex  items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+              Feature Request
+            </a>
+
+            <a href="https://forms.gle/tNuReTGmSbRGmPKCA" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+              </svg>
+              Feedback
+            </a>
+
+            <a href="https://entreprenote.notion.site/Entreprenote-Docs-30e1935e8c4c80c89a40deffa1dfa129"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+
+              </svg>
+              Docs
+            </a>
+
+            <a href="https://app.entreprenote.com/" target="_blank" rel="noopener noreferrer"
+              class="group relative inline-flex items-center px-3 py-1.5 pr-3 text-xs font-semibold text-[#0052D9] rounded-full border border-[#0052D9]/20 bg-[#fff]/10 backdrop-blur-sm hover:bg-[#0052D9] hover:text-white transition-all duration-200 hover:pr-7">
+              Entreprenote App
+              <span
+                class="absolute right-2 opacity-0 translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">
+                ➜
+              </span>
+            </a>
+          </div>
+        </div>
+      </header>
+      <!-- <header class="flex items-center justify-center bg-white border-b border-b-[#eaedf1] px-4 md:px-10 py-3">
 
         <div class="flex items-center gap-1">
           <svg class="h-4 w-auto" viewBox="0 0 126 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -143,96 +333,272 @@
           <h2 class="text-[#000] text-lg font-bold leading-tight tracking-[-0.015em]">Entreprenote</h2>
 
         </div>
-      </header>
+      </header> -->
       <!-- Hero Section -->
-      <div class="px-4 md:px-10 lg:px-20">
-        <div class="flex flex-col items-center justify-center mt-6 mb-6 gap-6">
-          <!-- Div 1 -->
-          <main class="layout-content-container flex flex-col w-full max-w-screen-xl flex-1">
-            <div class="@container">
-              <div class="@[480px]:p-4">
+      <div class="w-full">
+
+        <!-- ── Part 1: Main Hero ── -->
+        <section aria-label="Entreprenote – AI-Powered Startup Idea Validation">
+          <div class="relative w-full overflow-hidden"
+            style="background: linear-gradient(135deg, #001a5c 0%, #0052D9 55%, #1a6fff 100%);">
+            <!-- Subtle grid pattern overlay -->
+            <div class="absolute inset-0 opacity-10"
+              style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 32px 32px;">
+            </div>
+
+            <div
+              class="relative z-10 mx-auto max-w-screen-xl px-4 md:px-10 py-20 md:py-28 flex flex-col items-center text-center gap-6">
+
+              <!-- Badge -->
+              <div
+                class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold text-white/90 backdrop-blur-sm">
+                <span class="h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
+                Now in Public Beta
+              </div>
+
+              <!-- H1 — primary SEO/AEO keyword target -->
+              <h1 class="max-w-3xl text-4xl md:text-6xl font-black tracking-tight text-white leading-[1.1]">
+                Validate Your Startup Idea<br class="hidden md:block" />
+                <span style="color: #a8c8ff;">Before You Build Anything</span>
+              </h1>
+
+              <!-- Subheadline — answer-engine optimised, mirrors user search intent -->
+              <p class="max-w-2xl text-base md:text-xl text-white/80 leading-relaxed">
+                Entreprenote is the AI-powered workspace that asks the right questions — helping entrepreneurs clarify,
+                stress-test, and structure their ideas into actionable plans. No fluff, no guessing. Just clarity.
+              </p>
+
+              <!-- CTAs -->
+              <div class="flex flex-wrap justify-center gap-3 mt-2">
+                <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
+                  onclick="gtag('event','go_to_entpn_app',{event_category:'cta',event_label:'hero_primary_cta'});"
+                  class="group inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm md:text-base font-bold text-[#0052D9] shadow-lg hover:bg-white/90 transition-all duration-200">
+                  Entreprenote App
+                  <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                      d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+                <a href="https://www.youtube.com/watch?v=DrNaoxwbafg" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3 text-sm md:text-base font-semibold text-white backdrop-blur-sm hover:bg-white/20 transition-all duration-200">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Watch Demo
+                </a>
+              </div>
+
+              <!-- Trust signals -->
+              <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 text-xs text-white/60">
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  For founders at the idea stage
+                </span>
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  AI-guided idea due diligence
+                </span>
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Built for ideas still in your head
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Part 2: How It Works (3-step value prop) ── -->
+        <section aria-label="How Entreprenote works" class="w-full bg-white">
+          <div class="mx-auto max-w-screen-xl px-4 md:px-10 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+              <!-- Step 1 -->
+              <div class="rounded-2xl bg-gray-50 border border-gray-200 p-6 flex flex-col gap-3">
                 <div
-                  class="w-full flex min-h-[420px] md:min-h-[550px] rounded-2xl @[480px]:min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-2xl items-center justify-center p-5 md:p-6 shadow-lg"
-                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%), url("./images/featured.jpg");'>
-                  <div class="flex flex-col gap-2 text-center">
-                    <img src="./images/logo.svg" alt="Entreprenote logo" class="mx-auto h-12 w-auto @[480px]:h-12" />
-                    <h1
-                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                      Refine Your Startup Vision
-                    </h1>
-                    <h2
-                      class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                      Entreprenote helps entrepreneurs brainstorm, organize, and refine
-                      their vision <br />with
-                      AI-powered note-taking, turning uncertainty into clarity
-                    </h2>
-                  </div>
-                  <div class="flex-wrap gap-3 flex justify-center">
-                    <a href="https://www.notion.com/@entreprenote" target="_blank" rel="noopener noreferrer"
-                      onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'Notify Me'});"
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                      <span class="truncate">Explore Notion Store</span>
-                    </a>
+                  class="w-10 h-10 rounded-xl bg-[#0052D9] flex items-center justify-center text-white font-black text-lg">
+                  1
+                </div>
+                <h2 class="text-gray-900 font-bold text-base">Dump Your Raw Idea</h2>
+                <p class="text-gray-500 text-sm leading-relaxed">Start with whatever you've got — a vague thought, a gap
+                  you
+                  noticed, a problem you keep running into. Entreprenote meets you where you are.</p>
+              </div>
 
-                    <a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank" rel="noopener noreferrer"
-                      onclick="gtag('event','blog_click',{event_category:'cta',event_label:'Blog'});"
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#fff] text-[#101518] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                      <span class="truncate">Signup for BETA!</span>
-                    </a>
+              <!-- Step 2 -->
+              <div class="rounded-2xl bg-gray-50 border border-gray-200 p-6 flex flex-col gap-3">
+                <div
+                  class="w-10 h-10 rounded-xl bg-[#0052D9] flex items-center justify-center text-white font-black text-lg">
+                  2
+                </div>
+                <h2 class="text-gray-900 font-bold text-base">AI-Powered Sticky Notes</h2>
+                <p class="text-gray-500 text-sm leading-relaxed">Drop your rough thoughts into sticky notes. AI helps
+                  organize them and
+                  asks smart follow-ups to turn scattered ideas into clear direction.</p>
+              </div>
 
+              <!-- Step 3 -->
+              <div class="rounded-2xl bg-gray-50 border border-gray-200 p-6 flex flex-col gap-3">
+                <div
+                  class="w-10 h-10 rounded-xl bg-[#0052D9] flex items-center justify-center text-white font-black text-lg">
+                  3
+                </div>
+                <h2 class="text-gray-900 font-bold text-base">Get Clarity. Move Fast.</h2>
+                <p class="text-gray-500 text-sm leading-relaxed">Walk away with a structured breakdown of your idea —
+                  what's
+                  strong, what needs work, and what to do next. Turn uncertainty into a plan of action.</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Part 3: Demo Video ── -->
+        <section id="demo-video" aria-label="Entreprenote product demo video" class="w-full bg-white">
+          <div class="mx-auto max-w-screen-xl px-4 md:px-10 pb-16">
+            <div class="rounded-2xl bg-gray-50 border border-gray-200 overflow-hidden">
+              <div class="flex flex-col lg:flex-row">
+
+                <!-- Video -->
+                <div class="w-full lg:w-3/5">
+                  <div class="aspect-video w-full bg-black">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/DrNaoxwbafg?si=7SnG_4E5pqwP4TgV"
+                      title="How to validate your startup idea with Entreprenote – Product Demo" frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                   </div>
                 </div>
-              </div>
-            </div>
-          </main>
-          <!-- Div 2 -->
-          <section class="flex flex-col items-center justify-center w-full">
-            <div class="layout-content-container flex flex-col w-full max-w-screen-xl flex-1">
-              <div class="@container">
-                <div class="@[480px]:p-4">
+
+                <!-- Copy -->
+                <div class="w-full lg:w-2/5 flex flex-col justify-center gap-5 p-6 lg:p-10">
                   <div
-                    class="w-full flex min-h-[420px] md:min-h-[550px] rounded-2xl @[480px]:min-h-[480px] flex-col gap-6 bg-[#0052D9] bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-2xl items-center justify-center p-5 md:p-6 shadow-lg">
-                    <div class="flex flex-col gap-2 text-center">
-
-                      <img src="./images/catalyst_icon.svg" alt="Catalyst by Entreprenote logo"
-                        class="mx-auto h-24 w-auto @[480px]:h-24" />
-                      <h2
-                        class="flex flex-wrap items-center justify-center gap-2 text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                        Catalyst
-                        <span
-                          class="inline-block ml-2 px-2 py-1 text-xs font-medium tracking-normal bg-red-100 text-red-800 rounded-full whitespace-nowrap">
-                          BETA
-                        </span>
-                      </h2>
-                      <h2
-                        class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                        Catalyst by Entreprenote is a community-driven home for real problem statements <br />and
-                        unbuilt
-                        ideas
-                        from people
-                        worldwide—dive in, get inspired, and choose what you want to build next.
-                      </h2>
-                    </div>
-                    <div class="flex-wrap gap-3 flex justify-center">
-                      <!-- <a href="https://www.notion.com/@entreprenote" target="_blank" rel="noopener noreferrer"
-                      onclick="gtag('event','notify_me_click',{event_category:'cta',event_label:'Notify Me'});"
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0052D9] text-[#fff] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                      <span class="truncate">Explore Notion Store</span>
-                    </a> -->
-
-                      <a href="https://catalyst.entreprenote.com/" target="_blank" rel="noopener noreferrer"
-                        onclick="gtag('event','blog_click',{event_category:'cta',event_label:'Blog'});"
-                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#fff] text-[#101518] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                        <span class="truncate"> Explore Catalyst</span>
-                      </a>
-
-                    </div>
+                    class="inline-flex items-center gap-2 self-start rounded-full bg-red-50 border border-red-200 px-3 py-1 text-xs font-bold text-red-600">
+                    <span class="h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
+                    LIVE DEMO
                   </div>
+
+                  <h2 class="text-gray-900 text-xl md:text-2xl font-black leading-snug">
+                    See How Entrepreneurs Validate Ideas using Entreprenote App!
+                  </h2>
+
+                  <p class="text-gray-500 text-sm leading-relaxed">
+                    Watch a real brainstorming session inside <a href="https://app.entreprenote.com" target="_blank"
+                      rel="noopener noreferrer"
+                      onclick="gtag('event','go_to_entpn_app',{event_category:'cta',event_label:'demo_inline_link'});"
+                      class="text-[#0052D9] underline underline-offset-2 hover:text-[#0052D9]/80">Entreprenote App</a>.
+                    From raw
+                    idea to structured clarity — AI questions, note-taking, and a clear path forward.
+                  </p>
+
+                  <div class="flex flex-wrap gap-2 text-xs text-gray-400">
+                    <span class="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      12 min watch
+                    </span>
+                    <!-- <span class="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.347.346A4.002 4.002 0 0112 16a4.002 4.002 0 01-2.796-1.154l-.348-.346z" />
+                      </svg>
+                      Real startup idea walkthrough
+                    </span> -->
+                  </div>
+
+                  <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
+                    onclick="gtag('event','go_to_entpn_app',{event_category:'cta',event_label:'demo_section_cta'});"
+                    class="group inline-flex items-center gap-2 self-start rounded-xl bg-[#0052D9] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#0052D9]/90 transition-all duration-200">
+                    Checkout Entreprenote App
+                    <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                        d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </a>
                 </div>
+
               </div>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
+
+        <!-- ── Part 4: FAQ (matches FAQPage schema in <head> — keep both in sync) ── -->
+        <section id="faq" aria-label="Frequently asked questions about Entreprenote" class="w-full bg-white">
+          <div class="mx-auto max-w-screen-xl px-4 md:px-10 pb-16">
+            <h2 class="text-gray-900 text-2xl md:text-3xl font-black mb-6">Frequently Asked Questions</h2>
+            <div class="grid grid-cols-1 gap-3 max-w-3xl">
+
+              <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
+                <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
+                  <h3 class="text-gray-900 font-bold text-base">What is Entreprenote?</h3>
+                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm leading-relaxed mt-3">Entreprenote is an AI-powered workspace for the
+                  idea stage of a startup. It asks you structured, guided questions that help you clarify, stress-test,
+                  and organize a raw idea into an actionable plan — before you spend time or money building.</p>
+              </details>
+
+              <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
+                <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
+                  <h3 class="text-gray-900 font-bold text-base">How do I validate a startup idea with Entreprenote?</h3>
+                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm leading-relaxed mt-3">You start by dumping your raw idea into the app.
+                  AI-powered sticky notes help you organize your thoughts, and guided follow-up questions stress-test
+                  your problem statement, target audience, and assumptions. You end up with a structured breakdown of
+                  what's strong, what needs work, and what to do next.</p>
+              </details>
+
+              <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
+                <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
+                  <h3 class="text-gray-900 font-bold text-base">Is Entreprenote free?</h3>
+                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm leading-relaxed mt-3">Yes. The Free tier includes all core Entreprenote
+                  features without AI capabilities. The Pro tier (around $9.99/month) unlocks full access to all AI
+                  capabilities.</p>
+              </details>
+
+              <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
+                <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
+                  <h3 class="text-gray-900 font-bold text-base">Who is Entreprenote for?</h3>
+                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm leading-relaxed mt-3">Entreprenote is built for founders and
+                  entrepreneurs at the idea stage — anyone with an idea still in their head who wants clarity on what
+                  to do next, before building a product or writing a business plan.</p>
+              </details>
+
+              <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
+                <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
+                  <h3 class="text-gray-900 font-bold text-base">Do I need a business plan before using Entreprenote?</h3>
+                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm leading-relaxed mt-3">No. Entreprenote is designed for the step before
+                  the business plan. Bring a vague thought, a gap you noticed, or a problem you keep running into — the
+                  AI-guided questions help you turn it into structure and direction.</p>
+              </details>
+
+            </div>
+          </div>
+        </section>
+
       </div>
       <!-- Footer Section -->
       <footer class="bg-white border-t border-gray-200 w-full">
@@ -242,6 +608,7 @@
             <!-- Center Column - Form (takes max space) -->
             <div class="md:col-span-4">
               <h3 class="text-lg font-semibold text-gray-900 mb-4">Connect</h3>
+              Email: <b>hello[at]entreprenote.com</b>
               <div class="mt-6 flex space-x-4">
                 <a href="https://www.instagram.com/getentreprenote" target="_blank" rel="noopener noreferrer"
                   aria-label="Instagram"
@@ -267,6 +634,12 @@
                   class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all">
                   <i class="ri-reddit-fill ri-lg"></i>
                 </a>
+                <!-- Youtube -->
+                <a href="https://www.youtube.com/@entreprenote" target="_blank" rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all">
+                  <i class="ri-youtube-fill ri-lg"></i>
+                </a>
               </div>
 
             </div>
@@ -275,21 +648,26 @@
             <div class="md:col-span-4">
               <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
               <ul class="space-y-3">
-                <li><a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank"
-                    class="text-[#0052D9] hover:text-primary font-bold">Notify Me</a></li>
+                <li><a href="https://app.entreprenote.com" target="_blank"
+                    class="text-[#0052D9] hover:text-primary font-bold">Entreprenote App</a></li>
+                <li><a href="marketplace.html" target="_blank"
+                    class="text-gray-600 hover:text-primary font-bold">Marketplace</a></li>
                 <li><a href="https://medium.com/entreprenote" target="_blank"
                     class="text-gray-600 hover:text-primary font-bold">Blog</a></li>
-                <li><a href="terms-service.html" class="text-gray-600 hover:text-primary">Terms of Service</a></li>
-                <li><a href="privacy-policy.html" class="text-gray-600 hover:text-primary">Privacy Policy</a></li>
-                <!-- <li><a href="https://catalyst.entreprenote.com/" target="_blank"
-                                  class="text-gray-600 hover:text-primary"><b>💎
-                                    Catalyst</b> <i>by
-                                    entreprenote</i></a>
-                                <span
-                                  class="inline-block ml-2 px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">BETA</span>
-                              </li> -->
+                <li><a href="https://catalyst.entreprenote.com/" target="_blank"
+                    class="text-gray-600 hover:text-primary"><b>💎
+                      Catalyst</b> App</a>
+                  <span
+                    class="inline-block ml-2 px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">BETA</span>
+                </li>
                 <li>
-                  <a href="https://forms.gle/Pwa4waL5eCLaiwLX6" target="_blank"
+                  --
+                <li><a href="privacy-policy.html" class="text-gray-600 hover:text-primary">Privacy
+                    Policy</a></li>
+                <li><a href="terms-service.html" class="text-gray-600 hover:text-primary">Terms of
+                    Service</a></li>
+
+                <li><a href="https://forms.gle/Pwa4waL5eCLaiwLX6" target="_blank"
                     class="text-gray-600 hover:text-primary">Payment Resolutions</a>
                 </li>
               </ul>
@@ -312,27 +690,27 @@
                     Think. <b class="text-[#0052D9]"> Note. </b> Grow.
                   </p>
                   <!-- <a href="index.html" class="flex items-center gap-2">
-                    <svg class="h-4 w-auto" viewBox="0 0 126 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M0.5 11.5C0.5 7.35786 3.85786 4 8 4L34 4C38.1421 4 41.5 7.35786 41.5 11.5L41.5 37.5C41.5 41.6421 38.1421 45 34 45L0.5 45L0.5 11.5Z"
-                        fill="#0052D9" stroke="#0052D9" />
-                      <mask id="path-2-inside-1_7599_1599" fill="#0052D9">
-                        <path
-                          d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z" />
-                      </mask>
-                      <path
-                        d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z"
-                        fill="#0052D9" />
-                      <path
-                        d="M92 3.5L92 2.5L92 3.5ZM118 3.5L118 2.5L118 3.5ZM126 11.5L127 11.5L126 11.5ZM118 45.5L118 46.5L118 45.5ZM92 45.5L92 46.5L92 45.5ZM84 37.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.5039L95.6025 24.504L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014L105.002 33.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.504L114.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055L105.002 15.1055L105.002 16.1055ZM84 11.5L85 11.5C85 7.63401 88.134 4.5 92 4.5L92 3.5L92 2.5C87.0294 2.5 83 6.52944 83 11.5L84 11.5ZM92 3.5L92 4.5L118 4.5L118 3.5L118 2.5L92 2.5L92 3.5ZM118 3.5L118 4.5C121.866 4.5 125 7.63401 125 11.5L126 11.5L127 11.5C127 6.52944 122.971 2.5 118 2.5L118 3.5ZM126 11.5L125 11.5L125 37.5L126 37.5L127 37.5L127 11.5L126 11.5ZM126 37.5L125 37.5C125 41.366 121.866 44.5 118 44.5L118 45.5L118 46.5C122.971 46.5 127 42.4706 127 37.5L126 37.5ZM118 45.5L118 44.5L92 44.5L92 45.5L92 46.5L118 46.5L118 45.5ZM92 45.5L92 44.5C88.134 44.5 85 41.366 85 37.5L84 37.5L83 37.5C83 42.4706 87.0294 46.5 92 46.5L92 45.5ZM84 37.5L85 37.5L85 11.5L84 11.5L83 11.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.504C95.6028 29.6942 99.8108 33.9013 105.002 33.9014L105.002 32.9014L105.002 31.9014C100.915 31.9013 97.6027 28.5892 97.6025 24.5039L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014C110.193 33.9014 114.402 29.6943 114.402 24.504L113.402 24.5039L112.402 24.5039C112.402 28.5891 109.089 31.9014 105.002 31.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.5039C114.402 19.3134 110.193 15.1055 105.002 15.1055L105.002 16.1055L105.002 17.1055C109.089 17.1055 112.402 20.4184 112.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055C99.8106 15.1055 95.6025 19.3136 95.6025 24.5039L96.6025 24.5039L97.6025 24.5039C97.6025 20.4183 100.915 17.1055 105.002 17.1055L105.002 16.1055Z"
-                        fill="#0052D9" mask="url(#path-2-inside-1_7599_1599)" />
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M53.6667 -0.000164212C54.2855 -0.000164212 54.879 0.239525 55.3166 0.666168C55.7542 1.09281 56 1.67147 56 2.27484V4.54984H51.3333V2.27484C51.3333 1.67147 51.5792 1.09281 52.0168 0.666168C52.4543 0.239525 53.0478 -0.000164212 53.6667 -0.000164212ZM74.6667 4.54984H77C78.8565 4.54984 80.637 5.26891 81.9497 6.54883C83.2625 7.82876 84 9.56475 84 11.3748V38.6748C84 40.4849 83.2625 42.2209 81.9497 43.5008C80.637 44.7808 78.8565 45.4998 77 45.4998H49C47.1435 45.4998 45.363 44.7808 44.0503 43.5008C42.7375 42.2209 42 40.4849 42 38.6748V11.3748C42 9.56475 42.7375 7.82876 44.0503 6.54883C45.363 5.26891 47.1435 4.54984 49 4.54984H51.3333V11.3748C51.3333 11.9782 51.5792 12.5569 52.0168 12.9835C52.4543 13.4101 53.0478 13.6498 53.6667 13.6498C54.2855 13.6498 54.879 13.4101 55.3166 12.9835C55.7542 12.5569 56 11.9782 56 11.3748V4.54984H60.6667V11.3748C60.6667 11.9782 60.9125 12.5569 61.3501 12.9835C61.7877 13.4101 62.3812 13.6498 63 13.6498C63.6188 13.6498 64.2123 13.4101 64.6499 12.9835C65.0875 12.5569 65.3333 11.9782 65.3333 11.3748V4.54984H70V11.3748C70 11.9782 70.2458 12.5569 70.6834 12.9835C71.121 13.4101 71.7145 13.6498 72.3333 13.6498C72.9522 13.6498 73.5457 13.4101 73.9833 12.9835C74.4208 12.5569 74.6667 11.9782 74.6667 11.3748V4.54984ZM74.6667 4.54984H70V2.27484C70 1.67147 70.2458 1.09281 70.6834 0.666168C71.121 0.239525 71.7145 -0.000164212 72.3333 -0.000164212C72.9522 -0.000164212 73.5457 0.239525 73.9833 0.666168C74.4208 1.09281 74.6667 1.67147 74.6667 2.27484V4.54984ZM65.3333 4.54984V2.27484C65.3333 1.67147 65.0875 1.09281 64.6499 0.666168C64.2123 0.239525 63.6188 -0.000164212 63 -0.000164212C62.3812 -0.000164212 61.7877 0.239525 61.3501 0.666168C60.9125 1.09281 60.6667 1.67147 60.6667 2.27484V4.54984H65.3333Z"
-                        fill="#0052D9" />
-                    </svg>
-                    <h2 class="text-[#0052D9] text-lg font-bold leading-tight tracking-[-0.015em]">
-                      Entreprenote</h2>
-                  </a> -->
+                                            <svg class="h-4 w-auto" viewBox="0 0 126 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path
+                                                d="M0.5 11.5C0.5 7.35786 3.85786 4 8 4L34 4C38.1421 4 41.5 7.35786 41.5 11.5L41.5 37.5C41.5 41.6421 38.1421 45 34 45L0.5 45L0.5 11.5Z"
+                                                fill="#0052D9" stroke="#0052D9" />
+                                              <mask id="path-2-inside-1_7599_1599" fill="#0052D9">
+                                                <path
+                                                  d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z" />
+                                              </mask>
+                                              <path
+                                                d="M84 11.5C84 7.08172 87.5817 3.5 92 3.5L118 3.5C122.418 3.5 126 7.08172 126 11.5L126 37.5C126 41.9183 122.418 45.5 118 45.5L92 45.5C87.5817 45.5 84 41.9183 84 37.5L84 11.5ZM96.6025 24.5039C96.6028 29.1417 100.363 32.9013 105.002 32.9014C109.641 32.9014 113.402 29.1417 113.402 24.5039C113.402 19.8659 109.641 16.1055 105.002 16.1055C100.363 16.1055 96.6025 19.8659 96.6025 24.5039Z"
+                                                fill="#0052D9" />
+                                              <path
+                                                d="M92 3.5L92 2.5L92 3.5ZM118 3.5L118 2.5L118 3.5ZM126 11.5L127 11.5L126 11.5ZM118 45.5L118 46.5L118 45.5ZM92 45.5L92 46.5L92 45.5ZM84 37.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.5039L95.6025 24.504L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014L105.002 33.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.504L114.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055L105.002 15.1055L105.002 16.1055ZM84 11.5L85 11.5C85 7.63401 88.134 4.5 92 4.5L92 3.5L92 2.5C87.0294 2.5 83 6.52944 83 11.5L84 11.5ZM92 3.5L92 4.5L118 4.5L118 3.5L118 2.5L92 2.5L92 3.5ZM118 3.5L118 4.5C121.866 4.5 125 7.63401 125 11.5L126 11.5L127 11.5C127 6.52944 122.971 2.5 118 2.5L118 3.5ZM126 11.5L125 11.5L125 37.5L126 37.5L127 37.5L127 11.5L126 11.5ZM126 37.5L125 37.5C125 41.366 121.866 44.5 118 44.5L118 45.5L118 46.5C122.971 46.5 127 42.4706 127 37.5L126 37.5ZM118 45.5L118 44.5L92 44.5L92 45.5L92 46.5L118 46.5L118 45.5ZM92 45.5L92 44.5C88.134 44.5 85 41.366 85 37.5L84 37.5L83 37.5C83 42.4706 87.0294 46.5 92 46.5L92 45.5ZM84 37.5L85 37.5L85 11.5L84 11.5L83 11.5L83 37.5L84 37.5ZM96.6025 24.5039L95.6025 24.504C95.6028 29.6942 99.8108 33.9013 105.002 33.9014L105.002 32.9014L105.002 31.9014C100.915 31.9013 97.6027 28.5892 97.6025 24.5039L96.6025 24.5039ZM105.002 32.9014L105.002 33.9014C110.193 33.9014 114.402 29.6943 114.402 24.504L113.402 24.5039L112.402 24.5039C112.402 28.5891 109.089 31.9014 105.002 31.9014L105.002 32.9014ZM113.402 24.5039L114.402 24.5039C114.402 19.3134 110.193 15.1055 105.002 15.1055L105.002 16.1055L105.002 17.1055C109.089 17.1055 112.402 20.4184 112.402 24.5039L113.402 24.5039ZM105.002 16.1055L105.002 15.1055C99.8106 15.1055 95.6025 19.3136 95.6025 24.5039L96.6025 24.5039L97.6025 24.5039C97.6025 20.4183 100.915 17.1055 105.002 17.1055L105.002 16.1055Z"
+                                                fill="#0052D9" mask="url(#path-2-inside-1_7599_1599)" />
+                                              <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M53.6667 -0.000164212C54.2855 -0.000164212 54.879 0.239525 55.3166 0.666168C55.7542 1.09281 56 1.67147 56 2.27484V4.54984H51.3333V2.27484C51.3333 1.67147 51.5792 1.09281 52.0168 0.666168C52.4543 0.239525 53.0478 -0.000164212 53.6667 -0.000164212ZM74.6667 4.54984H77C78.8565 4.54984 80.637 5.26891 81.9497 6.54883C83.2625 7.82876 84 9.56475 84 11.3748V38.6748C84 40.4849 83.2625 42.2209 81.9497 43.5008C80.637 44.7808 78.8565 45.4998 77 45.4998H49C47.1435 45.4998 45.363 44.7808 44.0503 43.5008C42.7375 42.2209 42 40.4849 42 38.6748V11.3748C42 9.56475 42.7375 7.82876 44.0503 6.54883C45.363 5.26891 47.1435 4.54984 49 4.54984H51.3333V11.3748C51.3333 11.9782 51.5792 12.5569 52.0168 12.9835C52.4543 13.4101 53.0478 13.6498 53.6667 13.6498C54.2855 13.6498 54.879 13.4101 55.3166 12.9835C55.7542 12.5569 56 11.9782 56 11.3748V4.54984H60.6667V11.3748C60.6667 11.9782 60.9125 12.5569 61.3501 12.9835C61.7877 13.4101 62.3812 13.6498 63 13.6498C63.6188 13.6498 64.2123 13.4101 64.6499 12.9835C65.0875 12.5569 65.3333 11.9782 65.3333 11.3748V4.54984H70V11.3748C70 11.9782 70.2458 12.5569 70.6834 12.9835C71.121 13.4101 71.7145 13.6498 72.3333 13.6498C72.9522 13.6498 73.5457 13.4101 73.9833 12.9835C74.4208 12.5569 74.6667 11.9782 74.6667 11.3748V4.54984ZM74.6667 4.54984H70V2.27484C70 1.67147 70.2458 1.09281 70.6834 0.666168C71.121 0.239525 71.7145 -0.000164212 72.3333 -0.000164212C72.9522 -0.000164212 73.5457 0.239525 73.9833 0.666168C74.4208 1.09281 74.6667 1.67147 74.6667 2.27484V4.54984ZM65.3333 4.54984V2.27484C65.3333 1.67147 65.0875 1.09281 64.6499 0.666168C64.2123 0.239525 63.6188 -0.000164212 63 -0.000164212C62.3812 -0.000164212 61.7877 0.239525 61.3501 0.666168C60.9125 1.09281 60.6667 1.67147 60.6667 2.27484V4.54984H65.3333Z"
+                                                fill="#0052D9" />
+                                            </svg>
+                                            <h2 class="text-[#0052D9] text-lg font-bold leading-tight tracking-[-0.015em]">
+                                              Entreprenote</h2>
+                                          </a> -->
                 </div>
               </div>
             </div>

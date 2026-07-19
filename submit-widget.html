@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget Submission Portal</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs/loader.min.js"></script>
+
+    <style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+
+        .editor-container {
+            border: 1px solid #374151;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .required-marker::after {
+            content: "*";
+            color: #ef4444;
+            margin-left: 4px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-950 text-gray-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+    <header class="border-b border-gray-800 bg-gray-900 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center font-bold text-white">W
+                </div>
+                <h1 class="text-xl font-semibold tracking-tight">Widget Marketplace <span
+                        class="text-gray-500 font-normal">| Developer Console</span></h1>
+            </div>
+            <a href="https://stackblitz.com/edit/vitejs-vite-xv4rej2n?file=README.md" target="_blank"
+                class="text-sm text-indigo-400 hover:text-indigo-300 flex items-center gap-1 transition-colors">
+                <span>View Reference Template</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-10">
+
+        <div class="mb-8">
+            <h2 class="text-3xl font-bold mb-2">Submit New Widget</h2>
+            <p class="text-gray-400">Fill out the metadata and paste your source code below. All submissions undergo
+                manual review.</p>
+        </div>
+
+        <form id="submissionForm" class="space-y-12">
+
+            <section class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                <h3 class="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+                    <span class="bg-gray-800 w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span>
+                    Store Listing Details
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="col-span-2 md:col-span-1">
+                        <label class="block text-sm font-medium text-gray-300 mb-1 required-marker">Widget Name</label>
+                        <input type="text" id="widgetName" required placeholder="e.g. Weather Dashboard"
+                            class="w-full bg-gray-950 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1 required-marker">Version</label>
+                        <input type="text" id="widgetVersion" required placeholder="1.0.0" pattern="^\d+\.\d+\.\d+$"
+                            class="w-full bg-gray-950 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all">
+                    </div>
+
+                    <div class="col-span-2">
+                        <label class="block text-sm font-medium text-gray-300 mb-1 required-marker">Short
+                            Description</label>
+                        <input type="text" id="shortDesc" required maxlength="100"
+                            placeholder="A brief summary for the card view (max 100 chars)"
+                            class="w-full bg-gray-950 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all">
+                    </div>
+
+                    <div class="col-span-2">
+                        <label class="block text-sm font-medium text-gray-300 mb-1 required-marker">Full
+                            Description</label>
+                        <textarea id="fullDesc" required rows="4"
+                            placeholder="Detailed explanation of features and usage..."
+                            class="w-full bg-gray-950 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all resize-y"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1 required-marker">Support
+                            Email</label>
+                        <input type="email" id="supportEmail" required placeholder="support@domain.com"
+                            class="w-full bg-gray-950 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1 required-marker">Category</label>
+                        <select id="category"
+                            class="w-full bg-gray-950 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all">
+                            <option value="productivity">Productivity</option>
+                            <option value="analytics">Analytics</option>
+                            <option value="utility">Utility</option>
+                            <option value="fun">Fun & Games</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                <h3 class="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+                    <span class="bg-gray-800 w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span>
+                    Visual Assets (URLs)
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1 required-marker">Icon URL
+                            (512x512)</label>
+                        <input type="url" id="iconUrl" required placeholder="https://..."
+                            class="w-full bg-gray-950 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1 required-marker">Featured Image URL
+                            (1024x500)</label>
+                        <input type="url" id="featuredUrl" required placeholder="https://..."
+                            class="w-full bg-gray-950 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all">
+                    </div>
+
+                    <div class="col-span-2">
+                        <label class="block text-sm font-medium text-gray-300 mb-1">Screenshots (Max 5)</label>
+                        <div id="screenshotContainer" class="space-y-3">
+                            <input type="url" placeholder="Screenshot URL 1"
+                                class="w-full bg-gray-950 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all">
+                        </div>
+                        <button type="button" onclick="addScreenshotField()"
+                            class="mt-3 text-sm text-indigo-400 hover:text-indigo-300 font-medium flex items-center gap-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v16m8-8H4"></path>
+                            </svg>
+                            Add another screenshot
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
+                <h3 class="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+                    <span class="bg-gray-800 w-6 h-6 rounded-full flex items-center justify-center text-xs">3</span>
+                    Source Code
+                </h3>
+                <p class="text-sm text-gray-400 mb-6">Paste your file contents below. Ensure your manifest matches the
+                    schema required.</p>
+
+                <div class="space-y-8">
+
+                    <div>
+                        <div class="flex justify-between items-end mb-2">
+                            <label
+                                class="text-sm font-medium text-indigo-400 font-mono required-marker">manifest.json</label>
+                            <span id="json-status" class="text-xs text-gray-500">Waiting for input...</span>
+                        </div>
+                        <div id="editor-manifest" class="h-64 editor-container"></div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-end mb-2">
+                            <label class="text-sm font-medium text-blue-400 font-mono required-marker">index.tsx</label>
+                            <span class="text-xs text-gray-500">React Component</span>
+                        </div>
+                        <div id="editor-index" class="h-96 editor-container"></div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-end mb-2">
+                            <label class="text-sm font-medium text-green-400 font-mono">mock-data.json (Reviewer
+                                Helper)</label>
+                            <span class="text-xs text-gray-500">Data used to verify your widget renders correctly</span>
+                        </div>
+                        <div id="editor-mock" class="h-40 editor-container"></div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 font-mono mb-2">README.md
+                            (Optional)</label>
+                        <div id="editor-readme" class="h-48 editor-container"></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="flex items-center justify-end gap-4 pt-4 border-t border-gray-800">
+                <span class="text-xs text-gray-500">By submitting, you agree to the Developer Terms of Service.</span>
+                <button type="submit"
+                    class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-8 rounded-lg transition-all shadow-lg shadow-indigo-500/20 flex items-center gap-2">
+                    <span>Submit for Review</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </button>
+            </div>
+
+        </form>
+    </main>
+
+    <footer class="max-w-5xl mx-auto px-6 py-8 text-center text-gray-600 text-sm">
+        &copy; 2023 Widget Marketplace Inc. All rights reserved.
+    </footer>
+
+    <script>
+        // --- 1. Screenshot Logic ---
+        function addScreenshotField() {
+            const container = document.getElementById('screenshotContainer');
+            const count = container.children.length;
+            if (count >= 5) {
+                alert("Maximum of 5 screenshots allowed.");
+                return;
+            }
+            const input = document.createElement('input');
+            input.type = 'url';
+            input.placeholder = `Screenshot URL ${count + 1}`;
+            input.className = "w-full bg-gray-950 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all";
+            container.appendChild(input);
+        }
+
+        // --- 2. Monaco Editor Setup ---
+        require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs' } });
+
+        let editors = {};
+
+        require(['vs/editor/editor.main'], function () {
+
+            // Define a custom dark theme that matches the UI
+            monaco.editor.defineTheme('custom-dark', {
+                base: 'vs-dark',
+                inherit: true,
+                rules: [],
+                colors: {
+                    'editor.background': '#0f172a', // Tailwind Slate-900ish
+                    'editor.lineHighlightBackground': '#1e293b'
+                }
+            });
+
+            // Initialize Manifest Editor
+            editors.manifest = monaco.editor.create(document.getElementById('editor-manifest'), {
+                value: '{\n  "id": "com.example.widget",\n  "name": "My Widget",\n  "version": "1.0.0",\n  "permissions": []\n}',
+                language: 'json',
+                theme: 'custom-dark',
+                minimap: { enabled: false },
+                automaticLayout: true
+            });
+
+            // Validation listener for Manifest
+            editors.manifest.onDidChangeModelContent(() => {
+                const val = editors.manifest.getValue();
+                const statusEl = document.getElementById('json-status');
+                try {
+                    JSON.parse(val);
+                    statusEl.textContent = "Valid JSON ✅";
+                    statusEl.className = "text-xs text-green-500 font-bold";
+                } catch (e) {
+                    statusEl.textContent = "Invalid JSON ❌";
+                    statusEl.className = "text-xs text-red-500 font-bold";
+                }
+            });
+
+            // Initialize Index.tsx Editor
+            editors.index = monaco.editor.create(document.getElementById('editor-index'), {
+                value: "import React from 'react';\n\nexport default function Widget() {\n  return (\n    <div className=\"p-4\">\n      <h1>Hello World</h1>\n    </div>\n  );\n}",
+                language: 'typescript',
+                theme: 'custom-dark',
+                minimap: { enabled: false },
+                automaticLayout: true
+            });
+
+            // Initialize Mock Data Editor
+            editors.mock = monaco.editor.create(document.getElementById('editor-mock'), {
+                value: '{\n  "sampleProp": "Test Data"\n}',
+                language: 'json',
+                theme: 'custom-dark',
+                minimap: { enabled: false },
+                automaticLayout: true
+            });
+
+            // Initialize Readme Editor
+            editors.readme = monaco.editor.create(document.getElementById('editor-readme'), {
+                value: '# Setup\n\n1. Install dependencies...',
+                language: 'markdown',
+                theme: 'custom-dark',
+                minimap: { enabled: false },
+                automaticLayout: true
+            });
+        });
+
+        // --- 3. Form Submission Handler ---
+        document.getElementById('submissionForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // validation: Check if editors are ready
+            if (!editors.manifest || !editors.index) {
+                alert("Editors loading. Please wait...");
+                return;
+            }
+
+            // validation: Check JSON validity
+            try {
+                JSON.parse(editors.manifest.getValue());
+                JSON.parse(editors.mock.getValue());
+            } catch (err) {
+                alert("Please correct the JSON errors in Manifest or Mock Data fields before submitting.");
+                return;
+            }
+
+            // Gather Screenshots
+            const screenshotInputs = document.querySelectorAll('#screenshotContainer input');
+            const screenshots = Array.from(screenshotInputs).map(input => input.value).filter(val => val.trim() !== "");
+
+            // Construct Payload
+            const submissionPayload = {
+                meta: {
+                    name: document.getElementById('widgetName').value,
+                    version: document.getElementById('widgetVersion').value,
+                    shortDesc: document.getElementById('shortDesc').value,
+                    fullDesc: document.getElementById('fullDesc').value,
+                    email: document.getElementById('supportEmail').value,
+                    category: document.getElementById('category').value,
+                },
+                assets: {
+                    icon: document.getElementById('iconUrl').value,
+                    featured: document.getElementById('featuredUrl').value,
+                    screenshots: screenshots
+                },
+                code: {
+                    "manifest.json": editors.manifest.getValue(),
+                    "index.tsx": editors.index.getValue(),
+                    "README.md": editors.readme.getValue(),
+                    "mock-data.json": editors.mock.getValue() // The extra helper field
+                },
+                submittedAt: new Date().toISOString()
+            };
+
+            console.log("Submission Payload:", submissionPayload);
+
+            // In a real app, you would POST this to your API
+            // For now, we alert specific parts to show it worked
+            alert(`✅ Submission Received for "${submissionPayload.meta.name}"!\n\nPayload logged to console.\n\nCode Length: ${submissionPayload.code["index.tsx"].length} chars`);
+        });
+
+    </script>
+</body>
+
+</html>

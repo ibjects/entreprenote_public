@@ -1,0 +1,38 @@
+name: Auto-Curate Access Hub
+
+on:
+    schedule:
+        - cron: "0 8,20 * * *" # Runs at 8am and 8pm UTC automatically
+    workflow_dispatch: # Lets you click a button to run it manually
+
+jobs:
+    update-json:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v3
+
+            - name: Setup Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.10"
+
+            - name: Install Libraries
+              run: pip install feedparser google-generativeai
+
+            - name: Run Curator Script (Inside Access Folder)
+              env:
+                  GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+              run: |
+                  cd access
+                  python update_hub.py
+
+            - name: Commit and Push Data Changes
+              run: |
+                  git config --global user.name "Access-Bot"
+                  git config --global user.email "bot@entreprenote.com"
+                  git add access/data.json
+                  git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-curated new startup resources" && git push)
