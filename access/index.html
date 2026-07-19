@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access by Entreprenote | AI Curated Resources</title>
+    <link
+        href="[https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap)"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f1115;
+            --card: #1a1d24;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --accent: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--muted);
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .filters button {
+            background: none;
+            border: 1px solid var(--muted);
+            color: var(--muted);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .filters button.active,
+        .filters button:hover {
+            background: var(--text);
+            color: var(--bg);
+            border-color: var(--text);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card a {
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            align-self: flex-start;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Access <span>by Entreprenote</span></h1>
+        <p>100% automated, AI-curated hub for startup growth, updated twice daily.</p>
+    </header>
+
+    <div class="container">
+        <div class="filters" id="filters">
+            <button class="active" data-filter="All">All</button>
+            <button data-filter="Tool">Tools</button>
+            <button data-filter="Funding">Funding</button>
+            <button data-filter="Learning">Learning</button>
+        </div>
+
+        <div class="grid" id="grid">
+            <p style="text-align:center; grid-column: 1/-1; color: var(--muted);">Waiting for AI to run its first
+                curation...</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const grid = document.getElementById('grid');
+            let data = [];
+
+            try {
+                const response = await fetch('data.json?t=' + new Date().getTime()); // bypass cache
+                data = await response.json();
+                render(data);
+            } catch (e) {
+                grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">No data yet. Run the GitHub Action first!</p>';
+            }
+
+            document.querySelectorAll('.filters button').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    const filter = e.target.getAttribute('data-filter');
+                    render(filter === 'All' ? data : data.filter(item => item.category === filter));
+                });
+            });
+
+            function render(items) {
+                grid.innerHTML = items.map(item => `
+                    <div class="card">
+                        <div class="tag">${item.category}</div>
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                        <a href="${item.link}" target="_blank">Visit Resource →</a>
+                    </div>
+                `).join('');
+            }
+        });
+    </script>
+</body>
+
+</html>
