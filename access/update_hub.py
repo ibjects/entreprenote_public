@@ -1,12 +1,11 @@
 import os
 import json
 import feedparser
-import google.generativeai as genai
+from google import genai
 
-# 1. Setup Free Gemini API
+# 1. Setup New Google GenAI Client
 API_KEY = os.environ.get("GEMINI_API_KEY")
-genai.configure(api_key=API_KEY)
-model = genai.GenerativeModel('gemini-2.0-flash')
+client = genai.Client(api_key=API_KEY)
 
 # 2. Verified RSS Feeds for Startup Ecosystem
 FEEDS = [
@@ -47,21 +46,25 @@ def process_with_llm(raw_text):
     {raw_text}
     """
     
-    response = model.generate_content(prompt)
-    
     try:
+        # Swapped to 3.5-flash for stable free-tier quota limits
+        response = client.models.generate_content(
+            model='gemini-3.5-flash',
+            contents=prompt,
+        )
+        
         # Clean up any potential markdown formatting the LLM might add
         clean_text = response.text.replace('```json', '').replace('```', '').strip()
         return json.loads(clean_text)
     except Exception as e:
-        print("Failed to parse JSON from LLM. Raw output was:", response.text)
+        print("Failed to generate or parse JSON from LLM. Error:", e)
         return []
 
 if __name__ == "__main__":
     print("Fetching RSS feeds...")
     raw_data = scrape_feeds()
     
-    print("Processing via Gemini...")
+    print("Processing via Gemini 3.5 Flash...")
     curated_data = process_with_llm(raw_data)
     
     if curated_data:

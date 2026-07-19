@@ -2,176 +2,541 @@
 <html lang="en">
 
 <head>
+    <!-- Google Analytics (Keep at top for accurate tracking) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CPBY4JYJVZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CPBY4JYJVZ');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Access by Entreprenote | AI Curated Resources</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <!-- ========================================== -->
+    <!-- 🚀 PRIMARY SEO METADATA -->
+    <!-- ========================================== -->
+    <title>Access by Entreprenote | AI-Curated Startup Resources, Funding & Tools</title>
+    <meta name="description"
+        content="Discover top AI-curated startup resources, funding grants, founder events, advisors, and tools. Access by Entreprenote updates daily to fuel your startup growth.">
+    <meta name="keywords"
+        content="startup resources, funding for startups, founder tools, startup events, AI startup curation, entrepreneur hub, indie hacker resources, accelerator grants, Entreprenote">
+    <meta name="author" content="Entreprenote">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://entreprenote.com/access/">
+
+    <!-- ========================================== -->
+    <!-- 📱 OPEN GRAPH (For Facebook, LinkedIn, Discord sharing) -->
+    <!-- ========================================== -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://entreprenote.com/access/">
+    <meta property="og:title" content="Access by Entreprenote | Free Startup Resources & Funding">
+    <meta property="og:description"
+        content="The 100% automated, AI-curated hub for early-stage founders. Find grants, vetted tools, events, and advisors.">
+    <!-- Note: Update the URL below to an actual 1200x630 banner image you host for link previews -->
+    <meta property="og:image" content="https://entreprenote.com/images/og-access-banner.png">
+    <meta property="og:site_name" content="Entreprenote">
+    <meta property="og:locale" content="en_US">
+
+    <!-- ========================================== -->
+    <!-- 🐦 TWITTER / X CARDS -->
+    <!-- ========================================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@entreprenote">
+    <meta name="twitter:creator" content="@entreprenote">
+    <meta name="twitter:title" content="Access by Entreprenote | Startup Resources & Funding">
+    <meta name="twitter:description"
+        content="The 100% automated, AI-curated hub for early-stage founders. Find grants, vetted tools, events, and advisors.">
+    <meta name="twitter:image" content="https://entreprenote.com/images/og-access-banner.png">
+
+    <!-- ========================================== -->
+    <!-- 🧠 JSON-LD SCHEMA MARKUP (For Google Rich Snippets) -->
+    <!-- ========================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Access by Entreprenote | Startup Resources",
+      "description": "An AI-curated directory of funding, tools, advisors, and events for startup founders and entrepreneurs.",
+      "url": "https://entreprenote.com/access/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Entreprenote",
+        "url": "https://entreprenote.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://entreprenote.com/images/access-icon.svg"
+        },
+        "sameAs": [
+          "https://x.com/entreprenote",
+          "https://www.linkedin.com/company/entreprenote",
+          "https://www.instagram.com/getentreprenote"
+        ]
+      }
+    }
+    </script>
+
+    <!-- Preconnect to speed up font loading (Core Web Vitals SEO) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="[https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap)"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0052D9',
+                        secondary: '#008DFF',
+                        surface: '#F3F8FF'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Manrope', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        :root {
-            --bg: #0f1115;
-            --card: #1a1d24;
-            --text: #e2e8f0;
-            --muted: #94a3b8;
-            --accent: #3b82f6;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
         body {
-            background: var(--bg);
-            color: var(--text);
-            padding-bottom: 50px;
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F8FF;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Manrope', sans-serif;
         }
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out forwards;
+            opacity: 0;
+            transform: translateY(5px);
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        header p {
-            color: var(--muted);
+        .sticky-nav-scrolled {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #eaedf1;
         }
 
-        .filters {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin: 40px 0;
-            flex-wrap: wrap;
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
         }
 
-        .filters button {
-            background: none;
-            border: 1px solid var(--muted);
-            color: var(--muted);
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        .filters button.active,
-        .filters button:hover {
-            background: var(--text);
-            color: var(--bg);
-            border-color: var(--text);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: var(--card);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .tag {
-            font-size: 0.75rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: var(--muted);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .card a {
-            color: var(--text);
-            text-decoration: none;
-            border-bottom: 1px solid var(--accent);
-            align-self: flex-start;
-            font-size: 0.9rem;
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
 
-<body>
-    <header>
-        <h1>Access <span>by Entreprenote</span></h1>
-        <p>100% automated, AI-curated hub for startup growth, updated twice daily.</p>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header Section -->
+    <header class="bg-white border-b border-b-[#eaedf1]">
+        <div class="flex items-center justify-between px-4 md:px-10 py-3">
+            <div class="flex items-center gap-1">
+                <a href="../index.html" class="flex items-center gap-1" aria-label="Back to Entreprenote Homepage">
+                    <img src="./images/access-icon.svg" alt="Access by Entreprenote Logo"
+                        class="mx-auto h-8 w-8 object-contain"
+                        onerror="this.src='https://ui-avatars.com/api/?name=A&background=0052D9&color=fff'" />
+                    <h2 class="text-[#000] text-lg font-bold leading-tight tracking-[-0.015em]">Access</h2>
+                    <span class="bg-orange-100 text-orange-500 text-xs font-bold px-2 py-0.5 rounded-full">Beta</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <a href="#"
+                    class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent"
+                    aria-label="View Documentation">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                    </svg>
+                    Docs
+                </a>
+                <a href="https://forms.gle/tNuReTGmSbRGmPKCA" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent"
+                    aria-label="Provide Feedback">
+                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                    </svg>
+                    Feedback
+                </a>
+                <a href="https://app.entreprenote.com" target="_blank"
+                    class="group relative inline-flex items-center px-3 py-1.5 pr-3 text-xs font-semibold text-[#0052D9] rounded-full border border-[#000]/40 bg-[#fff]/10 backdrop-blur-sm hover:bg-[#0052D9] hover:text-white transition-all duration-200 hover:pr-7">
+                    Entreprenote App
+                    <span
+                        class="absolute right-2 opacity-0 translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">➜</span>
+                </a>
+            </div>
+        </div>
     </header>
 
-    <div class="container">
-        <div class="filters" id="filters">
-            <button class="active" data-filter="All">All</button>
-            <button data-filter="Tool">Tools</button>
-            <button data-filter="Funding">Funding</button>
-            <button data-filter="Learning">Learning</button>
+    <!-- Sticky Top Navigation Filters -->
+    <nav id="sticky-nav" aria-label="Resource Categories"
+        class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-all duration-200">
+        <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+            <div class="flex items-center gap-1 overflow-x-auto hide-scrollbar py-2" id="nav-container">
+                <!-- Loaded dynamically via JS -->
+            </div>
         </div>
+    </nav>
 
-        <div class="grid" id="grid">
-            <p style="text-align:center; grid-column: 1/-1; color: var(--muted);">Waiting for AI to run its first
-                curation...</p>
-        </div>
+    <!-- Main Dynamic Content Context Wrapper -->
+    <div
+        class="flex-grow max-w-[1400px] mx-auto w-full px-4 md:px-10 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- Left Sidebar Filter Layout Component -->
+        <aside class="hidden lg:block lg:col-span-3 sticky top-[140px] transition-all">
+            <nav aria-label="Sidebar Sub-categories"
+                class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="p-3" id="sidebar-container">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+            </nav>
+
+            <div
+                class="mt-6 bg-gradient-to-br from-primary to-blue-600 rounded-xl p-6 text-white text-center shadow-lg">
+                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm"
+                    aria-hidden="true">
+                    <i class="ri-add-line text-2xl"></i>
+                </div>
+                <h4 class="font-bold text-lg mb-2">Have a Resource?</h4>
+                <p class="text-blue-100 text-sm mb-4">Submit your event, service, or grant to Entreprenote Access.</p>
+                <a href="https://forms.gle/tNuReTGmSbRGmPKCA" target="_blank"
+                    class="block w-full py-2 bg-white text-primary text-center font-bold rounded-lg text-sm hover:bg-blue-50 transition-colors">
+                    Submit Listing
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Display Feed Section -->
+        <main class="col-span-1 lg:col-span-9" aria-live="polite">
+            <div class="mb-8" id="section-header">
+                <!-- Managed via JS -->
+            </div>
+
+            <div id="content-grid" class="grid gap-6">
+                <p style="text-align:center; grid-column: 1/-1; color: #94a3b8;">Curating latest startup resources via
+                    LLM Engine...</p>
+            </div>
+        </main>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            const grid = document.getElementById('grid');
-            let data = [];
-
-            try {
-                const response = await fetch('data.json?t=' + new Date().getTime()); // bypass cache
-                data = await response.json();
-                render(data);
-            } catch (e) {
-                grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">No data yet. Run the GitHub Action first!</p>';
-            }
-
-            document.querySelectorAll('.filters button').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
-                    e.target.classList.add('active');
-                    const filter = e.target.getAttribute('data-filter');
-                    render(filter === 'All' ? data : data.filter(item => item.category === filter));
-                });
-            });
-
-            function render(items) {
-                grid.innerHTML = items.map(item => `
-                    <div class="card">
-                        <div class="tag">${item.category}</div>
-                        <h3>${item.title}</h3>
-                        <p>${item.description}</p>
-                        <a href="${item.link}" target="_blank">Visit Resource →</a>
+    <!-- Footer Section -->
+    <footer class="bg-white border-t border-gray-200 w-full">
+        <div class="px-4 md:px-10 lg:px-20 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <div class="md:col-span-4">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Connect</h3>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="https://www.instagram.com/getentreprenote" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on Instagram"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all"><i
+                                class="ri-instagram-line ri-lg"></i></a>
+                        <a href="https://www.linkedin.com/company/entreprenote" target="_blank"
+                            rel="noopener noreferrer" aria-label="Connect with us on LinkedIn"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all"><i
+                                class="ri-linkedin-fill ri-lg"></i></a>
+                        <a href="https://x.com/entreprenote" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on X (Twitter)"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all"><i
+                                class="ri-twitter-fill ri-lg"></i></a>
+                        <a href="https://medium.com/entreprenote" target="_blank" rel="noopener noreferrer"
+                            aria-label="Read our articles on Medium"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all"><i
+                                class="ri-medium-fill ri-lg"></i></a>
+                        <a href="https://www.reddit.com/r/entreprenote/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Join our Reddit community"
+                            class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:border hover:text-[#0052D9] text-gray-600 transition-all"><i
+                                class="ri-reddit-fill ri-lg"></i></a>
                     </div>
-                `).join('');
+                </div>
+
+                <div class="md:col-span-4">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="https://forms.gle/NaScBiTsnYrYnp4e6" target="_blank"
+                                class="text-[#0052D9] hover:text-primary font-bold">Notify Me</a></li>
+                        <li><a href="https://medium.com/entreprenote" target="_blank"
+                                class="text-gray-600 hover:text-primary font-bold">Blog</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-600 hover:text-primary">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Entreprenote Newsletter</h3>
+                    <iframe src="https://entreprenote.substack.com/embed"
+                        style="width:100%; min-height:220px; border:1px solid #EEE; background:white;" frameborder="0"
+                        scrolling="no" title="Subscribe to Entreprenote Newsletter"></iframe>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-600 text-sm">© 2026 Entreprenote</p>
+                    <p class="text-gray-600 font-bold text-sm mr-2">Think. <b class="text-[#0052D9]"> Note. </b> Grow.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Async Dynamic Data Runtime Controller -->
+    <script>
+        const appConfiguration = {
+            meta: {
+                All: { label: 'All Resources', icon: 'ri-apps-2-line', title: 'All Discovered Updates', desc: 'Real-time pipeline monitoring tools, events, capital, and founder workflows.' },
+                Tool: { label: 'Tools & Services', icon: 'ri-briefcase-4-line', title: 'Services & Startup Stacks', desc: 'Vetted tools, AI frameworks, and platforms parsed for fast optimization.' },
+                Event: { label: 'Events & Programs', icon: 'ri-calendar-event-line', title: 'Ecosystem Gatherings', desc: 'Accelerators, demo matches, hackathons, and local networking assemblies.' },
+                Advisor: { label: 'Advisors & Legal', icon: 'ri-user-star-line', title: 'Mentorship Pools', desc: 'Domain technicians, strategic consulting agents, and business panels.' },
+                Funding: { label: 'Funding & Grants', icon: 'ri-money-dollar-circle-line', title: 'Available Capital Lines', desc: 'Non-dilutive allocations, grants, angel portals, and strategic venture groups.' },
+                Learning: { label: 'Learning Assets', icon: 'ri-graduation-cap-line', title: 'Education & Frameworks', desc: 'Operational playbooks, strategic execution models, and masterclasses.' }
+            },
+            sidebarCategories: {
+                All: ['Trending Content', 'Latest Processing Runs'],
+                Tool: ['Software Utilities', 'AI Implementations', 'Developer Frameworks'],
+                Event: ['Global Schedules', 'Founder Bootcamps', 'Conferences'],
+                Advisor: ['Expert Systems', 'Legal Vetting', 'Growth Consultancies'],
+                Funding: ['Active Programs', 'Grants Matrix', 'Angel Channels'],
+                Learning: ['Guides', 'Playbooks', 'Founders Roadmap']
             }
+        };
+
+        // UI Premium Template Renderer Matching the exact card styles
+        function buildPremiumCard(category, item) {
+            const cleanUrl = item.link || '#';
+            const safeTitle = item.title.replace(/"/g, '&quot;');
+
+            if (category === 'Tool') {
+                return `
+                <article class="fade-in bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all flex items-start gap-4 group">
+                    <div class="w-16 h-16 shrink-0 bg-[#635BFF]/10 rounded-lg flex items-center justify-center" aria-hidden="true">
+                        <i class="ri-code-line text-3xl text-[#635BFF]"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start gap-2">
+                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-primary transition-colors">${item.title}</h3>
+                            <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded shrink-0">Vetted</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-1 line-clamp-2">${item.description}</p>
+                        <div class="mt-3 flex items-center gap-2 text-xs text-gray-500 font-medium">
+                            <span class="flex items-center gap-1"><i class="ri-checkbox-circle-fill text-green-500"></i> Active Launch</span>
+                        </div>
+                        <a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-sm text-primary font-semibold hover:underline" aria-label="Explore Tool: ${safeTitle}">Explore Tool →</a>
+                    </div>
+                </article>`;
+            }
+
+            if (category === 'Event') {
+                return `
+                <article class="fade-in bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden hover:translate-y-[-4px] transition-all duration-300 group">
+                    <div class="h-40 bg-gradient-to-r from-blue-900 to-indigo-900 relative flex items-center justify-center" aria-hidden="true">
+                        <i class="ri-global-line text-white/20 text-6xl"></i>
+                        <div class="absolute top-3 left-3 bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">
+                            ${item.category}
+                        </div>
+                        <div class="absolute bottom-[-16px] right-4 bg-white shadow-md rounded-lg p-2 text-center border border-gray-100 w-16">
+                            <span class="block text-xs text-red-600 font-bold uppercase">LIVE</span>
+                            <span class="block text-lg font-black text-gray-900 leading-none">2026</span>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-6">
+                        <div class="mb-3">
+                            <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">${item.title}</h3>
+                            <p class="text-xs text-gray-500 mt-1 flex items-center gap-1"><i class="ri-map-pin-line"></i> Global Ecosystem / Online</p>
+                        </div>
+                        <p class="text-sm text-gray-600 line-clamp-2 mb-4">${item.description}</p>
+                        <a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="block w-full py-2 bg-gray-50 border border-gray-200 text-center text-gray-700 font-semibold text-sm rounded-lg hover:bg-gray-100 transition-all" aria-label="Register for event: ${safeTitle}">
+                            View Registration Hub
+                        </a>
+                    </div>
+                </article>`;
+            }
+
+            if (category === 'Advisor') {
+                const avatarSeed = encodeURIComponent(item.title);
+                return `
+                <article class="fade-in bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center relative group hover:border-primary transition-colors">
+                    <span class="absolute top-4 right-4 bg-purple-50 text-purple-600 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wide">Verified Asset</span>
+                    <img src="https://ui-avatars.com/api/?name=${avatarSeed}&background=635BFF&color=fff&size=128" class="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-white shadow-lg" alt="${safeTitle} Avatar">
+                    <h3 class="text-lg font-bold text-gray-900 line-clamp-1">${item.title}</h3>
+                    <p class="text-primary text-sm font-medium mb-1">Ecosystem Advisory</p>
+                    <p class="text-xs text-gray-500 mb-4 line-clamp-2">${item.description}</p>
+                    <hr class="border-gray-100 my-4">
+                    <a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="block w-full py-2 rounded-lg text-sm text-center font-semibold bg-primary text-white hover:bg-blue-700 transition-all" aria-label="Connect with ${safeTitle}">Connect / Access Channel</a>
+                </article>`;
+            }
+
+            if (category === 'Funding') {
+                return `
+                <article class="fade-in bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-6 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl shrink-0" aria-hidden="true">
+                        <i class="ri-money-dollar-circle-line"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex items-center gap-3 mb-1">
+                            <h3 class="text-lg font-bold text-gray-900">${item.title}</h3>
+                            <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">Capital Resource</span>
+                        </div>
+                        <p class="text-sm text-gray-600">${item.description}</p>
+                    </div>
+                    <div class="text-left md:text-right shrink-0">
+                        <div class="text-xl font-bold text-gray-900">Open Matrix</div>
+                        <div class="text-xs text-gray-500">Non-Dilutive / Active</div>
+                    </div>
+                    <a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="px-5 py-2 font-semibold bg-white border border-gray-200 hover:border-primary hover:text-primary text-gray-700 text-center rounded-lg text-sm transition-all shrink-0" aria-label="Apply for funding: ${safeTitle}">
+                        Apply Here
+                    </a>
+                </article>`;
+            }
+
+            // Fallback default structure for Learning/Assets
+            return `
+            <article class="fade-in bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden group cursor-pointer">
+                <div class="h-48 bg-gray-900 relative flex items-center justify-center" aria-hidden="true">
+                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                        <i class="ri-play-fill text-white text-2xl ml-1"></i>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <span class="text-red-500 text-xs font-bold uppercase tracking-wide">${item.category || 'Asset'}</span>
+                    <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2 group-hover:text-primary transition-colors">${item.title}</h3>
+                    <p class="text-sm text-gray-600 line-clamp-2">${item.description}</p>
+                    <div class="mt-4 pt-2 flex items-center justify-between border-t border-gray-50 text-xs text-gray-500">
+                        <span>Automated Curation Engine</span>
+                        <a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="text-primary font-bold hover:underline" aria-label="Access guide: ${safeTitle}">Access Guide →</a>
+                    </div>
+                </div>
+            </article>`;
+        }
+
+        // Execution Context Controller
+        document.addEventListener('DOMContentLoaded', async () => {
+            const gridContainer = document.getElementById('content-grid');
+            const navContainer = document.getElementById('nav-container');
+            const sidebarContainer = document.getElementById('sidebar-container');
+            const headerContainer = document.getElementById('section-header');
+
+            let datasetMasterList = [];
+            let localizedCurrentTab = 'All';
+
+            function updateActiveInterface(activeTab) {
+                localizedCurrentTab = activeTab;
+
+                // 1. Render Navigation
+                navContainer.innerHTML = Object.keys(appConfiguration.meta).map(key => {
+                    const viewConfig = appConfiguration.meta[key];
+                    const isSelected = key === activeTab;
+                    const styleStateClasses = isSelected
+                        ? "text-primary bg-blue-50 ring-1 ring-blue-100"
+                        : "text-gray-600 hover:bg-gray-50 hover:text-primary";
+
+                    return `<button data-tab-trigger="${key}" class="group relative px-4 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${styleStateClasses}" aria-pressed="${isSelected}">
+                        <i class="${viewConfig.icon} mr-1" aria-hidden="true"></i> ${viewConfig.label}
+                    </button>`;
+                }).join('');
+
+                document.querySelectorAll('[data-tab-trigger]').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const targetedKey = e.currentTarget.getAttribute('data-tab-trigger');
+                        updateActiveInterface(targetedKey);
+                    });
+                });
+
+                // 2. Render Sidebar
+                const listingGroupArray = appConfiguration.sidebarCategories[activeTab] || [];
+                sidebarContainer.innerHTML = listingGroupArray.map((categoryString, arrayIndex) => {
+                    const isFirstElement = arrayIndex === 0;
+                    const stylingClasses = isFirstElement
+                        ? "bg-blue-50 text-primary font-bold"
+                        : "text-gray-600 hover:bg-gray-50 hover:text-gray-900";
+
+                    return `<button class="w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all mb-1 flex items-center gap-3 ${stylingClasses}">
+                        ${isFirstElement ? '<i class="ri-arrow-right-s-line text-lg" aria-hidden="true"></i>' : '<i class="ri-checkbox-blank-circle-line text-xs opacity-50 ml-1" aria-hidden="true"></i>'} 
+                        ${categoryString}
+                    </button>`;
+                }).join('');
+
+                // 3. Render Component Header
+                const currentMetaData = appConfiguration.meta[activeTab];
+                headerContainer.innerHTML = `
+                <div class="flex justify-between items-end fade-in">
+                    <div>
+                        <h1 class="text-3xl font-heading font-bold text-gray-900 mb-2">${currentMetaData.title}</h1>
+                        <p class="text-gray-600">${currentMetaData.desc}</p>
+                    </div>
+                    <div class="flex bg-white border border-gray-200 rounded-lg p-1 gap-1 h-10 shrink-0" aria-label="Layout toggle controls">
+                        <button class="px-2 rounded bg-gray-100 text-gray-900" aria-label="Grid View"><i class="ri-layout-grid-fill"></i></button>
+                        <button class="px-2 rounded hover:bg-gray-50 text-gray-500" aria-label="List View"><i class="ri-list-check"></i></button>
+                    </div>
+                </div>`;
+
+                // 4. Render Master Cards
+                const localizedFilteredArray = activeTab === 'All'
+                    ? datasetMasterList
+                    : datasetMasterList.filter(item => item.category === activeTab);
+
+                if (localizedFilteredArray.length === 0) {
+                    gridContainer.className = "block w-full text-center py-12";
+                    gridContainer.innerHTML = `<p class="text-gray-500 text-sm">No updates currently verified in this field. Check back soon!</p>`;
+                    return;
+                }
+
+                if (activeTab === 'Tool') {
+                    gridContainer.className = "grid gap-6 grid-cols-1 md:grid-cols-2";
+                } else if (activeTab === 'Funding') {
+                    gridContainer.className = "space-y-4 block w-full";
+                } else {
+                    gridContainer.className = "grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3";
+                }
+
+                gridContainer.innerHTML = localizedFilteredArray.map(item => {
+                    return buildPremiumCard(item.category, item);
+                }).join('');
+            }
+
+            // Core JSON Data Pipeline
+            try {
+                const liveNetworkResponse = await fetch('data.json?t=' + new Date().getTime());
+                if (!liveNetworkResponse.ok) throw new Error("File context read exception error");
+
+                datasetMasterList = await liveNetworkResponse.json();
+                updateActiveInterface('All');
+            } catch (networkError) {
+                console.error("Pipeline failure: ", networkError);
+                gridContainer.className = "block w-full text-center py-12";
+                gridContainer.innerHTML = '<p style="color: #94a3b8;">Welcome to Access! The AI curation background script hasn\'t executed its first pass yet. Trigger your GitHub Action workspace to initialize the data pipeline stream.</p>';
+            }
+
+            // Sticky Nav Scroll Monitor
+            const trackingNavNode = document.getElementById('sticky-nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 80) trackingNavNode.classList.add('sticky-nav-scrolled');
+                else trackingNavNode.classList.remove('sticky-nav-scrolled');
+            });
         });
     </script>
 </body>
