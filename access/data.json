@@ -1,0 +1,50 @@
+[
+    {
+        "title": "Mirage",
+        "category": "Tool",
+        "description": "Turn your SaaS into a clickable, interactive demo in just 90 seconds to boost product-led growth and user sign-ups.",
+        "link": "https://www.producthunt.com/products/mirage-15"
+    },
+    {
+        "title": "OpenMarkdown",
+        "category": "Tool",
+        "description": "A collaborative markdown editor that enables seamless co-editing between human founders and AI agents to streamline documentation.",
+        "link": "https://www.producthunt.com/products/openmarkdown"
+    },
+    {
+        "title": "ZooData",
+        "category": "Tool",
+        "description": "A dedicated data layer for AI agents, allowing developers to build more robust, stable, and context-aware AI-driven products.",
+        "link": "https://www.producthunt.com/products/zoodata"
+    },
+    {
+        "title": "LiveDemo",
+        "category": "Tool",
+        "description": "A budget-friendly, open-source alternative to Storylane and Arcade, helping founders build interactive product tours without recurring fees.",
+        "link": "https://www.producthunt.com/products/livedemo"
+    },
+    {
+        "title": "Acebuilder",
+        "category": "Tool",
+        "description": "Build high-converting landing pages quickly using Aceternity UI components, significantly speeding up your MVP launch.",
+        "link": "https://www.producthunt.com/products/acebuilder"
+    },
+    {
+        "title": "DocuSmart AI",
+        "category": "Tool",
+        "description": "Consolidate your startup's scattered company knowledge and internal documents into a unified, AI-searchable repository.",
+        "link": "https://www.producthunt.com/products/docusmart-ai"
+    },
+    {
+        "title": "Transcribe.cpp",
+        "category": "Tool",
+        "description": "A fast, lightweight local audio transcription utility that allows founders to process voice data securely without paying for cloud APIs.",
+        "link": "https://workshop.cjpais.com/projects/transcribe-cpp"
+    },
+    {
+        "title": "Moonshine Micro",
+        "category": "Tool",
+        "description": "An ultra-lightweight speech recognition and TTS framework under 500kb, enabling developers to build fast, local voice features into their apps.",
+        "link": "https://github.com/moonshine-ai/moonshine/tree/main/micro"
+    }
+]
