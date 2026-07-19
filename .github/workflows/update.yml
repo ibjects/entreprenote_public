@@ -23,28 +23,14 @@ jobs:
             - name: Install Libraries
               run: pip install feedparser google-generativeai
 
-            - name: Run Curator Script
-              env:
-                  GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-              run: python update_hub.py
-
-            - name: Commit and Push (If Changed)
-              run: |
-                  git config --global user.name "Access-Bot"
-                  git config --global user.email "bot@entreprenote.com"
-                  git add data.json
-                  git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-curated new startup resources" && git push)
-
-                  # 1. Step into the folder and run the python script
-            - name: Run Curator Script
+            - name: Run Curator Script (Inside Access Folder)
               env:
                   GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
               run: |
                   cd access
                   python update_hub.py
 
-            # 2. Commit the changes from inside the access folder
-            - name: Commit and Push (If Changed)
+            - name: Commit and Push Data Changes
               run: |
                   git config --global user.name "Access-Bot"
                   git config --global user.email "bot@entreprenote.com"
