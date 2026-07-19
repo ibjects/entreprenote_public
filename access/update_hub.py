@@ -52,19 +52,60 @@ ACCELERATOR_KNOWLEDGE_BASE = [
 ]
 
 SEARCH_PROMPTS = [
-    "Find currently open startup accelerator and incubator applications worldwide from the supplied knowledge base. Prioritize official application pages and F6S listings that clearly show an unexpired application deadline.",
-    "Find currently open accelerators, incubators, venture studios, founder residencies, and pre-seed programs in Southeast Asia, South Asia, MENA, and Africa. Return official application pages only.",
-    "Find currently open accelerators, incubators, venture studios, founder residencies, and startup fellowships in Europe, North America, Latin America, and globally remote programs. Return official application pages only.",
-    "Find currently open non-dilutive startup grants, prize programs, and innovation funding calls worldwide. Return official application pages only.",
-    "Find currently open startup hackathons, innovation challenges, pitch competitions, founder mentorship programs, and practical founder bootcamps. Return official registration or application pages only.",
+    "Find currently open startup accelerators, incubators, founder fellowships, pitch events, hackathons, and startup competitions worldwide. Return official application pages only.",
+
+    "Find currently open startup grants, non-dilutive funding, prize funding, angel application programs, and crowdfunding opportunities. Return official application pages only.",
+
+    "Find free founder mentorship, startup advisor office hours, legal clinics, finance advisors, product mentors, and growth mentoring programs. Return official booking or application pages only.",
+
+    "Find free or low-cost entrepreneurship courses, founder workshops, bootcamps, playbooks, templates, and practical startup learning programs. Return official pages only.",
+
+    "Find useful startup tools, free startup credits, founder discounts, cloud credits, legal services, accounting services, marketing tools, development tools, and startup service providers. Return official pages only.",
 ]
 
 ACTION_WORDS = (
-    "apply", "applications open", "deadline", "grant", "funding", "accelerator",
-    "incubator", "venture studio", "residency", "hackathon", "competition",
-    "challenge", "prize", "award", "fellowship", "bootcamp", "pitch",
-    "demo day", "mentor", "mentorship", "office hours", "workshop",
-    "webinar", "course", "program", "register", "open call",
+    "apply",
+    "applications open",
+    "deadline",
+    "grant",
+    "funding",
+    "accelerator",
+    "incubator",
+    "venture studio",
+    "residency",
+    "hackathon",
+    "competition",
+    "challenge",
+    "prize",
+    "award",
+    "fellowship",
+    "bootcamp",
+    "pitch",
+    "demo day",
+    "mentor",
+    "mentorship",
+    "advisor",
+    "office hours",
+    "workshop",
+    "webinar",
+    "course",
+    "program",
+    "register",
+    "open call",
+    "tool",
+    "software",
+    "platform",
+    "startup credits",
+    "cloud credits",
+    "discount",
+    "service",
+    "template",
+    "playbook",
+    "guide",
+    "sign up",
+    "get started",
+    "book",
+    "download",
 )
 
 CLOSED_WORDS = (
@@ -434,7 +475,11 @@ Rules:
 - If no deadline exists, keep it only when the page clearly says applications are open/rolling,
   or the program was opened/published in {CURRENT_YEAR}.
 - Exclude news articles, generic directory articles, closed cohorts, jobs, ordinary scholarships,
-  product launches, and pages with no apply/register/join action.
+  and product-launch announcement articles.
+- Keep a tool, service, advisor resource, or learning resource when a founder can currently
+  sign up, start using it, book it, claim credits, download it, or access it.
+- For an evergreen tool, service, advisor resource, or learning resource with no deadline,
+  set status to "open" only when it is currently accessible.
 - Prefer the official organizer application page. F6S application pages are allowed when they
   clearly show an active apply deadline.
 
@@ -536,6 +581,77 @@ def fallback_category(item: dict) -> str:
         return "Event"
     return "Tool"
 
+CATEGORY_ORDER = (
+    "Event",
+    "Advisor",
+    "Learning",
+    "Tool",
+    "Funding",
+)
+
+
+def build_balanced_candidate_pool(
+    records: list[dict],
+    limit: int = 70,
+) -> list[dict]:
+    buckets: dict[str, list[dict]] = {
+        category: [] for category in CATEGORY_ORDER
+    }
+
+    for item in records:
+        category = fallback_category(item)
+        buckets[category].append(item)
+
+    balanced: list[dict] = []
+
+    while len(balanced) < limit:
+        added = False
+
+        for category in CATEGORY_ORDER:
+            if buckets[category]:
+                balanced.append(buckets[category].pop(0))
+                added = True
+
+                if len(balanced) >= limit:
+                    break
+
+        if not added:
+            break
+
+    return balanced
+
+
+def balance_final_records(
+    records: list[dict],
+    limit: int,
+) -> list[dict]:
+    buckets: dict[str, list[dict]] = {
+        category: [] for category in CATEGORY_ORDER
+    }
+
+    for item in records:
+        category = str(item.get("category", "")).title()
+
+        if category in buckets:
+            buckets[category].append(item)
+
+    balanced: list[dict] = []
+
+    while len(balanced) < limit:
+        added = False
+
+        for category in CATEGORY_ORDER:
+            if buckets[category]:
+                balanced.append(buckets[category].pop(0))
+                added = True
+
+                if len(balanced) >= limit:
+                    break
+
+        if not added:
+            break
+
+    return balanced
 
 def fallback_subcategory(item: dict, category: str) -> str:
     suggested = clean_text(item.get("suggested_subcategory"), 50)
@@ -584,10 +700,18 @@ def accelerator_priority(item: dict) -> int:
     return 4
 
 
-def curate_with_gemini(client: genai.Client, raw_records: list[dict]) -> list[dict]:
-    prioritized = sorted(raw_records, key=accelerator_priority)
+def curate_with_gemini(
+    client: genai.Client,
+    raw_records: list[dict],
+) -> list[dict]:
+    candidate_pool = build_balanced_candidate_pool(
+        raw_records,
+        70,
+    )
+
     compact = []
-    for index, item in enumerate(prioritized[:120]):
+
+    for index, item in enumerate(candidate_pool):
         compact.append({
             "index": index,
             "title": item.get("title", ""),
@@ -597,47 +721,92 @@ def curate_with_gemini(client: genai.Client, raw_records: list[dict]) -> list[di
             "opening_date": item.get("opening_date", ""),
             "deadline": item.get("deadline", ""),
             "status": item.get("status", ""),
-            "suggested_category": item.get("suggested_category", ""),
-            "suggested_subcategory": item.get("suggested_subcategory", ""),
+            "suggested_category": item.get(
+                "suggested_category",
+                "",
+            ),
+            "suggested_subcategory": item.get(
+                "suggested_subcategory",
+                "",
+            ),
         })
 
     prompt = f"""
 You are the autonomous curator for Access by Entreprenote.
 Today is {datetime.now(timezone.utc).date().isoformat()}.
-The platform is NOT a startup-news feed.
+The platform is not a startup-news feed.
 
-Keep only actionable founder opportunities where someone can currently apply, register, join,
-book an advisor, enter a competition, receive funding, or start a practical learning resource.
+Keep only actionable founder resources where someone can currently:
+- apply;
+- register;
+- join;
+- book an advisor;
+- enter a competition;
+- receive funding;
+- start a course;
+- download a useful resource;
+- claim startup credits;
+- or begin using a useful founder tool or service.
 
-Date rule:
+Date rules:
 - Keep an item when its deadline is today or later.
-- If no deadline exists, keep it only when status is open/rolling, or it opened/published in {CURRENT_YEAR}.
-- Reject closed or expired programs.
+- Keep rolling or currently open programs.
+- An evergreen tool, service, advisor resource, or learning resource may
+  have no deadline when it is currently accessible.
+- Reject closed and expired programs.
 
-Priority and balance:
-1. Accelerators and incubators
-2. Venture studios, founder residencies and founder fellowships
-3. Grants, non-dilutive funding and prize money
-4. Hackathons, startup competitions and innovation challenges
-5. Mentorship and high-value founder learning
+Create a balanced directory across these five categories:
 
-When enough valid candidates exist, keep at least 15 Accelerator/Incubator/Venture Studio/
-Founder Residency records in the final selection.
+1. Event:
+   Accelerators, incubators, fellowships, founder programs, hackathons,
+   competitions, conferences, webinars and pitch events.
 
-Reject product launches, generic software launches, startup news, funding-round announcements,
-opinion articles, ordinary blog posts, expired programs and jobs.
+2. Funding:
+   Grants, non-dilutive funding, prize funding, crowdfunding and currently
+   open investor or funding application channels.
+
+3. Advisor:
+   Mentorship, founder office hours, legal advice, finance advice,
+   product advice and growth advice.
+
+4. Learning:
+   Courses, workshops, templates, playbooks, bootcamps and practical
+   founder education.
+
+5. Tool:
+   Startup software, cloud credits, founder discounts, legal services,
+   accounting services, development services, marketing tools and
+   other practical startup resources.
+
+Do not return only one category.
+
+When enough valid candidates exist:
+- include records from all five categories;
+- aim for at least five records from each category;
+- do not fill one category with weak records merely to reach a quota.
+
+Reject:
+- ordinary startup news;
+- funding-round announcements;
+- opinion articles;
+- product-launch announcement articles;
+- expired programs;
+- jobs;
+- irrelevant scholarships;
+- inaccessible resources.
 
 Return 30 to 60 records when enough valid candidates exist.
-Return ONLY a JSON array. Every object must contain exactly:
+
+Return only a JSON array. Every object must contain exactly:
 - source_index: integer matching the supplied index
 - title: concise factual title
 - category: one of Funding, Event, Advisor, Learning, Tool
-- subcategory: concise type such as Accelerator, Incubator, Venture Studio, Founder Residency,
-  Fellowship, Hackathon, Competition / Challenge, Grant, Mentorship, Workshop
+- subcategory: concise resource type
 - description: factual founder-focused summary, maximum 220 characters
 - keep: boolean
 
-Never create or alter links. The application will reuse the original link by source_index.
+Never create or alter links. The application will reuse the original
+link using source_index.
 
 Candidates:
 {json.dumps(compact, ensure_ascii=False)}
@@ -652,81 +821,163 @@ Candidates:
                 max_output_tokens=14000,
             ),
         )
-        decisions = extract_json_array(response.text or "")
+
+        decisions = extract_json_array(
+            response.text or "",
+        )
     except Exception as exc:
-        print(f"[WARN] Gemini curation failed: {exc}")
+        print(
+            f"[WARN] Gemini curation failed: {exc}",
+        )
         decisions = []
 
     final: list[dict] = []
     used_indexes: set[int] = set()
-    now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+    now = (
+        datetime.now(timezone.utc)
+        .replace(microsecond=0)
+        .isoformat()
+    )
 
     for decision in decisions:
         try:
-            index = int(decision.get("source_index"))
+            index = int(
+                decision.get("source_index"),
+            )
         except (TypeError, ValueError):
             continue
-        if index < 0 or index >= len(compact) or index in used_indexes:
+
+        if (
+            index < 0
+            or index >= len(candidate_pool)
+            or index in used_indexes
+        ):
             continue
+
         if decision.get("keep") is False:
             continue
 
-        raw = prioritized[index]
+        # The source_index refers to candidate_pool.
+        raw = candidate_pool[index]
+
         if not is_current_or_open(raw):
             continue
 
-        category = clean_text(decision.get("category"), 30).title()
-        if category not in {"Funding", "Event", "Advisor", "Learning", "Tool"}:
+        category = clean_text(
+            decision.get("category"),
+            30,
+        ).title()
+
+        if category not in {
+            "Funding",
+            "Event",
+            "Advisor",
+            "Learning",
+            "Tool",
+        }:
             category = fallback_category(raw)
 
         opening, deadline, _ = candidate_dates(raw)
+
         final.append({
-            "title": clean_text(decision.get("title") or raw.get("title"), 180),
+            "title": clean_text(
+                decision.get("title")
+                or raw.get("title"),
+                180,
+            ),
             "category": category,
-            "subcategory": clean_text(decision.get("subcategory"), 50)
-            or fallback_subcategory(raw, category),
-            "description": clean_text(decision.get("description") or raw.get("summary"), 240),
+            "subcategory": (
+                clean_text(
+                    decision.get("subcategory"),
+                    50,
+                )
+                or fallback_subcategory(
+                    raw,
+                    category,
+                )
+            ),
+            "description": clean_text(
+                decision.get("description")
+                or raw.get("summary"),
+                240,
+            ),
             "link": raw["link"],
             "source": raw.get("source", ""),
             "opening_date": iso_or_empty(opening),
             "deadline": iso_or_empty(deadline),
-            "status": clean_text(raw.get("status"), 40),
+            "status": clean_text(
+                raw.get("status"),
+                40,
+            ),
             "updated_at": now,
         })
+
         used_indexes.add(index)
 
-    # Safety net: backfill only current/open actionable records.
     if len(final) < 30:
-        print(f"[WARN] Gemini returned only {len(final)} records; backfilling current/open candidates")
-        existing_links = {item["link"] for item in final}
-        for raw in prioritized:
+        print(
+            f"[WARN] Gemini returned only {len(final)} "
+            "records; backfilling balanced candidates",
+        )
+
+        existing_links = {
+            item["link"] for item in final
+        }
+
+        # Backfill from the balanced pool, not prioritized.
+        for raw in candidate_pool:
             if raw["link"] in existing_links:
                 continue
-            if not looks_actionable(raw.get("title", ""), raw.get("summary", "")):
+
+            if not looks_actionable(
+                raw.get("title", ""),
+                raw.get("summary", ""),
+            ):
                 continue
+
             if not is_current_or_open(raw):
                 continue
 
             category = fallback_category(raw)
             opening, deadline, _ = candidate_dates(raw)
+
             final.append({
-                "title": clean_text(raw.get("title"), 180),
+                "title": clean_text(
+                    raw.get("title"),
+                    180,
+                ),
                 "category": category,
-                "subcategory": fallback_subcategory(raw, category),
-                "description": clean_text(raw.get("summary"), 240),
+                "subcategory": fallback_subcategory(
+                    raw,
+                    category,
+                ),
+                "description": clean_text(
+                    raw.get("summary"),
+                    240,
+                ),
                 "link": raw["link"],
                 "source": raw.get("source", ""),
                 "opening_date": iso_or_empty(opening),
                 "deadline": iso_or_empty(deadline),
-                "status": clean_text(raw.get("status"), 40),
+                "status": clean_text(
+                    raw.get("status"),
+                    40,
+                ),
                 "updated_at": now,
             })
+
             existing_links.add(raw["link"])
+
             if len(final) >= 50:
                 break
 
-    return deduplicate(final)[:MAX_FINAL_ITEMS]
+    deduplicated = deduplicate(final)
 
+    return balance_final_records(
+        deduplicated,
+        MAX_FINAL_ITEMS,
+    )
 
 def load_existing() -> list[dict]:
     try:
@@ -774,10 +1025,37 @@ def main() -> None:
     raw.extend(fetch_grants_gov())
     raw = [item for item in deduplicate(raw) if is_current_or_open(item)]
 
+    category_counts = {
+        category: sum(
+            1
+            for item in raw
+            if fallback_category(item) == category
+        )
+        for category in CATEGORY_ORDER
+    }
+
+    print(
+        "[INFO] Candidate categories:",
+        category_counts,
+    )
+
     print(f"[INFO] Total unique current/open candidates: {len(raw)}")
 
     curated = curate_with_gemini(client, raw)
     curated = preserve_history_and_sort(curated)
+    final_category_counts = {
+        category: sum(
+            1
+            for item in curated
+            if item.get("category") == category
+        )
+        for category in CATEGORY_ORDER
+    }
+
+    print(
+        "[INFO] Final categories:",
+        final_category_counts,
+    )   
     print(f"[INFO] Final curated records: {len(curated)}")
 
     if len(curated) < MIN_GOOD_RUN_ITEMS:
