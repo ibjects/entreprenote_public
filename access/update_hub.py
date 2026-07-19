@@ -3,7 +3,8 @@ from __future__ import annotations
 import json
 import os
 import re
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
@@ -17,32 +18,62 @@ DATA_FILE = BASE_DIR / "data.json"
 API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash-lite").strip()
 
-# MAX_FINAL_ITEMS is the maximum number of curated records to keep in data.json
-MAX_FINAL_ITEMS = 120
-# MIN_GOOD_RUN_ITEMS is the minimum number of curated records to consider a run successful
+MAX_FINAL_ITEMS = 100
 MIN_GOOD_RUN_ITEMS = 10
 REQUEST_TIMEOUT = 25
+CURRENT_YEAR = datetime.now(timezone.utc).year
 
-# These are opportunity sources, not startup-news feeds.
+# Opportunity sources, not startup-news feeds.
 RSS_FEEDS = [
-    ("Opportunity Desk", "https://opportunitydesk.org/feed/", 18),
-    ("Youth Opportunities", "https://www.youthop.com/feed/", 18),
-    ("fundsforNGOs", "https://www2.fundsforngos.org/feed/", 15),
-    ("fundsforNGOs Listings", "https://www2.fundsforngos.org/category/listing/feed/", 15),
-    ("AlphaGamma Opportunities", "https://www.alphagamma.eu/category/opportunities/feed/", 15),
+    ("Opportunity Desk", "https://opportunitydesk.org/feed/", 20),
+    ("Youth Opportunities", "https://www.youthop.com/feed/", 20),
+    ("fundsforNGOs", "https://www2.fundsforngos.org/feed/", 18),
+    ("fundsforNGOs Listings", "https://www2.fundsforngos.org/category/listing/feed/", 18),
+    ("AlphaGamma Opportunities", "https://www.alphagamma.eu/category/opportunities/feed/", 18),
+]
+
+# This is the AI discovery knowledge base. The model should search these sources first,
+# then use other official program/application pages when relevant.
+ACCELERATOR_KNOWLEDGE_BASE = [
+    ("F6S Programs", "https://www.f6s.com/programs"),
+    ("Techstars Accelerators", "https://www.techstars.com/accelerators"),
+    ("MassChallenge", "https://masschallenge.org/"),
+    ("Founder Institute Enrolling", "https://fi.co/enrolling"),
+    ("Antler Apply", "https://www.antler.co/apply"),
+    ("Antler Cohort Dates", "https://www.antler.co/cohort-start-dates"),
+    ("Startupbootcamp", "https://startupbootcamp.org/"),
+    ("Seedstars Programs", "https://www.seedstars.com/community/entrepreneurs/programs/"),
+    ("Y Combinator Apply", "https://www.ycombinator.com/apply"),
+    ("500 Global Programs", "https://500.co/"),
+    ("Plug and Play", "https://www.plugandplaytechcenter.com/"),
+    ("Google for Startups", "https://startup.google.com/programs/"),
+    ("AWS Startups", "https://aws.amazon.com/startups/"),
+    ("Microsoft for Startups", "https://www.microsoft.com/startups"),
 ]
 
 SEARCH_PROMPTS = [
-    "Find currently open startup accelerators, incubators, founder fellowships, grants, and non-dilutive funding programs worldwide. Return official application pages only.",
-    "Find currently open hackathons, startup competitions, innovation challenges, pitch competitions, and prize-money events worldwide. Return official registration or application pages only.",
-    "Find free or low-cost founder mentorship, startup advisor office hours, entrepreneurship workshops, bootcamps, and practical founder learning programs that are currently available. Return official pages only.",
+    "Find currently open startup accelerator and incubator applications worldwide from the supplied knowledge base. Prioritize official application pages and F6S listings that clearly show an unexpired application deadline.",
+    "Find currently open accelerators, incubators, venture studios, founder residencies, and pre-seed programs in Southeast Asia, South Asia, MENA, and Africa. Return official application pages only.",
+    "Find currently open accelerators, incubators, venture studios, founder residencies, and startup fellowships in Europe, North America, Latin America, and globally remote programs. Return official application pages only.",
+    "Find currently open non-dilutive startup grants, prize programs, and innovation funding calls worldwide. Return official application pages only.",
+    "Find currently open startup hackathons, innovation challenges, pitch competitions, founder mentorship programs, and practical founder bootcamps. Return official registration or application pages only.",
 ]
 
 ACTION_WORDS = (
     "apply", "applications open", "deadline", "grant", "funding", "accelerator",
-    "incubator", "hackathon", "competition", "challenge", "prize", "award",
-    "fellowship", "bootcamp", "pitch", "demo day", "mentor", "mentorship",
-    "office hours", "workshop", "webinar", "course", "program", "register",
+    "incubator", "venture studio", "residency", "hackathon", "competition",
+    "challenge", "prize", "award", "fellowship", "bootcamp", "pitch",
+    "demo day", "mentor", "mentorship", "office hours", "workshop",
+    "webinar", "course", "program", "register", "open call",
+)
+
+CLOSED_WORDS = (
+    "applications closed", "application closed", "closed for applications",
+    "deadline passed", "expired", "no longer accepting", "submissions closed",
+)
+
+OPEN_STATUS_WORDS = (
+    "open", "accepting", "rolling", "ongoing", "active", "applications open",
 )
 
 BLOCKED_DOMAINS = {
@@ -52,9 +83,24 @@ BLOCKED_DOMAINS = {
     "news.ycombinator.com",
 }
 
+DATE_FORMATS = (
+    "%Y-%m-%d",
+    "%Y/%m/%d",
+    "%m/%d/%Y",
+    "%d/%m/%Y",
+    "%m-%d-%Y",
+    "%d-%m-%Y",
+    "%d-%b-%Y",
+    "%d-%B-%Y",
+    "%b %d, %Y",
+    "%B %d, %Y",
+    "%d %b %Y",
+    "%d %B %Y",
+)
+
 session = requests.Session()
 session.headers.update({
-    "User-Agent": "AccessByEntreprenote/1.0 (+https://entreprenote.com/access/)",
+    "User-Agent": "AccessByEntreprenote/2.0 (+https://entreprenote.com/access/)",
     "Accept": "application/json,text/html,application/xml;q=0.9,*/*;q=0.8",
 })
 
@@ -99,6 +145,147 @@ def looks_actionable(title: str, summary: str) -> bool:
     return any(word in text for word in ACTION_WORDS)
 
 
+def parse_date_value(value: object) -> date | None:
+    if value is None:
+        return None
+    if isinstance(value, datetime):
+        return value.date()
+    if isinstance(value, date):
+        return value
+
+    raw = clean_text(value, 80)
+    if not raw:
+        return None
+
+    raw = re.sub(r"\b(?:deadline|closing|close date|opening|open date|published)\s*:\s*", "", raw, flags=re.I)
+    raw = raw.strip(" .")
+
+    try:
+        return datetime.fromisoformat(raw.replace("Z", "+00:00")).date()
+    except ValueError:
+        pass
+
+    for fmt in DATE_FORMATS:
+        try:
+            return datetime.strptime(raw, fmt).date()
+        except ValueError:
+            continue
+
+    month_date = re.search(
+        r"\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|"
+        r"Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)"
+        r"\s+\d{1,2},\s+\d{4}\b",
+        raw,
+        flags=re.I,
+    )
+    if month_date:
+        for fmt in ("%b %d, %Y", "%B %d, %Y"):
+            try:
+                return datetime.strptime(month_date.group(0), fmt).date()
+            except ValueError:
+                continue
+
+    return None
+
+
+def extract_labeled_date(text: str, labels: tuple[str, ...]) -> date | None:
+    if not text:
+        return None
+
+    label_pattern = "|".join(re.escape(label) for label in labels)
+    date_pattern = (
+        r"\d{4}-\d{2}-\d{2}|"
+        r"\d{1,2}[/-]\d{1,2}[/-]\d{4}|"
+        r"\d{1,2}-(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*-\d{4}|"
+        r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2},\s+\d{4}"
+    )
+    match = re.search(
+        rf"(?:{label_pattern})\s*:?\s*({date_pattern})",
+        text,
+        flags=re.I,
+    )
+    return parse_date_value(match.group(1)) if match else None
+
+
+def rss_published_date(entry: object) -> date | None:
+    for key in ("published_parsed", "updated_parsed", "created_parsed"):
+        value = entry.get(key) if hasattr(entry, "get") else None
+        if value:
+            try:
+                return date(value.tm_year, value.tm_mon, value.tm_mday)
+            except Exception:
+                pass
+
+    for key in ("published", "updated", "created"):
+        value = entry.get(key) if hasattr(entry, "get") else None
+        if value:
+            try:
+                return parsedate_to_datetime(str(value)).date()
+            except Exception:
+                parsed = parse_date_value(value)
+                if parsed:
+                    return parsed
+    return None
+
+
+def candidate_dates(item: dict) -> tuple[date | None, date | None, date | None]:
+    summary = clean_text(item.get("summary") or item.get("description"), 1200)
+
+    deadline = (
+        parse_date_value(item.get("deadline"))
+        or parse_date_value(item.get("close_date"))
+        or extract_labeled_date(summary, ("deadline", "closing", "close date", "apply by"))
+    )
+    opening = (
+        parse_date_value(item.get("opening_date"))
+        or parse_date_value(item.get("open_date"))
+        or extract_labeled_date(summary, ("opening", "open date", "opens"))
+    )
+    published = (
+        parse_date_value(item.get("published_at"))
+        or parse_date_value(item.get("updated_at"))
+        or parse_date_value(item.get("first_seen"))
+    )
+    return opening, deadline, published
+
+
+def is_current_or_open(item: dict) -> bool:
+    today = datetime.now(timezone.utc).date()
+    text = clean_text(
+        f"{item.get('title', '')} {item.get('summary', '')} {item.get('description', '')} {item.get('status', '')}",
+        1800,
+    ).lower()
+    status = clean_text(item.get("status"), 80).lower()
+
+    if any(word in text for word in CLOSED_WORDS):
+        return False
+
+    opening, deadline, published = candidate_dates(item)
+
+    # A real, unexpired deadline always wins, even if the program opened earlier.
+    if deadline:
+        return deadline >= today
+
+    # Rolling/open programs can remain available without a fixed deadline.
+    if any(word in status for word in OPEN_STATUS_WORDS) or any(
+        phrase in text for phrase in ("rolling applications", "rolling intake", "applications are open")
+    ):
+        return True
+
+    # Forecasted/posted records with no deadline must be from this year.
+    if status in {"posted", "forecasted"}:
+        anchor = opening or published
+        return bool(anchor and anchor.year >= CURRENT_YEAR)
+
+    # For undated RSS/search records, only retain records opened or published this year.
+    anchor = opening or published
+    return bool(anchor and anchor.year >= CURRENT_YEAR)
+
+
+def iso_or_empty(value: date | None) -> str:
+    return value.isoformat() if value else ""
+
+
 def fetch_rss() -> list[dict]:
     records: list[dict] = []
 
@@ -121,16 +308,27 @@ def fetch_rss() -> list[dict]:
                 if not looks_actionable(title, summary):
                     continue
 
-                records.append({
+                published = rss_published_date(entry)
+                candidate = {
                     "title": title,
                     "summary": summary,
                     "link": link,
                     "source": source,
                     "method": "rss",
-                })
+                    "published_at": iso_or_empty(published),
+                    "status": "open" if "applications open" in f"{title} {summary}".lower() else "",
+                }
+                opening, deadline, _ = candidate_dates(candidate)
+                candidate["opening_date"] = iso_or_empty(opening)
+                candidate["deadline"] = iso_or_empty(deadline)
+
+                if not is_current_or_open(candidate):
+                    continue
+
+                records.append(candidate)
                 added += 1
 
-            print(f"[OK] {source}: {added} actionable RSS records")
+            print(f"[OK] {source}: {added} current/open RSS records")
         except Exception as exc:
             print(f"[WARN] {source} failed: {exc}")
 
@@ -148,7 +346,7 @@ def fetch_grants_gov() -> list[dict]:
                 json={
                     "keyword": keyword,
                     "oppStatuses": "posted|forecasted",
-                    "rows": 10,
+                    "rows": 15,
                 },
                 timeout=REQUEST_TIMEOUT,
             )
@@ -162,24 +360,36 @@ def fetch_grants_gov() -> list[dict]:
                 if not opportunity_id or not title:
                     continue
 
-                records.append({
+                opening = parse_date_value(hit.get("openDate"))
+                deadline = parse_date_value(hit.get("closeDate"))
+                status = clean_text(hit.get("oppStatus"), 40).lower()
+
+                candidate = {
                     "title": title,
                     "summary": clean_text(
                         f"Agency: {hit.get('agencyName', '')}. "
                         f"Opening: {hit.get('openDate', '')}. "
                         f"Closing: {hit.get('closeDate', '')}. "
-                        f"Status: {hit.get('oppStatus', '')}.",
+                        f"Status: {status}.",
                         900,
                     ),
                     "link": f"https://www.grants.gov/search-results-detail/{opportunity_id}",
                     "source": "Grants.gov",
                     "method": "api",
-                })
+                    "opening_date": iso_or_empty(opening),
+                    "deadline": iso_or_empty(deadline),
+                    "status": status,
+                    "suggested_category": "Funding",
+                    "suggested_subcategory": "Grant",
+                }
+
+                if is_current_or_open(candidate):
+                    records.append(candidate)
 
         except Exception as exc:
             print(f"[WARN] Grants.gov '{keyword}' failed: {exc}")
 
-    print(f"[OK] Grants.gov: {len(records)} raw grant records")
+    print(f"[OK] Grants.gov: {len(records)} current/open grant records")
     return records
 
 
@@ -200,27 +410,46 @@ def extract_json_array(text: str) -> list[dict]:
             return []
 
 
+def knowledge_base_text() -> str:
+    return "\n".join(f"- {name}: {url}" for name, url in ACCELERATOR_KNOWLEDGE_BASE)
+
+
 def discover_with_google_search(client: genai.Client) -> list[dict]:
     records: list[dict] = []
     today = datetime.now(timezone.utc).date().isoformat()
     search_tool = types.Tool(google_search=types.GoogleSearch())
+    sources = knowledge_base_text()
 
     for search_prompt in SEARCH_PROMPTS:
         prompt = f"""
 Today is {today}.
 {search_prompt}
 
-Exclude news articles, expired opportunities, jobs, ordinary scholarships, product launches,
-and pages that do not let a founder apply, register, join, book, compete, or learn.
+Known source pages to search first:
+{sources}
 
-Return ONLY a JSON array with 6 to 10 objects. Each object must contain exactly:
+Rules:
+- Verify that applications are currently open, rolling, or have a deadline on or after today.
+- Exclude anything whose application deadline has passed.
+- If no deadline exists, keep it only when the page clearly says applications are open/rolling,
+  or the program was opened/published in {CURRENT_YEAR}.
+- Exclude news articles, generic directory articles, closed cohorts, jobs, ordinary scholarships,
+  product launches, and pages with no apply/register/join action.
+- Prefer the official organizer application page. F6S application pages are allowed when they
+  clearly show an active apply deadline.
+
+Return ONLY a JSON array with 8 to 15 objects. Each object must contain exactly:
 - title
 - summary
 - link
 - source
-- suggested_category
+- opening_date: YYYY-MM-DD or empty string
+- deadline: YYYY-MM-DD or empty string
+- status: open, rolling, posted, forecasted, or empty string
+- suggested_category: Funding, Event, Advisor, Learning, or Tool
+- suggested_subcategory: Accelerator, Incubator, Venture Studio, Founder Residency,
+  Fellowship, Hackathon, Competition / Challenge, Grant, Mentorship, Workshop, or another concise type
 
-suggested_category must be one of Funding, Event, Advisor, Learning, Tool.
 Do not use markdown.
 """
         try:
@@ -241,17 +470,26 @@ Do not use markdown.
                 if not looks_actionable(title, summary):
                     continue
 
-                records.append({
+                candidate = {
                     "title": title,
                     "summary": summary,
                     "link": link,
                     "source": clean_text(item.get("source"), 100) or "Web discovery",
                     "method": "gemini-search",
+                    "opening_date": iso_or_empty(parse_date_value(item.get("opening_date"))),
+                    "deadline": iso_or_empty(parse_date_value(item.get("deadline"))),
+                    "status": clean_text(item.get("status"), 40).lower(),
                     "suggested_category": clean_text(item.get("suggested_category"), 30),
-                })
+                    "suggested_subcategory": clean_text(item.get("suggested_subcategory"), 50),
+                }
+
+                if not is_current_or_open(candidate):
+                    continue
+
+                records.append(candidate)
                 accepted += 1
 
-            print(f"[OK] Gemini Search: {accepted} accepted records")
+            print(f"[OK] Gemini Search: {accepted} current/open records")
         except Exception as exc:
             print(f"[WARN] Gemini Search failed: {exc}")
 
@@ -291,53 +529,111 @@ def fallback_category(item: dict) -> str:
         return "Advisor"
     if any(word in text for word in ("course", "workshop", "webinar", "training", "playbook")):
         return "Learning"
-    if any(word in text for word in ("accelerator", "incubator", "hackathon", "competition", "challenge", "fellowship", "pitch", "event", "program")):
+    if any(word in text for word in (
+        "accelerator", "incubator", "venture studio", "residency", "hackathon",
+        "competition", "challenge", "fellowship", "pitch", "event", "program",
+    )):
         return "Event"
     return "Tool"
 
 
+def fallback_subcategory(item: dict, category: str) -> str:
+    suggested = clean_text(item.get("suggested_subcategory"), 50)
+    if suggested:
+        return suggested
+
+    text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
+    rules = [
+        ("accelerator", "Accelerator"),
+        ("incubator", "Incubator"),
+        ("venture studio", "Venture Studio"),
+        ("residency", "Founder Residency"),
+        ("hackathon", "Hackathon"),
+        ("fellowship", "Fellowship"),
+        ("competition", "Competition / Challenge"),
+        ("challenge", "Competition / Challenge"),
+        ("mentor", "Mentorship"),
+        ("workshop", "Workshop"),
+        ("webinar", "Webinar"),
+        ("course", "Course"),
+        ("grant", "Grant"),
+    ]
+    for keyword, label in rules:
+        if keyword in text:
+            return label
+
+    return {
+        "Funding": "Grant",
+        "Event": "Program",
+        "Advisor": "Mentorship",
+        "Learning": "Learning Program",
+        "Tool": "Startup Tool",
+    }[category]
+
+
+def accelerator_priority(item: dict) -> int:
+    text = f"{item.get('title', '')} {item.get('summary', '')} {item.get('suggested_subcategory', '')}".lower()
+    if "accelerator" in text or "incubator" in text:
+        return 0
+    if "venture studio" in text or "residency" in text or "fellowship" in text:
+        return 1
+    if "hackathon" in text or "competition" in text or "challenge" in text:
+        return 2
+    if "grant" in text or "funding" in text:
+        return 3
+    return 4
+
+
 def curate_with_gemini(client: genai.Client, raw_records: list[dict]) -> list[dict]:
+    prioritized = sorted(raw_records, key=accelerator_priority)
     compact = []
-    for index, item in enumerate(raw_records[:70]):
+    for index, item in enumerate(prioritized[:120]):
         compact.append({
             "index": index,
             "title": item.get("title", ""),
             "summary": item.get("summary", "")[:700],
             "link": item.get("link", ""),
             "source": item.get("source", ""),
+            "opening_date": item.get("opening_date", ""),
+            "deadline": item.get("deadline", ""),
+            "status": item.get("status", ""),
             "suggested_category": item.get("suggested_category", ""),
+            "suggested_subcategory": item.get("suggested_subcategory", ""),
         })
 
     prompt = f"""
 You are the autonomous curator for Access by Entreprenote.
+Today is {datetime.now(timezone.utc).date().isoformat()}.
 The platform is NOT a startup-news feed.
 
 Keep only actionable founder opportunities where someone can currently apply, register, join,
 book an advisor, enter a competition, receive funding, or start a practical learning resource.
 
-Strongly prioritize, in this order:
-1. Grants, non-dilutive funding, prize money and funding application channels
-2. Accelerators, incubators and founder fellowships
-3. Hackathons, startup competitions, innovation challenges and pitch events
-4. Founder events, bootcamps and workshops
-5. Mentorship, advisors and office hours
-6. High-value founder learning resources
+Date rule:
+- Keep an item when its deadline is today or later.
+- If no deadline exists, keep it only when status is open/rolling, or it opened/published in {CURRENT_YEAR}.
+- Reject closed or expired programs.
 
-Reject:
-- product launches
-- generic software launches
-- startup news
-- funding-round announcements
-- opinion articles
-- ordinary blog posts
-- expired programs
-- jobs
+Priority and balance:
+1. Accelerators and incubators
+2. Venture studios, founder residencies and founder fellowships
+3. Grants, non-dilutive funding and prize money
+4. Hackathons, startup competitions and innovation challenges
+5. Mentorship and high-value founder learning
 
-Return 20 to 40 records when enough valid candidates exist. Do not arbitrarily return only five.
+When enough valid candidates exist, keep at least 15 Accelerator/Incubator/Venture Studio/
+Founder Residency records in the final selection.
+
+Reject product launches, generic software launches, startup news, funding-round announcements,
+opinion articles, ordinary blog posts, expired programs and jobs.
+
+Return 30 to 60 records when enough valid candidates exist.
 Return ONLY a JSON array. Every object must contain exactly:
 - source_index: integer matching the supplied index
 - title: concise factual title
 - category: one of Funding, Event, Advisor, Learning, Tool
+- subcategory: concise type such as Accelerator, Incubator, Venture Studio, Founder Residency,
+  Fellowship, Hackathon, Competition / Challenge, Grant, Mentorship, Workshop
 - description: factual founder-focused summary, maximum 220 characters
 - keep: boolean
 
@@ -353,7 +649,7 @@ Candidates:
             contents=prompt,
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
-                max_output_tokens=10000,
+                max_output_tokens=14000,
             ),
         )
         decisions = extract_json_array(response.text or "")
@@ -363,6 +659,7 @@ Candidates:
 
     final: list[dict] = []
     used_indexes: set[int] = set()
+    now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
     for decision in decisions:
         try:
@@ -374,40 +671,58 @@ Candidates:
         if decision.get("keep") is False:
             continue
 
-        raw = raw_records[index]
+        raw = prioritized[index]
+        if not is_current_or_open(raw):
+            continue
+
         category = clean_text(decision.get("category"), 30).title()
         if category not in {"Funding", "Event", "Advisor", "Learning", "Tool"}:
             category = fallback_category(raw)
 
+        opening, deadline, _ = candidate_dates(raw)
         final.append({
             "title": clean_text(decision.get("title") or raw.get("title"), 180),
             "category": category,
+            "subcategory": clean_text(decision.get("subcategory"), 50)
+            or fallback_subcategory(raw, category),
             "description": clean_text(decision.get("description") or raw.get("summary"), 240),
             "link": raw["link"],
             "source": raw.get("source", ""),
-            "updated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+            "opening_date": iso_or_empty(opening),
+            "deadline": iso_or_empty(deadline),
+            "status": clean_text(raw.get("status"), 40),
+            "updated_at": now,
         })
         used_indexes.add(index)
 
-    # Critical safety net: if Gemini returns too few, backfill strong actionable records.
-    if len(final) < 20:
-        print(f"[WARN] Gemini returned only {len(final)} records; backfilling deterministically")
+    # Safety net: backfill only current/open actionable records.
+    if len(final) < 30:
+        print(f"[WARN] Gemini returned only {len(final)} records; backfilling current/open candidates")
         existing_links = {item["link"] for item in final}
-        for raw in raw_records:
+        for raw in prioritized:
             if raw["link"] in existing_links:
                 continue
             if not looks_actionable(raw.get("title", ""), raw.get("summary", "")):
                 continue
+            if not is_current_or_open(raw):
+                continue
+
+            category = fallback_category(raw)
+            opening, deadline, _ = candidate_dates(raw)
             final.append({
                 "title": clean_text(raw.get("title"), 180),
-                "category": fallback_category(raw),
+                "category": category,
+                "subcategory": fallback_subcategory(raw, category),
                 "description": clean_text(raw.get("summary"), 240),
                 "link": raw["link"],
                 "source": raw.get("source", ""),
-                "updated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+                "opening_date": iso_or_empty(opening),
+                "deadline": iso_or_empty(deadline),
+                "status": clean_text(raw.get("status"), 40),
+                "updated_at": now,
             })
             existing_links.add(raw["link"])
-            if len(final) >= 30:
+            if len(final) >= 50:
                 break
 
     return deduplicate(final)[:MAX_FINAL_ITEMS]
@@ -420,37 +735,31 @@ def load_existing() -> list[dict]:
     except Exception:
         return []
 
+
 def preserve_history_and_sort(items: list[dict]) -> list[dict]:
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-
     existing_by_link = {
-        clean_url(item.get("link")): item
+        clean_url(item.get("link") or item.get("url")): item
         for item in load_existing()
-        if clean_url(item.get("link"))
+        if clean_url(item.get("link") or item.get("url"))
     }
 
     for item in items:
         link = clean_url(item.get("link"))
         previous = existing_by_link.get(link, {})
-
-        # Never changes after the listing is first discovered.
-        item["first_seen"] = (
-            previous.get("first_seen")
-            or previous.get("updated_at")
-            or now
-        )
-
-        # Changes every time the listing is found again.
+        item["first_seen"] = previous.get("first_seen") or previous.get("updated_at") or now
         item["last_seen"] = now
         item["updated_at"] = now
 
-    # New listings appear first.
     items.sort(
-        key=lambda item: item.get("first_seen", ""),
-        reverse=True,
+        key=lambda item: (
+            accelerator_priority(item),
+            item.get("deadline") or "9999-12-31",
+            item.get("first_seen") or "",
+        )
     )
-
     return items[:MAX_FINAL_ITEMS]
+
 
 def main() -> None:
     if not API_KEY:
@@ -458,13 +767,14 @@ def main() -> None:
 
     client = genai.Client(api_key=API_KEY)
 
-    raw = []
+    # Discover accelerator/incubator programs first so they cannot be pushed out by grants.
+    raw: list[dict] = []
+    raw.extend(discover_with_google_search(client))
     raw.extend(fetch_rss())
     raw.extend(fetch_grants_gov())
-    raw.extend(discover_with_google_search(client))
-    raw = deduplicate(raw)
+    raw = [item for item in deduplicate(raw) if is_current_or_open(item)]
 
-    print(f"[INFO] Total unique actionable candidates: {len(raw)}")
+    print(f"[INFO] Total unique current/open candidates: {len(raw)}")
 
     curated = curate_with_gemini(client, raw)
     curated = preserve_history_and_sort(curated)
@@ -483,11 +793,7 @@ def main() -> None:
         )
 
     DATA_FILE.write_text(
-        json.dumps(
-            curated,
-            ensure_ascii=False,
-            separators=(",", ":"),
-        ),
+        json.dumps(curated, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",
     )
     print(f"[OK] Replaced data.json with {len(curated)} curated records")
