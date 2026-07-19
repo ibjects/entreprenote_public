@@ -200,9 +200,9 @@
             class="w-full rounded-lg border-gray-200 py-2.5 pl-10 pr-4 text-sm focus:border-primary focus:ring-primary">
         </label>
         <select id="sort-select" class="rounded-lg border-gray-200 text-sm focus:border-primary focus:ring-primary">
-          <option value="recommended">Recommended</option>
+          <option value="newest" selected>Recently discovered</option>
           <option value="deadline">Deadline soon</option>
-          <option value="newest">Recently discovered</option>
+          <option value="recommended">Source order</option>
         </select>
       </div>
 
@@ -293,7 +293,7 @@
       activeTab: 'events',
       activeSubcategory: '',
       query: '',
-      sort: 'recommended'
+      sort: 'newest'
     };
 
     const $ = (selector) => document.querySelector(selector);
@@ -435,8 +435,9 @@
         subcategory: item.subcategory || deriveSubcategory({ ...item, description }, category),
         deadline,
         start_date: startDate,
+        first_seen: item.first_seen || item.updated_at || '',
         last_seen: item.last_seen || item.updated_at || '',
-        verified_at: item.verified_at || item.updated_at || '',
+        verified_at: item.verified_at || item.last_seen || item.updated_at || '',
         action: item.action || actionByCategory[category]
       };
     }
@@ -607,7 +608,10 @@
       if (state.sort === 'deadline') {
         items.sort((a, b) => (a.deadline || '9999-12-31').localeCompare(b.deadline || '9999-12-31'));
       } else if (state.sort === 'newest') {
-        items.sort((a, b) => String(b.last_seen || '').localeCompare(String(a.last_seen || '')));
+        items.sort((a, b) =>
+          String(b.first_seen || b.last_seen || '')
+            .localeCompare(String(a.first_seen || a.last_seen || ''))
+        );
       }
       return items;
     }
@@ -652,7 +656,9 @@
 
     async function loadData() {
       try {
-        const response = await fetch(`data.json?t=${Date.now()}`, { cache: 'no-store' });
+        const response = await fetch('data.json', {
+          cache: 'no-cache'
+        });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const payload = await response.json();
         const list = Array.isArray(payload) ? payload : payload.items;

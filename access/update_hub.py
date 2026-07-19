@@ -17,7 +17,9 @@ DATA_FILE = BASE_DIR / "data.json"
 API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash-lite").strip()
 
-MAX_FINAL_ITEMS = 80
+# MAX_FINAL_ITEMS is the maximum number of curated records to keep in data.json
+MAX_FINAL_ITEMS = 120
+# MIN_GOOD_RUN_ITEMS is the minimum number of curated records to consider a run successful
 MIN_GOOD_RUN_ITEMS = 10
 REQUEST_TIMEOUT = 25
 
@@ -418,6 +420,37 @@ def load_existing() -> list[dict]:
     except Exception:
         return []
 
+def preserve_history_and_sort(items: list[dict]) -> list[dict]:
+    now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+    existing_by_link = {
+        clean_url(item.get("link")): item
+        for item in load_existing()
+        if clean_url(item.get("link"))
+    }
+
+    for item in items:
+        link = clean_url(item.get("link"))
+        previous = existing_by_link.get(link, {})
+
+        # Never changes after the listing is first discovered.
+        item["first_seen"] = (
+            previous.get("first_seen")
+            or previous.get("updated_at")
+            or now
+        )
+
+        # Changes every time the listing is found again.
+        item["last_seen"] = now
+        item["updated_at"] = now
+
+    # New listings appear first.
+    items.sort(
+        key=lambda item: item.get("first_seen", ""),
+        reverse=True,
+    )
+
+    return items[:MAX_FINAL_ITEMS]
 
 def main() -> None:
     if not API_KEY:
@@ -434,6 +467,7 @@ def main() -> None:
     print(f"[INFO] Total unique actionable candidates: {len(raw)}")
 
     curated = curate_with_gemini(client, raw)
+    curated = preserve_history_and_sort(curated)
     print(f"[INFO] Final curated records: {len(curated)}")
 
     if len(curated) < MIN_GOOD_RUN_ITEMS:
@@ -449,7 +483,11 @@ def main() -> None:
         )
 
     DATA_FILE.write_text(
-        json.dumps(curated, ensure_ascii=False, indent=2) + "\n",
+        json.dumps(
+            curated,
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ),
         encoding="utf-8",
     )
     print(f"[OK] Replaced data.json with {len(curated)} curated records")
