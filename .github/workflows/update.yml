@@ -9,6 +9,7 @@ on:
     paths:
       - "access/index.html"
       - "access/update_hub.py"
+      - "access/sources.json"
       - ".github/workflows/update.yml"
 
 permissions:
@@ -23,7 +24,7 @@ concurrency:
 jobs:
   update-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     environment:
       name: github-pages
@@ -43,36 +44,78 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install feedparser google-genai requests
+          python -m pip install beautifulsoup4 feedparser google-genai requests
 
-      - name: Discover and curate opportunities
+      - name: Compile and run safety tests
+        run: |
+          python -m py_compile access/update_hub.py
+          python access/update_hub.py --self-test
+
+      - name: Discover, crawl, verify and curate opportunities
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_DISCOVERY_MODEL: gemini-3.5-flash
           GEMINI_CURATOR_MODEL: gemini-3.5-flash
           MAX_FINAL_ITEMS: "100"
+          MAX_VERIFY_CANDIDATES: "260"
+          MAX_SOURCE_WORKERS: "8"
+          MAX_VERIFY_WORKERS: "14"
+          REQUEST_TIMEOUT: "14"
         run: python access/update_hub.py
 
       - name: Validate data.json
         run: |
           python - <<'PY'
           import json
+          import re
           from pathlib import Path
 
           path = Path("access/data.json")
           data = json.loads(path.read_text(encoding="utf-8"))
           assert isinstance(data, list), "data.json must be an array"
-          assert 10 <= len(data) <= 100, "Expected between 10 and 100 curated records"
-          allowed = {"Funding", "Event", "Advisor", "Learning", "Tool"}
+          assert 1 <= len(data) <= 100, "Expected between 1 and 100 event records"
+
+          allowed = {"Event"}
+          allowed_subcategories = {
+              "Accelerator", "Incubator", "Venture Studio", "Founder Residency",
+              "Fellowship", "Hackathon", "Competition / Challenge", "Pitch Competition",
+              "Demo Day", "Startup Conference", "Founder Event", "Entrepreneurship Event",
+              "Startup Program", "Founder Program", "Bootcamp",
+          }
+          news_patterns = [
+              r"\braises?\s+[€$£]?\d",
+              r"\braised\s+[€$£]?\d",
+              r"\bfunding round\b",
+              r"\bacquired by\b",
+              r"\bacquisition\b",
+              r"\bexits? to\b",
+              r"\bcommits?\s+(?:at least\s+)?[€$£]?\d",
+              r"\bopens?\s+(?:a\s+)?new office\b",
+          ]
+
           for i, item in enumerate(data):
               required = {
-                  "title", "category", "subcategory", "description", "link",
-                  "source", "first_seen", "last_seen"
+                  "title", "category", "subcategory", "description", "link", "source",
+                  "first_seen", "last_seen", "verified_at", "verification_score",
+                  "action_evidence",
               }
               assert required <= set(item), f"Missing fields at {i}: {required - set(item)}"
               assert item["category"] in allowed, f"Invalid category at {i}"
+              assert item["subcategory"] in allowed_subcategories, f"Invalid event subtype at {i}"
               assert item["link"].startswith(("https://", "http://")), f"Invalid link at {i}"
-          print(f"Validated {len(data)} records")
+              assert int(item["verification_score"]) >= 60, f"Low verification score at {i}"
+              title = item["title"].lower()
+              assert not any(re.search(pattern, title, re.I) for pattern in news_patterns), (
+                  f"News-like title reached output at {i}: {item['title']}"
+              )
+              assert "eu-startups.com/2026/07/germanys-prior-labs-raises" not in item["link"], (
+                  "Known regression article reached output"
+              )
+              assert "lockheed-martin-ventures" not in item["link"].lower(), (
+                  "Known corporate-news regression reached output"
+              )
+
+          print(f"Validated {len(data)} verified records")
           PY
 
       - name: Commit updated data
@@ -83,7 +126,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No data changes to commit."
           else
-            git commit -m "chore(access): refresh opportunities"
+            git commit -m "chore(access): refresh verified opportunities"
             git push
           fi
 
