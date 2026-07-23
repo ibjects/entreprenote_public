@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://www.googletagmanager.com" />
 
   <!-- ===== Primary SEO ===== -->
-  <title>Validate Your Startup Idea with AI | Entreprenote</title>
+  <title>Validate Startup Idea with AI | Entreprenote</title>
   <meta name="description"
     content="Have an idea but not sure what's next? Entreprenote's AI-guided questions help you validate, structure, and turn your startup idea into an actionable plan. Free to start." />
   <link rel="canonical" href="https://entreprenote.com/" />
@@ -47,7 +47,7 @@
   <meta property="og:site_name" content="Entreprenote" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://entreprenote.com/" />
-  <meta property="og:title" content="Validate Your Startup Idea with AI | Entreprenote" />
+  <meta property="og:title" content="Validate Startup Idea with AI | Entreprenote" />
   <meta property="og:description"
     content="Entreprenote is the AI-powered workspace that asks the right questions — helping entrepreneurs clarify, stress-test, and structure their ideas into actionable plans." />
   <meta property="og:image" content="https://entreprenote.com/images/featured@2x.jpg" />
@@ -61,7 +61,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@entreprenote" />
   <meta name="twitter:url" content="https://entreprenote.com/" />
-  <meta name="twitter:title" content="Validate Your Startup Idea with AI | Entreprenote" />
+  <meta name="twitter:title" content="Validate Startup Idea with AI | Entreprenote" />
   <meta name="twitter:description"
     content="Entreprenote is the AI-powered workspace that asks the right questions — helping entrepreneurs clarify, stress-test, and structure their ideas into actionable plans." />
   <meta name="twitter:image" content="https://entreprenote.com/images/featured@2x.jpg" />
@@ -225,9 +225,199 @@
       ]
     }
   </script>
+
+  <!-- Clarity tracking code for https://entreprenote.com/ -->
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "xr0xicd6ev");
+  </script>
+
+  <!-- React-page visual system, converted to plain HTML/CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'oklch(1 0 0 / <alpha-value>)',
+            foreground: 'oklch(0.18 0.02 260 / <alpha-value>)',
+            card: 'oklch(1 0 0 / <alpha-value>)',
+            'card-foreground': 'oklch(0.18 0.02 260 / <alpha-value>)',
+            primary: 'oklch(0.55 0.22 260 / <alpha-value>)',
+            'primary-foreground': 'oklch(0.99 0 0 / <alpha-value>)',
+            secondary: 'oklch(0.97 0.01 250 / <alpha-value>)',
+            'secondary-foreground': 'oklch(0.18 0.02 260 / <alpha-value>)',
+            muted: 'oklch(0.97 0.01 250 / <alpha-value>)',
+            'muted-foreground': 'oklch(0.48 0.02 260 / <alpha-value>)',
+            accent: 'oklch(0.95 0.03 250 / <alpha-value>)',
+            'accent-foreground': 'oklch(0.18 0.02 260 / <alpha-value>)',
+            border: 'oklch(0.18 0.02 260 / 0.1)',
+            ink: 'oklch(0.18 0.02 260 / <alpha-value>)',
+            canvas: 'oklch(0.985 0.005 240 / <alpha-value>)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --radius: .75rem;
+      --background: oklch(1 0 0);
+      --foreground: oklch(.18 .02 260);
+      --card: oklch(1 0 0);
+      --primary: oklch(.55 .22 260);
+      --primary-foreground: oklch(.99 0 0);
+      --muted: oklch(.97 .01 250);
+      --muted-foreground: oklch(.48 .02 260);
+      --accent: oklch(.95 .03 250);
+      --border: oklch(.18 .02 260 / .1);
+      --note-yellow: oklch(.95 .11 95);
+      --shadow-note: 0 1px 2px rgb(0 0 0 / .06), 0 8px 24px -8px rgb(0 0 0 / .12);
+      --ease-out-expo: cubic-bezier(.16, 1, .3, 1);
+      --entp-pro-gradient: linear-gradient(135deg,
+          #97379b 2%,
+          #dd44b0 20%,
+          #f3496c 40%,
+          #ffbd3b 60%,
+          #4fbdca 80%,
+          #71f3f5 100%);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--foreground);
+    }
+
+    main {
+      font-feature-settings: "ss01", "cv11";
+    }
+
+    main *,
+    main *::before,
+    main *::after {
+      border-color: var(--border);
+    }
+
+    main a {
+      text-decoration: none;
+    }
+
+    .text-balance {
+      text-wrap: balance;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes orbit-a {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(6px, -8px);
+      }
+    }
+
+    @keyframes orbit-b {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(-8px, 6px);
+      }
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-fade-up {
+      animation: fade-up .8s var(--ease-out-expo) both;
+    }
+
+    .animate-marquee {
+      animation: marquee 40s linear infinite;
+      width: max-content;
+    }
+
+    .animate-orbit-a {
+      animation: orbit-a 7s ease-in-out infinite;
+    }
+
+    .animate-orbit-b {
+      animation: orbit-b 9s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .animate-float,
+      .animate-fade-up,
+      .animate-marquee,
+      .animate-orbit-a,
+      .animate-orbit-b {
+        animation: none !important;
+      }
+    }
+  </style>
+
 </head>
 
-<body style="background-color: #0052D9;">
+<body class="bg-background text-foreground">
   <!-- Force HTTPS Redirect -->
   <!-- <script>
     // Only redirect if not already on HTTPS and not on localhost
@@ -236,15 +426,16 @@
     }
   </script> -->
 
-  <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+  <div class="relative flex min-h-screen flex-col group/design-root overflow-x-clip"
     style='font-family: Manrope, "Noto Sans", sans-serif;'>
     <div class="layout-container flex h-full grow flex-col">
       <!-- Header Section -->
-      <header class="bg-white border-b border-b-[#eaedf1]">
+      <header
+        class="sticky top-0 z-[100] w-full shrink-0 border-b border-gray-200/80 bg-white/95 shadow-sm backdrop-blur-md">
         <div class="flex flex-col items-center gap-3 px-4 md:px-10 py-3 sm:flex-row sm:items-center sm:justify-between">
           <div class="flex items-center gap-1">
             <a href="index.html" class="flex items-center gap-1">
-              <!-- keep your existing logo svg here -->
+              <!-- SVG Logo -->
               <svg class="h-4 w-auto" viewBox="0 0 126 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M0.5 11.5C0.5 7.35786 3.85786 4 8 4L34 4C38.1421 4 41.5 7.35786 41.5 11.5L41.5 37.5C41.5 41.6421 38.1421 45 34 45L0.5 45L0.5 11.5Z"
@@ -269,14 +460,14 @@
           </div>
 
           <div class="flex flex-wrap justify-center items-center gap-2 w-full sm:w-auto sm:justify-end">
-            <a href="https://trello.com/b/YfzA88B8/entreprenote-feature-requests" target="_blank"
+            <!-- <a href="https://trello.com/b/YfzA88B8/entreprenote-feature-requests" target="_blank"
               rel="noopener noreferrer"
               class="inline-flex  items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
               </svg>
               Feature Request
-            </a>
+            </a> -->
 
             <a href="https://forms.gle/tNuReTGmSbRGmPKCA" target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
@@ -334,230 +525,686 @@
 
         </div>
       </header> -->
-      <!-- Hero Section -->
-      <div class="w-full">
 
-        <!-- ── Part 1: Main Hero ── -->
-        <section aria-label="Entreprenote – AI-Powered Startup Idea Validation">
-          <div class="relative w-full overflow-hidden"
-            style="background: linear-gradient(135deg, #001a5c 0%, #0052D9 55%, #1a6fff 100%);">
-            <!-- Subtle grid pattern overlay -->
-            <div class="absolute inset-0 opacity-10"
-              style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 32px 32px;">
-            </div>
+      <!-- Main content converted from index.tsx -->
+      <main class="flex-1 min-h-screen bg-background text-foreground font-sans selection:bg-primary/20">
 
-            <div
-              class="relative z-10 mx-auto max-w-screen-xl px-4 md:px-10 py-20 md:py-28 flex flex-col items-center text-center gap-6">
-
-              <!-- Badge -->
+        <!-- Hero Header -->
+        <section
+          class="relative pt-16 pb-24 px-6 overflow-hidden bg-gradient-to-b from-primary/5 via-background to-background">
+          <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 relative z-10">
               <div
-                class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold text-white/90 backdrop-blur-sm">
-                <span class="h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
-                Now in Public Beta
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-mono mb-6 animate-fade-up">
+                <span class="size-1.5 rounded-full bg-primary animate-pulse"></span>
+                PUBLIC BETA
               </div>
-
-              <!-- H1 — primary SEO/AEO keyword target -->
-              <h1 class="max-w-3xl text-4xl md:text-6xl font-black tracking-tight text-white leading-[1.1]">
-                Validate Your Startup Idea<br class="hidden md:block" />
-                <span style="color: #a8c8ff;">Before You Build Anything</span>
+              <h1
+                class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-balance mb-6 animate-fade-up [animation-delay:100ms] leading-[1.02]">
+                Have an <span class="text-primary">idea</span>?
               </h1>
-
-              <!-- Subheadline — answer-engine optimised, mirrors user search intent -->
-              <p class="max-w-2xl text-base md:text-xl text-white/80 leading-relaxed">
-                Entreprenote is the AI-powered workspace that asks the right questions — helping entrepreneurs clarify,
-                stress-test, and structure their ideas into actionable plans. No fluff, no guessing. Just clarity.
+              <p
+                class="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8 animate-fade-up [animation-delay:200ms] leading-relaxed">
+                Entreprenote is the Idea OS for entrepreneurs. Capture the mess in your head, sharpen it into a real
+                startup, and let
+                Charlie AI help you actually do the work — validate, decide, write, apply, pitch, and build what's next.
               </p>
-
-              <!-- CTAs -->
-              <div class="flex flex-wrap justify-center gap-3 mt-2">
-                <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
-                  onclick="gtag('event','go_to_entpn_app',{event_category:'cta',event_label:'hero_primary_cta'});"
-                  class="group inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm md:text-base font-bold text-[#0052D9] shadow-lg hover:bg-white/90 transition-all duration-200">
-                  Entreprenote App
-                  <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                      d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </a>
-                <a href="https://www.youtube.com/watch?v=DrNaoxwbafg" target="_blank" rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3 text-sm md:text-base font-semibold text-white backdrop-blur-sm hover:bg-white/20 transition-all duration-200">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                  Watch Demo
-                </a>
+              <div class="flex flex-wrap gap-3 animate-fade-up [animation-delay:300ms]">
+                <a href="https://app.entreprenote.com"
+                  class="px-6 py-3.5 bg-primary text-primary-foreground font-semibold rounded-xl shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-transform">Start
+                  your first idea →</a>
+                <a href="#about"
+                  class="px-6 py-3.5 bg-card border border-border font-semibold rounded-xl hover:bg-accent transition-colors">Learn
+                  More</a>
               </div>
-
-              <!-- Trust signals -->
-              <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 text-xs text-white/60">
-                <span class="flex items-center gap-1.5">
-                  <svg class="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  For founders at the idea stage
-                </span>
-                <span class="flex items-center gap-1.5">
-                  <svg class="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  AI-guided idea due diligence
-                </span>
-                <span class="flex items-center gap-1.5">
-                  <svg class="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l6.879-6.879a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Built for ideas still in your head
-                </span>
-              </div>
-
+              <!-- <div
+                class="mt-10 flex items-center gap-4 text-xs text-muted-foreground animate-fade-up [animation-delay:400ms]">
+                <div class="flex -space-x-2">
+                  <img src="https://placehold.co/80x80/e7eefc/1d4ed8?text=F1" alt="Founder portrait placeholder"
+                    width="40" height="40" loading="lazy"
+                    class="size-9 rounded-full border-2 border-background object-cover" />
+                  <img src="https://placehold.co/80x80/fef3c7/92400e?text=F2" alt="Founder portrait placeholder"
+                    width="40" height="40" loading="lazy"
+                    class="size-9 rounded-full border-2 border-background object-cover" />
+                  <img src="https://placehold.co/80x80/dcfce7/166534?text=F3" alt="Founder portrait placeholder"
+                    width="40" height="40" loading="lazy"
+                    class="size-9 rounded-full border-2 border-background object-cover" />
+                  <img src="https://placehold.co/80x80/fce7f3/9d174d?text=F4" alt="Founder portrait placeholder"
+                    width="40" height="40" loading="lazy"
+                    class="size-9 rounded-full border-2 border-background object-cover" />
+                </div>
+                <div>
+                  <div class="flex items-center gap-1 text-amber-500 mb-0.5">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><span
+                      class="ml-1 font-semibold text-foreground">4.9</span>
+                  </div>
+                  <span>Loved by 2,000+ founders shipping ideas.</span>
+                </div>
+              </div> -->
             </div>
-          </div>
-        </section>
 
-        <!-- ── Part 2: How It Works (3-step value prop) ── -->
-        <section aria-label="How Entreprenote works" class="w-full bg-white">
-          <div class="mx-auto max-w-screen-xl px-4 md:px-10 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-              <!-- Step 1 -->
-              <div class="rounded-2xl bg-gray-50 border border-gray-200 p-6 flex flex-col gap-3">
-                <div
-                  class="w-10 h-10 rounded-xl bg-[#0052D9] flex items-center justify-center text-white font-black text-lg">
-                  1
-                </div>
-                <h2 class="text-gray-900 font-bold text-base">Dump Your Raw Idea</h2>
-                <p class="text-gray-500 text-sm leading-relaxed">Start with whatever you've got — a vague thought, a gap
-                  you
-                  noticed, a problem you keep running into. Entreprenote meets you where you are.</p>
+            <div class="lg:col-span-5 relative">
+              <div
+                class="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/10 border border-border aspect-[4/5] bg-muted">
+                <img src="./images/hero-image.png" alt="Founder using Entreprenote to structure her startup idea"
+                  width="1200" height="1408" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent"></div>
               </div>
-
-              <!-- Step 2 -->
-              <div class="rounded-2xl bg-gray-50 border border-gray-200 p-6 flex flex-col gap-3">
-                <div
-                  class="w-10 h-10 rounded-xl bg-[#0052D9] flex items-center justify-center text-white font-black text-lg">
-                  2
-                </div>
-                <h2 class="text-gray-900 font-bold text-base">AI-Powered Sticky Notes</h2>
-                <p class="text-gray-500 text-sm leading-relaxed">Drop your rough thoughts into sticky notes. AI helps
-                  organize them and
-                  asks smart follow-ups to turn scattered ideas into clear direction.</p>
-              </div>
-
-              <!-- Step 3 -->
-              <div class="rounded-2xl bg-gray-50 border border-gray-200 p-6 flex flex-col gap-3">
-                <div
-                  class="w-10 h-10 rounded-xl bg-[#0052D9] flex items-center justify-center text-white font-black text-lg">
-                  3
-                </div>
-                <h2 class="text-gray-900 font-bold text-base">Get Clarity. Move Fast.</h2>
-                <p class="text-gray-500 text-sm leading-relaxed">Walk away with a structured breakdown of your idea —
-                  what's
-                  strong, what needs work, and what to do next. Turn uncertainty into a plan of action.</p>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        <!-- ── Part 3: Demo Video ── -->
-        <section id="demo-video" aria-label="Entreprenote product demo video" class="w-full bg-white">
-          <div class="mx-auto max-w-screen-xl px-4 md:px-10 pb-16">
-            <div class="rounded-2xl bg-gray-50 border border-gray-200 overflow-hidden">
-              <div class="flex flex-col lg:flex-row">
-
-                <!-- Video -->
-                <div class="w-full lg:w-3/5">
-                  <div class="aspect-video w-full bg-black">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/DrNaoxwbafg?si=7SnG_4E5pqwP4TgV"
-                      title="How to validate your startup idea with Entreprenote – Product Demo" frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
+              <!-- <div
+                class="hidden md:block absolute -left-6 top-10 w-64 bg-white rounded-2xl shadow-xl border border-border p-4 animate-orbit-a">
+                <div class="flex items-center gap-2 mb-3">
+                  <div class="size-8 rounded-full bg-gradient-to-br from-primary to-primary/60"></div>
+                  <div>
+                    <div class="text-xs font-bold">Ask Charlie</div>
+                    <div class="text-[10px] text-muted-foreground font-mono">v1.1</div>
                   </div>
                 </div>
+                <div
+                  class="text-xs bg-primary/5 border border-primary/10 rounded-lg p-2.5 text-foreground/80 leading-relaxed">
+                  Drafting your YC application from 12 notes + 4 answers…</div>
+                <button type="button"
+                  class="mt-3 w-full text-xs font-bold py-2 rounded-lg bg-gradient-to-r from-primary to-primary/80 text-primary-foreground">✨
+                  Hey Charlie!</button>
+              </div> -->
+              <div
+                class="hidden md:block absolute -right-4 bottom-10 w-56 bg-[var(--note-yellow)] rounded-xl shadow-xl border border-border p-4 rotate-3">
+                <div class="text-sm font-medium text-foreground/90 leading-snug">"Some quote by the person who will be
+                  in the picture in the back, will appear here someday. But since you're reading this, please do give
+                  Entreprenote a try. If you have an idea that you always wanted to build, answer questions about that
+                  idea in Entreprenote, and let Charlie AI take care of many many things..."</div>
+                <!-- <div class="text-[10px] font-mono text-foreground/60 mb-1.5">- Christina</div> -->
 
-                <!-- Copy -->
-                <div class="w-full lg:w-2/5 flex flex-col justify-center gap-5 p-6 lg:p-10">
+              </div>
+              <div
+                class="hidden lg:block absolute -left-10 bottom-20 bg-white rounded-xl shadow-xl border border-border px-4 py-3 max-w-[220px]">
+                <div class="text-xs font-semibold">Christina H.</div>
+                <div class="text-[10px] font-mono text-primary mb-1">wocintechchat.com</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Video Section -->
+        <!-- <section class="py-16 px-6 border-y border-border overflow-hidden">
+          <div class="max-w-6xl mx-auto">
+            <p class="text-center text-xs font-mono text-muted-foreground uppercase tracking-widest">Introducing
+              <span class="font-bold text-[#0052D9]">Entreprenote App!</span>
+            </p>
+
+            <div class="relative w-full">
+              <img src="./images/featured-image.webp" alt="Entreprenote App" loading="lazy" class="w-full h-auto" />
+              <button type="button" onclick="openVideoModal()" aria-label="Play demo video"
+                class="group absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/90 hover:bg-white shadow-xl transition-all duration-200 hover:scale-105">
+                <svg class="w-6 h-6 md:w-7 md:h-7 text-[#0052D9] translate-x-0.5" fill="currentColor"
+                  viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                <span
+                  class="absolute inset-0 rounded-full ring-4 ring-white/40 animate-ping group-hover:opacity-0"></span>
+              </button>
+            </div>
+            <div
+              class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-lg font-bold text-muted-foreground/70 mb-14">
+              <span class="hover:text-foreground transition-colors">Y Combinator</span><span
+                class="hover:text-foreground transition-colors">Techstars</span><span
+                class="hover:text-foreground transition-colors">Antler</span><span
+                class="hover:text-foreground transition-colors">500 Global</span><span
+                class="hover:text-foreground transition-colors">On Deck</span><span
+                class="hover:text-foreground transition-colors">SOSV</span>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4">
+              <figure class="p-6 rounded-2xl bg-background border border-border">
+                <blockquote class="text-sm leading-relaxed text-foreground/90 mb-5">“Got into 3 accelerators with drafts
+                  Charlie wrote from my notes.”</blockquote>
+                <figcaption class="flex items-center gap-3"><img src="https://placehold.co/80x80/dcfce7/166534?text=AM"
+                    alt="Aarav Mehta" width="40" height="40" loading="lazy" class="size-10 rounded-full object-cover" />
+                  <div>
+                    <div class="text-xs font-bold">Aarav Mehta</div>
+                    <div class="text-[11px] font-mono text-muted-foreground">Founder, Loomly</div>
+                  </div>
+                </figcaption>
+              </figure>
+              <figure class="p-6 rounded-2xl bg-background border border-border">
+                <blockquote class="text-sm leading-relaxed text-foreground/90 mb-5">“It's the first tool that actually
+                  made my idea sound like me.”</blockquote>
+                <figcaption class="flex items-center gap-3"><img src="https://placehold.co/80x80/fce7f3/9d174d?text=SR"
+                    alt="Sofia Reyes" width="40" height="40" loading="lazy" class="size-10 rounded-full object-cover" />
+                  <div>
+                    <div class="text-xs font-bold">Sofia Reyes</div>
+                    <div class="text-[11px] font-mono text-muted-foreground">Founder, Palmar</div>
+                  </div>
+                </figcaption>
+              </figure>
+              <figure class="p-6 rounded-2xl bg-background border border-border">
+                <blockquote class="text-sm leading-relaxed text-foreground/90 mb-5">“I stopped rewriting the same
+                  application 8 times. Huge.”</blockquote>
+                <figcaption class="flex items-center gap-3"><img src="https://placehold.co/80x80/e7eefc/1d4ed8?text=JB"
+                    alt="Jordan Blake" width="40" height="40" loading="lazy"
+                    class="size-10 rounded-full object-cover" />
+                  <div>
+                    <div class="text-xs font-bold">Jordan Blake</div>
+                    <div class="text-[11px] font-mono text-muted-foreground">Founder, Kite</div>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section> -->
+        <!-- Idea OS Section -->
+        <section id="about" class="py-32 px-6 bg-card border-y border-border">
+          <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+              <span class="text-xs font-mono uppercase tracking-widest">What is <span
+                  class="text-primary font-bold">Entreprenote</span>?</span>
+              <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mt-4 mb-6">From idea in your brain to
+                actually doing the work.</h2>
+              <p class="text-lg text-muted-foreground">Entreprenote is the operating system for your startup idea — the
+                place where thinking becomes structure, and structure
+                becomes real, shippable work.</p>
+            </div>
+            <div class="hidden lg:block relative">
+              <div
+                class="absolute top-12 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-border via-primary/30 to-border">
+              </div>
+              <div class="grid grid-cols-5 gap-4">
+                <div class="relative flex flex-col items-center text-center">
                   <div
-                    class="inline-flex items-center gap-2 self-start rounded-full bg-red-50 border border-red-200 px-3 py-1 text-xs font-bold text-red-600">
-                    <span class="h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
-                    LIVE DEMO
-                  </div>
-
-                  <h2 class="text-gray-900 text-xl md:text-2xl font-black leading-snug">
-                    See How Entrepreneurs Validate Ideas using Entreprenote App!
-                  </h2>
-
-                  <p class="text-gray-500 text-sm leading-relaxed">
-                    Watch a real brainstorming session inside <a href="https://app.entreprenote.com" target="_blank"
-                      rel="noopener noreferrer"
-                      onclick="gtag('event','go_to_entpn_app',{event_category:'cta',event_label:'demo_inline_link'});"
-                      class="text-[#0052D9] underline underline-offset-2 hover:text-[#0052D9]/80">Entreprenote App</a>.
-                    From raw
-                    idea to structured clarity — AI questions, note-taking, and a clear path forward.
-                  </p>
-
-                  <div class="flex flex-wrap gap-2 text-xs text-gray-400">
-                    <span class="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1">
-                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      12 min watch
-                    </span>
-                    <!-- <span class="flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1">
-                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.347.346A4.002 4.002 0 0112 16a4.002 4.002 0 01-2.796-1.154l-.348-.346z" />
-                      </svg>
-                      Real startup idea walkthrough
-                    </span> -->
-                  </div>
-
-                  <a href="https://app.entreprenote.com" target="_blank" rel="noopener noreferrer"
-                    onclick="gtag('event','go_to_entpn_app',{event_category:'cta',event_label:'demo_section_cta'});"
-                    class="group inline-flex items-center gap-2 self-start rounded-xl bg-[#0052D9] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#0052D9]/90 transition-all duration-200">
-                    Checkout Entreprenote App
-                    <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                        d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </a>
+                    class="relative z-10 size-24 rounded-2xl flex items-center justify-center text-2xl font-mono font-bold mb-6 shadow-[var(--shadow-note)] transition-transform hover:-translate-y-1 bg-background border border-border">
+                    01</div>
+                  <h3 class="font-bold text-sm mb-2 leading-tight">Idea in your brain</h3>
+                  <p class="text-xs text-muted-foreground leading-relaxed">Half-formed, exciting, scattered. Most ideas
+                    die here.</p>
                 </div>
-
+                <div class="relative flex flex-col items-center text-center">
+                  <div
+                    class="relative z-10 size-24 rounded-2xl flex items-center justify-center text-2xl font-mono font-bold mb-6 shadow-[var(--shadow-note)] transition-transform hover:-translate-y-1 bg-background border border-border">
+                    02</div>
+                  <h3 class="font-bold text-sm mb-2 leading-tight">Dump it into Entreprenote</h3>
+                  <p class="text-xs text-muted-foreground leading-relaxed">Sticky notes, vision box, random thoughts —
+                    capture the chaos without formatting.</p>
+                </div>
+                <div class="relative flex flex-col items-center text-center">
+                  <div
+                    class="relative z-10 size-24 rounded-2xl flex items-center justify-center text-2xl font-mono font-bold mb-6 shadow-[var(--shadow-note)] transition-transform hover:-translate-y-1 bg-background border border-border">
+                    03</div>
+                  <h3 class="font-bold text-sm mb-2 leading-tight">Structure the thinking</h3>
+                  <p class="text-xs text-muted-foreground leading-relaxed">Guided Q&A turns raw thoughts into a clear
+                    problem, audience, solution, and edge.</p>
+                </div>
+                <div class="relative flex flex-col items-center text-center">
+                  <div
+                    class="relative z-10 size-24 rounded-2xl flex items-center justify-center text-2xl font-mono font-bold mb-6 shadow-[var(--shadow-note)] transition-transform hover:-translate-y-1 bg-[image:var(--entp-pro-gradient)] text-primary-foreground ring-4 ring-primary/20">
+                    <img src="./images/charlie-mascot.png" alt="Charlie AI" class="h-36 w-auto" />
+                  </div>
+                  <h3 class="font-bold text-sm mb-2 leading-tight">Charlie AI works with you</h3>
+                  <p class="text-xs text-muted-foreground leading-relaxed">Charlie reads every note, answer, and vision
+                    line — then helps you validate, decide, write answers.</p>
+                </div>
+                <div class="relative flex flex-col items-center text-center">
+                  <div
+                    class="relative z-10 size-24 rounded-2xl flex items-center justify-center text-2xl font-mono font-bold mb-6 shadow-[var(--shadow-note)] transition-transform hover:-translate-y-1 bg-background border border-border">
+                    05</div>
+                  <h3 class="font-bold text-sm mb-2 leading-tight">Start doing the work</h3>
+                  <p class="text-xs text-muted-foreground leading-relaxed">Apply to accelerators, ship pitches, talk to
+                    users, make decisions — all from the same Charlie AI brain.</p>
+                </div>
+                <!-- <div class="relative flex flex-col items-center text-center">
+                  <div
+                    class="relative z-10 size-24 rounded-2xl flex items-center justify-center text-2xl font-mono font-bold mb-6 shadow-[var(--shadow-note)] transition-transform hover:-translate-y-1 bg-background border border-border">
+                    06</div>
+                  <h3 class="font-bold text-sm mb-2 leading-tight">Grow with the stack
+                  </h3>
+                  <p class="text-xs text-muted-foreground leading-relaxed">Pitch decks, app prototypes, marketing
+                    material, investor CRM — all from the same idea brain.</p>
+                </div> -->
               </div>
+            </div>
+            <div class="lg:hidden space-y-6 relative">
+              <div class="absolute left-8 top-4 bottom-4 w-0.5 bg-border"></div>
+              <div class="relative pl-20">
+                <div
+                  class="absolute left-4 top-0 size-10 rounded-xl flex items-center justify-center text-base font-mono font-bold shadow-[var(--shadow-note)] bg-background border border-border">
+                  01</div>
+                <h3 class="font-bold text-base mb-1">Idea in your brain</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">Half-formed, exciting, scattered. Most ideas
+                  die here.</p>
+              </div>
+              <div class="relative pl-20">
+                <div
+                  class="absolute left-4 top-0 size-10 rounded-xl flex items-center justify-center text-base font-mono font-bold shadow-[var(--shadow-note)] bg-background border border-border">
+                  02</div>
+                <h3 class="font-bold text-base mb-1">Dump it into Entreprenote</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">Sticky notes, vision box, random thoughts —
+                  capture the chaos without formatting.</p>
+              </div>
+              <div class="relative pl-20">
+                <div
+                  class="absolute left-4 top-0 size-10 rounded-xl flex items-center justify-center text-base font-mono font-bold shadow-[var(--shadow-note)] bg-background border border-border">
+                  03</div>
+                <h3 class="font-bold text-base mb-1">Answer structured Q&amp;A</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">Smart questions pull your idea into clear,
+                  reusable answers that programs actually want.</p>
+              </div>
+              <div class="relative pl-20">
+                <div
+                  class="absolute left-4 top-0 size-10 rounded-xl flex items-center justify-center text-base font-mono font-bold shadow-[var(--shadow-note)] bg-primary text-primary-foreground ring-4 ring-primary/20">
+                  04</div>
+                <h3 class="font-bold text-base mb-1">Charlie AI synthesizes</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">Charlie reads every note and answer, then
+                  writes in your voice for each application.</p>
+              </div>
+              <div class="relative pl-20">
+                <div
+                  class="absolute left-4 top-0 size-10 rounded-xl flex items-center justify-center text-base font-mono font-bold shadow-[var(--shadow-note)] bg-background border border-border">
+                  05</div>
+                <h3 class="font-bold text-base mb-1">Application accepted</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">Submit to accelerators, competitions, and
+                  conferences with confidence.</p>
+              </div>
+              <div class="relative pl-20">
+                <div
+                  class="absolute left-4 top-0 size-10 rounded-xl flex items-center justify-center text-base font-mono font-bold shadow-[var(--shadow-note)] bg-background border border-border">
+                  06</div>
+                <h3 class="font-bold text-base mb-1">Beyond applications</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">Pitch decks, app prototypes, marketing
+                  material, investor CRM — all from the same idea brain.</p>
+              </div>
+            </div>
+            <!-- <div class="mt-20 p-8 md:p-10 rounded-2xl bg-background border border-border">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+                <div><span class="text-xs font-mono text-primary uppercase tracking-widest">The future stack</span>
+                  <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight mt-3">One idea brain. Every founder
+                    tool.</h3>
+                </div>
+                <p class="text-sm text-muted-foreground max-w-md">The same structured idea data that fuels your
+                  applications will soon power pitch decks, app prototypes, marketing assets, and investor tracking.</p>
+              </div>
+              <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                <div
+                  class="p-4 rounded-xl bg-card border border-border text-center hover:-translate-y-0.5 transition-transform">
+                  <div class="text-xs font-mono text-primary mb-2">PD</div>
+                  <div class="text-xs font-semibold leading-tight">Pitch deck generator</div>
+                </div>
+                <div
+                  class="p-4 rounded-xl bg-card border border-border text-center hover:-translate-y-0.5 transition-transform">
+                  <div class="text-xs font-mono text-primary mb-2">APP</div>
+                  <div class="text-xs font-semibold leading-tight">Idea → app builder</div>
+                </div>
+                <div
+                  class="p-4 rounded-xl bg-card border border-border text-center hover:-translate-y-0.5 transition-transform">
+                  <div class="text-xs font-mono text-primary mb-2">MKT</div>
+                  <div class="text-xs font-semibold leading-tight">Marketing forge</div>
+                </div>
+                <div
+                  class="p-4 rounded-xl bg-card border border-border text-center hover:-translate-y-0.5 transition-transform">
+                  <div class="text-xs font-mono text-primary mb-2">CRM</div>
+                  <div class="text-xs font-semibold leading-tight">Investor CRM</div>
+                </div>
+                <div
+                  class="p-4 rounded-xl bg-card border border-border text-center hover:-translate-y-0.5 transition-transform">
+                  <div class="text-xs font-mono text-primary mb-2">LP</div>
+                  <div class="text-xs font-semibold leading-tight">Landing page generator</div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </section>
+
+        <!-- Charlie Section -->
+        <section id="charlie"
+          class="py-32 px-6 bg-[image:var(--entp-pro-gradient)] border-y border-border overflow-hidden">
+          <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative flex justify-center min-h-[520px]">
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div class="size-[420px] rounded-full bg-primary/5 blur-3xl"></div>
+                <div class="absolute size-[380px] border border-dashed border-border rounded-full"></div>
+              </div>
+              <img src="./images/charlie-waving.png" alt="Charlie, the Entreprenote 3D mascot" width="auto"
+                height="1024" class="relative z-10 h-[480px] w-auto object-contain animate-float drop-shadow-2xl" />
+              <div
+                class="absolute z-20 px-4 py-2 bg-card shadow-lg border border-border rounded-full text-xs font-semibold whitespace-nowrap top-4 left-0 md:-left-12 animate-orbit-a"
+                style="animation-delay:0s">Fill accelerator application forms</div>
+              <div
+                class="absolute z-20 px-4 py-2 bg-card shadow-lg border border-border rounded-full text-xs font-semibold whitespace-nowrap top-24 right-0 md:-right-8 animate-orbit-b"
+                style="animation-delay:.6s">Find answer to your questions</div>
+              <div
+                class="absolute z-20 px-4 py-2 bg-card shadow-lg border border-border rounded-full text-xs font-semibold whitespace-nowrap bottom-24 left-0 md:-left-16 animate-orbit-a"
+                style="animation-delay:1.2s">Create To-do list from notes</div>
+              <div
+                class="absolute z-20 px-4 py-2 bg-card shadow-lg border border-border rounded-full text-xs font-semibold whitespace-nowrap bottom-4 right-4 md:-right-12 animate-orbit-b"
+                style="animation-delay:1.8s">Summarize notes</div>
+              <!-- <div
+                          class="absolute z-20 px-4 py-2 bg-card shadow-lg border border-border rounded-full text-xs font-semibold whitespace-nowrap top-1/2 -translate-y-1/2 md:-right-24 right-0 animate-orbit-a"
+                          style="animation-delay:2.4s">and many more...</div> -->
+            </div>
+            <div>
+              <span class="text-xs font-mono text-white uppercase tracking-widest">Meet</span>
+              <!-- <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mt-4 mb-6">From idea in your brain to
+                                            actually doing the work.</h2> -->
+              <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Charlie.</h2>
+              <h4 class="text-2xl md:text-3xl text-white"><br />Your Idea
+                AI Assistant</h4>
+              <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Charlie Reads your structured Q&A, your
+                loose sticky
+                notes, and the broad vision you scribbled at 2am — then thinks alongside
+                you.</p>
+              <ul class="space-y-3">
+                <li class="flex items-center gap-3 font-medium">
+                  <div class="size-5 rounded-full bg-white/10 flex items-center justify-center">
+                    <div class="size-2 bg-white rounded-full"></div>
+                  </div>Understands the full context of your idea
+                </li>
+                <li class="flex items-center gap-3 font-medium">
+                  <div class="size-5 rounded-full bg-white/10 flex items-center justify-center">
+                    <div class="size-2 bg-white rounded-full"></div>
+                  </div>Helps you answer questions and fill online applications
+                </li>
+                <li class="flex items-center gap-3 font-medium">
+                  <div class="size-5 rounded-full bg-white/10 flex items-center justify-center">
+                    <div class="size-2 bg-white rounded-full"></div>
+                  </div>Gets smarter every time you add a note or an answer
+                </li>
+                <li class="flex items-center gap-3 font-medium">
+                  <div class="size-5 rounded-full bg-white/10 flex items-center justify-center">
+                    <div class="size-2 bg-white rounded-full"></div>
+                  </div>Tells you what should be the next step in your idea journey
+                </li>
+              </ul>
             </div>
           </div>
         </section>
 
-        <!-- ── Part 4: FAQ (matches FAQPage schema in <head> — keep both in sync) ── -->
-        <section id="faq" aria-label="Frequently asked questions about Entreprenote" class="w-full bg-white">
-          <div class="mx-auto max-w-screen-xl px-4 md:px-10 pb-16">
-            <h2 class="text-gray-900 text-2xl md:text-3xl font-black mb-6">Frequently Asked Questions</h2>
-            <div class="grid grid-cols-1 gap-3 max-w-3xl">
+        <!-- Founder Thinking -->
+        <!-- <section class="py-24 px-6 bg-primary text-primary-foreground overflow-hidden">
+          <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto md:mx-0 shadow-2xl">
+              <img src="https://placehold.co/1200x1400/dbeafe/1e3a8a?text=Founder+Thinking"
+                alt="Founder writing sticky notes at a cafe" width="1200" height="1400" loading="lazy"
+                class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <div class="text-6xl font-serif leading-none mb-6 opacity-60">“</div>
+              <p class="text-2xl md:text-3xl font-bold leading-snug mb-8 tracking-tight">I had 40 sticky notes and zero
+                clarity. One week with Entreprenote, and I submitted a YC application I was actually proud of.</p>
+              <div class="flex items-center gap-3"><img src="https://placehold.co/96x96/e7eefc/1d4ed8?text=JB"
+                  alt="Jordan Blake" width="48" height="48" loading="lazy"
+                  class="size-12 rounded-full object-cover border-2 border-white/40" />
+                <div>
+                  <div class="font-bold">Jordan Blake</div>
+                  <div class="text-sm opacity-70 font-mono">Founder, Kite · YC W26 applicant</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> -->
 
+        <!-- How it works -->
+        <!-- <section class="py-32 px-6">
+          <div class="max-w-6xl mx-auto">
+            <div class="flex items-end justify-between mb-12 flex-wrap gap-4">
+              <div><span class="text-xs font-mono text-primary uppercase tracking-widest">How it works</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-3">Brain → Notebook → Application.</h2>
+              </div>
+              <p class="text-sm font-mono text-muted-foreground">04 STEPS</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="p-6 border border-border rounded-2xl bg-card hover:-translate-y-1 transition-transform">
+                <span class="text-xs font-mono text-primary">01</span>
+                <h3 class="font-bold text-lg mt-4 mb-2">Answer the Q&amp;A</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">Guided questions pull your idea out of your
+                  head and into structured data.</p>
+              </div>
+              <div class="p-6 border border-border rounded-2xl bg-card hover:-translate-y-1 transition-transform">
+                <span class="text-xs font-mono text-primary">02</span>
+                <h3 class="font-bold text-lg mt-4 mb-2">Scribble sticky notes</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">Rough thoughts, competitor scraps, feature
+                  ideas — jot them next to your idea.</p>
+              </div>
+              <div class="p-6 border border-border rounded-2xl bg-card hover:-translate-y-1 transition-transform">
+                <span class="text-xs font-mono text-primary">03</span>
+                <h3 class="font-bold text-lg mt-4 mb-2">Set the vision</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">A free-text vision box tells Charlie the 'why'
+                  behind the whole thing.</p>
+              </div>
+              <div class="p-6 border border-border rounded-2xl bg-card hover:-translate-y-1 transition-transform">
+                <span class="text-xs font-mono text-primary">04</span>
+                <h3 class="font-bold text-lg mt-4 mb-2">Apply anywhere</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed">Charlie drafts your accelerator, grant, and
+                  conference applications on demand.</p>
+              </div>
+            </div>
+          </div>
+        </section> -->
+
+        <!-- Built with Founders Section -->
+        <!-- <section class="py-32 px-6">
+          <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+            <div class="relative rounded-3xl overflow-hidden shadow-xl border border-border"><img
+                src="https://placehold.co/1400x1000/e2e8f0/334155?text=Team+Collaboration"
+                alt="Two co-founders collaborating with sticky notes and a laptop" width="1400" height="1000"
+                loading="lazy" class="w-full h-auto object-cover" /></div>
+            <div><span class="text-xs font-mono text-primary uppercase tracking-widest">Built with founders</span>
+              <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-3 mb-6">Made for the two of you
+                scribbling on a laptop at 11pm.</h2>
+              <p class="text-muted-foreground text-lg leading-relaxed mb-8">Entreprenote was born inside a co-founder
+                chat where the deadline for an accelerator was closing in an hour. We built the tool we wished we'd had
+                — and shipped it with 300 early founders in the loop.</p>
+              <div class="grid grid-cols-3 gap-4">
+                <div>
+                  <div class="text-2xl md:text-3xl font-extrabold text-primary">2,000+</div>
+                  <div class="text-xs text-muted-foreground mt-1">Founders</div>
+                </div>
+                <div>
+                  <div class="text-2xl md:text-3xl font-extrabold text-primary">12,400</div>
+                  <div class="text-xs text-muted-foreground mt-1">Applications drafted</div>
+                </div>
+                <div>
+                  <div class="text-2xl md:text-3xl font-extrabold text-primary">89%</div>
+                  <div class="text-xs text-muted-foreground mt-1">Faster to submit</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> -->
+
+        <!-- CTA -->
+        <section aria-labelledby="final-cta-title"
+          class="relative isolate overflow-hidden border border-[#0052D9]/20 bg-gradient-to-br from-[#062B6F] via-[#0052D9] to-[#3478EA] px-6 py-12 text-center shadow-2xl shadow-[#0052D9]/20 md:px-12 md:py-16">
+          <!-- Decorative background -->
+          <div aria-hidden="true" class="absolute -left-16 -top-20 -z-10 h-56 w-56 rounded-full bg-white/10 blur-3xl">
+          </div>
+
+          <div aria-hidden="true"
+            class="absolute -bottom-24 -right-16 -z-10 h-64 w-64 rounded-full bg-cyan-300/20 blur-3xl">
+          </div>
+
+          <div class="mx-auto max-w-3xl">
+            <!-- <div
+              class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-white/90 backdrop-blur-sm">
+              <span class="h-2 w-2 rounded-full bg-green-300"></span>
+              Your idea has somewhere to go
+            </div> -->
+
+            <h2 id="final-cta-title"
+              class="text-3xl font-black leading-tight tracking-tight text-white text-balance md:text-5xl">
+              Ready to find your idea’s next step?
+            </h2>
+
+            <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-blue-50/90 md:text-lg">
+              Give your idea a workspace, work through the questions that matter, and
+              turn scattered thoughts into clear decisions and practical next steps.
+            </p>
+
+            <div class="mt-8 flex justify-center">
+              <a href="https://app.entreprenote.com/"
+                class="group inline-flex min-h-14 items-center justify-center gap-3 rounded-xl bg-white px-8 py-4 text-base font-extrabold text-[#0052D9] shadow-xl shadow-black/15 transition-all duration-200 hover:-translate-y-1 hover:bg-blue-50 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50">
+                Start shaping your idea
+                <svg aria-hidden="true" class="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14m-6-6 6 6-6 6">
+                  </path>
+                </svg>
+              </a>
+            </div>
+
+            <!-- <p class="mt-4 text-xs font-medium text-blue-100/80">
+              Completely free
+              <span aria-hidden="true" class="mx-2">•</span>
+              Bring your own Gemini key for Charlie AI
+              <span aria-hidden="true" class="mx-2">•</span>
+              No subscription
+            </p> -->
+          </div>
+        </section>
+
+        <!-- The Eco System - Other Products Sections -->
+        <section class="py-32 px-6 bg-card border-y border-border">
+          <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-end mb-12 flex-wrap gap-4">
+              <div><span class="text-xs font-mono text-primary uppercase tracking-widest">Supporting Tools</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-3"><span class="italic font-normal">by
+                  </span>
+                  Entreprenote...</h2>
+              </div>
+              <!-- <p class="text-sm font-mono text-muted-foreground">04 CHILD PROJECTS</p> -->
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <a id="catalyst" href="https://catalyst.entreprenote.com/"
+                class="group p-8 bg-[#0052D9] text-white rounded-2xl flex flex-col justify-between hover:-translate-y-1 transition-transform min-h-[280px]">
+                <div>
+                  <span
+                    class="inline-block px-2 text-xs font-medium bg-white text-[#0052D9] rounded-full mb-4">CATALYST</span>
+                  <img src="./images/catalyst_icon.svg" alt="Catalyst Project Icon" class="h-14 w-auto mb-2" />
+
+                  <!-- <span class="text-[10px] font-mono text-white/70 mb-4 block tracking-widest">BETA</span> -->
+                  <h3 class="text-xl font-bold mb-2">Ideas, handed over.</h3>
+                  <p class="text-sm text-white/70 leading-relaxed">Can't build it yourself? Post the idea. Builders
+                    across the community can pick it up and solve a real problem.</p>
+                </div><span
+                  class="mt-8 text-xs font-bold group-hover:translate-x-1 transition-transform inline-block">Explore
+                  ideas →</span>
+              </a>
+              <a id="catalyst" href="#"
+                class="group p-8 bg-[#ACACAC] text-white rounded-2xl flex flex-col justify-between hover:-translate-y-1 transition-transform min-h-[280px]">
+                <div><span class="text-[10px] font-mono text-white/70 mb-4 block tracking-widest">ACCESS</span>
+                  <img src="./images/access-icon.svg" alt="Access Project Icon" class="h-14 w-auto mb-2 tint-white" />
+                  <h3 class="text-xl font-bold mb-2">Apply to opportunities.</h3>
+                  <p class="text-sm text-white/70 leading-relaxed">Find and apply to relevant opportunities within the
+                    community.</p>
+                </div><span
+                  class="mt-8 text-xs font-bold group-hover:translate-x-1 transition-transform inline-block">Coming
+                  Soon</span>
+              </a>
+              <a id="catalyst" href="#"
+                class="group p-8 bg-[#ACACAC] text-white rounded-2xl flex flex-col justify-between hover:-translate-y-1 transition-transform min-h-[280px]">
+                <div><span class="text-[10px] font-mono text-white/70 mb-4 block tracking-widest">FREE STUFF</span>
+                  <img src="./images/freestuff-icon.svg" alt="Free Stuff Project Icon" class="h-14 w-auto mb-2" />
+                  <h3 class="text-xl font-bold mb-2">Online freebies.</h3>
+                  <p class="text-sm text-white/70 leading-relaxed">Use free tier SaaS and other online freebies.</p>
+                </div><span class="mt-8 text-xs font-bold group-hover:translate-x-1 transition-transform inline-block">
+                  Coming
+                  Soon</span>
+              </a>
+              <a id="access" href="https://www.notion.com/@entreprenote" target="_blank"
+                class="group p-8 bg-background border border-border rounded-2xl flex flex-col justify-between hover:border-primary transition-colors min-h-[280px]">
+                <div><span class="text-[10px] font-mono text-muted-foreground mb-4 block tracking-widest">NOTION
+                    STORE</span>
+                  <img src="./images/notion-app-logo.png" alt="Notion Store Project Icon" class="h-14 w-auto mb-2" />
+                  <h3 class="text-xl font-bold mb-2">Templates for Notion.</h3>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Need your own notes taking tool to
+                    brainstorm. Get all our templates on Notion from the Notion marketplace.</p>
+                </div><span
+                  class="mt-8 text-xs font-bold group-hover:translate-x-1 transition-transform inline-block">Visit
+                  Notion Store →</span>
+              </a>
+              <!-- <a id="marketplace" href="#"
+                class="group p-8 bg-primary/5 border border-primary/20 rounded-2xl flex flex-col justify-between hover:bg-primary/10 transition-colors min-h-[280px]">
+                <div><span class="text-[10px] font-mono text-primary mb-4 block tracking-widest">PROJECT ·
+                    MARKETPLACE</span>
+                  <h3 class="text-xl font-bold mb-2">Widgets &amp; templates.</h3>
+                  <p class="text-sm text-muted-foreground leading-relaxed">Developers ship widgets and templates that
+                    plug straight into your Entreprenote workspace.</p>
+                </div>
+                <div class="mt-8 grid grid-cols-3 gap-2">
+                  <div class="h-10 rounded-md bg-card border border-border">A</div>
+                  <div class="h-10 rounded-md bg-card border border-border">B</div>
+                  <div class="h-10 rounded-md bg-card border border-border">C</div>
+                </div>
+              </a> -->
+              <!-- <a id="freestuff" href="#"
+                class="group p-8 bg-emerald-950 text-white rounded-2xl flex flex-col justify-between hover:-translate-y-1 transition-transform min-h-[280px]">
+                <div><span class="text-[10px] font-mono text-emerald-400 mb-4 block tracking-widest">PROJECT ·
+                    FREESTUFF</span>
+                  <h3 class="text-xl font-bold mb-2">Zero-budget stack.</h3>
+                  <p class="text-sm text-emerald-100/70 leading-relaxed">Hand-picked SaaS with free tiers or fully-free
+                    plans. Because most founders start broke.</p>
+                </div><span
+                  class="mt-8 self-start text-[10px] font-bold py-1 px-2 bg-emerald-500 text-emerald-950 rounded">500+
+                  TOOLS</span>
+              </a> -->
+            </div>
+          </div>
+        </section>
+
+        <div class="w-full overflow-hidden bg-foreground py-5 border-y border-border">
+          <div
+            class="flex whitespace-nowrap gap-12 text-background/60 text-xs font-mono tracking-widest uppercase animate-marquee">
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Pitch deck
+              generator · Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Idea → app
+              builder · Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Marketing
+              material forge · Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Investor CRM ·
+              Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Landing page
+              generator · Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Pitch deck
+              generator · Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Idea → app
+              builder · Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Marketing
+              material forge · Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Investor CRM ·
+              Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Landing page
+              generator · Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Pitch deck
+              generator · Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Idea → app
+              builder · Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Marketing
+              material forge · Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Investor CRM ·
+              Coming soon</span>
+            <span class="flex items-center gap-3"><span class="size-1.5 rounded-full bg-primary"></span>Landing page
+              generator · Coming soon</span>
+          </div>
+        </div>
+
+        <!-- FAQs -->
+        <section class="py-24 px-6 text-center" aria-label="Final call to action">
+          <div class="max-w-2xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 text-balance">Frequently Asked Questions
+            </h2>
+            <p class="text-muted-foreground text-lg mb-10">Open Entreprenote, dump the mess, and let Charlie help you
+              turn it into something real — one <span class="text-primary font-bold">note</span> at a time.</p>
+            <div class="space-y-4">
               <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
                 <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
                   <h3 class="text-gray-900 font-bold text-base">What is Entreprenote?</h3>
-                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                  <span
+                    class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
                 </summary>
                 <p class="text-gray-500 text-sm leading-relaxed mt-3">Entreprenote is an AI-powered workspace for the
-                  idea stage of a startup. It asks you structured, guided questions that help you clarify, stress-test,
+                  idea in your head. It asks you structured, guided questions that help you clarify, stress-test,
                   and organize a raw idea into an actionable plan — before you spend time or money building.</p>
               </details>
 
               <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
                 <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
                   <h3 class="text-gray-900 font-bold text-base">How do I validate a startup idea with Entreprenote?</h3>
-                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                  <span
+                    class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
                 </summary>
                 <p class="text-gray-500 text-sm leading-relaxed mt-3">You start by dumping your raw idea into the app.
                   AI-powered sticky notes help you organize your thoughts, and guided follow-up questions stress-test
@@ -568,38 +1215,32 @@
               <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
                 <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
                   <h3 class="text-gray-900 font-bold text-base">Is Entreprenote free?</h3>
-                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                  <span
+                    class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
                 </summary>
                 <p class="text-gray-500 text-sm leading-relaxed mt-3">Yes. The Free tier includes all core Entreprenote
-                  features without AI capabilities. The Pro tier (around $9.99/month) unlocks full access to all AI
-                  capabilities.</p>
+                  features, For AI you need to BYOK (Bring Your Own Key) or more specifically
+                  a Gemini API key and Charlie will start working. Take analogy of a remote control toy car. That's
+                  Charlie AI, we have assembled everything, you just put batteries and it'll do it's magic. Batteries
+                  is the API key that you put in the idea settings.</p>
               </details>
 
               <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
                 <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
                   <h3 class="text-gray-900 font-bold text-base">Who is Entreprenote for?</h3>
-                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
+                  <span
+                    class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
                 </summary>
                 <p class="text-gray-500 text-sm leading-relaxed mt-3">Entreprenote is built for founders and
                   entrepreneurs at the idea stage — anyone with an idea still in their head who wants clarity on what
-                  to do next, before building a product or writing a business plan.</p>
+                  to do next, before building a product or writing a business plan. Entreprenote helps you in many ways,
+                  one of the ways is the help in apply online for accelerators and incubators. It helps you filling out
+                  the answers to the questions asked in the application form.</p>
               </details>
-
-              <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
-                <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
-                  <h3 class="text-gray-900 font-bold text-base">Do I need a business plan before using Entreprenote?</h3>
-                  <span class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
-                </summary>
-                <p class="text-gray-500 text-sm leading-relaxed mt-3">No. Entreprenote is designed for the step before
-                  the business plan. Bring a vague thought, a gap you noticed, or a problem you keep running into — the
-                  AI-guided questions help you turn it into structure and direction.</p>
-              </details>
-
             </div>
           </div>
         </section>
-
-      </div>
+      </main>
       <!-- Footer Section -->
       <footer class="bg-white border-t border-gray-200 w-full">
         <div class="px-4 md:px-10 lg:px-20 py-12">
@@ -654,12 +1295,6 @@
                     class="text-gray-600 hover:text-primary font-bold">Marketplace</a></li>
                 <li><a href="https://medium.com/entreprenote" target="_blank"
                     class="text-gray-600 hover:text-primary font-bold">Blog</a></li>
-                <li><a href="https://catalyst.entreprenote.com/" target="_blank"
-                    class="text-gray-600 hover:text-primary"><b>💎
-                      Catalyst</b> App</a>
-                  <span
-                    class="inline-block ml-2 px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">BETA</span>
-                </li>
                 <li>
                   --
                 <li><a href="privacy-policy.html" class="text-gray-600 hover:text-primary">Privacy
@@ -720,9 +1355,38 @@
     </div>
   </div>
 
+  <!-- Video Modal -->
+  <!-- <div id="videoModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4"
+    onclick="if (event.target === this) closeVideoModal()">
+    <div class="relative w-full max-w-4xl">
+      <button type="button" onclick="closeVideoModal()" aria-label="Close video"
+        class="absolute -top-10 right-0 text-white/80 hover:text-white text-3xl leading-none">&times;</button>
+      <div class="aspect-video w-full rounded-xl overflow-hidden bg-black">
+        <iframe id="videoModalIframe" class="w-full h-full" src="" title="Entreprenote App demo video" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <script>
+    const YOUTUBE_VIDEO_ID = 'DrNaoxwbafg';
+    function openVideoModal() {
+      document.getElementById('videoModalIframe').src = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1`;
+      const modal = document.getElementById('videoModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeVideoModal() {
+      const modal = document.getElementById('videoModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.getElementById('videoModalIframe').src = '';
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideoModal(); });
+  </script> -->
 
 </body>
-
-
 
 </html>
