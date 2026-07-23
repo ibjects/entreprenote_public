@@ -426,15 +426,16 @@
     }
   </script> -->
 
-  <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+  <div class="relative flex min-h-screen flex-col group/design-root overflow-x-clip"
     style='font-family: Manrope, "Noto Sans", sans-serif;'>
     <div class="layout-container flex h-full grow flex-col">
       <!-- Header Section -->
-      <header class="bg-white border-b border-b-[#eaedf1]">
+      <header
+        class="sticky top-0 z-[100] w-full shrink-0 border-b border-gray-200/80 bg-white/95 shadow-sm backdrop-blur-md">
         <div class="flex flex-col items-center gap-3 px-4 md:px-10 py-3 sm:flex-row sm:items-center sm:justify-between">
           <div class="flex items-center gap-1">
             <a href="index.html" class="flex items-center gap-1">
-              <!-- keep your existing logo svg here -->
+              <!-- SVG Logo -->
               <svg class="h-4 w-auto" viewBox="0 0 126 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M0.5 11.5C0.5 7.35786 3.85786 4 8 4L34 4C38.1421 4 41.5 7.35786 41.5 11.5L41.5 37.5C41.5 41.6421 38.1421 45 34 45L0.5 45L0.5 11.5Z"
@@ -459,14 +460,14 @@
           </div>
 
           <div class="flex flex-wrap justify-center items-center gap-2 w-full sm:w-auto sm:justify-end">
-            <a href="https://trello.com/b/YfzA88B8/entreprenote-feature-requests" target="_blank"
+            <!-- <a href="https://trello.com/b/YfzA88B8/entreprenote-feature-requests" target="_blank"
               rel="noopener noreferrer"
               class="inline-flex  items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
               </svg>
               Feature Request
-            </a>
+            </a> -->
 
             <a href="https://forms.gle/tNuReTGmSbRGmPKCA" target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#0052D9] bg-white hover:bg-[#0052D9]/10 border border-transparent">
@@ -526,7 +527,7 @@
       </header> -->
 
       <!-- Main content converted from index.tsx -->
-      <main class="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20">
+      <main class="flex-1 min-h-screen bg-background text-foreground font-sans selection:bg-primary/20">
 
         <!-- Hero Header -->
         <section
@@ -552,7 +553,7 @@
                 <a href="https://app.entreprenote.com"
                   class="px-6 py-3.5 bg-primary text-primary-foreground font-semibold rounded-xl shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-transform">Start
                   your first idea →</a>
-                <a href="#charlie"
+                <a href="#about"
                   class="px-6 py-3.5 bg-card border border-border font-semibold rounded-xl hover:bg-accent transition-colors">Learn
                   More</a>
               </div>
@@ -623,7 +624,7 @@
           </div>
         </section>
         <!-- Video Section -->
-        <section class="py-16 px-6 border-y border-border overflow-hidden">
+        <!-- <section class="py-16 px-6 border-y border-border overflow-hidden">
           <div class="max-w-6xl mx-auto">
             <p class="text-center text-xs font-mono text-muted-foreground uppercase tracking-widest">Introducing
               <span class="font-bold text-[#0052D9]">Entreprenote App!</span>
@@ -641,7 +642,7 @@
                   class="absolute inset-0 rounded-full ring-4 ring-white/40 animate-ping group-hover:opacity-0"></span>
               </button>
             </div>
-            <!-- <div
+            <div
               class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-lg font-bold text-muted-foreground/70 mb-14">
               <span class="hover:text-foreground transition-colors">Y Combinator</span><span
                 class="hover:text-foreground transition-colors">Techstars</span><span
@@ -649,7 +650,7 @@
                 class="hover:text-foreground transition-colors">500 Global</span><span
                 class="hover:text-foreground transition-colors">On Deck</span><span
                 class="hover:text-foreground transition-colors">SOSV</span>
-            </div> -->
+            </div>
             <div class="grid md:grid-cols-3 gap-4">
               <figure class="p-6 rounded-2xl bg-background border border-border">
                 <blockquote class="text-sm leading-relaxed text-foreground/90 mb-5">“Got into 3 accelerators with drafts
@@ -687,12 +688,13 @@
               </figure>
             </div>
           </div>
-        </section>
+        </section> -->
         <!-- Idea OS Section -->
-        <section id="idea-os" class="py-32 px-6 bg-card border-y border-border">
+        <section id="about" class="py-32 px-6 bg-card border-y border-border">
           <div class="max-w-6xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-20">
-              <span class="text-xs font-mono text-primary uppercase tracking-widest">Idea OS</span>
+              <span class="text-xs font-mono uppercase tracking-widest">What is <span
+                  class="text-primary font-bold">Entreprenote</span>?</span>
               <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mt-4 mb-6">From idea in your brain to
                 actually doing the work.</h2>
               <p class="text-lg text-muted-foreground">Entreprenote is the operating system for your startup idea — the
@@ -876,9 +878,11 @@
             </div>
             <div>
               <span class="text-xs font-mono text-white uppercase tracking-widest">Meet</span>
-              <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mt-3 mb-6">Charlie. <span
-                  class="text-white"><br />Idea
-                  AI Assistant.</span></h2>
+              <!-- <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mt-4 mb-6">From idea in your brain to
+                                            actually doing the work.</h2> -->
+              <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Charlie.</h2>
+              <h4 class="text-2xl md:text-3xl text-white"><br />Your Idea
+                AI Assistant</h4>
               <p class="text-muted-foreground text-lg mb-8 leading-relaxed">Charlie Reads your structured Q&A, your
                 loose sticky
                 notes, and the broad vision you scribbled at 2am — then thinks alongside
@@ -1002,20 +1006,76 @@
           </div>
         </section> -->
 
+        <!-- CTA -->
+        <section aria-labelledby="final-cta-title"
+          class="relative isolate overflow-hidden border border-[#0052D9]/20 bg-gradient-to-br from-[#062B6F] via-[#0052D9] to-[#3478EA] px-6 py-12 text-center shadow-2xl shadow-[#0052D9]/20 md:px-12 md:py-16">
+          <!-- Decorative background -->
+          <div aria-hidden="true" class="absolute -left-16 -top-20 -z-10 h-56 w-56 rounded-full bg-white/10 blur-3xl">
+          </div>
+
+          <div aria-hidden="true"
+            class="absolute -bottom-24 -right-16 -z-10 h-64 w-64 rounded-full bg-cyan-300/20 blur-3xl">
+          </div>
+
+          <div class="mx-auto max-w-3xl">
+            <!-- <div
+              class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-white/90 backdrop-blur-sm">
+              <span class="h-2 w-2 rounded-full bg-green-300"></span>
+              Your idea has somewhere to go
+            </div> -->
+
+            <h2 id="final-cta-title"
+              class="text-3xl font-black leading-tight tracking-tight text-white text-balance md:text-5xl">
+              Ready to find your idea’s next step?
+            </h2>
+
+            <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-blue-50/90 md:text-lg">
+              Give your idea a workspace, work through the questions that matter, and
+              turn scattered thoughts into clear decisions and practical next steps.
+            </p>
+
+            <div class="mt-8 flex justify-center">
+              <a href="https://app.entreprenote.com/"
+                class="group inline-flex min-h-14 items-center justify-center gap-3 rounded-xl bg-white px-8 py-4 text-base font-extrabold text-[#0052D9] shadow-xl shadow-black/15 transition-all duration-200 hover:-translate-y-1 hover:bg-blue-50 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50">
+                Start shaping your idea
+                <svg aria-hidden="true" class="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14m-6-6 6 6-6 6">
+                  </path>
+                </svg>
+              </a>
+            </div>
+
+            <!-- <p class="mt-4 text-xs font-medium text-blue-100/80">
+              Completely free
+              <span aria-hidden="true" class="mx-2">•</span>
+              Bring your own Gemini key for Charlie AI
+              <span aria-hidden="true" class="mx-2">•</span>
+              No subscription
+            </p> -->
+          </div>
+        </section>
+
         <!-- The Eco System - Other Products Sections -->
         <section class="py-32 px-6 bg-card border-y border-border">
           <div class="max-w-6xl mx-auto">
             <div class="flex justify-between items-end mb-12 flex-wrap gap-4">
-              <div><span class="text-xs font-mono text-primary uppercase tracking-widest">MORE</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-3">by Entreprenote...</h2>
+              <div><span class="text-xs font-mono text-primary uppercase tracking-widest">Supporting Tools</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-3"><span class="italic font-normal">by
+                  </span>
+                  Entreprenote...</h2>
               </div>
               <!-- <p class="text-sm font-mono text-muted-foreground">04 CHILD PROJECTS</p> -->
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <a id="catalyst" href="#"
+              <a id="catalyst" href="https://catalyst.entreprenote.com/"
                 class="group p-8 bg-[#0052D9] text-white rounded-2xl flex flex-col justify-between hover:-translate-y-1 transition-transform min-h-[280px]">
-                <div><span class="text-[10px] font-mono text-white/70 mb-4 block tracking-widest">CATALYST</span>
+                <div>
+                  <span
+                    class="inline-block px-2 text-xs font-medium bg-white text-[#0052D9] rounded-full mb-4">CATALYST</span>
                   <img src="./images/catalyst_icon.svg" alt="Catalyst Project Icon" class="h-14 w-auto mb-2" />
+
+                  <!-- <span class="text-[10px] font-mono text-white/70 mb-4 block tracking-widest">BETA</span> -->
                   <h3 class="text-xl font-bold mb-2">Ideas, handed over.</h3>
                   <p class="text-sm text-white/70 leading-relaxed">Can't build it yourself? Post the idea. Builders
                     across the community can pick it up and solve a real problem.</p>
@@ -1024,26 +1084,27 @@
                   ideas →</span>
               </a>
               <a id="catalyst" href="#"
-                class="group p-8 bg-[#008DFF] text-white rounded-2xl flex flex-col justify-between hover:-translate-y-1 transition-transform min-h-[280px]">
+                class="group p-8 bg-[#ACACAC] text-white rounded-2xl flex flex-col justify-between hover:-translate-y-1 transition-transform min-h-[280px]">
                 <div><span class="text-[10px] font-mono text-white/70 mb-4 block tracking-widest">ACCESS</span>
                   <img src="./images/access-icon.svg" alt="Access Project Icon" class="h-14 w-auto mb-2 tint-white" />
                   <h3 class="text-xl font-bold mb-2">Apply to opportunities.</h3>
                   <p class="text-sm text-white/70 leading-relaxed">Find and apply to relevant opportunities within the
                     community.</p>
                 </div><span
-                  class="mt-8 text-xs font-bold group-hover:translate-x-1 transition-transform inline-block">Explore
-                  Opportunities →</span>
+                  class="mt-8 text-xs font-bold group-hover:translate-x-1 transition-transform inline-block">Coming
+                  Soon</span>
               </a>
               <a id="catalyst" href="#"
-                class="group p-8 bg-[#204A6C] text-white rounded-2xl flex flex-col justify-between hover:-translate-y-1 transition-transform min-h-[280px]">
+                class="group p-8 bg-[#ACACAC] text-white rounded-2xl flex flex-col justify-between hover:-translate-y-1 transition-transform min-h-[280px]">
                 <div><span class="text-[10px] font-mono text-white/70 mb-4 block tracking-widest">FREE STUFF</span>
                   <img src="./images/freestuff-icon.svg" alt="Free Stuff Project Icon" class="h-14 w-auto mb-2" />
                   <h3 class="text-xl font-bold mb-2">Online freebies.</h3>
                   <p class="text-sm text-white/70 leading-relaxed">Use free tier SaaS and other online freebies.</p>
                 </div><span class="mt-8 text-xs font-bold group-hover:translate-x-1 transition-transform inline-block">
-                  Explore FreeStuff →</span>
+                  Coming
+                  Soon</span>
               </a>
-              <a id="access" href="#"
+              <a id="access" href="https://www.notion.com/@entreprenote" target="_blank"
                 class="group p-8 bg-background border border-border rounded-2xl flex flex-col justify-between hover:border-primary transition-colors min-h-[280px]">
                 <div><span class="text-[10px] font-mono text-muted-foreground mb-4 block tracking-widest">NOTION
                     STORE</span>
@@ -1120,12 +1181,13 @@
           </div>
         </div>
 
+        <!-- FAQs -->
         <section class="py-24 px-6 text-center" aria-label="Final call to action">
           <div class="max-w-2xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 text-balance">Frequently Asked Questions
             </h2>
-            <p class="text-muted-foreground text-lg mb-10">Take the idea out of your brain tonight. Charlie will handle
-              the paperwork tomorrow.</p>
+            <p class="text-muted-foreground text-lg mb-10">Open Entreprenote, dump the mess, and let Charlie help you
+              turn it into something real — one <span class="text-primary font-bold">note</span> at a time.</p>
             <div class="space-y-4">
               <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
                 <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
@@ -1134,7 +1196,7 @@
                     class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
                 </summary>
                 <p class="text-gray-500 text-sm leading-relaxed mt-3">Entreprenote is an AI-powered workspace for the
-                  idea stage of a startup. It asks you structured, guided questions that help you clarify, stress-test,
+                  idea in your head. It asks you structured, guided questions that help you clarify, stress-test,
                   and organize a raw idea into an actionable plan — before you spend time or money building.</p>
               </details>
 
@@ -1157,8 +1219,10 @@
                     class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
                 </summary>
                 <p class="text-gray-500 text-sm leading-relaxed mt-3">Yes. The Free tier includes all core Entreprenote
-                  features without AI capabilities. The Pro tier (around $9.99/month) unlocks full access to all AI
-                  capabilities.</p>
+                  features, For AI you need to BYOK (Bring Your Own Key) or more specifically
+                  a Gemini API key and Charlie will start working. Take analogy of a remote control toy car. That's
+                  Charlie AI, we have assembled everything, you just put batteries and it'll do it's magic. Batteries
+                  is the API key that you put in the idea settings.</p>
               </details>
 
               <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
@@ -1169,26 +1233,11 @@
                 </summary>
                 <p class="text-gray-500 text-sm leading-relaxed mt-3">Entreprenote is built for founders and
                   entrepreneurs at the idea stage — anyone with an idea still in their head who wants clarity on what
-                  to do next, before building a product or writing a business plan.</p>
-              </details>
-
-              <details class="group rounded-2xl bg-gray-50 border border-gray-200 p-5">
-                <summary class="cursor-pointer list-none flex items-center justify-between gap-3">
-                  <h3 class="text-gray-900 font-bold text-base">Do I need a business plan before using Entreprenote?
-                  </h3>
-                  <span
-                    class="text-[#0052D9] transition-transform duration-200 group-open:rotate-45 text-xl leading-none">+</span>
-                </summary>
-                <p class="text-gray-500 text-sm leading-relaxed mt-3">No. Entreprenote is designed for the step before
-                  the business plan. Bring a vague thought, a gap you noticed, or a problem you keep running into — the
-                  AI-guided questions help you turn it into structure and direction.</p>
+                  to do next, before building a product or writing a business plan. Entreprenote helps you in many ways,
+                  one of the ways is the help in apply online for accelerators and incubators. It helps you filling out
+                  the answers to the questions asked in the application form.</p>
               </details>
             </div>
-            <!-- <div class="flex flex-col md:flex-row gap-3 justify-center"><a href="https://entreprenote.com"
-                class="px-8 py-4 bg-primary text-primary-foreground font-bold rounded-xl shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-transform">Get
-                started free</a><a href="#charlie"
-                class="px-8 py-4 bg-card border border-border font-bold rounded-xl hover:bg-accent transition-colors">See
-                Charlie in action</a></div> -->
           </div>
         </section>
       </main>
@@ -1246,12 +1295,6 @@
                     class="text-gray-600 hover:text-primary font-bold">Marketplace</a></li>
                 <li><a href="https://medium.com/entreprenote" target="_blank"
                     class="text-gray-600 hover:text-primary font-bold">Blog</a></li>
-                <li><a href="https://catalyst.entreprenote.com/" target="_blank"
-                    class="text-gray-600 hover:text-primary"><b>💎
-                      Catalyst</b> App</a>
-                  <span
-                    class="inline-block ml-2 px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">BETA</span>
-                </li>
                 <li>
                   --
                 <li><a href="privacy-policy.html" class="text-gray-600 hover:text-primary">Privacy
@@ -1313,7 +1356,7 @@
   </div>
 
   <!-- Video Modal -->
-  <div id="videoModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4"
+  <!-- <div id="videoModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4"
     onclick="if (event.target === this) closeVideoModal()">
     <div class="relative w-full max-w-4xl">
       <button type="button" onclick="closeVideoModal()" aria-label="Close video"
@@ -1342,7 +1385,7 @@
       document.body.style.overflow = '';
     }
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideoModal(); });
-  </script>
+  </script> -->
 
 </body>
 
